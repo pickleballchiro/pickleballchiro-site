@@ -1,0 +1,406 @@
+/* ============================================================
+   PICKLEBALL CHIRO — styles.css
+   Mobile-first. Edit brand colors in :root below.
+   ============================================================ */
+
+:root {
+  --orange:        #F05A28;
+  --dark:          #1A1A1A;
+  --off-white:     #F0F0F0;
+  --white:         #FFFFFF;
+  --gray-mid:      #888888;
+  --gray-subtle:   #242424;
+  --card-bg:       #222222;
+  --border-subtle: #333333;
+}
+
+/* ---- RESET ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background-color: var(--dark);
+  color: var(--off-white);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ---- TYPOGRAPHY ---- */
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+/* ---- LAYOUT ---- */
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section { padding: 32px 0; }
+
+/* ============================================================
+   PROFILE
+   ============================================================ */
+.profile {
+  padding: 44px 0 30px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.profile-photo {
+  width: 114px;
+  height: 114px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--orange);
+  display: block;
+  margin: 0 auto 18px;
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.profile-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.profile-subtitle {
+  font-size: 0.82rem;
+  color: var(--gray-mid);
+  margin-bottom: 12px;
+}
+
+.profile-tagline {
+  font-size: 0.94rem;
+  color: var(--off-white);
+  font-style: italic;
+  max-width: 300px;
+  margin: 0 auto 16px;
+}
+
+.instagram-handle {
+  display: inline-block;
+  color: var(--orange);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.instagram-handle:hover { text-decoration: underline; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 6px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary { background-color: var(--orange); color: var(--white); }
+.btn-primary:hover { opacity: 0.88; }
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+}
+.btn-secondary:hover { background-color: rgba(240,90,40,0.08); }
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--off-white);
+  border: 2px solid var(--border-subtle);
+}
+.btn-outline:hover { border-color: var(--off-white); }
+
+.btn-subtle {
+  background-color: transparent;
+  color: var(--gray-mid);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+  padding: 12px 20px;
+}
+.btn-subtle:hover { border-color: var(--gray-mid); color: var(--off-white); }
+
+/* ============================================================
+   SECTION 1 — LEAD CAPTURE
+   ============================================================ */
+.lead-capture {
+  background-color: var(--gray-subtle);
+  border-radius: 10px;
+  margin: 0 16px;
+  padding: 28px 0;
+}
+
+.section-headline {
+  font-size: 1.55rem;
+  color: var(--white);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section-subtext {
+  font-size: 0.9rem;
+  color: var(--off-white);
+  margin: 0 auto 20px;
+  text-align: center;
+  max-width: 360px;
+}
+
+.capture-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.capture-form input,
+.capture-form textarea {
+  background-color: var(--dark);
+  border: 1px solid var(--border-subtle);
+  color: var(--white);
+  padding: 13px 16px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+  resize: vertical;
+}
+.capture-form input:focus,
+.capture-form textarea:focus { border-color: var(--orange); }
+.capture-form input::placeholder,
+.capture-form textarea::placeholder { color: var(--gray-mid); }
+
+/* ---- Thank-you state ---- */
+.thankyou-state { text-align: center; }
+
+.thankyou-text {
+  font-size: 1rem;
+  color: var(--off-white);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* ============================================================
+   SECTION 2 — CTA CARD (Knee Pain Guide)
+   ============================================================ */
+.cta-card {
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--orange);
+  border-radius: 8px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cta-card-label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.cta-card-desc {
+  font-size: 0.88rem;
+  color: var(--off-white);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   SECTION 3 — BOOKING
+   ============================================================ */
+.booking-section {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.location-note {
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.toggle-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  font-style: normal;
+  transition: transform 0.2s ease;
+}
+.booking-toggle[aria-expanded="true"] .toggle-arrow { transform: rotate(180deg); }
+
+.booking-options {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-option {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-option-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.booking-option-icon { font-size: 1.3rem; }
+.booking-option-header h3 {
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.booking-location,
+.booking-note { font-size: 0.82rem; color: var(--gray-mid); }
+.booking-detail { font-size: 0.84rem; color: var(--off-white); }
+
+.pricing-list {
+  background-color: rgba(0,0,0,0.25);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.86rem;
+  color: var(--off-white);
+}
+.pricing-row.upgrade {
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 2px;
+}
+
+.booking-package-note { font-size: 0.8rem; color: var(--gray-mid); }
+
+.booking-fine-print {
+  font-size: 0.73rem;
+  color: var(--gray-mid);
+  line-height: 1.55;
+  opacity: 0.65;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ============================================================
+   SECTION 4 — VIRTUAL COACHING (subtle)
+   ============================================================ */
+.virtual-coaching {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.section-title-subtle {
+  font-size: 1.05rem;
+  color: var(--gray-mid);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-subtext-subtle {
+  font-size: 0.83rem;
+  color: var(--gray-mid);
+  text-align: center;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION 5 — GEAR (minimal)
+   ============================================================ */
+.gear-section {
+  border-top: 1px solid var(--border-subtle);
+  padding: 22px 0;
+  text-align: center;
+}
+
+.gear-header {
+  font-size: 0.75rem;
+  color: var(--gray-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.gear-line {
+  font-size: 0.82rem;
+  color: var(--gray-mid);
+  margin-bottom: 5px;
+}
+.gear-line a { color: var(--gray-mid); text-decoration: underline; }
+.gear-line a:hover { color: var(--off-white); }
+.gear-line strong { color: var(--off-white); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 22px 0;
+  text-align: center;
+}
+.site-footer p { font-size: 0.76rem; color: var(--gray-mid); margin-bottom: 6px; }
+.site-footer a { font-size: 0.82rem; color: var(--orange); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ============================================================
+   DESKTOP (secondary)
+   ============================================================ */
+@media (min-width: 600px) {
+  .container { max-width: 540px; }
+  .lead-capture { margin: 0; }
+  .profile-name { font-size: 2.1rem; }
+  .section-headline { font-size: 1.8rem; }
+  .cta-card-label { font-size: 1.2rem; }
+}
