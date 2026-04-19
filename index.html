@@ -48,7 +48,8 @@
       </p>
 
       <div id="checklist-form-wrapper">
-        <form id="checklist-form" class="capture-form" novalidate>
+        <form id="checklist-form" class="capture-form" name="checklist-form" data-netlify="true" novalidate>
+        <input type="hidden" name="form-name" value="checklist-form" />
           <input type="text"  name="first_name" placeholder="First Name"    required autocomplete="given-name" />
           <input type="email" name="email"      placeholder="Email Address" required autocomplete="email" />
           <!-- TODO: Connect to email service (ConvertKit, Mailchimp, etc.) -->
@@ -179,7 +180,8 @@
       </p>
 
       <div id="coaching-form-wrapper">
-        <form id="coaching-form" class="capture-form" novalidate>
+        <form id="coaching-form" class="capture-form" name="coaching-form" data-netlify="true" novalidate>
+        <input type="hidden" name="form-name" value="coaching-form" />
           <input type="text"  name="name"      placeholder="Name"                              required autocomplete="name" />
           <input type="email" name="email"     placeholder="Email Address"                     required autocomplete="email" />
           <textarea           name="game_info" placeholder="Tell me about your game (optional)" rows="3"></textarea>
