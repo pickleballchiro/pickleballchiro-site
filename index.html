@@ -5,6 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Dr. Lane Odom — The Pickleball Chiro. Helping serious players stay on the court and play their best." />
   <title>Dr. Lane Odom · The Pickleball Chiro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="profile">
+    <div class="container">
+      <img src="profile.jpg" alt="Dr. Lane Odom" class="profile-photo" />
+      <h1 class="profile-name">Dr. Lane Odom</h1>
+      <p class="profile-title">Pickleball Chiro</p>
+      <p class="profile-subtitle">4.9 DUPR &middot; Doctor of Chiropractic</p>
+      <p class="profile-tagline">&ldquo;Bridging the gap between pain and performance.&rdquo;</p>
+      <a href="https://instagram.com/dr.lane_o" class="instagram-handle" target="_blank" rel="noopener noreferrer">@dr.lane_o</a>
+    </div>
+  </section>
+  <section class="lead-capture" aria-label="Free Checklist Download">
+    <div class="container">
+      <h2 class="section-headline">Is Your Knee Holding You Back?</h2>
+      <p class="section-subtext">Download the free Pickleball Knee Pain Checklist &mdash; the 5 things serious players need to be doing (and probably aren&rsquo;t).</p>
+      <div id="checklist-form-wrapper">
+        <script async data-uid="60e51a9d33" src="https://dr-lane-odom-pickleball-chiropractor.kit.com/60e51a9d33/index.js"></script>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Knee Pain Guide">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-card-label">&#x1F9B5; Knee Pain Guide &mdash; $17</div>
+        <p class="cta-card-desc">The pickleball-specific protocol. Built for players who&rsquo;ve tried everything and want to actually fix it.</p>
+        <a href="https://pickleballchiro.gumroad.com/l/pickleballkneepain" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Guide &rarr;</a>
+      </div>
+    </div>
+  </section>
+  <section class="booking-section" aria-label="Book a Session">
+    <div class="container">
+      <h2 class="section-title">Work With Me In Person</h2>
+      <p class="location-note">&#x1F4CD; Volusia County &amp; surrounding areas &middot; Ormond Beach, FL</p>
+      <button class="btn btn-outline booking-toggle" id="booking-toggle" aria-expanded="false" aria-controls="booking-options">Book a Session <span class="toggle-arrow" aria-hidden="true">&#9660;</span></button>
+      <div id="booking-options" class="booking-options" hidden>
+        <div class="booking-option">
+          <div class="booking-option-header"><span class="booking-option-icon">&#x1F3E5;</span><h3>In-Person Chiropractic</h3></div>
+          <p class="booking-location">At Insight Chiropractic, Ormond Beach</p>
+          <p class="booking-detail">Insurance accepted</p>
+          <a href="#book-chiro" class="btn btn-secondary">Book In-Person Chiro &rarr;</a>
+        </div>
+        <div class="booking-option">
+          <div class="booking-option-header"><span class="booking-option-icon">&#x1F697;</span><h3>Mobile Chiropractic</h3></div>
+          <div class="pricing-list">
+            <div class="pricing-row"><span>60-min Intro</span><span>$150</span></div>
+            <div class="pricing-row"><span>90-min Performance</span><span>$195</span></div>
+          </div>
+          <p class="booking-package-note">Multi-session packages available &mdash; DM for pricing</p>
+          <a href="#book-mobile" class="btn btn-secondary">Book Mobile Chiro &rarr;</a>
+          <p class="booking-fine-print">Mobile visits available outside a 10-mile radius of Ormond Beach.</p>
+        </div>
+        <div class="booking-option">
+          <div class="booking-option-header"><span class="booking-option-icon">&#x1F3D3;</span><h3>Pickleball Lessons</h3></div>
+          <div class="pricing-list"><div class="pricing-row"><span>Single Session</span><span>$80</span></div></div>
+          <p class="booking-detail">1-on-1 with a 4.9 DUPR player and DC</p>
+          <a href="#book-lesson" class="btn btn-secondary">Book a Lesson &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="virtual-coaching" aria-label="Virtual Coaching Interest">
+    <div class="container">
+      <h2 class="section-title-subtle">Interested in Virtual Coaching?</h2>
+      <p class="section-subtext-subtle">Exploring 1-on-1 virtual coaching for players outside my area &mdash; game film review, custom programming, and accountability. Not officially open yet, but drop your info if you&rsquo;re interested.</p>
+      <div id="coaching-form-wrapper">
+        <form id="coaching-form" class="capture-form" novalidate>
+          <input type="text" name="name" placeholder="Name" required autocomplete="name" />
+          <input type="email" name="email" placeholder="Email Address" required autocomplete="email" />
+          <textarea name="game_info" placeholder="Tell me about your game (optional)" rows="3"></textarea>
+          <button type="submit" class="btn btn-subtle">I&rsquo;m Interested</button>
+        </form>
+        <div id="coaching-thankyou" class="thankyou-state" style="display:none;"><p class="thankyou-text">Got it! I&rsquo;ll reach out when spots open up.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="gear-section" aria-label="Gear Recommendations">
+    <div class="container">
+      <h3 class="gear-header">Gear I Use &amp; Recommend</h3>
+      <p class="gear-line">Use code <strong>LANE10%</strong> at <a href="https://instagram.com/lcubedlifestyle" target="_blank" rel="noopener noreferrer">@lcubedlifestyle</a></p>
+      <p class="gear-line">Luzz Pickleball paddles &amp; gear &mdash; DM me for details</p>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Dr. Lane Odom &middot; The Pickleball Chiro</p>
+      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer">@dr.lane_o on Instagram</a>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dr. Lane Odom — The Pickleball Chiro. Helping serious players stay on the court and play their best." />
+  <title>Dr. Lane Odom · The Pickleball Chiro</title>
 
   <!-- Google Fonts: Oswald (headlines) + Montserrat (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
