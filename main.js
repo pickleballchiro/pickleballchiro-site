@@ -65,17 +65,18 @@ const bookingToggle = document.getElementById('booking-toggle');
 const bookingOptions = document.getElementById('booking-options');
 
 if (bookingToggle && bookingOptions) {
-  // Enforce a known-good initial state regardless of what the HTML says
-  bookingOptions.setAttribute('hidden', '');
+  // CSS sets display:flex on .booking-options, so we must use inline style
+  // (inline styles override stylesheet rules; the hidden attribute does not)
+  bookingOptions.style.display = 'none';
   bookingToggle.setAttribute('aria-expanded', 'false');
 
   bookingToggle.addEventListener('click', function () {
-    const isHidden = bookingOptions.hasAttribute('hidden');
+    const isHidden = bookingOptions.style.display === 'none';
     if (isHidden) {
-      bookingOptions.removeAttribute('hidden');
+      bookingOptions.style.display = '';   // let CSS flex kick back in
       bookingToggle.setAttribute('aria-expanded', 'true');
     } else {
-      bookingOptions.setAttribute('hidden', '');
+      bookingOptions.style.display = 'none';
       bookingToggle.setAttribute('aria-expanded', 'false');
     }
   });
