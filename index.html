@@ -11,7 +11,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Montserrat', sans-serif
+      font-family: 'Montserrat', sans-serif;
       background: #111;
       color: #f0f0f0;
       min-height: 100vh;
@@ -284,10 +284,12 @@
   <script>
     const toggle = document.getElementById('booking-toggle');
     const options = document.getElementById('booking-options');
+  options.style.display = 'none';
+  toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', !expanded);
-      options.hidden = expanded;
+      options.style.display = expanded ? 'none' : '';
     });
     const coachingForm = document.getElementById('coaching-form');
     if (coachingForm) {
