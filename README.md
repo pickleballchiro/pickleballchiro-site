@@ -108,7 +108,7 @@ Popular options: **ConvertKit** (great for creators), **Mailchimp** (free tier),
 
 ## How to Check Button Click Analytics
 
-Visit: `https://pickleballchiro.netlify.app/stats`
+Visit: `https:///`
 (or whatever your Netlify URL is, with `/stats` at the end)
 
 This shows you every button that was clicked, how many times, and when —
