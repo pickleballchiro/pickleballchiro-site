@@ -46,16 +46,23 @@ if (coachingForm) {
   coachingForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(coachingForm);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+    fetch('https://formspree.io/f/maqaboey', {
+            method: 'POST',
+                  body: formData,
+                        headers: { 'Accept': 'application/json' }
+                            })
+                                .then(function (res) {
+                                      if (res.ok) {
+                                              coachingForm.style.display = 'none';
+                                                      coachingThankyou.style.display = 'block';
+                                                            } else {
+                                                                    alert('Something went wrong — please try again.');
+                                                                          }
+                                                                              })
+                                                                                  .catch(function () {
+                                                                                        alert('Something went wrong — please try again.');
+                                                                                            });
     })
-    .finally(() => {
-      coachingForm.style.display = 'none';
-      coachingThankyou.style.display = 'block';
-    });
-  });
 }
 
 // ============================================================
