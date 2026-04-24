@@ -8,171 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #111;
-      color: #f0f0f0;
-      min-height: 100vh;
-    }
-    .container { max-width: 480px; margin: 0 auto; padding: 0 20px; }
-    a { color: #F05A28; text-decoration: none; }
-
-    /* PROFILE */
-    .profile { padding: 40px 0 28px; text-align: center; }
-    .profile-photo {
-      width: 100px; height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #F05A28;
-      margin-bottom: 14px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .profile-name { font-family: 'Oswald', sans-serif; font-size: 28px; color: #fff; margin-bottom: 4px; }
-    .profile-title { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #F05A28; margin-bottom: 4px; }
-    .profile-subtitle { font-size: 13px; color: #aaa; margin-bottom: 10px; }
-    .profile-tagline { font-size: 14px; color: #ccc; font-style: italic; margin-bottom: 14px; }
-    .instagram-handle { font-size: 13px; font-weight: 600; color: #F05A28; }
-
-    /* LEAD CAPTURE */
-    .lead-capture { background: #1a1a1a; padding: 32px 0; border-top: 2px solid #F05A28; }
-    .section-headline { font-family: 'Oswald', sans-serif; font-size: 24px; color: #fff; margin-bottom: 10px; line-height: 1.2; }
-    .section-subtext { font-size: 14px; color: #bbb; line-height: 1.6; margin-bottom: 20px; }
-
-    /* KIT FORM OVERRIDE — strip the banner image, keep the form */
-    #checklist-form-wrapper { margin-top: 4px; }
-    #checklist-form-wrapper .formkit-background { display: none !important; }
-    #checklist-form-wrapper .formkit-header { display: none !important; }
-    #checklist-form-wrapper .formkit-subheader { display: none !important; }
-    #checklist-form-wrapper .formkit-form { background: transparent !important; padding: 0 !important; }
-    #checklist-form-wrapper input[type="email"],
-    #checklist-form-wrapper input[type="text"] {
-      background: #222 !important;
-      border: 1px solid #333 !important;
-      color: #f0f0f0 !important;
-      border-radius: 6px !important;
-      padding: 12px 14px !important;
-      font-size: 15px !important;
-      width: 100% !important;
-      margin-bottom: 10px !important;
-    }
-    #checklist-form-wrapper button[type="submit"],
-    #checklist-form-wrapper .formkit-submit {
-      background: #F05A28 !important;
-      color: #fff !important;
-      border: none !important;
-      border-radius: 6px !important;
-      padding: 14px !important;
-      font-size: 15px !important;
-      font-weight: 700 !important;
-      width: 100% !important;
-      cursor: pointer !important;
-      font-family: 'Montserrat', sans-serif !important;
-      letter-spacing: 0.5px !important;
-    }
-
-    /* CTA CARD */
-    .cta-section { padding: 24px 0; }
-    .cta-card {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-left: 4px solid #F05A28;
-      border-radius: 10px;
-      padding: 22px 20px;
-    }
-    .cta-card-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #F05A28; margin-bottom: 8px; }
-    .cta-card-desc { font-size: 14px; color: #bbb; line-height: 1.5; margin-bottom: 16px; }
-
-    /* BUTTONS */
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 8px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-align: center;
-      cursor: pointer;
-      border: none;
-      transition: opacity 0.15s;
-    }
-    .btn:hover { opacity: 0.88; }
-    .btn-primary { background: #F05A28; color: #fff; }
-    .btn-secondary { background: #222; color: #F05A28; border: 1px solid #F05A28; }
-    .btn-outline { background: transparent; color: #F05A28; border: 2px solid #F05A28; }
-    .btn-subtle { background: #222; color: #bbb; border: 1px solid #333; }
-
-    /* BOOKING */
-    .booking-section { padding: 28px 0; border-top: 1px solid #222; }
-    .section-title { font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; margin-bottom: 6px; }
-    .location-note { font-size: 13px; color: #888; margin-bottom: 20px; }
-    .booking-toggle { width: 100%; }
-    .toggle-arrow { display: inline-block; transition: transform 0.2s; margin-left: 6px; }
-    .booking-toggle[aria-expanded="true"] .toggle-arrow { transform: rotate(180deg); }
-    .booking-options { margin-top: 16px; display: flex; flex-direction: column; gap: 14px; }
-    .booking-option {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 10px;
-      padding: 18px;
-    }
-    .booking-option-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .booking-option-header h3 { font-family: 'Oswald', sans-serif; font-size: 17px; color: #fff; }
-    .booking-option-icon { font-size: 20px; }
-    .booking-location { font-size: 13px; color: #888; margin-bottom: 4px; }
-    .booking-detail { font-size: 13px; color: #bbb; margin-bottom: 12px; }
-    .booking-note { font-size: 12px; color: #666; margin-bottom: 12px; }
-    .pricing-list { margin-bottom: 12px; }
-    .pricing-row { display: flex; justify-content: space-between; font-size: 13px; color: #bbb; padding: 6px 0; border-bottom: 1px solid #222; }
-    .pricing-row:last-child { border-bottom: none; }
-    .pricing-row.upgrade { color: #F05A28; font-size: 12px; }
-    .booking-package-note { font-size: 12px; color: #666; margin-bottom: 12px; }
-    .booking-fine-print { font-size: 11px; color: #555; margin-top: 10px; line-height: 1.5; }
-
-    /* VIRTUAL COACHING */
-    .virtual-coaching { padding: 28px 0; border-top: 1px solid #222; }
-    .section-title-subtle { font-family: 'Oswald', sans-serif; font-size: 18px; color: #aaa; margin-bottom: 8px; }
-    .section-subtext-subtle { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 16px; }
-    .capture-form { display: flex; flex-direction: column; gap: 10px; }
-    .capture-form input,
-    .capture-form textarea {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 6px;
-      padding: 12px 14px;
-      color: #f0f0f0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
-      width: 100%;
-    }
-    .capture-form textarea { resize: vertical; }
-    .capture-form input::placeholder,
-    .capture-form textarea::placeholder { color: #555; }
-    .thankyou-state { text-align: center; padding: 20px; }
-    .thankyou-text { color: #F05A28; font-weight: 600; font-size: 15px; }
-
-    /* GEAR */
-    .gear-section { padding: 24px 0; border-top: 1px solid #222; }
-    .gear-header { font-family: 'Oswald', sans-serif; font-size: 16px; color: #888; margin-bottom: 10px; }
-    .gear-line { font-size: 13px; color: #666; margin-bottom: 6px; }
-    .gear-line strong { color: #F05A28; }
-
-    /* FOOTER */
-    .site-footer { padding: 28px 0 40px; border-top: 1px solid #1a1a1a; text-align: center; }
-    .site-footer p { font-size: 12px; color: #444; margin-bottom: 6px; }
-    .site-footer a { font-size: 12px; color: #555; }
-  
-  /* ---- KIT FORM: hide tall header column ---- */
-  #checklist-form-wrapper .formkit-column:first-of-type { display: none !important; }
-</style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- ============================================================
+       PROFILE SECTION (hero — no fade-up, always visible on load)
+       ============================================================ -->
   <section class="profile">
     <div class="container">
       <img src="profile.jpg" alt="Dr. Lane Odom" class="profile-photo" />
@@ -184,15 +26,54 @@
     </div>
   </section>
 
-  <section class="lead-capture">
+
+  <!-- ============================================================
+       AUTHORITY SECTION — "Why Players Work With Me"
+       ============================================================ -->
+  <section class="authority-section fade-up">
     <div class="container">
-      <h2 class="section-headline">Is Your Knee Holding You Back?</h2>
-      <p class="section-subtext">Download the free Pickleball Knee Pain Checklist &mdash; the 5 things serious players need to be doing (and probably aren&rsquo;t).</p>
+      <div class="authority-grid">
+        <div class="authority-col">
+          <span class="authority-icon">🎯</span>
+          <p class="authority-stat">4.9 DUPR Rating</p>
+          <p class="authority-desc">&ldquo;I play the game at a high level &mdash; I know what your body goes through&rdquo;</p>
+        </div>
+        <div class="authority-col">
+          <span class="authority-icon">🎓</span>
+          <p class="authority-stat">Doctor of Chiropractic</p>
+          <p class="authority-desc">&ldquo;Palmer College grad, rehab-focused, not a generic adjustment mill&rdquo;</p>
+        </div>
+        <div class="authority-col">
+          <span class="authority-icon">🏓</span>
+          <p class="authority-stat">Pickleball-Specific</p>
+          <p class="authority-desc">&ldquo;Built for players 40+. Not general chiro. Everything I do is pickleball-first.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 1 — FREE LEAD CAPTURE (most important CTA)
+       ============================================================ -->
+  <section class="lead-capture fade-up">
+    <div class="container">
+      <h2 class="section-headline">Your body can&rsquo;t keep up with your game anymore.</h2>
+      <p class="section-subtext">Knee flares up after game 2. Shoulder tight the next morning. Hip starts barking mid-match. You don&rsquo;t need to play through it &mdash; you need to fix it.</p>
+      <ul class="offer-bullets">
+        <li>Why your knee keeps flaring up mid-game</li>
+        <li>The mistake most players make that makes it worse</li>
+        <li>What your body is actually missing</li>
+      </ul>
       <a href="https://pickleballchiro.gumroad.com/l/kneepainchecklist" class="btn btn-primary" target="_blank">Download Free Checklist →</a>
     </div>
   </section>
 
-  <section class="cta-section">
+
+  <!-- ============================================================
+       SECTION 2 — PRIMARY CTA: KNEE PAIN GUIDE
+       ============================================================ -->
+  <section class="cta-section fade-up">
     <div class="container">
       <div class="cta-card">
         <div class="cta-card-label">&#x1F9B5; Knee Pain Guide &mdash; $17</div>
@@ -202,14 +83,19 @@
     </div>
   </section>
 
-  <section class="booking-section">
+
+  <!-- ============================================================
+       SECTION 3 — BOOK A SESSION
+       ============================================================ -->
+  <section class="booking-section fade-up">
     <div class="container">
       <h2 class="section-title">Work With Me In Person</h2>
       <p class="location-note">&#x1F4CD; Volusia County &amp; surrounding areas &middot; Ormond Beach, FL</p>
       <button class="btn btn-outline booking-toggle" id="booking-toggle" aria-expanded="false" aria-controls="booking-options">
-        Book a Session <span class="toggle-arrow" aria-hidden="true">&#9660;</span>
+        Check Availability <span class="toggle-arrow" aria-hidden="true">&#9660;</span>
       </button>
       <div id="booking-options" class="booking-options" hidden>
+
         <div class="booking-option">
           <div class="booking-option-header">
             <span class="booking-option-icon">&#x1F3E5;</span>
@@ -219,6 +105,7 @@
           <p class="booking-detail">Insurance accepted</p>
           <a href="https://www.1insightchiro.com/" class="btn btn-secondary">Book In-Person Chiro &rarr;</a>
         </div>
+
         <div class="booking-option">
           <div class="booking-option-header">
             <span class="booking-option-icon">&#x1F697;</span>
@@ -232,6 +119,7 @@
           <a href="https://www.notion.so/drlanemobilechirorehab/Mobile-Chiropractic-Rehab-Care-333a4e28e09280a4b9f8df398e4dbec6?source=copy_link" class="btn btn-secondary">Book Mobile Chiro &rarr;</a>
           <p class="booking-fine-print">Mobile visits outside a 10-mile radius of Ormond Beach. West Volusia + parts of New Smyrna Beach. DM to confirm your area first.</p>
         </div>
+
         <div class="booking-option">
           <div class="booking-option-header">
             <span class="booking-option-icon">&#x1F3D3;</span>
@@ -244,11 +132,16 @@
           <p class="booking-package-note">Multi-session packages available &mdash; DM for pricing</p>
           <a href="https://forms.gle/6MXZ4vofGd27bbDP6" class="btn btn-secondary">Book a Lesson &rarr;</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="virtual-coaching">
+
+  <!-- ============================================================
+       SECTION 4 — VIRTUAL COACHING INTEREST
+       ============================================================ -->
+  <section class="virtual-coaching fade-up">
     <div class="container">
       <h2 class="section-title-subtle">Interested in Virtual Coaching?</h2>
       <p class="section-subtext-subtle">Exploring 1-on-1 virtual coaching for players outside my area &mdash; game film review, custom programming, and accountability. Not officially open yet, but drop your info if you&rsquo;re interested.</p>
@@ -264,7 +157,11 @@
     </div>
   </section>
 
-  <section class="gear-section">
+
+  <!-- ============================================================
+       SECTION 5 — GEAR / AFFILIATE
+       ============================================================ -->
+  <section class="gear-section fade-up">
     <div class="container">
       <h3 class="gear-header">Gear I Use &amp; Recommend</h3>
       <p class="gear-line">Use code <strong>LANE10%</strong> at <a href="https://instagram.com/lcubedlifestyle" target="_blank" rel="noopener noreferrer">@lcubedlifestyle</a></p>
@@ -272,43 +169,26 @@
     </div>
   </section>
 
-  <footer class="site-footer">
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer fade-up">
     <div class="container">
       <p>&copy; 2026 Dr. Lane Odom &middot; The Pickleball Chiro</p>
       <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer">@dr.lane_o on Instagram</a>
     </div>
   </footer>
 
-  <script>
-    const toggle = document.getElementById('booking-toggle');
-    const options = document.getElementById('booking-options');
-  options.style.display = 'none';
-  toggle.setAttribute('aria-expanded', 'false');
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !expanded);
-      options.style.display = expanded ? 'none' : '';
-    });
-    const coachingForm = document.getElementById('coaching-form');
-    if (coachingForm) {
-      coachingForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        fetch('https://formspree.io/f/maqaboey', {
-          method: 'POST',
-          body: new FormData(coachingForm),
-          headers: { 'Accept': 'application/json' }
-        }).then(function(res) {
-          if (res.ok) {
-            coachingForm.style.display = 'none';
-            document.getElementById('coaching-thankyou').style.display = 'block';
-          } else {
-            alert('Something went wrong — please try again.');
-          }
-        }).catch(function() {
-          alert('Something went wrong — please try again.');
-        });
-      });
-    }
-  </script>
+
+  <!-- ============================================================
+       STICKY MOBILE CTA BAR (Change 7)
+       ============================================================ -->
+  <div class="sticky-cta-bar" id="sticky-cta-bar">
+    <a href="https://pickleballchiro.gumroad.com/l/kneepainchecklist" class="sticky-cta-link" target="_blank" rel="noopener noreferrer">Free Knee Pain Checklist →</a>
+    <button class="sticky-cta-dismiss" id="sticky-cta-dismiss" aria-label="Dismiss">&times;</button>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>

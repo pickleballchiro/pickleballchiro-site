@@ -17,6 +17,19 @@
 /* ---- RESET ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ============================================================
+   SCROLL FADE-IN ANIMATIONS
+   ============================================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
@@ -121,10 +134,14 @@ section { padding: 32px 0; }
   text-decoration: none;
   cursor: pointer;
   border: none;
-  transition: opacity 0.15s ease, transform 0.1s ease;
+  transition: opacity 0.15s ease, transform 0.2s ease, filter 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.btn:active { transform: scale(0.97); }
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+.btn:active { transform: translateY(0); }
 
 .btn-primary { background-color: var(--orange); color: var(--white); }
 .btn-primary:hover { opacity: 0.88; }
@@ -153,6 +170,57 @@ section { padding: 32px 0; }
 .btn-subtle:hover { border-color: var(--gray-mid); color: var(--off-white); }
 
 /* ============================================================
+   AUTHORITY SECTION — "Why Players Work With Me"
+   ============================================================ */
+.authority-section {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 28px 0;
+}
+
+.authority-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.authority-col {
+  flex: 1;
+  text-align: center;
+}
+
+.authority-icon {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.authority-stat {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.authority-desc {
+  font-size: 0.82rem;
+  color: var(--gray-mid);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+@media (min-width: 600px) {
+  .authority-grid {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+/* ============================================================
    SECTION 1 — LEAD CAPTURE
    ============================================================ */
 .lead-capture {
@@ -175,6 +243,32 @@ section { padding: 32px 0; }
   margin: 0 auto 20px;
   text-align: center;
   max-width: 360px;
+}
+
+.offer-bullets {
+  list-style: none;
+  margin: 0 auto 20px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.offer-bullets li {
+  font-size: 0.88rem;
+  color: var(--white);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.offer-bullets li::before {
+  content: '—';
+  color: var(--orange);
+  position: absolute;
+  left: 0;
+  font-weight: 700;
 }
 
 .capture-form {
@@ -223,6 +317,11 @@ section { padding: 32px 0; }
   display: flex;
   flex-direction: column;
   gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .cta-card-label {
@@ -283,6 +382,11 @@ section { padding: 32px 0; }
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.booking-option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .booking-option-header {
@@ -393,6 +497,55 @@ section { padding: 32px 0; }
 .site-footer p { font-size: 0.76rem; color: var(--gray-mid); margin-bottom: 6px; }
 .site-footer a { font-size: 0.82rem; color: var(--orange); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
+
+/* Sticky Mobile CTA Bar */
+.sticky-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--orange);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .sticky-cta-bar {
+    display: flex;
+  }
+  body {
+    padding-bottom: 56px;
+  }
+}
+
+.sticky-cta-link {
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+}
+
+.sticky-cta-dismiss {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.sticky-cta-dismiss:hover { opacity: 1; }
 
 /* ============================================================
    DESKTOP (secondary)

@@ -88,3 +88,55 @@ if (bookingToggle && bookingOptions) {
     }
   });
 }
+
+// ============================================================
+// SCROLL FADE-IN — Intersection Observer (no external libraries)
+// ============================================================
+(function () {
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if (!fadeEls.length) return;
+
+  // Fallback: if IntersectionObserver not supported, just show everything
+  if (!('IntersectionObserver' in window)) {
+    fadeEls.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeEls.forEach(function (el) {
+    // Elements already visible on load get .visible immediately (no animation)
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+    } else {
+      observer.observe(el);
+    }
+  });
+})();
+
+// ============================================================
+// STICKY BAR DISMISS LOGIC
+// ============================================================
+(function () {
+  var bar = document.getElementById('sticky-cta-bar');
+  var dismissBtn = document.getElementById('sticky-cta-dismiss');
+  if (!bar || !dismissBtn) return;
+
+  if (sessionStorage.getItem('checklistBarDismissed') === 'true') {
+    bar.style.display = 'none';
+    return;
+  }
+
+  dismissBtn.addEventListener('click', function () {
+    bar.style.display = 'none';
+    sessionStorage.setItem('checklistBarDismissed', 'true');
+  });
+})();
