@@ -291,10 +291,22 @@
     });
     const coachingForm = document.getElementById('coaching-form');
     if (coachingForm) {
-      coachingForm.addEventListener('submit', e => {
+      coachingForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        coachingForm.style.display = 'none';
-        document.getElementById('coaching-thankyou').style.display = 'block';
+        fetch('https://formspree.io/f/maqaboey', {
+          method: 'POST',
+          body: new FormData(coachingForm),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(res) {
+          if (res.ok) {
+            coachingForm.style.display = 'none';
+            document.getElementById('coaching-thankyou').style.display = 'block';
+          } else {
+            alert('Something went wrong — please try again.');
+          }
+        }).catch(function() {
+          alert('Something went wrong — please try again.');
+        });
       });
     }
   </script>
