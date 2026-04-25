@@ -206,11 +206,41 @@ section { padding: 32px 0; }
   margin-bottom: 6px;
 }
 
+.authority-label {
+  font-size: 0.78rem;
+  color: var(--gray-mid);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
 .authority-desc {
   font-size: 0.82rem;
   color: var(--gray-mid);
   line-height: 1.55;
   font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .authority-grid {
+    flex-direction: row;
+    gap: 6px;
+  }
+  .authority-col {
+    flex: 1;
+    padding: 8px 4px;
+  }
+  .authority-icon {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+  .authority-stat {
+    font-size: 0.7rem;
+  }
+  .authority-desc {
+    display: none;
+  }
 }
 
 @media (min-width: 600px) {
@@ -296,6 +326,16 @@ section { padding: 32px 0; }
 .capture-form input::placeholder,
 .capture-form textarea::placeholder { color: var(--gray-mid); }
 
+.lead-footnote {
+  font-size: 0.84rem;
+  color: var(--gray-mid);
+  font-style: italic;
+  text-align: center;
+  max-width: 360px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
 /* ---- Thank-you state ---- */
 .thankyou-state { text-align: center; }
 
@@ -304,6 +344,73 @@ section { padding: 32px 0; }
   color: var(--off-white);
   margin-bottom: 16px;
   font-weight: 600;
+}
+
+/* ============================================================
+   PERFORMANCE SYSTEM SECTION
+   ============================================================ */
+.performance-system {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.performance-subtext {
+  font-size: 0.88rem;
+  color: var(--gray-mid);
+  text-align: center;
+  margin: 8px auto 24px;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.stage-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stage-card {
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--orange);
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stage-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.72rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.stage-title {
+  font-size: 1rem;
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.stage-body {
+  font-size: 0.84rem;
+  color: var(--off-white);
+  line-height: 1.55;
+}
+
+@media (min-width: 600px) {
+  .stage-grid {
+    flex-direction: row;
+    gap: 12px;
+  }
+  .stage-card {
+    flex: 1;
+  }
 }
 
 /* ============================================================
