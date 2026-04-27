@@ -207,11 +207,11 @@ section { padding: 32px 0; }
 }
 
 .authority-label {
-  font-size: 0.78rem;
-  color: var(--gray-mid);
+  font-size: 0.88rem;
+  color: var(--off-white);
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
   margin-bottom: 20px;
 }
 
@@ -239,7 +239,7 @@ section { padding: 32px 0; }
     font-size: 0.7rem;
   }
   .authority-desc {
-    display: none;
+    font-size: 0.68rem;
   }
 }
 
