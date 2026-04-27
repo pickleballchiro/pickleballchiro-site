@@ -223,23 +223,9 @@ section { padding: 32px 0; }
 }
 
 @media (max-width: 480px) {
-  .authority-grid {
-    flex-direction: row;
-    gap: 6px;
-  }
-  .authority-col {
-    flex: 1;
-    padding: 8px 4px;
-  }
   .authority-icon {
     font-size: 1.3rem;
     margin-bottom: 4px;
-  }
-  .authority-stat {
-    font-size: 0.7rem;
-  }
-  .authority-desc {
-    font-size: 0.68rem;
   }
 }
 
