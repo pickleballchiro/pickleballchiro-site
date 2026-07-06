@@ -115,7 +115,7 @@
     /* (1) Faint scattered orange pickleballs behind the whole page. */
     .court-bg {
       position: fixed; inset: 0; z-index: 0;
-      opacity: 0.08;            /* subtle — reads as texture, not decoration */
+      opacity: 0.035;           /* barely there — just a faint hint */
       pointer-events: none;     /* never blocks a tap */
     }
     .court-bg svg { width: 100%; height: 100%; display: block; }
@@ -167,43 +167,42 @@
   <!-- (1) Scattered orange pickleballs — decorative only, sits behind everything -->
   <div class="court-bg" aria-hidden="true">
     <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <!-- One reusable pickleball, shaded to read as a 3-D sphere -->
+      <!-- One reusable pickleball: matte sphere with holes wrapped over the curve -->
       <defs>
-        <!-- Ball body: bright highlight up-left, deep shadow toward the far edge -->
-        <radialGradient id="ballShade" cx="36%" cy="30%" r="72%">
-          <stop offset="0%"   stop-color="#FFC79A" />
-          <stop offset="38%"  stop-color="#F5711F" />
-          <stop offset="78%"  stop-color="#C8410E" />
-          <stop offset="100%" stop-color="#6E2408" />
-        </radialGradient>
-        <!-- Holes: dark, slightly lit on the lower rim so they read as recessed -->
-        <radialGradient id="holeShade" cx="50%" cy="38%" r="62%">
-          <stop offset="0%"   stop-color="#3A1405" />
-          <stop offset="70%"  stop-color="#5A2109" />
-          <stop offset="100%" stop-color="#8A3A18" />
+        <!-- Body: soft matte shading, light up-top curving to a slightly darker rim -->
+        <radialGradient id="ballShade" cx="42%" cy="36%" r="70%">
+          <stop offset="0%"   stop-color="#FF9455" />
+          <stop offset="55%"  stop-color="#F5711F" />
+          <stop offset="86%"  stop-color="#E85E15" />
+          <stop offset="100%" stop-color="#C6490F" />
         </radialGradient>
 
         <g id="pball">
-          <!-- Solid shaded body -->
+          <!-- Solid matte body -->
           <circle cx="0" cy="0" r="20" fill="url(#ballShade)" />
-          <!-- Terminator shading along the shadow side to deepen the curve -->
-          <circle cx="0" cy="0" r="20" fill="none" stroke="#4A1805"
-                  stroke-width="2.6" opacity="0.5" />
-          <!-- Recessed holes -->
-          <g fill="url(#holeShade)">
-            <circle cx="0"   cy="-11" r="2.4" />
-            <circle cx="9"   cy="-6"  r="2.4" />
-            <circle cx="11"  cy="4"   r="2.4" />
-            <circle cx="4"   cy="11"  r="2.4" />
-            <circle cx="-6"  cy="10"  r="2.4" />
-            <circle cx="-11" cy="1"   r="2.4" />
-            <circle cx="-8"  cy="-8"  r="2.4" />
-            <circle cx="0"   cy="0"   r="2.4" />
+          <!-- Holes projected onto the sphere: round in the middle,
+               foreshortened to thin ellipses near the rim -->
+          <g fill="#B0400E">
+            <ellipse cx="-4.3" cy="19.1" rx="0.54" ry="2.70" transform="rotate(102.8 -4.3 19.1)" />
+            <ellipse cx="6.1" cy="17.3" rx="1.07" ry="2.70" transform="rotate(70.7 6.1 17.3)" />
+            <ellipse cx="-3.5" cy="14.7" rx="1.77" ry="2.70" transform="rotate(103.5 -3.5 14.7)" />
+            <ellipse cx="14.4" cy="12.9" rx="0.71" ry="2.70" transform="rotate(41.9 14.4 12.9)" />
+            <ellipse cx="-14.8" cy="12.0" rx="0.82" ry="2.70" transform="rotate(140.9 -14.8 12.0)" />
+            <ellipse cx="5.1" cy="10.2" rx="2.21" ry="2.70" transform="rotate(63.3 5.1 10.2)" />
+            <ellipse cx="-10.7" cy="7.6" rx="2.05" ry="2.70" transform="rotate(144.6 -10.7 7.6)" />
+            <ellipse cx="14.6" cy="5.8" rx="1.67" ry="2.70" transform="rotate(21.5 14.6 5.8)" />
+            <ellipse cx="-0.9" cy="3.1" rx="2.66" ry="2.70" transform="rotate(106.3 -0.9 3.1)" />
+            <ellipse cx="-16.4" cy="0.4" rx="1.54" ry="2.70" transform="rotate(178.4 -16.4 0.4)" />
+            <ellipse cx="9.9" cy="-1.3" rx="2.34" ry="2.70" transform="rotate(-7.7 9.9 -1.3)" />
+            <ellipse cx="-7.6" cy="-4.0" rx="2.44" ry="2.70" transform="rotate(-152.1 -7.6 -4.0)" />
+            <ellipse cx="16.9" cy="-5.8" rx="1.20" ry="2.70" transform="rotate(-18.8 16.9 -5.8)" />
+            <ellipse cx="-18.2" cy="-6.7" rx="0.65" ry="2.70" transform="rotate(-159.9 -18.2 -6.7)" />
+            <ellipse cx="3.1" cy="-8.4" rx="2.41" ry="2.70" transform="rotate(-70.0 3.1 -8.4)" />
+            <ellipse cx="-11.3" cy="-11.1" rx="1.65" ry="2.70" transform="rotate(-135.5 -11.3 -11.1)" />
+            <ellipse cx="10.3" cy="-12.9" rx="1.53" ry="2.70" transform="rotate(-51.4 10.3 -12.9)" />
+            <ellipse cx="-2.2" cy="-15.6" rx="1.67" ry="2.70" transform="rotate(-98.2 -2.2 -15.6)" />
+            <ellipse cx="-7.3" cy="-18.2" rx="0.51" ry="2.70" transform="rotate(-111.9 -7.3 -18.2)" />
           </g>
-          <!-- Specular glint for a glossy, spherical feel -->
-          <ellipse cx="-6.5" cy="-8.5" rx="6.5" ry="4.2"
-                   fill="#FFFFFF" opacity="0.35"
-                   transform="rotate(-35 -6.5 -8.5)" />
         </g>
       </defs>
 
