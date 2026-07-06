@@ -101,9 +101,81 @@
       letter-spacing: 0.03em;
     }
     .links-footer a:hover { text-decoration: underline; }
+
+    /* =========================================================
+       VISUAL POLISH  (added on top — no content/links changed)
+       ========================================================= */
+
+    /* (2) Subtle top-to-bottom depth gradient in place of flat charcoal.
+           Stays anchored to the screen while you scroll. */
+    body {
+      background: linear-gradient(180deg, #262626 0%, var(--dark) 55%, #121212 100%) fixed;
+    }
+
+    /* (1) Faint pickleball-court line texture behind the whole page. */
+    .court-bg {
+      position: fixed; inset: 0; z-index: 0;
+      opacity: 0.05;            /* ~5% — reads as texture, not decoration */
+      pointer-events: none;     /* never blocks a tap */
+    }
+    .court-bg svg { width: 100%; height: 100%; display: block; }
+    /* Keep all real content above the texture layer */
+    .links-wrap { position: relative; z-index: 1; }
+
+    /* (3) Gentle fade + slide-up as each section scrolls into view.
+           Gated behind .js so the page still shows fully without JavaScript. */
+    .js .reveal {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    }
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    /* Thin orange divider between the major sections */
+    .section-divider {
+      width: 56px; height: 2px; border-radius: 2px;
+      background: var(--orange); opacity: 0.65;
+      margin: 34px auto 0;
+    }
+    .section-divider + .links-section { margin-top: 20px; }
+
+    /* (4) Soft, slow glow pulse — priority button only */
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 4px 16px rgba(240, 90, 40, 0.25); }
+      50%      { box-shadow: 0 0 22px rgba(240, 90, 40, 0.55),
+                             0 4px 18px rgba(240, 90, 40, 0.40); }
+    }
+    .glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
+
+    /* (5) Rotating tagline cross-fade */
+    #rotating-tagline { display: inline-block; transition: opacity 0.4s ease; }
+
+    /* Respect "reduce motion" settings: keep everything visible, drop the motion */
+    @media (prefers-reduced-motion: reduce) {
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .glow-pulse { animation: none; box-shadow: 0 0 16px rgba(240, 90, 40, 0.35); }
+      #rotating-tagline { transition: none; }
+    }
   </style>
+
+  <!-- Mark that JavaScript is on (used to hide sections before they animate in) -->
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+
+  <!-- (1) Faint pickleball-court texture — decorative only, sits behind everything -->
+  <div class="court-bg" aria-hidden="true">
+    <svg viewBox="0 0 100 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#F0F0F0" stroke-width="0.9">
+        <rect x="5" y="5" width="90" height="210" />   <!-- court boundary -->
+        <line x1="5" y1="110" x2="95" y2="110" />       <!-- net line -->
+        <line x1="5" y1="77"  x2="95" y2="77"  />       <!-- kitchen line -->
+        <line x1="5" y1="143" x2="95" y2="143" />       <!-- kitchen line -->
+        <line x1="50" y1="5"   x2="50" y2="77"  />      <!-- center line -->
+        <line x1="50" y1="143" x2="50" y2="215" />      <!-- center line -->
+      </g>
+    </svg>
+  </div>
+
   <main class="links-wrap">
 
     <!-- ================= HEADER ================= -->
@@ -111,11 +183,11 @@
       <!-- Swap this file later: /images/profile.jpg -->
       <img src="/images/profile.jpg" alt="Dr. Lane Odom" class="links-photo" />
       <h1 class="links-name">Dr. Lane Odom</h1>
-      <p class="links-subtitle">Pickleball Chiro &middot; 4.8 DUPR</p>
+      <p class="links-subtitle"><span id="rotating-tagline">4.8 DUPR</span></p>
     </header>
 
     <!-- ================= SECTION: START HERE ================= -->
-    <section class="links-section">
+    <section class="links-section reveal">
       <h2 class="links-section-title">Start Here</h2>
 
       <a class="start-row" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" target="_blank" rel="noopener noreferrer">
@@ -131,9 +203,11 @@
       </a>
     </section>
 
+    <div class="section-divider" aria-hidden="true"></div>
+
     <!-- ================= SECTION: GEAR I USE ================= -->
-    <section class="links-section">
-      <h2 class="links-section-title">Gear I Use</h2>
+    <section class="links-section reveal">
+      <h2 class="links-section-title">🏓 Gear I Use</h2>
       <div class="gear-grid">
 
         <a class="gear-tile" href="https://11six24.com/pickleballchiro" target="_blank" rel="noopener noreferrer">
@@ -171,13 +245,15 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"></div>
+
     <!-- ================= SECTION: WORK WITH ME ================= -->
-    <section class="links-section">
+    <section class="links-section reveal">
       <h2 class="links-section-title">Work With Me</h2>
       <div class="work-btns">
 
         <!-- Priority offer: bold solid orange -->
-        <a class="btn btn-primary" href="https://app.notion.com/p/drlanepickleballchiro/90-Days-to-4-0-Dr-Lane-Odom-385a4e28e092817ea2b5c5a8d9ba3d91?source=copy_link" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary glow-pulse" href="https://app.notion.com/p/drlanepickleballchiro/90-Days-to-4-0-Dr-Lane-Odom-385a4e28e092817ea2b5c5a8d9ba3d91?source=copy_link" target="_blank" rel="noopener noreferrer">
           90 Days to 4.0 &mdash; Virtual Coaching
         </a>
 
@@ -202,5 +278,42 @@
     </footer>
 
   </main>
+
+  <script>
+    // (3) Reveal each section with a gentle fade + slide-up as it scrolls in.
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        // Old browser: just show everything, no animation.
+        els.forEach(function (e) { e.classList.add('visible'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add('visible');
+            obs.unobserve(en.target);   // animate once, then stop watching
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (e) { obs.observe(e); });
+    })();
+
+    // (5) Rotating tagline under the name — cross-fades every few seconds.
+    (function () {
+      var el = document.getElementById('rotating-tagline');
+      if (!el) return;
+      var lines = ['4.8 DUPR', 'Doctor of Chiropractic', 'PCI Certified Coach', 'Volusia County, FL'];
+      var i = 0;
+      setInterval(function () {
+        el.style.opacity = '0';                 // fade out
+        setTimeout(function () {
+          i = (i + 1) % lines.length;
+          el.textContent = lines[i];            // swap text while invisible
+          el.style.opacity = '1';               // fade back in
+        }, 400);                                 // matches the CSS fade time
+      }, 3200);                                  // each line shows ~3.2s
+    })();
+  </script>
 </body>
 </html>
