@@ -89,6 +89,12 @@
       letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 6px; border-radius: 4px;
     }
 
+    /* Logo tiles (white bg, e.g. UDRIPPIN): keep the logo crisp on white and
+       show just the code on a solid strip — the logo already says the brand. */
+    .gear-tile.logo { background: #fff; }
+    .gear-tile.logo .gear-caption { background: rgba(0,0,0,0.82); padding-top: 12px; }
+    .gear-tile.logo .gear-brand { display: none; }
+
     /* ---- SECTION: Work With Me (stacked buttons) ---- */
     .work-btns { display: flex; flex-direction: column; gap: 12px; }
     .btn-note {
@@ -147,7 +153,7 @@
         </a>
 
         <!-- #TODO-udrippin-link : replace href below with the real UDRIPPIN link -->
-        <a class="gear-tile todo" href="#TODO-udrippin-link">
+        <a class="gear-tile todo logo" href="#TODO-udrippin-link">
           <img src="/images/gear-udrippin.jpg" alt="UDRIPPIN" />
           <span class="gear-caption">
             <span class="gear-brand">UDRIPPIN</span>
