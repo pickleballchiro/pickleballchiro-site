@@ -46,9 +46,11 @@
       background-color: var(--card-bg); border-radius: 10px;
       padding: 12px; margin-bottom: 12px; text-decoration: none;
       border: 1px solid var(--border-subtle);
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);   /* (1) soft float shadow */
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .start-row:hover { transform: translateY(-2px); border-color: var(--orange); }
+    .start-row:hover { transform: translateY(-2px); border-color: var(--orange); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38); }
+    .start-row:active { transform: scale(0.98); }   /* (2) tap shrink */
     .start-thumb {
       width: 62px; height: 62px; border-radius: 8px; object-fit: cover;
       flex-shrink: 0; background-color: var(--gray-subtle);
@@ -65,9 +67,11 @@
     .gear-tile {
       position: relative; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
       text-decoration: none; display: block; border: 1px solid var(--border-subtle);
-      transition: transform 0.2s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);   /* (1) soft float shadow */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .gear-tile:hover { transform: translateY(-2px); }
+    .gear-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38); }
+    .gear-tile:active { transform: scale(0.98); }   /* (2) tap shrink */
     .gear-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
     /* Brand name + code overlaid along the bottom */
     .gear-caption {
@@ -151,11 +155,76 @@
     /* (5) Rotating tagline cross-fade */
     #rotating-tagline { display: inline-block; transition: opacity 0.18s ease; }
 
+    /* (3) Credential badges under the tagline — small outlined orange pills */
+    .cred-badges {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 14px;
+    }
+    .cred-badge {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.64rem;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--orange); border: 1px solid var(--orange); border-radius: 999px;
+      padding: 5px 12px; background: rgba(240, 90, 40, 0.06); white-space: nowrap;
+      transition: transform 0.12s ease;
+    }
+
+    /* (2) Tap feedback — buttons + footer link shrink a hair while pressed */
+    .btn, .links-footer a {
+      transition: transform 0.12s ease, box-shadow 0.2s ease,
+                  background-color 0.2s ease, color 0.2s ease;
+    }
+    .btn:active, .links-footer a:active, .cred-badge:active { transform: scale(0.97); }
+
+    /* (5) Scroll progress bar — thin orange line that fills as you scroll */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0;
+      background: var(--orange); z-index: 100; will-change: width;
+    }
+
+    /* (6) Highlights carousel */
+    .carousel {
+      position: relative; overflow: hidden; border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);
+    }
+    .carousel-track { display: flex; transition: transform 0.4s ease; }
+    .slide { min-width: 100%; }
+    .slide img {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+      background: var(--gray-subtle);
+    }
+    .car-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 34px; height: 34px; border-radius: 50%; border: none;
+      background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 1.5rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      z-index: 2; transition: background 0.2s ease, transform 0.12s ease;
+    }
+    .car-arrow:hover { background: rgba(0, 0, 0, 0.68); }
+    .car-arrow:active { transform: translateY(-50%) scale(0.9); }
+    .car-arrow.prev { left: 8px; }
+    .car-arrow.next { right: 8px; }
+    .slide-cap { text-align: center; padding: 14px 10px 0; transition: opacity 0.18s ease; }
+    .slide-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+      color: var(--white); font-size: 0.98rem; letter-spacing: 0.02em;
+    }
+    .slide-place { color: var(--orange); font-weight: 600; font-size: 0.82rem; margin-top: 3px; }
+    .slide-date { color: var(--gray-mid); font-size: 0.72rem; margin-top: 2px; }
+    .car-dots { display: flex; justify-content: center; gap: 7px; margin-top: 12px; }
+    .car-dot {
+      width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0;
+      background: var(--gray-mid); opacity: 0.5; cursor: pointer;
+      transition: background 0.2s ease, opacity 0.2s ease;
+    }
+    .car-dot.active { background: var(--orange); opacity: 1; }
+
     /* Respect "reduce motion" settings: keep everything visible, drop the motion */
     @media (prefers-reduced-motion: reduce) {
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .glow-pulse { animation: none; box-shadow: 0 0 16px rgba(240, 90, 40, 0.35); }
       #rotating-tagline { transition: none; }
+      .carousel-track, .slide-cap { transition: none; }
+      .start-row:active, .gear-tile:active, .btn:active,
+      .links-footer a:active, .cred-badge:active { transform: none; }
     }
   </style>
 
@@ -163,6 +232,9 @@
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+
+  <!-- (5) Scroll progress bar — fills left-to-right as you scroll down -->
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- (1) Scattered orange pickleballs — decorative only, sits behind everything -->
   <div class="court-bg" aria-hidden="true">
@@ -235,11 +307,16 @@
       <img src="/images/profile.jpg" alt="Dr. Lane Odom" class="links-photo" />
       <h1 class="links-name">Dr. Lane Odom</h1>
       <p class="links-subtitle"><span id="rotating-tagline">4.8 DUPR</span></p>
+      <!-- (3) Static credential badges — always visible under the rotating tagline -->
+      <div class="cred-badges">
+        <span class="cred-badge">PCI Level 1 Certified</span>
+        <span class="cred-badge">4.8 DUPR</span>
+      </div>
     </header>
 
     <!-- ================= SECTION: START HERE ================= -->
     <section class="links-section reveal">
-      <h2 class="links-section-title">Start Here</h2>
+      <h2 class="links-section-title">👋 Start Here</h2>
 
       <a class="start-row" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" target="_blank" rel="noopener noreferrer">
         <img class="start-thumb" src="/images/guide-35.jpg" alt="Why You're Stuck at 3.5 guide" />
@@ -300,7 +377,7 @@
 
     <!-- ================= SECTION: WORK WITH ME ================= -->
     <section class="links-section reveal">
-      <h2 class="links-section-title">Work With Me</h2>
+      <h2 class="links-section-title">🤝 Work With Me</h2>
       <div class="work-btns">
 
         <!-- Priority offer: bold solid orange -->
@@ -321,6 +398,27 @@
         <p class="btn-note">Volusia County only</p>
 
       </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ================= SECTION: HIGHLIGHTS ================= -->
+    <section class="links-section reveal highlights">
+      <h2 class="links-section-title">🏆 Highlights</h2>
+
+      <div class="carousel" id="hl-carousel">
+        <div class="carousel-track" id="hl-track">
+          <div class="slide"><img src="/images/highlight-1.jpg" alt="Tournament highlight 1" /></div>
+          <div class="slide"><img src="/images/highlight-2.jpg" alt="Tournament highlight 2" /></div>
+          <div class="slide"><img src="/images/highlight-3.jpg" alt="Tournament highlight 3" /></div>
+        </div>
+        <button class="car-arrow prev" type="button" aria-label="Previous highlight">&lsaquo;</button>
+        <button class="car-arrow next" type="button" aria-label="Next highlight">&rsaquo;</button>
+      </div>
+
+      <!-- Caption is filled in by JS from the data list below, so it can cross-fade -->
+      <div class="slide-cap" id="hl-cap" aria-live="polite"></div>
+      <div class="car-dots" id="hl-dots"></div>
     </section>
 
     <!-- ================= FOOTER ================= -->
@@ -364,6 +462,94 @@
           el.style.opacity = '1';               // fade back in
         }, 180);                                 // matches the CSS fade time
       }, 2000);                                  // each line shows ~2s
+    })();
+
+    // (5) Scroll progress bar — width tracks how far down the page you are.
+    (function () {
+      var bar = document.getElementById('scroll-progress');
+      if (!bar) return;
+      function update() {
+        var doc = document.documentElement;
+        var scrolled = doc.scrollTop || document.body.scrollTop;
+        var max = doc.scrollHeight - doc.clientHeight;
+        bar.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+
+    // (6) Highlights carousel — auto-rotates, with arrows, dots, and swipe.
+    (function () {
+      var track = document.getElementById('hl-track');
+      var cap = document.getElementById('hl-cap');
+      var dotsWrap = document.getElementById('hl-dots');
+      var root = document.getElementById('hl-carousel');
+      if (!track || !cap || !dotsWrap || !root) return;
+
+      var slides = track.children;
+      var n = slides.length;
+
+      // Edit these captions (and drop real photos at /images/highlight-1..3.jpg)
+      var data = [
+        { title: 'Tournament Name', place: '2nd Place', date: 'Month Year' },
+        { title: 'League Name',      place: '1st Place', date: 'Month Year' },
+        { title: 'Tournament Name', place: '3rd Place', date: 'Month Year' }
+      ];
+
+      var idx = 0, timer = null;
+      var DELAY = 4500; // auto-rotate every 4.5s
+
+      // Build the dot buttons
+      var dots = [];
+      for (var i = 0; i < n; i++) {
+        (function (i) {
+          var d = document.createElement('button');
+          d.className = 'car-dot';
+          d.type = 'button';
+          d.setAttribute('aria-label', 'Go to highlight ' + (i + 1));
+          d.addEventListener('click', function () { go(i); restart(); });
+          dotsWrap.appendChild(d);
+          dots.push(d);
+        })(i);
+      }
+
+      function render() {
+        track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+        // Cross-fade the caption text
+        cap.style.opacity = '0';
+        setTimeout(function () {
+          var d = data[idx] || {};
+          cap.innerHTML =
+            '<div class="slide-title">' + (d.title || '') + '</div>' +
+            '<div class="slide-place">' + (d.place || '') + '</div>' +
+            '<div class="slide-date">' + (d.date || '') + '</div>';
+          cap.style.opacity = '1';
+        }, 180);
+        for (var j = 0; j < dots.length; j++) {
+          dots[j].classList.toggle('active', j === idx);
+        }
+      }
+      function go(i) { idx = (i + n) % n; render(); }
+      function next() { go(idx + 1); }
+      function prev() { go(idx - 1); }
+      function restart() { clearInterval(timer); timer = setInterval(next, DELAY); }
+
+      root.querySelector('.next').addEventListener('click', function () { next(); restart(); });
+      root.querySelector('.prev').addEventListener('click', function () { prev(); restart(); });
+
+      // Touch swipe (left/right)
+      var startX = null;
+      track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restart(); }
+        startX = null;
+      });
+
+      render();
+      restart();
     })();
   </script>
 </body>
