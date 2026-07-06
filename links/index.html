@@ -155,24 +155,12 @@
     /* (5) Rotating tagline cross-fade */
     #rotating-tagline { display: inline-block; transition: opacity 0.18s ease; }
 
-    /* (3) Credential badges under the tagline — small outlined orange pills */
-    .cred-badges {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 14px;
-    }
-    .cred-badge {
-      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.64rem;
-      text-transform: uppercase; letter-spacing: 0.07em;
-      color: var(--orange); border: 1px solid var(--orange); border-radius: 999px;
-      padding: 5px 12px; background: rgba(240, 90, 40, 0.06); white-space: nowrap;
-      transition: transform 0.12s ease;
-    }
-
     /* (2) Tap feedback — buttons + footer link shrink a hair while pressed */
     .btn, .links-footer a {
       transition: transform 0.12s ease, box-shadow 0.2s ease,
                   background-color 0.2s ease, color 0.2s ease;
     }
-    .btn:active, .links-footer a:active, .cred-badge:active { transform: scale(0.97); }
+    .btn:active, .links-footer a:active { transform: scale(0.97); }
 
     /* (5) Scroll progress bar — thin orange line that fills as you scroll */
     #scroll-progress {
@@ -224,7 +212,7 @@
       #rotating-tagline { transition: none; }
       .carousel-track, .slide-cap { transition: none; }
       .start-row:active, .gear-tile:active, .btn:active,
-      .links-footer a:active, .cred-badge:active { transform: none; }
+      .links-footer a:active { transform: none; }
     }
   </style>
 
@@ -307,11 +295,6 @@
       <img src="/images/profile.jpg" alt="Dr. Lane Odom" class="links-photo" />
       <h1 class="links-name">Dr. Lane Odom</h1>
       <p class="links-subtitle"><span id="rotating-tagline">4.8 DUPR</span></p>
-      <!-- (3) Static credential badges — always visible under the rotating tagline -->
-      <div class="cred-badges">
-        <span class="cred-badge">PCI Level 1 Certified</span>
-        <span class="cred-badge">4.8 DUPR</span>
-      </div>
     </header>
 
     <!-- ================= SECTION: START HERE ================= -->
