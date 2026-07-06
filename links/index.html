@@ -167,20 +167,43 @@
   <!-- (1) Scattered orange pickleballs — decorative only, sits behind everything -->
   <div class="court-bg" aria-hidden="true">
     <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <!-- One reusable pickleball: outer ring + the classic ring of holes -->
+      <!-- One reusable pickleball, shaded to read as a 3-D sphere -->
       <defs>
+        <!-- Ball body: bright highlight up-left, deep shadow toward the far edge -->
+        <radialGradient id="ballShade" cx="36%" cy="30%" r="72%">
+          <stop offset="0%"   stop-color="#FFC79A" />
+          <stop offset="38%"  stop-color="#F5711F" />
+          <stop offset="78%"  stop-color="#C8410E" />
+          <stop offset="100%" stop-color="#6E2408" />
+        </radialGradient>
+        <!-- Holes: dark, slightly lit on the lower rim so they read as recessed -->
+        <radialGradient id="holeShade" cx="50%" cy="38%" r="62%">
+          <stop offset="0%"   stop-color="#3A1405" />
+          <stop offset="70%"  stop-color="#5A2109" />
+          <stop offset="100%" stop-color="#8A3A18" />
+        </radialGradient>
+
         <g id="pball">
-          <circle cx="0" cy="0" r="20" fill="none" stroke="#F05A28" stroke-width="2.2" />
-          <g fill="#F05A28">
-            <circle cx="0"   cy="-11" r="2.1" />
-            <circle cx="9"   cy="-6"  r="2.1" />
-            <circle cx="11"  cy="4"   r="2.1" />
-            <circle cx="4"   cy="11"  r="2.1" />
-            <circle cx="-6"  cy="10"  r="2.1" />
-            <circle cx="-11" cy="1"   r="2.1" />
-            <circle cx="-8"  cy="-8"  r="2.1" />
-            <circle cx="0"   cy="0"   r="2.1" />
+          <!-- Solid shaded body -->
+          <circle cx="0" cy="0" r="20" fill="url(#ballShade)" />
+          <!-- Terminator shading along the shadow side to deepen the curve -->
+          <circle cx="0" cy="0" r="20" fill="none" stroke="#4A1805"
+                  stroke-width="2.6" opacity="0.5" />
+          <!-- Recessed holes -->
+          <g fill="url(#holeShade)">
+            <circle cx="0"   cy="-11" r="2.4" />
+            <circle cx="9"   cy="-6"  r="2.4" />
+            <circle cx="11"  cy="4"   r="2.4" />
+            <circle cx="4"   cy="11"  r="2.4" />
+            <circle cx="-6"  cy="10"  r="2.4" />
+            <circle cx="-11" cy="1"   r="2.4" />
+            <circle cx="-8"  cy="-8"  r="2.4" />
+            <circle cx="0"   cy="0"   r="2.4" />
           </g>
+          <!-- Specular glint for a glossy, spherical feel -->
+          <ellipse cx="-6.5" cy="-8.5" rx="6.5" ry="4.2"
+                   fill="#FFFFFF" opacity="0.35"
+                   transform="rotate(-35 -6.5 -8.5)" />
         </g>
       </defs>
 
