@@ -112,10 +112,10 @@
       background: linear-gradient(180deg, #262626 0%, var(--dark) 55%, #121212 100%) fixed;
     }
 
-    /* (1) Faint pickleball-court line texture behind the whole page. */
+    /* (1) Faint scattered orange pickleballs behind the whole page. */
     .court-bg {
       position: fixed; inset: 0; z-index: 0;
-      opacity: 0.05;            /* ~5% — reads as texture, not decoration */
+      opacity: 0.08;            /* subtle — reads as texture, not decoration */
       pointer-events: none;     /* never blocks a tap */
     }
     .court-bg svg { width: 100%; height: 100%; display: block; }
@@ -138,16 +138,18 @@
     }
     .section-divider + .links-section { margin-top: 20px; }
 
-    /* (4) Soft, slow glow pulse — priority button only */
+    /* (4) Prominent glow pulse — priority button only */
     @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 4px 16px rgba(240, 90, 40, 0.25); }
-      50%      { box-shadow: 0 0 22px rgba(240, 90, 40, 0.55),
-                             0 4px 18px rgba(240, 90, 40, 0.40); }
+      0%, 100% { box-shadow: 0 0 14px rgba(240, 90, 40, 0.45),
+                             0 4px 18px rgba(240, 90, 40, 0.35); }
+      50%      { box-shadow: 0 0 34px rgba(240, 90, 40, 0.85),
+                             0 0 60px rgba(240, 90, 40, 0.45),
+                             0 4px 20px rgba(240, 90, 40, 0.55); }
     }
-    .glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
+    .glow-pulse { animation: glowPulse 2.4s ease-in-out infinite; }
 
     /* (5) Rotating tagline cross-fade */
-    #rotating-tagline { display: inline-block; transition: opacity 0.4s ease; }
+    #rotating-tagline { display: inline-block; transition: opacity 0.18s ease; }
 
     /* Respect "reduce motion" settings: keep everything visible, drop the motion */
     @media (prefers-reduced-motion: reduce) {
@@ -162,17 +164,40 @@
 </head>
 <body>
 
-  <!-- (1) Faint pickleball-court texture — decorative only, sits behind everything -->
+  <!-- (1) Scattered orange pickleballs — decorative only, sits behind everything -->
   <div class="court-bg" aria-hidden="true">
-    <svg viewBox="0 0 100 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke="#F0F0F0" stroke-width="0.9">
-        <rect x="5" y="5" width="90" height="210" />   <!-- court boundary -->
-        <line x1="5" y1="110" x2="95" y2="110" />       <!-- net line -->
-        <line x1="5" y1="77"  x2="95" y2="77"  />       <!-- kitchen line -->
-        <line x1="5" y1="143" x2="95" y2="143" />       <!-- kitchen line -->
-        <line x1="50" y1="5"   x2="50" y2="77"  />      <!-- center line -->
-        <line x1="50" y1="143" x2="50" y2="215" />      <!-- center line -->
-      </g>
+    <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- One reusable pickleball: outer ring + the classic ring of holes -->
+      <defs>
+        <g id="pball">
+          <circle cx="0" cy="0" r="20" fill="none" stroke="#F05A28" stroke-width="2.2" />
+          <g fill="#F05A28">
+            <circle cx="0"   cy="-11" r="2.1" />
+            <circle cx="9"   cy="-6"  r="2.1" />
+            <circle cx="11"  cy="4"   r="2.1" />
+            <circle cx="4"   cy="11"  r="2.1" />
+            <circle cx="-6"  cy="10"  r="2.1" />
+            <circle cx="-11" cy="1"   r="2.1" />
+            <circle cx="-8"  cy="-8"  r="2.1" />
+            <circle cx="0"   cy="0"   r="2.1" />
+          </g>
+        </g>
+      </defs>
+
+      <!-- Scattered across the page at varied sizes + angles for a natural spread -->
+      <use href="#pball" transform="translate(56,70)   scale(1.15) rotate(12)" />
+      <use href="#pball" transform="translate(330,130) scale(0.85) rotate(-20)" />
+      <use href="#pball" transform="translate(150,210) scale(0.65) rotate(30)" />
+      <use href="#pball" transform="translate(300,300) scale(1.30) rotate(8)" />
+      <use href="#pball" transform="translate(70,340)  scale(0.95) rotate(-14)" />
+      <use href="#pball" transform="translate(210,420) scale(0.7)  rotate(22)" />
+      <use href="#pball" transform="translate(360,470) scale(1.05) rotate(-8)" />
+      <use href="#pball" transform="translate(110,520) scale(1.25) rotate(16)" />
+      <use href="#pball" transform="translate(280,590) scale(0.8)  rotate(-24)" />
+      <use href="#pball" transform="translate(40,620)  scale(0.6)  rotate(10)" />
+      <use href="#pball" transform="translate(190,690) scale(1.0)  rotate(-16)" />
+      <use href="#pball" transform="translate(340,730) scale(0.7)  rotate(26)" />
+      <use href="#pball" transform="translate(90,760)  scale(0.9)  rotate(-6)" />
     </svg>
   </div>
 
@@ -311,8 +336,8 @@
           i = (i + 1) % lines.length;
           el.textContent = lines[i];            // swap text while invisible
           el.style.opacity = '1';               // fade back in
-        }, 400);                                 // matches the CSS fade time
-      }, 3200);                                  // each line shows ~3.2s
+        }, 180);                                 // matches the CSS fade time
+      }, 1000);                                  // each line shows ~1s
     })();
   </script>
 </body>
