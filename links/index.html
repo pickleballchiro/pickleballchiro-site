@@ -80,14 +80,6 @@
       color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; display: block;
     }
     .gear-code { font-size: 0.72rem; color: var(--orange); font-weight: 600; }
-    /* A #TODO link that isn't wired up yet — dim it and show a little tag so it's
-       obviously a placeholder, but it still won't break the page if tapped. */
-    .gear-tile.todo { opacity: 0.85; }
-    .gear-tile.todo::after {
-      content: "TODO: add link"; position: absolute; top: 8px; left: 8px;
-      background: var(--orange); color: var(--white); font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 6px; border-radius: 4px;
-    }
 
     /* Logo tiles (white bg, e.g. UDRIPPIN): keep the logo crisp on white and
        show just the code on a solid strip — the logo already says the brand. */
