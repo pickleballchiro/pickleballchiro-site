@@ -5,11 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Dr. Lane Odom — Pickleball Chiro. Free guides, gear I use, and ways to work with me." />
   <title>Dr. Lane Odom · Links</title>
+  <link rel="canonical" href="https://pickleballchiro.co/links/" />
+
+  <!-- Favicon: orange pickleball -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23F05A28'/%3E%3Ccircle cx='38' cy='34' r='7' fill='%23C2410C'/%3E%3Ccircle cx='64' cy='42' r='7' fill='%23C2410C'/%3E%3Ccircle cx='46' cy='62' r='7' fill='%23C2410C'/%3E%3Ccircle cx='70' cy='68' r='7' fill='%23C2410C'/%3E%3C/svg%3E" />
+
+  <!-- Social link previews (this URL lives in the IG bio) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pickleballchiro.co/links/" />
+  <meta property="og:title" content="Dr. Lane Odom · The Pickleball Chiro" />
+  <meta property="og:description" content="Free guides, gear discounts, and ways to work with me — 4.8 DUPR · Doctor of Chiropractic." />
+  <meta property="og:image" content="https://pickleballchiro.co/images/profile.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Dr. Lane Odom · The Pickleball Chiro" />
+  <meta name="twitter:description" content="Free guides, gear discounts, and ways to work with me." />
+  <meta name="twitter:image" content="https://pickleballchiro.co/images/profile.jpg" />
 
   <!-- Same fonts the rest of the site uses: Oswald (headlines) + Montserrat (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Reuse the site's shared stylesheet so colors, fonts, and buttons match exactly.
        The leading slash means "from the top of the site", so it works from /links too. -->
@@ -29,53 +44,70 @@
     .links-photo {
       width: 104px; height: 104px; border-radius: 50%; object-fit: cover;
       border: 3px solid var(--orange); display: block; margin: 0 auto 16px;
+      box-shadow: var(--glow-soft);
     }
     .links-name { font-size: 1.7rem; color: var(--white); margin-bottom: 4px; }
     .links-subtitle {
-      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.9rem;
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.9rem;
       color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em;
     }
 
     /* ---- Shared section heading for the hub ---- */
     .links-section { margin-top: 34px; }
     .links-section-title {
-      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.78rem;
-      color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.14em;
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.78rem;
+      color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.16em;
       text-align: center; margin-bottom: 14px;
     }
 
     /* ---- SECTION: Start Here (thumbnail on left, title on right) ---- */
     .start-row {
       display: flex; align-items: center; gap: 14px;
-      background-color: var(--card-bg); border-radius: 10px;
+      background: linear-gradient(180deg, #24262A, #1B1C1F);
+      border-radius: var(--radius-card);
       padding: 12px; margin-bottom: 12px; text-decoration: none;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);   /* (1) soft float shadow */
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);   /* soft float shadow */
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .start-row:hover { transform: translateY(-2px); border-color: var(--orange); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38); }
-    .start-row:active { transform: scale(0.98); }   /* (2) tap shrink */
+    .start-row:hover { transform: translateY(-2px); border-color: rgba(240,90,40,0.55); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38); }
+    .start-row:active { transform: scale(0.98); }   /* tap shrink */
     .start-thumb {
       width: 62px; height: 62px; border-radius: 8px; object-fit: cover;
       flex-shrink: 0; background-color: var(--gray-subtle);
     }
+    /* Icon-style thumb for the quiz row (no cover image — a drawn target) */
+    .start-thumb.quiz-thumb {
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+      font-size: 1.7rem;
+    }
     .start-title {
-      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.98rem;
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.98rem;
       color: var(--white); text-transform: uppercase; letter-spacing: 0.02em;
       line-height: 1.2;
     }
+    .start-sub {
+      display: block; font-family: 'Montserrat', sans-serif; font-weight: 500;
+      font-size: 0.72rem; color: var(--gray-mid); text-transform: none;
+      letter-spacing: 0; margin-top: 2px;
+    }
     .start-arrow { margin-left: auto; color: var(--orange); font-size: 1.2rem; flex-shrink: 0; }
+
+    /* Priority row: quiz — subtle orange ring + glow */
+    .start-row.priority { border-color: rgba(240, 90, 40, 0.55); box-shadow: var(--glow-soft); }
+    .start-row.priority:hover { box-shadow: var(--glow); }
 
     /* ---- SECTION: Gear I Use (2-column grid of square tiles) ---- */
     .gear-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .gear-tile {
-      position: relative; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
+      position: relative; aspect-ratio: 1 / 1; border-radius: var(--radius-card); overflow: hidden;
       text-decoration: none; display: block; border: 1px solid var(--border-subtle);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);   /* (1) soft float shadow */
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);   /* soft float shadow */
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .gear-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38); }
-    .gear-tile:active { transform: scale(0.98); }   /* (2) tap shrink */
+    .gear-tile:hover { transform: translateY(-2px); border-color: rgba(240,90,40,0.5); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38); }
+    .gear-tile:active { transform: scale(0.98); }   /* tap shrink */
     .gear-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
     /* Brand name + code overlaid along the bottom */
     .gear-caption {
@@ -111,27 +143,55 @@
     .links-footer a:hover { text-decoration: underline; }
 
     /* =========================================================
-       VISUAL POLISH  (added on top — no content/links changed)
+       VISUAL POLISH
        ========================================================= */
 
-    /* (2) Subtle top-to-bottom depth gradient in place of flat charcoal.
-           Stays anchored to the screen while you scroll. */
+    /* Subtle top-to-bottom depth gradient in place of flat charcoal.
+       Stays anchored to the screen while you scroll. */
     body {
-      background: linear-gradient(180deg, #262626 0%, var(--dark) 55%, #121212 100%) fixed;
+      background:
+        radial-gradient(ellipse 130% 40% at 50% -5%, rgba(240,90,40,0.10), transparent 60%),
+        linear-gradient(180deg, #1B1C20 0%, var(--dark) 55%, #0D0E10 100%) fixed;
     }
 
-    /* (1) Faint scattered orange pickleballs behind the whole page. */
+    /* =========================================================
+       BACKGROUND PICKLEBALLS — faint, glowing, tumbling in 3-D.
+       Each ball is its own element so it can spin on its own
+       axis, direction, and speed (slow-motion feel).
+       ========================================================= */
     .court-bg {
       position: fixed; inset: 0; z-index: 0;
-      opacity: 0.06;            /* faint, but enough for the 3-D shading to read */
       pointer-events: none;     /* never blocks a tap */
+      perspective: 900px;       /* gives the tumble real depth */
+      overflow: hidden;
     }
-    .court-bg svg { width: 100%; height: 100%; display: block; }
+    .court-bg .ball {
+      position: absolute;
+      opacity: 0.09;            /* faint, but the glow + shading still read */
+      transform-style: preserve-3d;
+      will-change: transform;
+      animation: ballTumble var(--dur, 40s) linear infinite var(--dir, normal);
+    }
+    .court-bg .ball svg {
+      width: 100%; height: 100%; display: block;
+      overflow: visible;
+      /* soft orange glow halo around each ball */
+      filter: drop-shadow(0 0 14px rgba(240, 90, 40, 0.85))
+              drop-shadow(0 0 30px rgba(240, 90, 40, 0.45));
+    }
+    /* Slow 3-D tumble: mostly a face-on spin with a gentle X/Y tilt so the
+       ball reads as rotating in space, never flipping edge-on like a coin.
+       --ax / --ay set per ball for different tumble directions. */
+    @keyframes ballTumble {
+      from { transform: rotate3d(var(--ax, 0.25), var(--ay, 0.2), 1, 0deg); }
+      to   { transform: rotate3d(var(--ax, 0.25), var(--ay, 0.2), 1, 360deg); }
+    }
+
     /* Keep all real content above the texture layer */
     .links-wrap { position: relative; z-index: 1; }
 
-    /* (3) Gentle fade + slide-up as each section scrolls into view.
-           Gated behind .js so the page still shows fully without JavaScript. */
+    /* Gentle fade + slide-up as each section scrolls into view.
+       Gated behind .js so the page still shows fully without JavaScript. */
     .js .reveal {
       opacity: 0; transform: translateY(16px);
       transition: opacity 0.25s ease-out, transform 0.25s ease-out;
@@ -146,7 +206,7 @@
     }
     .section-divider + .links-section { margin-top: 20px; }
 
-    /* (4) Prominent glow pulse — priority button only */
+    /* Prominent glow pulse — priority button only */
     @keyframes glowPulse {
       0%, 100% { box-shadow: 0 0 14px rgba(240, 90, 40, 0.40),
                              0 4px 18px rgba(240, 90, 40, 0.31); }
@@ -156,32 +216,35 @@
     }
     .glow-pulse { animation: glowPulse 2.4s ease-in-out infinite; }
 
-    /* (5) Rotating tagline cross-fade */
+    /* Rotating tagline cross-fade */
     #rotating-tagline { display: inline-block; transition: opacity 0.18s ease; }
 
-    /* (2) Tap feedback — buttons + footer link shrink a hair while pressed */
+    /* Tap feedback — buttons + footer link shrink a hair while pressed */
     .btn, .links-footer a {
       transition: transform 0.12s ease, box-shadow 0.2s ease,
                   background-color 0.2s ease, color 0.2s ease;
     }
     .btn:active, .links-footer a:active { transform: scale(0.97); }
 
-    /* (5) Scroll progress bar — thin orange line that fills as you scroll */
+    /* Scroll progress bar — thin orange line that fills as you scroll */
     #scroll-progress {
       position: fixed; top: 0; left: 0; height: 3px; width: 0;
-      background: var(--orange); z-index: 100; will-change: width;
+      background: linear-gradient(90deg, var(--orange-deep), var(--orange-hot));
+      box-shadow: 0 0 8px rgba(240,90,40,0.5);
+      z-index: 100; will-change: width;
     }
 
-    /* (6) Highlights carousel */
+    /* Highlights carousel */
     .carousel {
-      position: relative; overflow: hidden; border-radius: 12px;
+      position: relative; overflow: hidden; border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);
     }
     .carousel-track { display: flex; transition: transform 0.4s ease; }
     .slide { min-width: 100%; }
     .slide img {
       width: 100%; aspect-ratio: 3 / 4; object-fit: contain; display: block;
-      background: var(--gray-subtle);
+      background: #0D0E10;
     }
     .car-arrow {
       position: absolute; top: 50%; transform: translateY(-50%);
@@ -208,6 +271,7 @@
       .glow-pulse { animation: none; box-shadow: 0 0 16px rgba(240, 90, 40, 0.35); }
       #rotating-tagline { transition: none; }
       .carousel-track { transition: none; }
+      .court-bg .ball { animation: none; }
       .start-row:active, .gear-tile:active, .btn:active,
       .links-footer a:active { transform: none; }
     }
@@ -218,13 +282,13 @@
 </head>
 <body>
 
-  <!-- (5) Scroll progress bar — fills left-to-right as you scroll down -->
+  <!-- Scroll progress bar — fills left-to-right as you scroll down -->
   <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- (1) Scattered orange pickleballs — decorative only, sits behind everything -->
+  <!-- Faint glowing pickleballs tumbling slowly in 3-D — decorative only -->
   <div class="court-bg" aria-hidden="true">
-    <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <!-- One reusable pickleball: matte sphere with holes wrapped over the curve -->
+    <!-- One reusable pickleball: matte sphere with holes wrapped over the curve -->
+    <svg width="0" height="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <!-- Body: strong directional shading. Highlight is offset up-left, so the
              far (lower-right) edge falls into a dark shadow crescent = clearly a sphere. -->
@@ -266,22 +330,24 @@
           </g>
         </g>
       </defs>
-
-      <!-- Scattered across the page at varied sizes + angles for a natural spread -->
-      <use href="#pball" transform="translate(56,70)   scale(1.15) rotate(12)" />
-      <use href="#pball" transform="translate(330,130) scale(0.85) rotate(-20)" />
-      <use href="#pball" transform="translate(150,210) scale(0.65) rotate(30)" />
-      <use href="#pball" transform="translate(300,300) scale(1.30) rotate(8)" />
-      <use href="#pball" transform="translate(70,340)  scale(0.95) rotate(-14)" />
-      <use href="#pball" transform="translate(210,420) scale(0.7)  rotate(22)" />
-      <use href="#pball" transform="translate(360,470) scale(1.05) rotate(-8)" />
-      <use href="#pball" transform="translate(110,520) scale(1.25) rotate(16)" />
-      <use href="#pball" transform="translate(280,590) scale(0.8)  rotate(-24)" />
-      <use href="#pball" transform="translate(40,620)  scale(0.6)  rotate(10)" />
-      <use href="#pball" transform="translate(190,690) scale(1.0)  rotate(-16)" />
-      <use href="#pball" transform="translate(340,730) scale(0.7)  rotate(26)" />
-      <use href="#pball" transform="translate(90,760)  scale(0.9)  rotate(-6)" />
     </svg>
+
+    <!-- Scattered balls: each spins on its own axis, speed, and direction.
+         --dur = seconds per full rotation (slow-motion), --dir reverses spin,
+         --ax/--ay tilt the spin axis for the 3-D tumble feel. -->
+    <div class="ball" style="left:8%;  top:6%;  width:52px; height:52px; --dur:44s; --ax:0.30; --ay:0.15;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:78%; top:12%; width:38px; height:38px; --dur:36s; --dir:reverse; --ax:0.15; --ay:0.30;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:34%; top:22%; width:30px; height:30px; --dur:52s; --ax:0.25; --ay:0.25;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:70%; top:33%; width:58px; height:58px; --dur:60s; --dir:reverse; --ax:0.35; --ay:0.10;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:12%; top:40%; width:44px; height:44px; --dur:40s; --ax:0.10; --ay:0.35;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:48%; top:50%; width:32px; height:32px; --dur:48s; --dir:reverse; --ax:0.28; --ay:0.20;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:85%; top:56%; width:48px; height:48px; --dur:34s; --ax:0.20; --ay:0.28;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:22%; top:63%; width:56px; height:56px; --dur:56s; --dir:reverse; --ax:0.32; --ay:0.12;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:64%; top:72%; width:36px; height:36px; --dur:42s; --ax:0.15; --ay:0.32;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:6%;  top:78%; width:28px; height:28px; --dur:50s; --dir:reverse; --ax:0.22; --ay:0.22;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:42%; top:86%; width:46px; height:46px; --dur:38s; --ax:0.30; --ay:0.18;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:82%; top:90%; width:32px; height:32px; --dur:46s; --dir:reverse; --ax:0.12; --ay:0.30;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:20%; top:94%; width:40px; height:40px; --dur:54s; --ax:0.26; --ay:0.24;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
   </div>
 
   <main class="links-wrap">
@@ -298,17 +364,52 @@
     <section class="links-section reveal">
       <h2 class="links-section-title">👋 Start Here</h2>
 
-      <a class="start-row" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" target="_blank" rel="noopener noreferrer">
+      <a class="start-row priority" href="/quiz/" data-track="links_quiz">
+        <span class="start-thumb quiz-thumb" aria-hidden="true">🎯</span>
+        <span class="start-title">Take the Free Game Diagnosis
+          <span class="start-sub">12 questions · find your #1 leak</span>
+        </span>
+        <span class="start-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <a class="start-row" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" target="_blank" rel="noopener noreferrer" data-track="links_guide_35">
         <img class="start-thumb" src="/images/guide-35.jpg" alt="Why You're Stuck at 3.5 guide" />
         <span class="start-title">Why You&rsquo;re Stuck at 3.5 &mdash; Free Guide</span>
         <span class="start-arrow" aria-hidden="true">&rarr;</span>
       </a>
 
-      <a class="start-row" href="https://pickleballchiro.gumroad.com/l/kneepainguide" target="_blank" rel="noopener noreferrer">
+      <a class="start-row" href="https://pickleballchiro.gumroad.com/l/kneepainguide" target="_blank" rel="noopener noreferrer" data-track="links_guide_knee">
         <img class="start-thumb" src="/images/guide-knee.jpg" alt="Free Knee Pain Guide" />
         <span class="start-title">Free Knee Pain Guide</span>
         <span class="start-arrow" aria-hidden="true">&rarr;</span>
       </a>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ================= SECTION: WORK WITH ME ================= -->
+    <section class="links-section reveal">
+      <h2 class="links-section-title">🤝 Work With Me</h2>
+      <div class="work-btns">
+
+        <!-- Priority offer: bold solid orange -->
+        <a class="btn btn-primary glow-pulse" href="https://app.notion.com/p/drlanepickleballchiro/90-Days-to-4-0-Dr-Lane-Odom-385a4e28e092817ea2b5c5a8d9ba3d91?source=copy_link" target="_blank" rel="noopener noreferrer" data-track="links_90days">
+          90 Days to 4.0 &mdash; Virtual Coaching
+        </a>
+
+        <!-- Secondary offer -->
+        <a class="btn btn-secondary" href="https://forms.gle/3GdC9UFM6W6ZxK5B8" target="_blank" rel="noopener noreferrer" data-track="links_lesson">
+          Apply for a Lesson
+        </a>
+        <p class="btn-note">Volusia County only</p>
+
+        <!-- Secondary offer -->
+        <a class="btn btn-secondary" href="https://app.notion.com/p/drlanepickleballchiro/Mobile-Chiropractic-Rehab-Care-333a4e28e09280a4b9f8df398e4dbec6?source=copy_link" target="_blank" rel="noopener noreferrer" data-track="links_mobile_chiro">
+          Book Mobile Chiro
+        </a>
+        <p class="btn-note">Volusia County only</p>
+
+      </div>
     </section>
 
     <div class="section-divider" aria-hidden="true"></div>
@@ -318,7 +419,7 @@
       <h2 class="links-section-title">🏓 Gear I Use</h2>
       <div class="gear-grid">
 
-        <a class="gear-tile" href="https://11six24.com/pickleballchiro" target="_blank" rel="noopener noreferrer">
+        <a class="gear-tile" href="https://11six24.com/pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_11six24">
           <img src="/images/gear-11six24.jpg" alt="11six24" />
           <span class="gear-caption">
             <span class="gear-brand">11six24</span>
@@ -326,7 +427,7 @@
           </span>
         </a>
 
-        <a class="gear-tile" href="https://www.udrippin.com/pbchiro" target="_blank" rel="noopener noreferrer">
+        <a class="gear-tile logo" href="https://www.udrippin.com/pbchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_udrippin">
           <img src="/images/gear-udrippin.jpg" alt="UDRIPPIN" />
           <span class="gear-caption">
             <span class="gear-brand">UDRIPPIN</span>
@@ -334,7 +435,7 @@
           </span>
         </a>
 
-        <a class="gear-tile" href="https://shop.hesacore.com/discount/PBCHIRO?ref=pbchiro" target="_blank" rel="noopener noreferrer">
+        <a class="gear-tile" href="https://shop.hesacore.com/discount/PBCHIRO?ref=pbchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_hesacore">
           <img src="/images/gear-hesacore.jpg" alt="Hesacore" />
           <span class="gear-caption">
             <span class="gear-brand">Hesacore</span>
@@ -342,7 +443,7 @@
           </span>
         </a>
 
-        <a class="gear-tile" href="https://www.lcubedlifestyle.com?sca_ref=8365911.T1OAMWMDCg" target="_blank" rel="noopener noreferrer">
+        <a class="gear-tile" href="https://www.lcubedlifestyle.com?sca_ref=8365911.T1OAMWMDCg" target="_blank" rel="noopener noreferrer" data-track="links_gear_lcubed">
           <img src="/images/gear-lcubed.jpg" alt="L Cubed Lifestyle" />
           <span class="gear-caption">
             <span class="gear-brand">L Cubed Lifestyle</span>
@@ -355,60 +456,33 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <!-- ================= SECTION: WORK WITH ME ================= -->
-    <section class="links-section reveal">
-      <h2 class="links-section-title">🤝 Work With Me</h2>
-      <div class="work-btns">
-
-        <!-- Priority offer: bold solid orange -->
-        <a class="btn btn-primary glow-pulse" href="https://app.notion.com/p/drlanepickleballchiro/90-Days-to-4-0-Dr-Lane-Odom-385a4e28e092817ea2b5c5a8d9ba3d91?source=copy_link" target="_blank" rel="noopener noreferrer">
-          90 Days to 4.0 &mdash; Virtual Coaching
-        </a>
-
-        <!-- Secondary offer -->
-        <a class="btn btn-secondary" href="https://forms.gle/3GdC9UFM6W6ZxK5B8" target="_blank" rel="noopener noreferrer">
-          Apply for a Lesson
-        </a>
-        <p class="btn-note">Volusia County only</p>
-
-        <!-- Secondary offer -->
-        <a class="btn btn-secondary" href="https://app.notion.com/p/drlanepickleballchiro/Mobile-Chiropractic-Rehab-Care-333a4e28e09280a4b9f8df398e4dbec6?source=copy_link" target="_blank" rel="noopener noreferrer">
-          Book Mobile Chiro
-        </a>
-        <p class="btn-note">Volusia County only</p>
-
-      </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-
     <!-- ================= SECTION: HIGHLIGHTS ================= -->
     <section class="links-section reveal highlights">
       <h2 class="links-section-title">🏆 Highlights</h2>
 
       <div class="carousel" id="hl-carousel">
         <div class="carousel-track" id="hl-track">
-          <div class="slide"><img src="/images/highlight-1.jpg" alt="Highlight 1" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-2.jpg" alt="Highlight 2" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-3.jpg" alt="Highlight 3" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-4.jpg" alt="Highlight 4" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-5.jpg" alt="Highlight 5" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-6.jpg" alt="Highlight 6" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-7.jpg" alt="Highlight 7" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-8.jpg" alt="Highlight 8" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-9.jpg" alt="Highlight 9" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-10.jpg" alt="Highlight 10" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-11.jpg" alt="Highlight 11" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-12.jpg" alt="Highlight 12" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-13.jpg" alt="Highlight 13" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-14.jpg" alt="Highlight 14" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-15.jpg" alt="Highlight 15" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-16.jpg" alt="Highlight 16" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-17.jpg" alt="Highlight 17" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-18.jpg" alt="Highlight 18" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-19.jpg" alt="Highlight 19" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-20.jpg" alt="Highlight 20" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-21.jpg" alt="Highlight 21" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-1.jpg" alt="Tournament highlight 1" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-2.jpg" alt="Tournament highlight 2" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-3.jpg" alt="Tournament highlight 3" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-4.jpg" alt="Tournament highlight 4" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-5.jpg" alt="Tournament highlight 5" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-6.jpg" alt="Tournament highlight 6" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-7.jpg" alt="Tournament highlight 7" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-8.jpg" alt="Tournament highlight 8" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-9.jpg" alt="Tournament highlight 9" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-10.jpg" alt="Tournament highlight 10" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-11.jpg" alt="Tournament highlight 11" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-12.jpg" alt="Tournament highlight 12" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-13.jpg" alt="Tournament highlight 13" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-14.jpg" alt="Tournament highlight 14" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-15.jpg" alt="Tournament highlight 15" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-16.jpg" alt="Tournament highlight 16" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-17.jpg" alt="Tournament highlight 17" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-18.jpg" alt="Tournament highlight 18" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-19.jpg" alt="Tournament highlight 19" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-20.jpg" alt="Tournament highlight 20" loading="lazy" /></div>
+          <div class="slide"><img src="/images/highlight-21.jpg" alt="Tournament highlight 21" loading="lazy" /></div>
         </div>
         <button class="car-arrow prev" type="button" aria-label="Previous highlight">&lsaquo;</button>
         <button class="car-arrow next" type="button" aria-label="Next highlight">&rsaquo;</button>
@@ -419,13 +493,28 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="links-footer">
-      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer">@dr.lane_o on Instagram</a>
+      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="links_ig">@dr.lane_o on Instagram</a>
     </footer>
 
   </main>
 
   <script>
-    // (3) Reveal each section with a gentle fade + slide-up as it scrolls in.
+    // Click tracking — mirrors main.js (localStorage + GA4)
+    document.addEventListener('click', function (e) {
+      var target = e.target.closest('[data-track]');
+      if (!target) return;
+      var label = target.getAttribute('data-track');
+      var event = { event: 'click', label: label, timestamp: new Date().toISOString() };
+      console.log('[Pickleball Chiro Analytics]', event);
+      var stored = JSON.parse(localStorage.getItem('pb_events') || '[]');
+      stored.push(event);
+      localStorage.setItem('pb_events', JSON.stringify(stored));
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'cta_click', { label: label });
+      }
+    });
+
+    // Reveal each section with a gentle fade + slide-up as it scrolls in.
     (function () {
       var els = document.querySelectorAll('.reveal');
       if (!('IntersectionObserver' in window)) {
@@ -444,11 +533,11 @@
       els.forEach(function (e) { obs.observe(e); });
     })();
 
-    // (5) Rotating tagline under the name — cross-fades every few seconds.
+    // Rotating tagline under the name — cross-fades every few seconds.
     (function () {
       var el = document.getElementById('rotating-tagline');
       if (!el) return;
-      var lines = ['4.8 DUPR', 'Doctor of Chiropractic', 'PCI Certified Coach', 'Volusia County, FL'];
+      var lines = ['4.8 DUPR', 'Doctor of Chiropractic', 'PCI Certified Coach', '13+ Years of Racket Sport Experience', 'Volusia County, FL'];
       var i = 0;
       setInterval(function () {
         el.style.opacity = '0';                 // fade out
@@ -460,7 +549,7 @@
       }, 2000);                                  // each line shows ~2s
     })();
 
-    // (5) Scroll progress bar — width tracks how far down the page you are.
+    // Scroll progress bar — width tracks how far down the page you are.
     (function () {
       var bar = document.getElementById('scroll-progress');
       if (!bar) return;
@@ -475,7 +564,8 @@
       update();
     })();
 
-    // (6) Highlights carousel — auto-rotates, with arrows, dots, and swipe.
+    // Highlights carousel — auto-rotates, with arrows, dots, swipe,
+    // and pause-on-hover/touch so photos can actually be looked at.
     (function () {
       var track = document.getElementById('hl-track');
       var dotsWrap = document.getElementById('hl-dots');
@@ -511,18 +601,24 @@
       function go(i) { idx = (i + n) % n; render(); }
       function next() { go(idx + 1); }
       function prev() { go(idx - 1); }
-      function restart() { clearInterval(timer); timer = setInterval(next, DELAY); }
+      function stop() { clearInterval(timer); timer = null; }
+      function restart() { stop(); timer = setInterval(next, DELAY); }
 
       root.querySelector('.next').addEventListener('click', function () { next(); restart(); });
       root.querySelector('.prev').addEventListener('click', function () { prev(); restart(); });
 
-      // Touch swipe (left/right)
+      // Pause while the pointer is over the carousel; resume on leave
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', restart);
+
+      // Touch swipe (left/right) — pause while a finger is down
       var startX = null;
-      track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
       track.addEventListener('touchend', function (e) {
-        if (startX === null) return;
+        if (startX === null) { restart(); return; }
         var dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restart(); }
+        if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+        restart();
         startX = null;
       });
 
