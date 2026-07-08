@@ -3,55 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Dr. Lane Odom — Pickleball performance coach. Helping 3.0–4.0 players break through plateaus and compete at their best. 4.9 DUPR." />
-  <title>Dr. Lane Odom · The Pickleball Chiro</title>
+  <meta name="description" content="Dr. Lane Odom — pickleball performance coach and Doctor of Chiropractic in Volusia County, FL. Find what's keeping you stuck at 3.5 and fix it. 4.8 DUPR." />
+  <title>Dr. Lane Odom · The Pickleball Chiro — Pickleball Performance Coach, Volusia County FL</title>
+  <link rel="canonical" href="https://pickleballchiro.co/" />
+
+  <!-- Favicon: orange pickleball -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23F05A28'/%3E%3Ccircle cx='38' cy='34' r='7' fill='%23C2410C'/%3E%3Ccircle cx='64' cy='42' r='7' fill='%23C2410C'/%3E%3Ccircle cx='46' cy='62' r='7' fill='%23C2410C'/%3E%3Ccircle cx='70' cy='68' r='7' fill='%23C2410C'/%3E%3C/svg%3E" />
+
+  <!-- Social link previews (IG DMs, texts, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pickleballchiro.co/" />
+  <meta property="og:title" content="The Pickleball Chiro — Find What's Keeping You Stuck at 3.5" />
+  <meta property="og:description" content="Dr. Lane Odom · 4.8 DUPR · Doctor of Chiropractic · Pickleball performance coaching in Volusia County, FL." />
+  <meta property="og:image" content="https://pickleballchiro.co/images/profile.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Pickleball Chiro — Find What's Keeping You Stuck at 3.5" />
+  <meta name="twitter:description" content="Dr. Lane Odom · 4.8 DUPR · Doctor of Chiropractic · Pickleball performance coaching in Volusia County, FL." />
+  <meta name="twitter:image" content="https://pickleballchiro.co/images/profile.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV3RTC7XXK"></script>
   <script src="/analytics.js"></script>
+
+  <!-- Structured data for Google search / Business Profile -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Lane Odom",
+    "alternateName": "The Pickleball Chiro",
+    "url": "https://pickleballchiro.co/",
+    "image": "https://pickleballchiro.co/images/profile.jpg",
+    "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
+    "sameAs": ["https://instagram.com/dr.lane_o"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "FL",
+      "addressLocality": "Volusia County"
+    },
+    "knowsAbout": ["Pickleball coaching", "Chiropractic", "Sports performance", "Injury rehabilitation"]
+  }
+  </script>
 </head>
 <body>
 
   <!-- ============================================================
-       PROFILE SECTION (hero — no fade-up, always visible on load)
+       HERO — quiz-first (always visible on load, no fade-up)
        ============================================================ -->
-  <section class="profile">
+  <section class="hero">
     <div class="container">
-      <img src="profile.jpg" alt="Dr. Lane Odom" class="profile-photo" />
-      <h1 class="profile-name">Dr. Lane Odom</h1>
-      <p class="profile-title">Pickleball Chiro</p>
-      <p class="profile-subtitle">4.9 DUPR &middot; Performance Coach &middot; Doctor of Chiropractic</p>
-      <p class="profile-tagline">&ldquo;I help serious players identify what&rsquo;s holding their game back &mdash; and fix it.&rdquo;</p>
-      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" class="instagram-handle">@dr.lane_o</a>
+      <img src="profile.jpg" alt="Dr. Lane Odom" class="hero-photo" />
+      <p class="hero-name">Dr. Lane Odom &middot; The Pickleball Chiro</p>
+      <h1 class="hero-headline">Find What&rsquo;s Actually Keeping You <span class="highlight">Stuck at 3.5</span></h1>
+      <p class="hero-sub">Most players drill harder at the wrong thing. I help you find the real leak in your game &mdash; and fix it.</p>
+      <div class="chip-row">
+        <span class="chip">4.8 DUPR</span>
+        <span class="chip">Doctor of Chiropractic</span>
+        <span class="chip">Performance Coach</span>
+      </div>
+      <div class="hero-cta-wrap">
+        <a href="/quiz/" class="btn btn-primary" data-track="hero_quiz">Take the Free 2-Minute Game Diagnosis <span class="arrow">&rarr;</span></a>
+        <a href="#guides" class="hero-secondary-link" data-track="hero_guides">Or grab a free guide instead</a>
+      </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       AUTHORITY SECTION — hook/bridge + credibility bar
+       AUTHORITY STAT STRIP
        ============================================================ -->
-  <section class="authority-section fade-up">
+  <section class="stat-strip band fade-up">
     <div class="container">
-      <p class="authority-label">Why serious players train with me</p>
-      <div class="authority-grid">
-        <div class="authority-col">
-          <span class="authority-icon">🏓</span>
-          <p class="authority-stat">4.9 DUPR &mdash; Still Competing</p>
-          <p class="authority-desc">I play at the highest recreational level. I can see exactly what separates 3.5 from 4.0+ &mdash; because I&rsquo;ve lived both sides of that gap.</p>
+      <div class="stat-grid stagger">
+        <div class="stat-col">
+          <p class="stat-number"><span class="highlight">4.8</span></p>
+          <p class="stat-label">DUPR &mdash; Still Competing</p>
         </div>
-        <div class="authority-col">
-          <span class="authority-icon">🎾</span>
-          <p class="authority-stat">13+ Years of Racket Sport Experience</p>
-          <p class="authority-desc">I know the shots, patterns, and habits that separate improving players from stuck ones. I&rsquo;ve coached players at every level across a decade of competition.</p>
+        <div class="stat-col">
+          <p class="stat-number"><span class="highlight">13+</span></p>
+          <p class="stat-label">Years of Racket Sports</p>
         </div>
-        <div class="authority-col">
-          <span class="authority-icon">🦴</span>
-          <p class="authority-stat">Doctor of Chiropractic</p>
-          <p class="authority-desc">I can also see what&rsquo;s happening in the body underneath your game. Most coaches miss this layer entirely. I don&rsquo;t.</p>
+        <div class="stat-col">
+          <p class="stat-number"><span class="highlight">DC</span></p>
+          <p class="stat-label">Doctor of Chiropractic</p>
         </div>
       </div>
     </div>
@@ -59,24 +98,25 @@
 
 
   <!-- ============================================================
-       PERFORMANCE SYSTEM SECTION
+       PERFORMANCE SYSTEM
        ============================================================ -->
   <section class="performance-system fade-up">
     <div class="container">
+      <span class="eyebrow">The Performance System</span>
       <h2 class="section-title">How I Help Players Break Through</h2>
-      <p class="performance-subtext">One-on-one coaching built around your game. Three stages that actually move your rating.</p>
-      <div class="stage-grid">
-        <div class="stage-card">
+      <p class="section-subtext">One-on-one coaching built around your game. Three stages that actually move your rating.</p>
+      <div class="stage-grid stagger">
+        <div class="stage-card card">
           <p class="stage-label">Stage 1</p>
           <h3 class="stage-title">Identify the Leak</h3>
           <p class="stage-body">Find the specific shot, pattern, or movement flaw keeping you stuck. Not a general assessment &mdash; the exact thing your game needs most right now.</p>
         </div>
-        <div class="stage-card">
+        <div class="stage-card card">
           <p class="stage-label">Stage 2</p>
           <h3 class="stage-title">Build the Fix</h3>
           <p class="stage-body">Fix it through targeted 1-on-1 drilling. Reset mechanics, third shot consistency, kitchen game, footwork &mdash; whatever your game needs most.</p>
         </div>
-        <div class="stage-card">
+        <div class="stage-card card">
           <p class="stage-label">Stage 3</p>
           <h3 class="stage-title">Make It Stick</h3>
           <p class="stage-body">Take it into real play. Build the habits that hold under pressure, show up in your DUPR, and last more than one good practice session.</p>
@@ -87,96 +127,167 @@
 
 
   <!-- ============================================================
-       LESSONS PRIMARY CTA
+       QUIZ FEATURE CARD — second /quiz CTA
        ============================================================ -->
-  <section class="lead-capture fade-up">
+  <section class="quiz-feature fade-up">
     <div class="container">
-      <h2 class="section-headline">Book a 1-on-1 Lesson</h2>
-      <p class="section-subtext">
-        One session. One specific problem. We find exactly what&rsquo;s holding your game back &mdash; and fix it before you leave the court.
-      </p>
-      <p class="section-subtext" style="font-size:0.88rem;margin-bottom:8px;">$80 per session &middot; Multi-session packages available</p>
-      <p class="section-subtext" style="font-size:0.82rem;color:var(--gray-mid);margin-bottom:20px;">1-on-1 with a 4.9 DUPR player and DC &middot; Volusia County area</p>
-      <a href="https://forms.gle/6MXZ4vofGd27bbDP6" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book a Lesson &rarr;</a>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       SECTION 1 — FREE LEAD CAPTURE (knee guide)
-       ============================================================ -->
-  <section class="lead-capture fade-up">
-    <div class="container">
-      <h2 class="section-headline">Also free: the knee pain guide.</h2>
-      <p class="section-subtext">
-        The pickleball-specific breakdown of why your knee hurts and what to do about it. Free. Takes 5 minutes. Shows you exactly which stage of the system you&rsquo;re in.
-      </p>
-      <a href="https://stan.store/pickleballchiro/p/the-pickleball-knee-pain-fix" class="btn btn-primary" target="_blank">Get the Free Guide &rarr;</a>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       SECTION 2 — KNEE PAIN COURSE
-       ============================================================ -->
-  <section class="cta-section fade-up">
-    <div class="container">
-      <div class="cta-card">
-        <div class="cta-card-label">&#x1F9B5; The Pickleball Knee Fix &mdash; $97</div>
-        <p class="cta-card-desc">The complete pickleball-specific rehab course. Three stages, movement by movement. Built for players who want to actually fix it &mdash; not just manage it.</p>
-        <a href="https://stan.store/pickleballchiro/p/thepickleballkneefix" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Course &rarr;</a>
+      <div class="quiz-card card">
+        <p class="quiz-card-kicker">Free Self-Diagnosis</p>
+        <h2 class="quiz-card-title">Why You&rsquo;re Stuck at 3.5</h2>
+        <p class="quiz-card-desc">12 quick questions. Instant breakdown of the #1 leak in your game &mdash; first four shots, shot selection, transition zone, or the physical side.</p>
+        <a href="/quiz/" class="btn btn-primary" data-track="quiz_card">Start the Quiz <span class="arrow">&rarr;</span></a>
       </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       SECTION 3 — BOOK A SESSION
+       GOOGLE REVIEWS
        ============================================================ -->
-  <section class="booking-section fade-up">
+  <section class="reviews-section band fade-up">
     <div class="container">
-      <h2 class="section-title">Book a Session</h2>
-      <p class="location-note">&#x1F4CD; Volusia County &amp; surrounding areas &middot; Ormond Beach, FL</p>
-      <button class="btn btn-outline booking-toggle" id="booking-toggle" aria-expanded="false" aria-controls="booking-options">
-        See Local Availability <span class="toggle-arrow" aria-hidden="true">&#9660;</span>
-      </button>
-      <div id="booking-options" class="booking-options" hidden>
+      <span class="eyebrow">What Players Say</span>
+      <h2 class="section-title">Real Results, Real Reviews</h2>
+      <!-- #reviews-widget wrapper: to switch to a live Google-reviews widget later,
+           replace the inner markup with the widget embed and keep this div. -->
+      <div id="reviews-widget">
+        <div class="review-grid stagger">
 
-        <div class="booking-option">
-          <div class="booking-option-header">
-            <span class="booking-option-icon">&#x1F3D3;</span>
+          <div class="review-card card">
+            <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+            <p class="review-text">&ldquo;If you are serious about your pickleball game get a serious coach. Lane was able to correct the bad habits I developed since beginning play. He also showed me adjustments to my paddle grip that provided better ball contact and improved my serve. I highly recommend you try a few sessions.&rdquo;</p>
+            <div class="review-meta">
+              <span class="review-avatar" aria-hidden="true">M</span>
+              <div>
+                <p class="review-name">Michael Caviness</p>
+                <p class="review-source">Google review</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card card">
+            <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+            <p class="review-text">&ldquo;The results have been incredible. My knee and shoulder feel stronger and more stable, I&rsquo;m moving better on the court, and I have more confidence in my game than I&rsquo;ve had in a long time&hellip; Working with him has been one of the best investments I&rsquo;ve made in my health, mobility, and athletic performance.&rdquo;</p>
+            <div class="review-meta">
+              <span class="review-avatar" aria-hidden="true">L</span>
+              <div>
+                <p class="review-name">Laura Cadigan</p>
+                <p class="review-source">Google review</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- To add more reviews: copy a .review-card block above and paste the new text. -->
+
+        </div>
+        <a href="https://g.page/r/CenOIwS3ow1nEBM/review" class="review-google-link" target="_blank" rel="noopener noreferrer" data-track="reviews_google">Leave me a review on Google &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FREE GUIDES — email capture via Gumroad
+       ============================================================ -->
+  <section class="guides-section fade-up" id="guides">
+    <div class="container">
+      <span class="eyebrow">Free Downloads</span>
+      <h2 class="section-title">Start Fixing Your Game Today</h2>
+      <p class="section-subtext">Two free guides. Real fixes, not fluff.</p>
+      <div class="guide-grid stagger">
+
+        <a class="guide-card card" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" target="_blank" rel="noopener noreferrer" data-track="guide_35">
+          <img class="guide-thumb" src="images/guide-35.jpg" alt="Why You're Stuck at 3.5 guide cover" />
+          <span class="guide-info">
+            <span class="guide-tag">Free Guide</span>
+            <span class="guide-title">Why You&rsquo;re Stuck at 3.5</span>
+            <span class="guide-sub">The patterns capping your rating &mdash; and how to break them</span>
+          </span>
+          <span class="guide-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+        <a class="guide-card card" href="https://pickleballchiro.gumroad.com/l/kneepainguide" target="_blank" rel="noopener noreferrer" data-track="guide_knee">
+          <img class="guide-thumb" src="images/guide-knee.jpg" alt="Free Knee Pain Guide cover" />
+          <span class="guide-info">
+            <span class="guide-tag">Free Guide</span>
+            <span class="guide-title">The Knee Pain Guide</span>
+            <span class="guide-sub">Why your knee hurts on the court &mdash; and what to do about it</span>
+          </span>
+          <span class="guide-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       KNEE FIX COURSE — $44
+       ============================================================ -->
+  <section class="course-section fade-up">
+    <div class="container">
+      <div class="cta-card card">
+        <p class="cta-card-label">&#x1F9B5; The Pickleball Knee Fix &mdash; <span class="cta-card-price">$44</span></p>
+        <p class="cta-card-desc">The complete pickleball-specific rehab course. Three stages, movement by movement. Built for players who want to actually fix it &mdash; not just manage it.</p>
+        <a href="https://pickleballchiro.gumroad.com/l/thepickleballkneefix" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="course_kneefix">Get the Course <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       WORK WITH ME — 4 offers, always visible
+       ============================================================ -->
+  <section class="work-section band fade-up">
+    <div class="container">
+      <span class="eyebrow">Work With Me</span>
+      <h2 class="section-title">Ways to Train Together</h2>
+      <p class="location-note">&#x1F4CD; Volusia County &amp; surrounding areas &middot; Ormond Beach, FL &middot; Virtual coaching available anywhere</p>
+      <div class="offer-grid stagger">
+
+        <div class="offer-card card priority">
+          <div class="offer-header">
+            <span class="offer-icon">&#x1F4C8;</span>
+            <h3>90 Days to 4.0 &mdash; Virtual Coaching</h3>
+            <span class="offer-badge">Anywhere</span>
+          </div>
+          <p class="offer-desc">My structured 90-day program: game film review, custom drill programming, and weekly accountability &mdash; built to move your rating no matter where you live.</p>
+          <a href="https://app.notion.com/p/drlanepickleballchiro/90-Days-to-4-0-Dr-Lane-Odom-385a4e28e092817ea2b5c5a8d9ba3d91?source=copy_link" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="offer_90days">See the Program <span class="arrow">&rarr;</span></a>
+        </div>
+
+        <div class="offer-card card">
+          <div class="offer-header">
+            <span class="offer-icon">&#x1F3D3;</span>
             <h3>Pickleball Lessons</h3>
           </div>
           <div class="pricing-list">
             <div class="pricing-row"><span>Single Session</span><span>$80</span></div>
           </div>
-          <p class="booking-detail">1-on-1 with a 4.9 DUPR player and DC</p>
-          <p class="booking-package-note">Multi-session packages available. DM for pricing</p>
-          <a href="https://forms.gle/6MXZ4vofGd27bbDP6" class="btn btn-secondary">Book a Lesson &rarr;</a>
+          <p class="offer-detail">1-on-1 with a 4.8 DUPR player and DC. Multi-session packages available &mdash; DM for pricing.</p>
+          <a href="https://forms.gle/6MXZ4vofGd27bbDP6" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-track="offer_lesson">Apply for a Lesson <span class="arrow">&rarr;</span></a>
         </div>
 
-        <div class="booking-option">
-          <div class="booking-option-header">
-            <span class="booking-option-icon">&#x1F697;</span>
+        <div class="offer-card card">
+          <div class="offer-header">
+            <span class="offer-icon">&#x1F697;</span>
             <h3>Mobile Chiropractic</h3>
           </div>
           <div class="pricing-list">
             <div class="pricing-row"><span>60-min Session</span><span>$195</span></div>
             <div class="pricing-row"><span>90-min Session</span><span>$250</span></div>
           </div>
-          <p class="booking-package-note">Multi-session packages available. DM for pricing</p>
-          <a href="https://www.notion.so/drlanemobilechirorehab/Mobile-Chiropractic-Rehab-Care-333a4e28e09280a4b9f8df398e4dbec6?source=copy_link" class="btn btn-secondary">Book Mobile Chiro &rarr;</a>
-          <p class="booking-fine-print">Mobile visits outside a 10-mile radius of Ormond Beach. West Volusia + parts of New Smyrna Beach. DM to confirm your area first.</p>
+          <a href="https://app.notion.com/p/drlanepickleballchiro/Mobile-Chiropractic-Rehab-Care-333a4e28e09280a4b9f8df398e4dbec6?source=copy_link" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-track="offer_mobile_chiro">Book Mobile Chiro <span class="arrow">&rarr;</span></a>
+          <p class="offer-fine-print">Mobile visits outside a 10-mile radius of Ormond Beach. West Volusia + parts of New Smyrna Beach. DM to confirm your area first.</p>
         </div>
 
-        <div class="booking-option">
-          <div class="booking-option-header">
-            <span class="booking-option-icon">&#x1F3E5;</span>
+        <div class="offer-card card">
+          <div class="offer-header">
+            <span class="offer-icon">&#x1F3E5;</span>
             <h3>In-Person Chiropractic</h3>
           </div>
-          <p class="booking-location">At Insight Chiropractic, Ormond Beach</p>
-          <p class="booking-detail">Insurance accepted</p>
-          <a href="https://www.1insightchiro.com/" class="btn btn-secondary">Book In-Person Chiro &rarr;</a>
+          <p class="offer-desc">At Insight Chiropractic, Ormond Beach.</p>
+          <p class="offer-detail">Insurance accepted</p>
+          <a href="https://www.1insightchiro.com/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-track="offer_insight">Book In-Person Chiro <span class="arrow">&rarr;</span></a>
         </div>
 
       </div>
@@ -185,36 +296,70 @@
 
 
   <!-- ============================================================
-       SECTION 4 — VIRTUAL COACHING INTEREST
+       INSTAGRAM BANNER
        ============================================================ -->
-  <section class="virtual-coaching fade-up">
+  <section class="ig-section fade-up">
     <div class="container">
-      <h2 class="section-title-subtle">Interested in Online Coaching?</h2>
-      <p class="section-subtext-subtle">Exploring 1-on-1 online coaching for players outside my area: game film review, custom drill programming, and accountability check-ins. Not officially open yet &mdash; drop your info to get notified first.</p>
-      <form id="coaching-form" class="capture-form" action="https://formspree.io/f/maqaboey" method="POST" novalidate>
-        <input type="text" name="name" placeholder="Name" required autocomplete="name" />
-        <input type="email" name="email" placeholder="Email Address" required autocomplete="email" />
-        <textarea name="game_info" placeholder="Tell me about your game (optional)" rows="3"></textarea>
-        <button type="submit" class="btn btn-subtle">I&rsquo;m Interested</button>
-      </form>
-      <div id="coaching-thankyou" style="display:none;" class="thankyou-state" aria-live="polite">
-        <p class="thankyou-text">Got it! I&rsquo;ll reach out when spots open up.</p>
-      </div>
+      <a class="ig-banner card" href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="ig_banner">
+        <span class="ig-glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.4" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="17.4" cy="6.6" r="1.3" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="ig-info">
+          <span class="ig-handle">@dr.lane_o</span>
+          <span class="ig-line">Daily drills, breakdowns, and behind-the-scenes on Instagram</span>
+        </span>
+        <span class="ig-arrow" aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </section>
 
 
   <!-- ============================================================
-       SECTION 5 — GEAR / AFFILIATE
+       GEAR — 4-brand tiles (same treatment as /links)
        ============================================================ -->
-  <section class="gear-section fade-up">
+  <section class="gear-section band fade-up">
     <div class="container">
-      <h3 class="gear-header">Gear I Use &amp; Recommend</h3>
-      <p class="gear-line">Use code <strong>LANE10%</strong> at <a href="https://instagram.com/lcubedlifestyle" target="_blank" rel="noopener noreferrer">@lcubedlifestyle</a></p>
-      <p class="gear-line">
-        <a href="https://11six24.com/pickleballchiro" target="_blank" rel="noopener noreferrer">11six24 Pickleball</a>
-        &mdash; my link auto-applies code <strong>LANE</strong> at checkout
-      </p>
+      <span class="eyebrow">Gear I Use</span>
+      <h2 class="section-title">My Setup, With Discounts</h2>
+      <div class="gear-grid-main stagger">
+
+        <a class="gear-tile-main" href="https://11six24.com/pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="gear_11six24">
+          <img src="images/gear-11six24.jpg" alt="11six24 paddle" loading="lazy" />
+          <span class="gear-caption-main">
+            <span class="gear-brand-main">11six24</span>
+            <span class="gear-code-main">Code PBCHIRO</span>
+          </span>
+        </a>
+
+        <a class="gear-tile-main logo" href="https://www.udrippin.com/pbchiro" target="_blank" rel="noopener noreferrer" data-track="gear_udrippin">
+          <img src="images/gear-udrippin.jpg" alt="UDRIPPIN" loading="lazy" />
+          <span class="gear-caption-main">
+            <span class="gear-brand-main">UDRIPPIN</span>
+            <span class="gear-code-main">Code PBCHIRO15</span>
+          </span>
+        </a>
+
+        <a class="gear-tile-main" href="https://shop.hesacore.com/discount/PBCHIRO?ref=pbchiro" target="_blank" rel="noopener noreferrer" data-track="gear_hesacore">
+          <img src="images/gear-hesacore.jpg" alt="Hesacore grip" loading="lazy" />
+          <span class="gear-caption-main">
+            <span class="gear-brand-main">Hesacore</span>
+            <span class="gear-code-main">Code PBCHIRO</span>
+          </span>
+        </a>
+
+        <a class="gear-tile-main" href="https://www.lcubedlifestyle.com?sca_ref=8365911.T1OAMWMDCg" target="_blank" rel="noopener noreferrer" data-track="gear_lcubed">
+          <img src="images/gear-lcubed.jpg" alt="L Cubed Lifestyle" loading="lazy" />
+          <span class="gear-caption-main">
+            <span class="gear-brand-main">L Cubed Lifestyle</span>
+            <span class="gear-code-main">Code LANE10%</span>
+          </span>
+        </a>
+
+      </div>
     </div>
   </section>
 
@@ -225,7 +370,7 @@
   <footer class="site-footer fade-up">
     <div class="container">
       <p>&copy; 2026 Dr. Lane Odom &middot; The Pickleball Chiro</p>
-      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer">@dr.lane_o on Instagram</a>
+      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="footer_ig">@dr.lane_o on Instagram</a>
     </div>
   </footer>
 
@@ -234,7 +379,7 @@
        STICKY MOBILE CTA BAR
        ============================================================ -->
   <div class="sticky-cta-bar" id="sticky-cta-bar">
-    <a href="https://forms.gle/6MXZ4vofGd27bbDP6" class="sticky-cta-link" target="_blank" rel="noopener noreferrer">Book a Lesson &rarr;</a>
+    <a href="/quiz/" class="sticky-cta-link" data-track="sticky_quiz">Free Game Diagnosis &rarr;</a>
     <button class="sticky-cta-dismiss" id="sticky-cta-dismiss" aria-label="Dismiss">&times;</button>
   </div>
 
