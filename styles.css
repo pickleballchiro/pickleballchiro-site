@@ -1,34 +1,44 @@
 /* ============================================================
    PICKLEBALL CHIRO — styles.css
    Mobile-first. Edit brand colors in :root below.
+   Shared by / (index.html) and /links. Quiz + stats + checklist
+   are self-contained and do NOT use this file.
    ============================================================ */
 
 :root {
+  /* Brand anchor */
   --orange:        #F05A28;
-  --dark:          #1A1A1A;
-  --off-white:     #F0F0F0;
+  --orange-hot:    #FF7A45;   /* gradient top / hovers */
+  --orange-deep:   #C2410C;   /* gradient bottom / pressed */
+
+  /* Surfaces */
+  --dark:          #121316;
+  --surface:       #1B1C1F;
+  --card-bg:       #202226;
+  --gray-subtle:   #242628;
+
+  /* Text */
+  --off-white:     #F2F1EE;
   --white:         #FFFFFF;
-  --gray-mid:      #888888;
-  --gray-subtle:   #242424;
-  --card-bg:       #222222;
-  --border-subtle: #333333;
+  --gray-mid:      #9C9C9C;
+
+  /* Lines + effects */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --glow:          0 8px 28px rgba(240, 90, 40, 0.35);
+  --glow-soft:     0 4px 18px rgba(240, 90, 40, 0.22);
+
+  /* Shape + rhythm */
+  --radius-card:   14px;
+  --radius-btn:    10px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 28px;
+  --space-4: 48px;
+  --space-5: 72px;
 }
 
 /* ---- RESET ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* ============================================================
-   SCROLL FADE-IN ANIMATIONS
-   ============================================================ */
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 html { font-size: 16px; scroll-behavior: smooth; }
 
@@ -40,6 +50,26 @@ body {
   min-height: 100vh;
 }
 
+img { max-width: 100%; }
+
+/* ============================================================
+   SCROLL FADE-IN ANIMATIONS
+   ============================================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger children inside a revealed section: add .stagger to the parent */
+.stagger > * { transition-delay: 0s; }
+.fade-up.stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.fade-up.stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.fade-up.stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+
 /* ---- TYPOGRAPHY ---- */
 h1, h2, h3 {
   font-family: 'Oswald', sans-serif;
@@ -49,6 +79,36 @@ h1, h2, h3 {
   line-height: 1.15;
 }
 
+.eyebrow {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 5.5vw, 2.1rem);
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-subtext {
+  font-size: 0.92rem;
+  color: var(--gray-mid);
+  margin: 0 auto 24px;
+  text-align: center;
+  max-width: 420px;
+  line-height: 1.65;
+}
+
+.highlight { color: var(--orange); }
+
 /* ---- LAYOUT ---- */
 .container {
   max-width: 480px;
@@ -56,102 +116,55 @@ h1, h2, h3 {
   padding: 0 20px;
 }
 
-section { padding: 32px 0; }
+section { padding: var(--space-4) 0; }
 
-/* ============================================================
-   PROFILE
-   ============================================================ */
-.profile {
-  padding: 44px 0 30px;
-  text-align: center;
+/* Alternating band to break up the page */
+.band {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.profile-photo {
-  width: 114px;
-  height: 114px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--orange);
-  display: block;
-  margin: 0 auto 18px;
-}
-
-.profile-name {
-  font-size: 1.8rem;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-
-.profile-title {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--orange);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 4px;
-}
-
-.profile-subtitle {
-  font-size: 0.82rem;
-  color: var(--gray-mid);
-  margin-bottom: 12px;
-}
-
-.profile-tagline {
-  font-size: 0.94rem;
-  color: var(--off-white);
-  font-style: italic;
-  max-width: 300px;
-  margin: 0 auto 16px;
-}
-
-.instagram-handle {
-  display: inline-block;
-  color: var(--orange);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-.instagram-handle:hover { text-decoration: underline; }
-
 /* ============================================================
-   BUTTONS
+   BUTTONS  (class names shared with /links — keep them stable)
    ============================================================ */
 .btn {
   display: block;
   width: 100%;
-  padding: 15px 20px;
-  border-radius: 6px;
+  padding: 16px 22px;
+  border-radius: var(--radius-btn);
   font-family: 'Oswald', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   border: none;
-  transition: opacity 0.15s ease, transform 0.2s ease, filter 0.2s ease;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.25s ease,
+              background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.08);
-}
-.btn:active { transform: translateY(0); }
+.btn:hover  { transform: translateY(-2px); filter: brightness(1.06); }
+.btn:active { transform: translateY(0) scale(0.98); }
 
-.btn-primary { background-color: var(--orange); color: var(--white); }
-.btn-primary:hover { opacity: 0.88; }
+.btn .arrow { display: inline-block; transition: transform 0.2s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+  color: var(--white);
+  box-shadow: var(--glow-soft);
+}
+.btn-primary:hover { box-shadow: var(--glow); }
 
 .btn-secondary {
   background-color: transparent;
   color: var(--orange);
   border: 2px solid var(--orange);
 }
-.btn-secondary:hover { background-color: rgba(240,90,40,0.08); }
+.btn-secondary:hover { background-color: rgba(240, 90, 40, 0.1); }
 
 .btn-outline {
   background-color: transparent;
@@ -170,339 +183,394 @@ section { padding: 32px 0; }
 .btn-subtle:hover { border-color: var(--gray-mid); color: var(--off-white); }
 
 /* ============================================================
-   AUTHORITY SECTION — "Why Players Work With Me"
+   CARD BASE — gradient surface, subtle border, hover lift
    ============================================================ */
-.authority-section {
-  background-color: rgba(255, 255, 255, 0.04);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 28px 0;
-}
-
-.authority-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.authority-col {
-  flex: 1;
-  text-align: center;
-}
-
-.authority-icon {
-  font-size: 1.6rem;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.authority-stat {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 6px;
-}
-
-.authority-label {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--white);
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-
-.authority-desc {
-  font-size: 0.82rem;
-  color: var(--gray-mid);
-  line-height: 1.55;
-  font-style: italic;
-}
-
-@media (max-width: 480px) {
-  .authority-icon {
-    font-size: 1.3rem;
-    margin-bottom: 4px;
-  }
-}
-
-@media (min-width: 600px) {
-  .authority-grid {
-    flex-direction: row;
-    gap: 16px;
-  }
-}
-
-/* ============================================================
-   SECTION 1 — LEAD CAPTURE
-   ============================================================ */
-.lead-capture {
-  background-color: var(--gray-subtle);
-  border-radius: 10px;
-  margin: 0 16px;
-  padding: 28px 0;
-}
-
-.section-headline {
-  font-size: 1.55rem;
-  color: var(--white);
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.section-subtext {
-  font-size: 0.9rem;
-  color: var(--off-white);
-  margin: 0 auto 20px;
-  text-align: center;
-  max-width: 360px;
-}
-
-.offer-bullets {
-  list-style: none;
-  margin: 0 auto 20px;
-  max-width: 360px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: left;
-}
-
-.offer-bullets li {
-  font-size: 0.88rem;
-  color: var(--white);
-  padding-left: 18px;
-  position: relative;
-  line-height: 1.5;
-}
-
-.offer-bullets li::before {
-  content: '—';
-  color: var(--orange);
-  position: absolute;
-  left: 0;
-  font-weight: 700;
-}
-
-.capture-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.capture-form input,
-.capture-form textarea {
-  background-color: var(--dark);
+.card {
+  background: linear-gradient(180deg, #24262A, #1B1C1F);
   border: 1px solid var(--border-subtle);
-  color: var(--white);
-  padding: 13px 16px;
-  border-radius: 6px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.92rem;
-  width: 100%;
-  outline: none;
-  transition: border-color 0.15s;
-  resize: vertical;
+  border-radius: var(--radius-card);
+  padding: 22px 20px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.capture-form input:focus,
-.capture-form textarea:focus { border-color: var(--orange); }
-.capture-form input::placeholder,
-.capture-form textarea::placeholder { color: var(--gray-mid); }
-
-.lead-footnote {
-  font-size: 0.84rem;
-  color: var(--gray-mid);
-  font-style: italic;
-  text-align: center;
-  max-width: 360px;
-  margin: 0 auto 20px;
-  line-height: 1.6;
-}
-
-/* ---- Thank-you state ---- */
-.thankyou-state { text-align: center; }
-
-.thankyou-text {
-  font-size: 1rem;
-  color: var(--off-white);
-  margin-bottom: 16px;
-  font-weight: 600;
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240, 90, 40, 0.5);
+  box-shadow: var(--glow-soft);
 }
 
 /* ============================================================
-   PERFORMANCE SYSTEM SECTION
+   HERO
    ============================================================ */
-.performance-system {
-  border-top: 1px solid var(--border-subtle);
-}
-
-.performance-subtext {
-  font-size: 0.88rem;
-  color: var(--gray-mid);
+.hero {
+  position: relative;
   text-align: center;
-  margin: 8px auto 24px;
-  max-width: 400px;
-  line-height: 1.6;
+  padding: 64px 0 56px;
+  overflow: hidden;
+  /* Radial orange glow + faint diagonal court lines */
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(240, 90, 40, 0.18), transparent 60%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 90px),
+    var(--dark);
 }
 
+.hero-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--orange);
+  display: block;
+  margin: 0 auto 18px;
+  box-shadow: var(--glow-soft);
+}
+
+.hero-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 14px;
+}
+
+.hero-headline {
+  font-size: clamp(2.2rem, 8.5vw, 3.6rem);
+  color: var(--white);
+  line-height: 1.05;
+  margin: 0 auto 18px;
+  max-width: 620px;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--gray-mid);
+  max-width: 400px;
+  margin: 0 auto 22px;
+  line-height: 1.65;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.chip {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  color: var(--off-white);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-cta-wrap { max-width: 380px; margin: 0 auto; }
+
+.hero-secondary-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--gray-mid);
+  font-size: 0.88rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hero-secondary-link:hover { color: var(--off-white); }
+
+/* ============================================================
+   STAT STRIP (authority)
+   ============================================================ */
+.stat-strip { padding: var(--space-3) 0; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 7vw, 2.6rem);
+  color: var(--white);
+  line-height: 1.1;
+}
+.stat-number .highlight { color: var(--orange); }
+
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--gray-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   PERFORMANCE SYSTEM — 3 stage cards
+   ============================================================ */
 .stage-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.stage-card {
-  background-color: var(--card-bg);
-  border-left: 4px solid var(--orange);
-  border-radius: 8px;
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+.stage-card { display: flex; flex-direction: column; gap: 6px; }
 
 .stage-label {
   font-family: 'Oswald', sans-serif;
   font-size: 0.72rem;
   color: var(--orange);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-weight: 600;
 }
 
 .stage-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--white);
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: 1.15;
 }
 
 .stage-body {
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   color: var(--off-white);
-  line-height: 1.55;
-}
-
-@media (min-width: 600px) {
-  .stage-grid {
-    flex-direction: row;
-    gap: 12px;
-  }
-  .stage-card {
-    flex: 1;
-  }
+  line-height: 1.6;
 }
 
 /* ============================================================
-   SECTION 2 — CTA CARD (Knee Pain Guide)
+   QUIZ FEATURE CARD
    ============================================================ */
-.cta-card {
-  background-color: var(--card-bg);
-  border-left: 4px solid var(--orange);
-  border-radius: 8px;
-  padding: 22px 20px;
+.quiz-card {
+  text-align: center;
+  padding: 30px 24px;
+  border-color: rgba(240, 90, 40, 0.35);
+}
+
+.quiz-card-kicker {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 10px;
+}
+
+.quiz-card-title {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.quiz-card-desc {
+  font-size: 0.9rem;
+  color: var(--gray-mid);
+  max-width: 380px;
+  margin: 0 auto 20px;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   GOOGLE REVIEWS
+   ============================================================ */
+.review-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 14px;
+  margin-bottom: 20px;
 }
-.cta-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+.review-card { display: flex; flex-direction: column; gap: 10px; }
+
+.review-stars {
+  color: #FFB021;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
 }
+
+.review-text {
+  font-size: 0.88rem;
+  color: var(--off-white);
+  line-height: 1.65;
+}
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.review-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.review-source { font-size: 0.74rem; color: var(--gray-mid); }
+
+.review-google-link {
+  display: block;
+  text-align: center;
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.review-google-link:hover { text-decoration: underline; }
+
+/* ============================================================
+   GUIDE CARDS (free lead magnets)
+   ============================================================ */
+.guide-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.guide-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  padding: 16px;
+}
+
+.guide-thumb {
+  width: 74px;
+  height: 74px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: var(--gray-subtle);
+}
+
+.guide-info { flex: 1; }
+
+.guide-tag {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.66rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.guide-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+.guide-sub {
+  font-size: 0.78rem;
+  color: var(--gray-mid);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.guide-arrow {
+  color: var(--orange);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.guide-card:hover .guide-arrow { transform: translateX(4px); }
+
+/* ============================================================
+   COURSE / OFFER CTA CARD
+   ============================================================ */
+.cta-card { display: flex; flex-direction: column; gap: 12px; }
 
 .cta-card-label {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--white);
 }
 
+.cta-card-price { color: var(--orange); }
+
 .cta-card-desc {
   font-size: 0.88rem;
   color: var(--off-white);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* ============================================================
-   SECTION 3 — BOOKING
+   WORK WITH ME — offer cards
    ============================================================ */
-.booking-section {
-  border-top: 1px solid var(--border-subtle);
-}
-
-.section-title {
-  font-size: 1.4rem;
-  color: var(--white);
-  text-align: center;
-  margin-bottom: 6px;
-}
-
-.location-note {
-  font-size: 0.8rem;
-  color: var(--gray-mid);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.toggle-arrow {
-  display: inline-block;
-  margin-left: 8px;
-  font-style: normal;
-  transition: transform 0.2s ease;
-}
-.booking-toggle[aria-expanded="true"] .toggle-arrow { transform: rotate(180deg); }
-
-.booking-options {
-  margin-top: 16px;
+.offer-grid {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.booking-option {
-  background-color: var(--card-bg);
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.booking-option:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+.offer-card { display: flex; flex-direction: column; gap: 10px; }
+
+.offer-card.priority {
+  border-color: rgba(240, 90, 40, 0.55);
+  box-shadow: var(--glow-soft);
 }
 
-.booking-option-header {
+.offer-header {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.booking-option-icon { font-size: 1.3rem; }
-.booking-option-header h3 {
-  font-size: 1rem;
+.offer-icon { font-size: 1.3rem; }
+.offer-header h3 { font-size: 1.05rem; color: var(--white); }
+
+.offer-badge {
+  margin-left: auto;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.62rem;
   color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+  padding: 4px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
 }
 
-.booking-location,
-.booking-note { font-size: 0.82rem; color: var(--gray-mid); }
-.booking-detail { font-size: 0.84rem; color: var(--off-white); }
+.offer-desc { font-size: 0.85rem; color: var(--off-white); line-height: 1.6; }
+.offer-detail { font-size: 0.8rem; color: var(--gray-mid); }
 
 .pricing-list {
-  background-color: rgba(0,0,0,0.25);
-  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
   padding: 12px 14px;
   display: flex;
   flex-direction: column;
@@ -515,93 +583,140 @@ section { padding: 32px 0; }
   font-size: 0.86rem;
   color: var(--off-white);
 }
-.pricing-row.upgrade {
-  font-size: 0.8rem;
-  color: var(--gray-mid);
-  padding-top: 6px;
-  border-top: 1px solid var(--border-subtle);
-  margin-top: 2px;
-}
 
-.booking-package-note { font-size: 0.8rem; color: var(--gray-mid); }
-
-.booking-fine-print {
+.offer-fine-print {
   font-size: 0.73rem;
   color: var(--gray-mid);
   line-height: 1.55;
-  opacity: 0.65;
-  padding-top: 6px;
+  opacity: 0.75;
+  padding-top: 8px;
   border-top: 1px solid var(--border-subtle);
+}
+
+.location-note {
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+  text-align: center;
+  margin-bottom: 22px;
 }
 
 /* ============================================================
-   SECTION 4 — VIRTUAL COACHING (subtle)
+   INSTAGRAM BANNER
    ============================================================ */
-.virtual-coaching {
-  border-top: 1px solid var(--border-subtle);
+.ig-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  padding: 22px 20px;
 }
 
-.section-title-subtle {
-  font-size: 1.05rem;
-  color: var(--gray-mid);
-  text-align: center;
-  margin-bottom: 8px;
+.ig-glyph {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--glow-soft);
+}
+.ig-glyph svg { width: 28px; height: 28px; }
+
+.ig-info { flex: 1; }
+
+.ig-handle {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
 }
 
-.section-subtext-subtle {
-  font-size: 0.83rem;
-  color: var(--gray-mid);
-  text-align: center;
-  margin-bottom: 18px;
-  line-height: 1.6;
+.ig-line { font-size: 0.8rem; color: var(--gray-mid); margin-top: 2px; line-height: 1.5; }
+
+.ig-arrow {
+  color: var(--orange);
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
+.ig-banner:hover .ig-arrow { transform: translateX(5px); }
 
 /* ============================================================
-   SECTION 5 — GEAR (minimal)
+   GEAR TILES (matches /links treatment)
    ============================================================ */
-.gear-section {
-  border-top: 1px solid var(--border-subtle);
-  padding: 22px 0;
-  text-align: center;
+.gear-grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-.gear-header {
-  font-size: 0.75rem;
-  color: var(--gray-mid);
+.gear-tile-main {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.gear-tile-main:hover {
+  transform: translateY(-3px);
+  border-color: rgba(240, 90, 40, 0.5);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38);
+}
+.gear-tile-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.gear-caption-main {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0));
+  padding: 22px 12px 10px;
+  text-align: left;
+}
+.gear-brand-main {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--white);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+  display: block;
 }
+.gear-code-main { font-size: 0.72rem; color: var(--orange); font-weight: 600; }
 
-.gear-line {
-  font-size: 0.82rem;
-  color: var(--gray-mid);
-  margin-bottom: 5px;
-}
-.gear-line a { color: var(--gray-mid); text-decoration: underline; }
-.gear-line a:hover { color: var(--off-white); }
-.gear-line strong { color: var(--off-white); }
+/* Logo-on-white tiles (e.g. UDRIPPIN) */
+.gear-tile-main.logo { background: #fff; }
+.gear-tile-main.logo .gear-caption-main { background: rgba(0, 0, 0, 0.82); padding-top: 12px; }
+.gear-tile-main.logo .gear-brand-main { display: none; }
 
 /* ============================================================
    FOOTER
    ============================================================ */
 .site-footer {
   border-top: 1px solid var(--border-subtle);
-  padding: 22px 0;
+  padding: 26px 0;
   text-align: center;
 }
 .site-footer p { font-size: 0.76rem; color: var(--gray-mid); margin-bottom: 6px; }
-.site-footer a { font-size: 0.82rem; color: var(--orange); text-decoration: none; }
+.site-footer a { font-size: 0.84rem; color: var(--orange); text-decoration: none; font-weight: 600; }
 .site-footer a:hover { text-decoration: underline; }
 
-/* Sticky Mobile CTA Bar */
+/* ============================================================
+   STICKY MOBILE CTA BAR
+   ============================================================ */
 .sticky-cta-bar {
   display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: var(--orange);
+  background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.4);
   z-index: 999;
   align-items: center;
   justify-content: center;
@@ -610,21 +725,17 @@ section { padding: 32px 0; }
 }
 
 @media (max-width: 768px) {
-  .sticky-cta-bar {
-    display: flex;
-  }
-  body {
-    padding-bottom: 56px;
-  }
+  .sticky-cta-bar { display: flex; }
+  body { padding-bottom: 56px; }
 }
 
 .sticky-cta-link {
   color: var(--white);
   font-family: 'Oswald', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-decoration: none;
   flex: 1;
   text-align: center;
@@ -644,12 +755,42 @@ section { padding: 32px 0; }
 .sticky-cta-dismiss:hover { opacity: 1; }
 
 /* ============================================================
-   DESKTOP (secondary)
+   DESKTOP
    ============================================================ */
-@media (min-width: 600px) {
-  .container { max-width: 540px; }
-  .lead-capture { margin: 0; }
-  .profile-name { font-size: 2.1rem; }
-  .section-headline { font-size: 1.8rem; }
-  .cta-card-label { font-size: 1.2rem; }
+@media (min-width: 700px) {
+  .container { max-width: 720px; }
+
+  .hero { padding: 88px 0 72px; }
+
+  .stage-grid { flex-direction: row; }
+  .stage-card { flex: 1; }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .offer-card.priority { grid-column: 1 / -1; }
+
+  .gear-grid-main { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up { opacity: 1; transform: none; transition: none; }
+  .btn, .card, .guide-arrow, .ig-arrow, .btn .arrow { transition: none; }
+  .btn:hover, .card:hover, .gear-tile-main:hover { transform: none; }
 }
