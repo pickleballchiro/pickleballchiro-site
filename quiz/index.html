@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<!--
+  ================================================================
+  WHY YOU'RE STUCK AT 3.5 — SELF-DIAGNOSIS QUIZ
+  Lives at pickleballchiro.co/quiz/ (canonical copy).
+  ================================================================
+
+  QUICK EDIT GUIDE (no coding knowledge needed):
+  -----------------------------------------------
+
+  1. BOOKING LINK
+     Search for: BOOKING_LINK =
+     Change the value in quotes to your real booking URL.
+     It only appears once — one change updates all buttons.
+
+  2. RESULT COPY (the text shown after the quiz)
+     Search for: const results =
+     Each category has: headline, body, ctaHeader, ctaBody.
+     Edit the text between the backtick characters (`...`).
+
+  3. QUESTIONS & ANSWERS
+     Search for: const questions =
+     Each question has a "text" field and "answers" array.
+     Points (1/2/3) control the scoring — don't change those.
+
+  4. COLORS
+     Search for: :root {
+     --orange is the brand accent color (buttons, highlights).
+     --dark is the page background.
+     --card is the card/surface color.
+
+  ================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free 12-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro. Find out exactly which part of your game is holding you back from breaking through to 4.0.">
+  <title>Why You're Stuck at 3.5 — Free Self-Diagnosis · The Pickleball Chiro</title>
+  <link rel="canonical" href="https://pickleballchiro.co/quiz/">
+
+  <!-- Favicon: orange pickleball -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23F05A28'/%3E%3Ccircle cx='38' cy='34' r='7' fill='%23C2410C'/%3E%3Ccircle cx='64' cy='42' r='7' fill='%23C2410C'/%3E%3Ccircle cx='46' cy='62' r='7' fill='%23C2410C'/%3E%3Ccircle cx='70' cy='68' r='7' fill='%23C2410C'/%3E%3C/svg%3E" />
+
+  <!-- Social link previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pickleballchiro.co/quiz/" />
+  <meta property="og:title" content="Why You're Stuck at 3.5 — Free Self-Diagnosis" />
+  <meta property="og:description" content="12 questions. Instant breakdown of the #1 leak in your pickleball game. By Dr. Lane Odom, The Pickleball Chiro." />
+  <meta property="og:image" content="https://pickleballchiro.co/images/profile.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Why You're Stuck at 3.5 — Free Self-Diagnosis" />
+  <meta name="twitter:description" content="12 questions. Instant breakdown of the #1 leak in your pickleball game." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV3RTC7XXK"></script>
+  <script src="/analytics.js"></script>
+
+  <style>
+    /* ============================================================
+       COLORS — matches the main Pickleball Chiro brand palette
+       ============================================================ */
+    :root {
+      --orange:        #F05A28;   /* brand accent */
+      --orange-hot:    #FF7A45;   /* gradient top */
+      --orange-deep:   #C2410C;   /* gradient bottom / pressed */
+      --dark:          #121316;   /* page background */
+      --card:          #202226;   /* card / elevated surface */
+      --card-mid:      #26282D;   /* answer button hover */
+      --border:        rgba(255,255,255,0.09);  /* subtle borders */
+      --white:         #FFFFFF;   /* headings */
+      --off-white:     #F2F1EE;   /* body text */
+      --gray-mid:      #9C9C9C;   /* muted text */
+      --radius:        12px;
+      --glow:          0 8px 28px rgba(240,90,40,0.35);
+      --glow-soft:     0 4px 18px rgba(240,90,40,0.22);
+      --shadow-card:   0 1px 4px rgba(0,0,0,0.4), 0 4px 14px rgba(0,0,0,0.3);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(ellipse 120% 50% at 50% -8%, rgba(240,90,40,0.14), transparent 60%),
+        var(--dark);
+      color: var(--off-white);
+      display: flex;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Layout shell ── */
+    .shell {
+      width: 100%;
+      max-width: 480px;
+      height: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: transparent;
+    }
+
+    /* ── Home link ── */
+    .home-row {
+      padding: 12px 24px 0;
+      flex-shrink: 0;
+    }
+    .home-row a {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      text-decoration: none;
+      transition: color 0.14s;
+    }
+    .home-row a:hover { color: var(--orange); }
+
+    /* ── Progress bar ── */
+    .progress-rail {
+      height: 4px;
+      background: var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      flex-shrink: 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange-deep), var(--orange-hot));
+      border-radius: 0 2px 2px 0;
+      box-shadow: 0 0 10px rgba(240,90,40,0.55);
+      transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: width;
+    }
+
+    /* ── Question counter ── */
+    .q-counter {
+      padding: 14px 24px 0;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+
+    /* ── Screen wrapper ── */
+    .screens {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      min-height: 0; /* lets flex child shrink below content size */
+    }
+
+    /* All screens are always position:absolute — no document-flow stacking */
+    .screen {
+      position: absolute;
+      inset: 0;
+      padding: 24px 24px 48px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transform: translateX(40px);
+      transition: opacity 0.26s ease, transform 0.26s ease, visibility 0s linear 0.26s;
+    }
+    .screen.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+      visibility: visible;
+      transition: opacity 0.26s ease, transform 0.26s ease, visibility 0s linear 0s;
+    }
+    .screen.exit-left  { opacity: 0; transform: translateX(-40px); visibility: hidden; }
+    .screen.exit-right { opacity: 0; transform: translateX(40px);  visibility: hidden; }
+
+    /* ── Intro screen ── */
+    .intro-wrap {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: calc(100dvh - 100px); /* fallback for older browsers */
+      padding-top: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 99px;
+      width: fit-content;
+      margin-bottom: 28px;
+      box-shadow: var(--glow-soft);
+    }
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .intro-headline {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.1rem, 8vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+    .intro-headline span { color: var(--orange); }
+
+    .intro-sub {
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: var(--gray-mid);
+      margin-bottom: 40px;
+    }
+
+    .intro-footer {
+      margin-top: auto;
+      padding-top: 24px;
+    }
+
+    .intro-meta {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--gray-mid);
+      margin-top: 14px;
+    }
+
+    /* ── Question screen ── */
+    .q-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.25rem, 5vw, 1.5rem);
+      font-weight: 600;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Staggered entrance for answer cards (delay set inline per button) */
+    @keyframes answerIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .answer-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      background: linear-gradient(180deg, #24262A, #1B1C1F);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--off-white);
+      cursor: pointer;
+      transition: border-color 0.14s, background 0.14s, transform 0.1s, box-shadow 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      animation: answerIn 0.32s ease both;
+    }
+    .answer-btn:hover {
+      border-color: rgba(240,90,40,0.55);
+      background: var(--card-mid);
+      box-shadow: var(--glow-soft);
+    }
+    .answer-btn:active { transform: scale(0.975); }
+    .answer-btn.selected {
+      border-color: var(--orange);
+      background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+      color: var(--white);
+      box-shadow: var(--glow);
+    }
+
+    /* ── Back button ── */
+    .back-btn {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-mid);
+      cursor: pointer;
+      padding: 8px 0;
+      margin-top: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.14s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .back-btn.visible { display: flex; }
+    .back-btn:hover { color: var(--off-white); }
+    .back-icon {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Primary button ── */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      padding: 17px 20px;
+      background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: var(--glow-soft);
+      transition: box-shadow 0.2s, transform 0.1s, filter 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-primary:hover { filter: brightness(1.07); box-shadow: var(--glow); }
+    .btn-primary:active { transform: scale(0.975); }
+
+    /* ── Result screen ── */
+    .result-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+      box-shadow: var(--glow-soft);
+    }
+
+    .result-headline {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.5rem, 6vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.12;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .result-body {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--gray-mid);
+      margin-bottom: 28px;
+    }
+
+    /* Score breakdown */
+    .score-section {
+      margin-bottom: 28px;
+      background: linear-gradient(180deg, #24262A, #1B1C1F);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px 14px;
+    }
+    .score-section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 14px;
+    }
+    .score-row { margin-bottom: 12px; }
+    .score-row:last-child { margin-bottom: 0; }
+    .score-row-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 5px;
+    }
+    .score-cat-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--off-white);
+    }
+    .score-cat-name.lowest { color: var(--white); }
+    .score-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gray-mid);
+    }
+    .score-num.lowest { color: var(--orange); }
+    .score-track {
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .score-bar {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--border);
+      width: 0%;
+      transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .score-bar.filled         { background: #44464B; }
+    .score-bar.filled.lowest  {
+      background: linear-gradient(90deg, var(--orange-deep), var(--orange-hot));
+      box-shadow: 0 0 8px rgba(240,90,40,0.5);
+    }
+
+    /* CTA card */
+    .cta-card {
+      background: linear-gradient(180deg, #24262A, #1B1C1F);
+      border: 1px solid rgba(240,90,40,0.4);
+      border-radius: var(--radius);
+      padding: 22px 20px 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--glow-soft);
+    }
+    .cta-card-header {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .cta-card-body {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--gray-mid);
+      margin-bottom: 18px;
+    }
+
+    .footage-note {
+      font-size: 0.73rem;
+      color: var(--gray-mid);
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    /* ── Utility ── */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+    }
+
+    @media (min-width: 480px) {
+      .shell { border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+      .intro-wrap { min-height: auto; }
+      .intro-footer { padding-top: 12px; }
+    }
+
+    /* ── Reduced motion: keep everything visible, drop the movement ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .screen, .screen.active { transition: opacity 0.01s, visibility 0s; transform: none; }
+      .answer-btn { animation: none; }
+      .score-bar { transition: none; }
+      .progress-fill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Home link back to the main site -->
+  <div class="home-row">
+    <a href="/" data-track="quiz_home">&larr; pickleballchiro.co</a>
+  </div>
+
+  <!-- Progress bar (hidden until quiz starts) -->
+  <div class="progress-rail" id="progressRail" aria-hidden="true" style="background:transparent">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+
+  <!-- Question counter (hidden until quiz starts) -->
+  <div class="q-counter" id="qCounter" aria-live="polite" style="visibility:hidden"></div>
+
+  <!-- Screen container -->
+  <div class="screens" id="screens">
+
+    <!-- ── SCREEN: Intro ── -->
+    <div class="screen active" id="screen-intro" role="main">
+      <div class="intro-wrap">
+        <div class="badge"><span class="badge-dot"></span>Free Self-Diagnosis</div>
+        <h1 class="intro-headline">Why Are You Stuck at&nbsp;<span>3.5</span>?</h1>
+        <p class="intro-sub">Your rating is an average. This takes 3 minutes and shows you exactly which part of your game is dragging it&nbsp;down.</p>
+        <div class="intro-footer">
+          <button class="btn-primary" onclick="startQuiz()" data-track="quiz_start">Start My Diagnosis</button>
+          <p class="intro-meta">12 questions &nbsp;·&nbsp; No email required</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCREEN: Question ── -->
+    <div class="screen" id="screen-question">
+      <h2 class="q-text" id="qText"></h2>
+      <div class="answers" id="answersContainer" role="list"></div>
+      <button class="back-btn" id="backBtn" onclick="goBack()" aria-label="Go back to previous question">
+        <svg class="back-icon" viewBox="0 0 18 18"><polyline points="11 14 6 9 11 4"/></svg>
+        Back
+      </button>
+    </div>
+
+    <!-- ── SCREEN: Result ── -->
+    <div class="screen" id="screen-result">
+      <div id="resultContent"></div>
+    </div>
+
+  </div><!-- /screens -->
+</div><!-- /shell -->
+
+<script>
+// ============================================================
+//  BOOKING LINK — change this one line to update all buttons
+// ============================================================
+const BOOKING_LINK = "https://calendly.com/pbchiro/free-game-diagnosis";
+
+// ============================================================
+//  QUESTIONS
+// ============================================================
+const questions = [
+
+  // ── Category: first_four_shots ──
+  {
+    category: "first_four_shots",
+    text: "When you serve, what usually happens?",
+    answers: [
+      { text: "My opponent attacks it easily",                          points: 1 },
+      { text: "It's fine, but it doesn't really do anything for me",   points: 2 },
+      { text: "I consistently push them back and set up the point",    points: 3 }
+    ]
+  },
+  {
+    category: "first_four_shots",
+    text: "On your return of serve, where does the ball usually end up?",
+    answers: [
+      { text: "Short or in the middle — sets up an easy attack for them", points: 1 },
+      { text: "Deep, but not very controlled",                            points: 2 },
+      { text: "Deep and placed where I want it",                         points: 3 }
+    ]
+  },
+  {
+    category: "first_four_shots",
+    text: "Your third shot — the one that's supposed to get you to the kitchen — what happens most often?",
+    answers: [
+      { text: "It lands short, hard, or in the net before I even get moving", points: 1 },
+      { text: "It works sometimes but breaks down under pressure",             points: 2 },
+      { text: "I land it and get to the line consistently",                   points: 3 }
+    ]
+  },
+
+  // ── Category: shot_selection ──
+  {
+    category: "shot_selection",
+    text: "When a ball comes at you below your waist, what's your instinct?",
+    answers: [
+      { text: "I usually try to attack it anyway", points: 1 },
+      { text: "I freeze for a second deciding",    points: 2 },
+      { text: "I reset it without thinking",       points: 3 }
+    ]
+  },
+  {
+    category: "shot_selection",
+    text: "After you reset or dink, what usually happens next?",
+    answers: [
+      { text: "I don't really have a next move, I just hope",         points: 1 },
+      { text: "I sometimes find an opening",                          points: 2 },
+      { text: "I look for the next ball to attack and usually find it", points: 3 }
+    ]
+  },
+  {
+    category: "shot_selection",
+    text: "How often do you feel like you 'didn't mean to hit it that hard' or get caught off guard by your own shot?",
+    answers: [
+      { text: "Often",     points: 1 },
+      { text: "Sometimes", points: 2 },
+      { text: "Rarely",    points: 3 }
+    ]
+  },
+
+  // ── Category: transition_zone ──
+  {
+    category: "transition_zone",
+    text: "After your third shot, what do you usually do?",
+    answers: [
+      { text: "I'm stuck halfway — not at the baseline, not at the kitchen", points: 1 },
+      { text: "I get there eventually but feel rushed",                       points: 2 },
+      { text: "I move up with purpose and get set before the next shot",      points: 3 }
+    ]
+  },
+  {
+    category: "transition_zone",
+    text: "When a ball comes fast at your feet while you're moving forward, what happens?",
+    answers: [
+      { text: "I usually mishit it or pop it up", points: 1 },
+      { text: "I get it back sometimes",          points: 2 },
+      { text: "I handle it fine",                 points: 3 }
+    ]
+  },
+  {
+    category: "transition_zone",
+    text: "How often do you feel like you're 'a step behind' during a point?",
+    answers: [
+      { text: "Most points", points: 1 },
+      { text: "Some points", points: 2 },
+      { text: "Rarely",      points: 3 }
+    ]
+  },
+
+  // ── Category: physical ──
+  {
+    category: "physical",
+    text: "How does your game change between game one and game three of the same session?",
+    answers: [
+      { text: "Noticeably worse — I get sloppy or sore", points: 1 },
+      { text: "A little worse",                          points: 2 },
+      { text: "Basically the same",                      points: 3 }
+    ]
+  },
+  {
+    category: "physical",
+    text: "Do you do anything physical off the court (mobility, strength, conditioning) to support your game?",
+    answers: [
+      { text: "Nothing",                    points: 1 },
+      { text: "A little, not consistent",   points: 2 },
+      { text: "Yes, regularly",             points: 3 }
+    ]
+  },
+  {
+    category: "physical",
+    text: "Do you have any nagging stiffness, pain, or 'that's just how my body feels now' spots that affect how you move on court?",
+    answers: [
+      { text: "Yes, and I just play around it",          points: 1 },
+      { text: "A little, but it doesn't really limit me", points: 2 },
+      { text: "No",                                       points: 3 }
+    ]
+  }
+
+];
+
+// ============================================================
+//  RESULT COPY — edit the text between backticks
+// ============================================================
+const CATEGORY_NAMES = {
+  first_four_shots: "First Four Shots",
+  shot_selection:   "Shot Selection",
+  transition_zone:  "Transition Zone",
+  physical:         "Physical"
+};
+
+const results = {
+
+  first_four_shots: {
+    headline: "Your Game Is Capped Before the Rally Even Starts",
+    body: `Here's the truth: it doesn't matter how good your dinks are if you never get to hit one. Your serve, return, and third shot are where most points at your level are actually decided — and right now, that's where your game is leaking. You could spend the next six months drilling dinks and your rating wouldn't move, because the dink rally isn't where you're losing. This is fixable, and it's usually faster to fix than people expect.`,
+    ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
+    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you precisely what's capping your first four shots and what to do about it."
+  },
+
+  shot_selection: {
+    headline: "You're Guessing, Not Deciding",
+    body: `Every shot in pickleball is a decision: attack or reset. Right now, you don't have a clear rule for making that call, so you're guessing in real time — and guessing under pressure usually goes wrong. This isn't about athleticism or hand-eye coordination. It's about building a simple decision framework so your hands know what to do before your brain has to think about it.`,
+    ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
+    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly where your decision-making is breaking down and how to fix it."
+  },
+
+  transition_zone: {
+    headline: "You're Living in No-Man's-Land",
+    body: `The transition zone — the space between the baseline and the kitchen — is where more points get lost than anywhere else on the court. If you're getting caught in between, rushed, or a step behind, this is almost certainly your biggest leak. It's also one of the most fixable things in your entire game, because it's about footwork patterns, not talent.`,
+    ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
+    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening with your footwork and positioning, and how to fix it."
+  },
+
+  physical: {
+    headline: "Your Technique Works in Warmup. It's Not Surviving the Match.",
+    body: `If your game falls apart by game three, that's not a mental toughness problem — it's a body problem. The movements pickleball demands (the low dig, the lateral recovery step, the controlled reset) all have a physical floor most players never build off the court. You can drill the right technique for months, but if your body can't hold up under fatigue, it'll break down exactly when it matters most. As a Doctor of Chiropractic who also competes at a high level, this is the gap I see most often — and it's completely fixable.`,
+    ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
+    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening and how to fix it."
+  },
+
+  tie: {
+    headline: "You've Got Two Things Capping You — And They're Connected",
+    body: `Your results show two areas pulling your average down at the same time. That's common, and it's usually not a coincidence — these things tend to feed each other. The good news: fixing one often makes the other easier to fix too.`,
+    ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
+    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening and how the two connect."
+  }
+
+};
+
+// ============================================================
+//  STATE
+// ============================================================
+let currentQ    = 0;
+let answers     = [];   // answers[i] = points chosen for question i
+let busy        = false;
+
+// ============================================================
+//  ENTRY
+// ============================================================
+function startQuiz() {
+  currentQ = 0;
+  answers  = [];
+  showProgress(true);
+  updateProgress();
+  switchScreen("screen-intro", "screen-question", false, () => renderQuestion(0));
+}
+
+// ============================================================
+//  RENDER A QUESTION
+// ============================================================
+function renderQuestion(index) {
+  const q = questions[index];
+
+  document.getElementById("qText").textContent = q.text;
+
+  const container = document.getElementById("answersContainer");
+  container.innerHTML = "";
+
+  q.answers.forEach((a, i) => {
+    const btn = document.createElement("button");
+    btn.className = "answer-btn";
+    btn.setAttribute("role", "listitem");
+    btn.style.animationDelay = (i * 0.06) + "s";  // staggered entrance
+    btn.textContent = a.text;
+    if (answers[index] === a.points) btn.classList.add("selected");
+
+    btn.addEventListener("click", () => pickAnswer(index, a.points, btn));
+    container.appendChild(btn);
+  });
+
+  const backBtn = document.getElementById("backBtn");
+  backBtn.className = index === 0 ? "back-btn" : "back-btn visible";
+
+  updateProgress();
+}
+
+// ============================================================
+//  PICK AN ANSWER
+// ============================================================
+function pickAnswer(qIndex, points, btn) {
+  if (busy) return;
+
+  // Visual tap feedback
+  btn.classList.add("selected");
+  answers[qIndex] = points;
+
+  setTimeout(() => {
+    if (qIndex < questions.length - 1) {
+      // Fade content within the same screen, then show next question
+      const nextIndex = qIndex + 1;
+      fadeContent(() => {
+        currentQ = nextIndex;
+        renderQuestion(nextIndex);
+      });
+    } else {
+      showResults();
+    }
+  }, 180);
+}
+
+// ============================================================
+//  BACK
+// ============================================================
+function goBack() {
+  if (busy) return;
+  if (currentQ === 0) {
+    showProgress(false);
+    switchScreen("screen-question", "screen-intro", true);
+    return;
+  }
+  const prevIndex = currentQ - 1;
+  fadeContent(() => {
+    currentQ = prevIndex;
+    renderQuestion(prevIndex);
+  }, true);
+}
+
+// ============================================================
+//  COMPUTE & SHOW RESULTS
+// ============================================================
+function showResults() {
+  const scores = { first_four_shots: 0, shot_selection: 0, transition_zone: 0, physical: 0 };
+  questions.forEach((q, i) => { if (answers[i] !== undefined) scores[q.category] += answers[i]; });
+
+  const min        = Math.min(...Object.values(scores));
+  const lowestCats = Object.keys(scores).filter(k => scores[k] === min);
+  const key        = lowestCats.length > 1 ? "tie" : lowestCats[0];
+  const r          = results[key];
+
+  // Build score bars HTML
+  const barsHTML = Object.entries(scores).map(([cat, score]) => {
+    const isLow  = lowestCats.includes(cat);
+    const pctTgt = Math.round((score / 9) * 100);
+    return `
+      <div class="score-row">
+        <div class="score-row-meta">
+          <span class="score-cat-name ${isLow ? "lowest" : ""}">${CATEGORY_NAMES[cat]}</span>
+          <span class="score-num ${isLow ? "lowest" : ""}">${score}/9</span>
+        </div>
+        <div class="score-track">
+          <div class="score-bar filled ${isLow ? "lowest" : ""}" data-target="${pctTgt}"></div>
+        </div>
+      </div>`;
+  }).join("");
+
+  document.getElementById("resultContent").innerHTML = `
+    <div class="result-tag">Your Diagnosis</div>
+    <h2 class="result-headline">${r.headline}</h2>
+    <p class="result-body">${r.body}</p>
+    <div class="score-section">
+      <p class="score-section-label">Your score breakdown</p>
+      ${barsHTML}
+    </div>
+    <div class="cta-card">
+      <p class="cta-card-header">${r.ctaHeader}</p>
+      <p class="cta-card-body">${r.ctaBody}</p>
+      <a href="${BOOKING_LINK}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-track="quiz_calendly_cta">Book My Free Game Diagnosis</a>
+    </div>
+    <p class="footage-note">This call involves reviewing real footage of your game — I'll send you simple instructions after you book.</p>
+  `;
+
+  // Log completion to GA4 with the diagnosed category
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "quiz_complete", { result: key });
+  }
+
+  showProgress(false);
+  switchScreen("screen-question", "screen-result", false, () => {
+    // Animate bars after screen transition settles
+    setTimeout(() => {
+      document.querySelectorAll(".score-bar[data-target]").forEach(bar => {
+        bar.style.width = bar.dataset.target + "%";
+      });
+    }, 80);
+  });
+}
+
+// ============================================================
+//  PROGRESS BAR
+// ============================================================
+function showProgress(on) {
+  const rail    = document.getElementById("progressRail");
+  const counter = document.getElementById("qCounter");
+  rail.style.background   = on ? "" : "transparent";
+  counter.style.visibility = on ? "visible" : "hidden";
+}
+
+function updateProgress() {
+  const pct = (currentQ / questions.length) * 100;
+  document.getElementById("progressFill").style.width = pct + "%";
+  document.getElementById("qCounter").textContent =
+    `Question ${currentQ + 1} of ${questions.length}`;
+}
+
+// ============================================================
+//  TRANSITIONS
+// ============================================================
+
+// Fade content within screen-question (question → question)
+function fadeContent(callback, reverse = false) {
+  if (busy) return;
+  busy = true;
+  const scr = document.getElementById("screen-question");
+  scr.style.transition = "opacity 0.16s ease";
+  scr.style.opacity = "0";
+  setTimeout(() => {
+    if (callback) callback();
+    scr.style.opacity = "1";
+    setTimeout(() => {
+      scr.style.transition = "";
+      busy = false;
+    }, 160);
+  }, 160);
+}
+
+// Slide between different screens
+function switchScreen(fromId, toId, reverse, callback) {
+  if (busy) return;
+  busy = true;
+
+  const from = document.getElementById(fromId);
+  const to   = document.getElementById(toId);
+
+  // Backward transitions need to enter from the left; set before it becomes visible
+  if (reverse) to.style.transform = "translateX(-40px)";
+
+  // Exit the current screen
+  from.classList.add(reverse ? "exit-right" : "exit-left");
+  from.classList.remove("active");
+
+  setTimeout(() => {
+    from.classList.remove("exit-left", "exit-right");
+    to.scrollTop = 0;
+    if (callback) callback();
+
+    // Adding active makes visibility:visible and triggers CSS transition
+    to.classList.add("active");
+
+    // For backward: flush current position then clear inline override so
+    // the CSS transition animates from -40px → 0
+    if (reverse) {
+      to.getBoundingClientRect();
+      to.style.transform = "";
+    }
+
+    setTimeout(() => { busy = false; }, 280);
+  }, 220);
+}
+
+// ============================================================
+//  CLICK TRACKING — mirrors main.js (localStorage + GA4)
+// ============================================================
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("[data-track]");
+  if (!target) return;
+  const label = target.getAttribute("data-track");
+  const event = { event: "click", label: label, timestamp: new Date().toISOString() };
+  console.log("[Pickleball Chiro Analytics]", event);
+  const stored = JSON.parse(localStorage.getItem("pb_events") || "[]");
+  stored.push(event);
+  localStorage.setItem("pb_events", JSON.stringify(stored));
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "cta_click", { label: label });
+  }
+});
+</script>
+</body>
+</html>
