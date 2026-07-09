@@ -519,11 +519,14 @@ function renderRecent(d) {
     </div>`;
   };
 
+  // Exclude the auto-logged IRS mileage rows so this feed shows real purchases.
+  const realExpenses = d.expenses.filter((r) => r.category !== "Mileage & Travel");
+
   $("recent-income").innerHTML =
     byDateDesc(d.income).map((r) => fmtRow(r.date, r.client || r.type || "—", r.amount, "in")).join("") ||
     '<p class="empty-note">No income yet.</p>';
   $("recent-expenses").innerHTML =
-    byDateDesc(d.expenses).map((r) => fmtRow(r.date, r.vendor || r.category || "—", r.amount, "out")).join("") ||
+    byDateDesc(realExpenses).map((r) => fmtRow(r.date, r.vendor || r.category || "—", r.amount, "out")).join("") ||
     '<p class="empty-note">No expenses yet.</p>';
 }
 
