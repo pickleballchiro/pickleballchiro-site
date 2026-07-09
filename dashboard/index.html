@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>PBC Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
+
+  <!-- ======== ACCESS GATE ======== -->
+  <div id="gate" class="gate hidden">
+    <div class="gate-card">
+      <h1>PBC Command Center</h1>
+      <p>Enter your access key to load business data.</p>
+      <form id="gate-form">
+        <input type="password" id="gate-input" placeholder="Access key" autocomplete="current-password" />
+        <button type="submit" class="btn">Unlock</button>
+      </form>
+      <p id="gate-error" class="gate-error hidden">That key didn’t work — try again.</p>
+    </div>
+  </div>
+
+  <!-- ======== LOADING / ERROR ======== -->
+  <div id="loading" class="loading hidden"><div class="spinner"></div><p>Loading live data…</p></div>
+  <div id="load-error" class="load-error hidden">
+    <p>Couldn’t reach the data source. Check your connection and <button id="retry-btn" class="linklike">try again</button>.</p>
+  </div>
+
+  <!-- ======== DASHBOARD ======== -->
+  <main id="app" class="hidden">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">The Pickleball DC</span>
+        <h1>Command Center</h1>
+      </div>
+      <div class="topbar-right">
+        <span id="data-asof" class="asof"></span>
+        <button id="refresh-btn" class="btn btn-ghost">↻ Refresh</button>
+      </div>
+    </header>
+
+    <div id="drift-banner" class="banner hidden"></div>
+
+    <!-- KPI row -->
+    <section id="kpis" class="kpi-grid" aria-label="Key numbers"></section>
+
+    <!-- Month over month -->
+    <section class="card">
+      <div class="card-head">
+        <h2>Month over month</h2>
+        <div class="seg-toggle" role="group" aria-label="Line series">
+          <button id="toggle-sessions" class="seg active">Sessions</button>
+          <button id="toggle-clients" class="seg">Paying clients</button>
+        </div>
+      </div>
+      <div id="monthly-chart" class="chart-wrap"></div>
+      <div id="monthly-legend" class="legend"></div>
+    </section>
+
+    <div class="two-col">
+      <!-- Revenue by stream -->
+      <section class="card">
+        <div class="card-head"><h2>Revenue by stream</h2><span class="card-sub">2026 · one-off vs package</span></div>
+        <div id="streams"></div>
+      </section>
+
+      <!-- Money -->
+      <section class="card">
+        <div class="card-head"><h2>Money</h2><span class="card-sub">2026 year to date</span></div>
+        <div id="money-summary" class="money-summary"></div>
+        <h3 class="mini-title">Expenses by category</h3>
+        <div id="expense-cats"></div>
+        <p class="footnote">“Mileage &amp; Travel” is the IRS paper deduction (already logged as expense rows) — net profit here is your estimated taxable profit, not cash in the bank.</p>
+      </section>
+    </div>
+
+    <!-- Clients -->
+    <section class="card">
+      <div class="card-head"><h2>Clients</h2><span id="client-count" class="card-sub"></span></div>
+      <div id="client-cards" class="client-grid"></div>
+    </section>
+
+    <div class="two-col">
+      <!-- Pipeline -->
+      <section class="card">
+        <div class="card-head"><h2>Lead pipeline</h2><span id="conversion" class="card-sub"></span></div>
+        <div id="pipeline"></div>
+      </section>
+
+      <!-- Action needed -->
+      <section class="card">
+        <div class="card-head"><h2>Needs your attention</h2></div>
+        <div id="attention"></div>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <button id="lock-btn" class="linklike">Lock dashboard</button>
+    </footer>
+  </main>
+
+  <div id="tooltip" class="tooltip hidden" role="status"></div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
