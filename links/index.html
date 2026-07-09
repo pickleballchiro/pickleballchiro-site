@@ -76,27 +76,12 @@
       width: 62px; height: 62px; border-radius: 8px; object-fit: cover;
       flex-shrink: 0; background-color: var(--gray-subtle);
     }
-    /* Icon-style thumb for the quiz row (no cover image — a drawn target) */
-    .start-thumb.quiz-thumb {
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
-      font-size: 1.7rem;
-    }
     .start-title {
       font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.98rem;
       color: var(--white); text-transform: uppercase; letter-spacing: 0.02em;
       line-height: 1.2;
     }
-    .start-sub {
-      display: block; font-family: 'Montserrat', sans-serif; font-weight: 500;
-      font-size: 0.72rem; color: var(--gray-mid); text-transform: none;
-      letter-spacing: 0; margin-top: 2px;
-    }
     .start-arrow { margin-left: auto; color: var(--orange); font-size: 1.2rem; flex-shrink: 0; }
-
-    /* Priority row: quiz — subtle orange ring + glow */
-    .start-row.priority { border-color: rgba(240, 90, 40, 0.55); box-shadow: var(--glow-soft); }
-    .start-row.priority:hover { box-shadow: var(--glow); }
 
     /* ---- SECTION: Gear I Use (2-column grid of square tiles) ---- */
     .gear-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -124,6 +109,7 @@
     /* Logo tiles (white bg, e.g. UDRIPPIN): keep the logo crisp on white and
        show just the code on a solid strip — the logo already says the brand. */
     .gear-tile.logo { background: #fff; }
+    .gear-tile.logo img { object-fit: contain; padding: 10%; }
     .gear-tile.logo .gear-caption { background: rgba(0,0,0,0.82); padding-top: 12px; }
     .gear-tile.logo .gear-brand { display: none; }
 
@@ -167,7 +153,7 @@
     }
     .court-bg .ball {
       position: absolute;
-      opacity: 0.09;            /* faint, but the glow + shading still read */
+      opacity: 0.11;            /* faint, but the glow + shading still read */
       transform-style: preserve-3d;
       will-change: transform;
       animation: ballTumble var(--dur, 40s) linear infinite var(--dir, normal);
@@ -176,8 +162,8 @@
       width: 100%; height: 100%; display: block;
       overflow: visible;
       /* soft orange glow halo around each ball */
-      filter: drop-shadow(0 0 14px rgba(240, 90, 40, 0.85))
-              drop-shadow(0 0 30px rgba(240, 90, 40, 0.45));
+      filter: drop-shadow(0 0 16px rgba(240, 90, 40, 1))
+              drop-shadow(0 0 36px rgba(240, 90, 40, 0.6));
     }
     /* Slow 3-D tumble: mostly a face-on spin with a gentle X/Y tilt so the
        ball reads as rotating in space, never flipping edge-on like a coin.
@@ -234,43 +220,11 @@
       z-index: 100; will-change: width;
     }
 
-    /* Highlights carousel */
-    .carousel {
-      position: relative; overflow: hidden; border-radius: var(--radius-card);
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);
-    }
-    .carousel-track { display: flex; transition: transform 0.4s ease; }
-    .slide { min-width: 100%; }
-    .slide img {
-      width: 100%; aspect-ratio: 3 / 4; object-fit: contain; display: block;
-      background: #0D0E10;
-    }
-    .car-arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      width: 34px; height: 34px; border-radius: 50%; border: none;
-      background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 1.5rem; line-height: 1;
-      display: flex; align-items: center; justify-content: center; cursor: pointer;
-      z-index: 2; transition: background 0.2s ease, transform 0.12s ease;
-    }
-    .car-arrow:hover { background: rgba(0, 0, 0, 0.68); }
-    .car-arrow:active { transform: translateY(-50%) scale(0.9); }
-    .car-arrow.prev { left: 8px; }
-    .car-arrow.next { right: 8px; }
-    .car-dots { display: flex; justify-content: center; gap: 7px; margin-top: 14px; }
-    .car-dot {
-      width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0;
-      background: var(--gray-mid); opacity: 0.5; cursor: pointer;
-      transition: background 0.2s ease, opacity 0.2s ease;
-    }
-    .car-dot.active { background: var(--orange); opacity: 1; }
-
     /* Respect "reduce motion" settings: keep everything visible, drop the motion */
     @media (prefers-reduced-motion: reduce) {
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .glow-pulse { animation: none; box-shadow: 0 0 16px rgba(240, 90, 40, 0.35); }
       #rotating-tagline { transition: none; }
-      .carousel-track { transition: none; }
       .court-bg .ball { animation: none; }
       .start-row:active, .gear-tile:active, .btn:active,
       .links-footer a:active { transform: none; }
@@ -335,19 +289,19 @@
     <!-- Scattered balls: each spins on its own axis, speed, and direction.
          --dur = seconds per full rotation (slow-motion), --dir reverses spin,
          --ax/--ay tilt the spin axis for the 3-D tumble feel. -->
-    <div class="ball" style="left:8%;  top:6%;  width:52px; height:52px; --dur:44s; --ax:0.30; --ay:0.15;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:78%; top:12%; width:38px; height:38px; --dur:36s; --dir:reverse; --ax:0.15; --ay:0.30;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:34%; top:22%; width:30px; height:30px; --dur:52s; --ax:0.25; --ay:0.25;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:70%; top:33%; width:58px; height:58px; --dur:60s; --dir:reverse; --ax:0.35; --ay:0.10;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:12%; top:40%; width:44px; height:44px; --dur:40s; --ax:0.10; --ay:0.35;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:48%; top:50%; width:32px; height:32px; --dur:48s; --dir:reverse; --ax:0.28; --ay:0.20;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:85%; top:56%; width:48px; height:48px; --dur:34s; --ax:0.20; --ay:0.28;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:22%; top:63%; width:56px; height:56px; --dur:56s; --dir:reverse; --ax:0.32; --ay:0.12;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:64%; top:72%; width:36px; height:36px; --dur:42s; --ax:0.15; --ay:0.32;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:6%;  top:78%; width:28px; height:28px; --dur:50s; --dir:reverse; --ax:0.22; --ay:0.22;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:42%; top:86%; width:46px; height:46px; --dur:38s; --ax:0.30; --ay:0.18;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:82%; top:90%; width:32px; height:32px; --dur:46s; --dir:reverse; --ax:0.12; --ay:0.30;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
-    <div class="ball" style="left:20%; top:94%; width:40px; height:40px; --dur:54s; --ax:0.26; --ay:0.24;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:8%;  top:6%;  width:52px; height:52px; --dur:35s; --ax:0.30; --ay:0.15;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:78%; top:12%; width:38px; height:38px; --dur:29s; --dir:reverse; --ax:0.15; --ay:0.30;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:34%; top:22%; width:30px; height:30px; --dur:42s; --ax:0.25; --ay:0.25;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:70%; top:33%; width:58px; height:58px; --dur:48s; --dir:reverse; --ax:0.35; --ay:0.10;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:12%; top:40%; width:44px; height:44px; --dur:32s; --ax:0.10; --ay:0.35;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:48%; top:50%; width:32px; height:32px; --dur:38s; --dir:reverse; --ax:0.28; --ay:0.20;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:85%; top:56%; width:48px; height:48px; --dur:27s; --ax:0.20; --ay:0.28;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:22%; top:63%; width:56px; height:56px; --dur:45s; --dir:reverse; --ax:0.32; --ay:0.12;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:64%; top:72%; width:36px; height:36px; --dur:34s; --ax:0.15; --ay:0.32;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:6%;  top:78%; width:28px; height:28px; --dur:40s; --dir:reverse; --ax:0.22; --ay:0.22;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:42%; top:86%; width:46px; height:46px; --dur:30s; --ax:0.30; --ay:0.18;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:82%; top:90%; width:32px; height:32px; --dur:37s; --dir:reverse; --ax:0.12; --ay:0.30;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
+    <div class="ball" style="left:20%; top:94%; width:40px; height:40px; --dur:43s; --ax:0.26; --ay:0.24;"><svg viewBox="-24 -24 48 48"><use href="#pball"/></svg></div>
   </div>
 
   <main class="links-wrap">
@@ -363,14 +317,6 @@
     <!-- ================= SECTION: START HERE ================= -->
     <section class="links-section reveal">
       <h2 class="links-section-title">👋 Start Here</h2>
-
-      <a class="start-row priority" href="/quiz/" data-track="links_quiz">
-        <span class="start-thumb quiz-thumb" aria-hidden="true">🎯</span>
-        <span class="start-title">Take the Free Game Diagnosis
-          <span class="start-sub">12 questions · find your #1 leak</span>
-        </span>
-        <span class="start-arrow" aria-hidden="true">&rarr;</span>
-      </a>
 
       <a class="start-row" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" target="_blank" rel="noopener noreferrer" data-track="links_guide_35">
         <img class="start-thumb" src="/images/guide-35.jpg" alt="Why You're Stuck at 3.5 guide" />
@@ -454,43 +400,6 @@
       </div>
     </section>
 
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- ================= SECTION: HIGHLIGHTS ================= -->
-    <section class="links-section reveal highlights">
-      <h2 class="links-section-title">🏆 Highlights</h2>
-
-      <div class="carousel" id="hl-carousel">
-        <div class="carousel-track" id="hl-track">
-          <div class="slide"><img src="/images/highlight-1.jpg" alt="Tournament highlight 1" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-2.jpg" alt="Tournament highlight 2" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-3.jpg" alt="Tournament highlight 3" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-4.jpg" alt="Tournament highlight 4" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-5.jpg" alt="Tournament highlight 5" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-6.jpg" alt="Tournament highlight 6" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-7.jpg" alt="Tournament highlight 7" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-8.jpg" alt="Tournament highlight 8" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-9.jpg" alt="Tournament highlight 9" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-10.jpg" alt="Tournament highlight 10" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-11.jpg" alt="Tournament highlight 11" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-12.jpg" alt="Tournament highlight 12" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-13.jpg" alt="Tournament highlight 13" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-14.jpg" alt="Tournament highlight 14" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-15.jpg" alt="Tournament highlight 15" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-16.jpg" alt="Tournament highlight 16" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-17.jpg" alt="Tournament highlight 17" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-18.jpg" alt="Tournament highlight 18" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-19.jpg" alt="Tournament highlight 19" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-20.jpg" alt="Tournament highlight 20" loading="lazy" /></div>
-          <div class="slide"><img src="/images/highlight-21.jpg" alt="Tournament highlight 21" loading="lazy" /></div>
-        </div>
-        <button class="car-arrow prev" type="button" aria-label="Previous highlight">&lsaquo;</button>
-        <button class="car-arrow next" type="button" aria-label="Next highlight">&rsaquo;</button>
-      </div>
-
-      <div class="car-dots" id="hl-dots"></div>
-    </section>
-
     <!-- ================= FOOTER ================= -->
     <footer class="links-footer">
       <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="links_ig">@dr.lane_o on Instagram</a>
@@ -564,67 +473,6 @@
       update();
     })();
 
-    // Highlights carousel — auto-rotates, with arrows, dots, swipe,
-    // and pause-on-hover/touch so photos can actually be looked at.
-    (function () {
-      var track = document.getElementById('hl-track');
-      var dotsWrap = document.getElementById('hl-dots');
-      var root = document.getElementById('hl-carousel');
-      if (!track || !dotsWrap || !root) return;
-
-      var slides = track.children;
-      var n = slides.length;
-
-      var idx = 0, timer = null;
-      var DELAY = 4500; // auto-rotate every 4.5s
-
-      // Build the dot buttons
-      var dots = [];
-      for (var i = 0; i < n; i++) {
-        (function (i) {
-          var d = document.createElement('button');
-          d.className = 'car-dot';
-          d.type = 'button';
-          d.setAttribute('aria-label', 'Go to highlight ' + (i + 1));
-          d.addEventListener('click', function () { go(i); restart(); });
-          dotsWrap.appendChild(d);
-          dots.push(d);
-        })(i);
-      }
-
-      function render() {
-        track.style.transform = 'translateX(' + (-idx * 100) + '%)';
-        for (var j = 0; j < dots.length; j++) {
-          dots[j].classList.toggle('active', j === idx);
-        }
-      }
-      function go(i) { idx = (i + n) % n; render(); }
-      function next() { go(idx + 1); }
-      function prev() { go(idx - 1); }
-      function stop() { clearInterval(timer); timer = null; }
-      function restart() { stop(); timer = setInterval(next, DELAY); }
-
-      root.querySelector('.next').addEventListener('click', function () { next(); restart(); });
-      root.querySelector('.prev').addEventListener('click', function () { prev(); restart(); });
-
-      // Pause while the pointer is over the carousel; resume on leave
-      root.addEventListener('mouseenter', stop);
-      root.addEventListener('mouseleave', restart);
-
-      // Touch swipe (left/right) — pause while a finger is down
-      var startX = null;
-      track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
-      track.addEventListener('touchend', function (e) {
-        if (startX === null) { restart(); return; }
-        var dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
-        restart();
-        startX = null;
-      });
-
-      render();
-      restart();
-    })();
   </script>
 </body>
 </html>

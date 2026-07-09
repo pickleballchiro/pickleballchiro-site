@@ -689,10 +689,72 @@ section { padding: var(--space-4) 0; }
 }
 .gear-code-main { font-size: 0.72rem; color: var(--orange); font-weight: 600; }
 
-/* Logo-on-white tiles (e.g. UDRIPPIN) */
+/* Logo-on-white tiles (e.g. UDRIPPIN): contain, not cover, so the
+   wordmark never gets cropped by the square tile */
 .gear-tile-main.logo { background: #fff; }
+.gear-tile-main.logo img { object-fit: contain; padding: 10%; }
 .gear-tile-main.logo .gear-caption-main { background: rgba(0, 0, 0, 0.82); padding-top: 12px; }
 .gear-tile-main.logo .gear-brand-main { display: none; }
+
+/* ============================================================
+   HIGHLIGHTS CAROUSEL
+   ============================================================ */
+.carousel-wrap { max-width: 480px; margin: 0 auto; }
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.carousel-track { display: flex; transition: transform 0.4s ease; }
+.slide { min-width: 100%; }
+.slide img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  display: block;
+  background: #0D0E10;
+}
+
+.car-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, transform 0.12s ease;
+}
+.car-arrow:hover { background: rgba(0, 0, 0, 0.68); }
+.car-arrow:active { transform: translateY(-50%) scale(0.9); }
+.car-arrow.prev { left: 8px; }
+.car-arrow.next { right: 8px; }
+
+.car-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-top: 14px; }
+.car-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--gray-mid);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+.car-dot.active { background: var(--orange); opacity: 1; }
 
 /* ============================================================
    FOOTER
@@ -793,4 +855,5 @@ section { padding: var(--space-4) 0; }
   .fade-up { opacity: 1; transform: none; transition: none; }
   .btn, .card, .guide-arrow, .ig-arrow, .btn .arrow { transition: none; }
   .btn:hover, .card:hover, .gear-tile-main:hover { transform: none; }
+  .carousel-track { transition: none; }
 }

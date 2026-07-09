@@ -35,7 +35,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free 12-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro. Find out exactly which part of your game is holding you back from breaking through to 4.0.">
+  <meta name="description" content="Free 15-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro. Find out exactly which part of your game is holding you back from breaking through to 4.0.">
   <title>Why You're Stuck at 3.5 — Free Self-Diagnosis · The Pickleball Chiro</title>
   <link rel="canonical" href="https://pickleballchiro.co/quiz/">
 
@@ -46,11 +46,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pickleballchiro.co/quiz/" />
   <meta property="og:title" content="Why You're Stuck at 3.5 — Free Self-Diagnosis" />
-  <meta property="og:description" content="12 questions. Instant breakdown of the #1 leak in your pickleball game. By Dr. Lane Odom, The Pickleball Chiro." />
+  <meta property="og:description" content="15 questions. Instant breakdown of the #1 leak in your pickleball game. By Dr. Lane Odom, The Pickleball Chiro." />
   <meta property="og:image" content="https://pickleballchiro.co/images/profile.jpg" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Why You're Stuck at 3.5 — Free Self-Diagnosis" />
-  <meta name="twitter:description" content="12 questions. Instant breakdown of the #1 leak in your pickleball game." />
+  <meta name="twitter:description" content="15 questions. Instant breakdown of the #1 leak in your pickleball game." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -527,10 +527,10 @@
       <div class="intro-wrap">
         <div class="badge"><span class="badge-dot"></span>Free Self-Diagnosis</div>
         <h1 class="intro-headline">Why Are You Stuck at&nbsp;<span>3.5</span>?</h1>
-        <p class="intro-sub">Your rating is an average. This takes 3 minutes and shows you exactly which part of your game is dragging it&nbsp;down.</p>
+        <p class="intro-sub">Your rating is an average. This takes about 3 minutes and shows you exactly which part of your game is dragging it&nbsp;down.</p>
         <div class="intro-footer">
           <button class="btn-primary" onclick="startQuiz()" data-track="quiz_start">Start My Diagnosis</button>
-          <p class="intro-meta">12 questions &nbsp;·&nbsp; No email required</p>
+          <p class="intro-meta">15 questions &nbsp;·&nbsp; No email required</p>
         </div>
       </div>
     </div>
@@ -570,7 +570,9 @@ const questions = [
     text: "When you serve, what usually happens?",
     answers: [
       { text: "My opponent attacks it easily",                          points: 1 },
+      { text: "I pop it up or miss when I try to add pace",            points: 1 },
       { text: "It's fine, but it doesn't really do anything for me",   points: 2 },
+      { text: "Deep enough, but always to the same spot",              points: 2 },
       { text: "I consistently push them back and set up the point",    points: 3 }
     ]
   },
@@ -579,7 +581,9 @@ const questions = [
     text: "On your return of serve, where does the ball usually end up?",
     answers: [
       { text: "Short or in the middle — sets up an easy attack for them", points: 1 },
+      { text: "I chip it back safe and short just to get it in",          points: 1 },
       { text: "Deep, but not very controlled",                            points: 2 },
+      { text: "Good depth, but I'm late getting up to the line after it", points: 2 },
       { text: "Deep and placed where I want it",                         points: 3 }
     ]
   },
@@ -588,7 +592,9 @@ const questions = [
     text: "Your third shot — the one that's supposed to get you to the kitchen — what happens most often?",
     answers: [
       { text: "It lands short, hard, or in the net before I even get moving", points: 1 },
+      { text: "I just drive it every time and hope",                          points: 1 },
       { text: "It works sometimes but breaks down under pressure",             points: 2 },
+      { text: "My drop is decent, but I don't follow it in",                  points: 2 },
       { text: "I land it and get to the line consistently",                   points: 3 }
     ]
   },
@@ -598,17 +604,21 @@ const questions = [
     category: "shot_selection",
     text: "When a ball comes at you below your waist, what's your instinct?",
     answers: [
-      { text: "I usually try to attack it anyway", points: 1 },
-      { text: "I freeze for a second deciding",    points: 2 },
-      { text: "I reset it without thinking",       points: 3 }
+      { text: "I usually try to attack it anyway",              points: 1 },
+      { text: "I dump it in the net trying to be too careful",  points: 1 },
+      { text: "I freeze for a second deciding",                 points: 2 },
+      { text: "Depends on the day — I don't have a real rule",  points: 2 },
+      { text: "I reset it without thinking",                    points: 3 }
     ]
   },
   {
     category: "shot_selection",
     text: "After you reset or dink, what usually happens next?",
     answers: [
-      { text: "I don't really have a next move, I just hope",         points: 1 },
-      { text: "I sometimes find an opening",                          points: 2 },
+      { text: "I don't really have a next move, I just hope",           points: 1 },
+      { text: "I attack the next ball no matter what it looks like",    points: 1 },
+      { text: "I sometimes find an opening",                            points: 2 },
+      { text: "I stay patient, but I never pull the trigger",           points: 2 },
       { text: "I look for the next ball to attack and usually find it", points: 3 }
     ]
   },
@@ -616,9 +626,11 @@ const questions = [
     category: "shot_selection",
     text: "How often do you feel like you 'didn't mean to hit it that hard' or get caught off guard by your own shot?",
     answers: [
-      { text: "Often",     points: 1 },
-      { text: "Sometimes", points: 2 },
-      { text: "Rarely",    points: 3 }
+      { text: "Often",                                             points: 1 },
+      { text: "All the time — my hands move before my brain does", points: 1 },
+      { text: "Sometimes",                                         points: 2 },
+      { text: "Only when I'm tired or rushed",                     points: 2 },
+      { text: "Rarely",                                            points: 3 }
     ]
   },
 
@@ -628,7 +640,9 @@ const questions = [
     text: "After your third shot, what do you usually do?",
     answers: [
       { text: "I'm stuck halfway — not at the baseline, not at the kitchen", points: 1 },
+      { text: "I stay back at the baseline and camp",                         points: 1 },
       { text: "I get there eventually but feel rushed",                       points: 2 },
+      { text: "I sprint in no matter what my shot looked like",               points: 2 },
       { text: "I move up with purpose and get set before the next shot",      points: 3 }
     ]
   },
@@ -636,18 +650,56 @@ const questions = [
     category: "transition_zone",
     text: "When a ball comes fast at your feet while you're moving forward, what happens?",
     answers: [
-      { text: "I usually mishit it or pop it up", points: 1 },
-      { text: "I get it back sometimes",          points: 2 },
-      { text: "I handle it fine",                 points: 3 }
+      { text: "I usually mishit it or pop it up",             points: 1 },
+      { text: "I back up instead of dealing with it",         points: 1 },
+      { text: "I get it back sometimes",                      points: 2 },
+      { text: "I block it back, but it floats up attackable", points: 2 },
+      { text: "I handle it fine",                             points: 3 }
     ]
   },
   {
     category: "transition_zone",
     text: "How often do you feel like you're 'a step behind' during a point?",
     answers: [
-      { text: "Most points", points: 1 },
-      { text: "Some points", points: 2 },
-      { text: "Rarely",      points: 3 }
+      { text: "Most points",                                    points: 1 },
+      { text: "Some points",                                    points: 2 },
+      { text: "Only against faster, harder-hitting teams",      points: 2 },
+      { text: "Rarely",                                         points: 3 }
+    ]
+  },
+
+  // ── Category: kitchen_game ──
+  {
+    category: "kitchen_game",
+    text: "Honest check: in a typical rec game, how often do you actually get to the kitchen line before the point is decided?",
+    answers: [
+      { text: "Honestly? Rarely — the point's usually over before I arrive", points: 1 },
+      { text: "Only when my partner drags me up there",                      points: 1 },
+      { text: "About half the time, and often late",                         points: 2 },
+      { text: "Most points, but not always in control",                      points: 2 },
+      { text: "Almost every point, set and ready",                           points: 3 }
+    ]
+  },
+  {
+    category: "kitchen_game",
+    text: "A speed-up comes at you at the kitchen line — what usually happens?",
+    answers: [
+      { text: "I get handcuffed — my hands lose the exchange",   points: 1 },
+      { text: "I swing back wild and it turns into chaos",       points: 1 },
+      { text: "I block it back, but it pops up for them",        points: 2 },
+      { text: "I survive the first ball but lose the exchange",  points: 2 },
+      { text: "I counter to a spot or reset it dead",            points: 3 }
+    ]
+  },
+  {
+    category: "kitchen_game",
+    text: "When you're in a dink rally, what's actually happening?",
+    answers: [
+      { text: "Just keeping it in — no target, no plan",              points: 1 },
+      { text: "I get impatient and speed up balls I shouldn't",       points: 1 },
+      { text: "I move it around, but without a real purpose",         points: 2 },
+      { text: "I'm patient, but I miss the balls I could attack",     points: 2 },
+      { text: "I'm building pressure and waiting for the pop-up",     points: 3 }
     ]
   },
 
@@ -656,27 +708,31 @@ const questions = [
     category: "physical",
     text: "How does your game change between game one and game three of the same session?",
     answers: [
-      { text: "Noticeably worse — I get sloppy or sore", points: 1 },
-      { text: "A little worse",                          points: 2 },
-      { text: "Basically the same",                      points: 3 }
+      { text: "Noticeably worse — I get sloppy or sore",         points: 1 },
+      { text: "My legs go first — I stop bending for low balls", points: 1 },
+      { text: "A little worse",                                  points: 2 },
+      { text: "My shots hold up, but my focus drifts",           points: 2 },
+      { text: "Basically the same",                              points: 3 }
     ]
   },
   {
     category: "physical",
     text: "Do you do anything physical off the court (mobility, strength, conditioning) to support your game?",
     answers: [
-      { text: "Nothing",                    points: 1 },
-      { text: "A little, not consistent",   points: 2 },
-      { text: "Yes, regularly",             points: 3 }
+      { text: "Nothing",                                      points: 1 },
+      { text: "I stretch for a minute before playing, that's it", points: 1 },
+      { text: "A little, not consistent",                     points: 2 },
+      { text: "Yes, regularly",                               points: 3 }
     ]
   },
   {
     category: "physical",
     text: "Do you have any nagging stiffness, pain, or 'that's just how my body feels now' spots that affect how you move on court?",
     answers: [
-      { text: "Yes, and I just play around it",          points: 1 },
-      { text: "A little, but it doesn't really limit me", points: 2 },
-      { text: "No",                                       points: 3 }
+      { text: "Yes, and I just play around it",                    points: 1 },
+      { text: "Yes — I need a long warmup before I feel normal",   points: 1 },
+      { text: "A little, but it doesn't really limit me",          points: 2 },
+      { text: "No",                                                points: 3 }
     ]
   }
 
@@ -689,6 +745,7 @@ const CATEGORY_NAMES = {
   first_four_shots: "First Four Shots",
   shot_selection:   "Shot Selection",
   transition_zone:  "Transition Zone",
+  kitchen_game:     "Kitchen / Soft Game",
   physical:         "Physical"
 };
 
@@ -715,6 +772,13 @@ const results = {
     ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening with your footwork and positioning, and how to fix it."
   },
 
+  kitchen_game: {
+    headline: "You're Losing at the Line — Or Never Getting There",
+    body: `At your level, the kitchen line is where points are actually won — and your answers show that's exactly where your game is leaking. This leak wears two disguises: either the point gets decided while you're still in the back half of the court, or you arrive at the line without a plan — aimless dinks, panicky speed-ups, hands that lose the exchange. Both cap your rating the same way, because the team that controls the line controls the game. The good news: the soft game is patterns and intent, not talent, and it responds to targeted drilling faster than almost anything else.`,
+    ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
+    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's breaking down in your soft game and what to do about it."
+  },
+
   physical: {
     headline: "Your Technique Works in Warmup. It's Not Surviving the Match.",
     body: `If your game falls apart by game three, that's not a mental toughness problem — it's a body problem. The movements pickleball demands (the low dig, the lateral recovery step, the controlled reset) all have a physical floor most players never build off the court. You can drill the right technique for months, but if your body can't hold up under fatigue, it'll break down exactly when it matters most. As a Doctor of Chiropractic who also competes at a high level, this is the gap I see most often — and it's completely fixable.`,
@@ -723,8 +787,8 @@ const results = {
   },
 
   tie: {
-    headline: "You've Got Two Things Capping You — And They're Connected",
-    body: `Your results show two areas pulling your average down at the same time. That's common, and it's usually not a coincidence — these things tend to feed each other. The good news: fixing one often makes the other easier to fix too.`,
+    headline: "You've Got More Than One Thing Capping You — And They're Connected",
+    body: `Your results show more than one area pulling your average down at the same time. That's common, and it's usually not a coincidence — these things tend to feed each other. The good news: fixing one often makes the others easier to fix too.`,
     ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
     ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening and how the two connect."
   }
@@ -823,7 +887,7 @@ function goBack() {
 //  COMPUTE & SHOW RESULTS
 // ============================================================
 function showResults() {
-  const scores = { first_four_shots: 0, shot_selection: 0, transition_zone: 0, physical: 0 };
+  const scores = { first_four_shots: 0, shot_selection: 0, transition_zone: 0, kitchen_game: 0, physical: 0 };
   questions.forEach((q, i) => { if (answers[i] !== undefined) scores[q.category] += answers[i]; });
 
   const min        = Math.min(...Object.values(scores));

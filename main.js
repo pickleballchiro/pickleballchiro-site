@@ -51,6 +51,70 @@ document.addEventListener('click', function (e) {
 })();
 
 // ============================================================
+// HIGHLIGHTS CAROUSEL — auto-rotates, with arrows, dots, swipe,
+// and pause-on-hover/touch so photos can actually be looked at.
+// ============================================================
+(function () {
+  var track = document.getElementById('hl-track');
+  var dotsWrap = document.getElementById('hl-dots');
+  var root = document.getElementById('hl-carousel');
+  if (!track || !dotsWrap || !root) return;
+
+  var slides = track.children;
+  var n = slides.length;
+
+  var idx = 0, timer = null;
+  var DELAY = 4500; // auto-rotate every 4.5s
+
+  // Build the dot buttons
+  var dots = [];
+  for (var i = 0; i < n; i++) {
+    (function (i) {
+      var d = document.createElement('button');
+      d.className = 'car-dot';
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Go to highlight ' + (i + 1));
+      d.addEventListener('click', function () { go(i); restart(); });
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    })(i);
+  }
+
+  function render() {
+    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    for (var j = 0; j < dots.length; j++) {
+      dots[j].classList.toggle('active', j === idx);
+    }
+  }
+  function go(i) { idx = (i + n) % n; render(); }
+  function next() { go(idx + 1); }
+  function prev() { go(idx - 1); }
+  function stop() { clearInterval(timer); timer = null; }
+  function restart() { stop(); timer = setInterval(next, DELAY); }
+
+  root.querySelector('.next').addEventListener('click', function () { next(); restart(); });
+  root.querySelector('.prev').addEventListener('click', function () { prev(); restart(); });
+
+  // Pause while the pointer is over the carousel; resume on leave
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', restart);
+
+  // Touch swipe (left/right) — pause while a finger is down
+  var startX = null;
+  track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
+  track.addEventListener('touchend', function (e) {
+    if (startX === null) { restart(); return; }
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+    restart();
+    startX = null;
+  });
+
+  render();
+  restart();
+})();
+
+// ============================================================
 // STICKY BAR DISMISS LOGIC
 // ============================================================
 (function () {
