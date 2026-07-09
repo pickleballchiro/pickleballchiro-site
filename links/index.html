@@ -106,13 +106,6 @@
     }
     .gear-code { font-size: 0.72rem; color: var(--orange); font-weight: 600; }
 
-    /* Logo tiles (white bg, e.g. UDRIPPIN): keep the logo crisp on white and
-       show just the code on a solid strip — the logo already says the brand. */
-    .gear-tile.logo { background: #fff; }
-    .gear-tile.logo img { object-fit: contain; padding: 10%; }
-    .gear-tile.logo .gear-caption { background: rgba(0,0,0,0.82); padding-top: 12px; }
-    .gear-tile.logo .gear-brand { display: none; }
-
     /* ---- SECTION: Work With Me (stacked buttons) ---- */
     .work-btns { display: flex; flex-direction: column; gap: 12px; }
     .btn-note {
@@ -153,7 +146,7 @@
     }
     .court-bg .ball {
       position: absolute;
-      opacity: 0.11;            /* faint, but the glow + shading still read */
+      opacity: 0.07;            /* very faint — background texture, not a feature */
       transform-style: preserve-3d;
       will-change: transform;
       animation: ballTumble var(--dur, 40s) linear infinite var(--dir, normal);
@@ -162,8 +155,8 @@
       width: 100%; height: 100%; display: block;
       overflow: visible;
       /* soft orange glow halo around each ball */
-      filter: drop-shadow(0 0 16px rgba(240, 90, 40, 1))
-              drop-shadow(0 0 36px rgba(240, 90, 40, 0.6));
+      filter: drop-shadow(0 0 14px rgba(240, 90, 40, 0.8))
+              drop-shadow(0 0 28px rgba(240, 90, 40, 0.4));
     }
     /* Slow 3-D tumble: mostly a face-on spin with a gentle X/Y tilt so the
        ball reads as rotating in space, never flipping edge-on like a coin.
@@ -373,7 +366,7 @@
           </span>
         </a>
 
-        <a class="gear-tile logo" href="https://www.udrippin.com/pbchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_udrippin">
+        <a class="gear-tile" href="https://www.udrippin.com/pbchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_udrippin">
           <img src="/images/gear-udrippin.jpg" alt="UDRIPPIN" />
           <span class="gear-caption">
             <span class="gear-brand">UDRIPPIN</span>

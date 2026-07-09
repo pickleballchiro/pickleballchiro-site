@@ -689,13 +689,6 @@ section { padding: var(--space-4) 0; }
 }
 .gear-code-main { font-size: 0.72rem; color: var(--orange); font-weight: 600; }
 
-/* Logo-on-white tiles (e.g. UDRIPPIN): contain, not cover, so the
-   wordmark never gets cropped by the square tile */
-.gear-tile-main.logo { background: #fff; }
-.gear-tile-main.logo img { object-fit: contain; padding: 10%; }
-.gear-tile-main.logo .gear-caption-main { background: rgba(0, 0, 0, 0.82); padding-top: 12px; }
-.gear-tile-main.logo .gear-brand-main { display: none; }
-
 /* ============================================================
    HIGHLIGHTS CAROUSEL
    ============================================================ */
