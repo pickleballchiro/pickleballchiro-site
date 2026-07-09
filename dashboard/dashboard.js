@@ -145,6 +145,8 @@ function renderAll(d) {
   renderStreams(d);
   renderMoney(d);
   renderClients(d);
+  renderReengage(d);
+  renderRecent(d);
   renderPipeline(d);
   renderAttention(d);
 }
@@ -447,6 +449,82 @@ function renderClients(d) {
     (inactive.length
       ? `<details style="grid-column:1/-1"><summary class="empty-note" style="cursor:pointer">Show ${inactive.length} inactive clients</summary><div class="client-grid" style="margin-top:12px">${inactive.map(card).join("")}</div></details>`
       : "");
+}
+
+/* ------- follow up / re-engage ------- */
+
+function daysSince(dateStr) {
+  const dt = parseDate(dateStr);
+  if (!dt) return null;
+  return Math.floor((Date.now() - dt.getTime()) / 86400000);
+}
+
+function renderReengage(d) {
+  const COOL_DAYS = 21;
+  const items = [];
+  d.clients.forEach((c) => {
+    if (c.status === "Inactive") return;
+    const onActivePackage = c.pkg_status === "Active" || (c.left !== "" && +c.left > 0);
+    if (onActivePackage) return; // still working through a package — not a re-engage target
+    const since = daysSince(c.last_session);
+    const oneOff = (+c.sessions_total || 0) <= 1;
+    let reason = "";
+    if (oneOff && (since === null || since >= 7)) {
+      reason = "One-off only — never came back for a second";
+    } else if (since !== null && since >= COOL_DAYS) {
+      reason = `No session in ${since} days`;
+    }
+    if (reason) {
+      items.push({ name: c.name, since: since === null ? Infinity : since, reason, last: c.last_session, paid: c.total_paid });
+    }
+  });
+  items.sort((a, b) => b.since - a.since); // coldest first
+
+  $("reengage-sub").textContent = items.length ? `${items.length} worth a nudge` : "all warm";
+  $("reengage").innerHTML = items.length
+    ? `<div class="reengage-grid">${items
+        .map((i) => {
+          const lastTxt = i.last && parseDate(i.last)
+            ? parseDate(i.last).toLocaleDateString("en-US", { month: "short", day: "numeric" })
+            : "never";
+          return `<div class="reengage-item">
+            <div class="reengage-top"><span class="reengage-name">${i.name}</span><span class="reengage-days">${i.since === Infinity ? "—" : i.since + "d"}</span></div>
+            <div class="reengage-reason">${i.reason}</div>
+            <div class="reengage-meta">Last: ${lastTxt} · ${fmt$c(i.paid)} paid</div>
+          </div>`;
+        })
+        .join("")}</div>`
+    : '<p class="empty-note">Everyone active has a recent session or an open package. 🎉</p>';
+}
+
+/* ------- recent activity ------- */
+
+function renderRecent(d) {
+  const byDateDesc = (rows) =>
+    [...rows]
+      .filter((r) => r.amount > 0)
+      .sort((a, b) => {
+        const da = parseDate(a.date), db = parseDate(b.date);
+        return (db ? db.getTime() : 0) - (da ? da.getTime() : 0);
+      })
+      .slice(0, 10);
+
+  const fmtRow = (dateStr, name, amount, tone) => {
+    const dt = parseDate(dateStr);
+    const d2 = dt ? dt.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
+    return `<div class="activity-row">
+      <span class="activity-date">${d2}</span>
+      <span class="activity-name">${name}</span>
+      <span class="activity-amt ${tone}">${tone === "in" ? "+" : "−"}${fmt$c(amount)}</span>
+    </div>`;
+  };
+
+  $("recent-income").innerHTML =
+    byDateDesc(d.income).map((r) => fmtRow(r.date, r.client || r.type || "—", r.amount, "in")).join("") ||
+    '<p class="empty-note">No income yet.</p>';
+  $("recent-expenses").innerHTML =
+    byDateDesc(d.expenses).map((r) => fmtRow(r.date, r.vendor || r.category || "—", r.amount, "out")).join("") ||
+    '<p class="empty-note">No expenses yet.</p>';
 }
 
 /* ------- pipeline + attention ------- */
