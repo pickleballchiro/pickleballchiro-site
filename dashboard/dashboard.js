@@ -409,7 +409,32 @@ function comingUpNext(notes) {
   return "";
 }
 
+// Tally each client's one-off vs package sessions from the ledger.
+function sessionTally(d) {
+  const map = {};
+  (d.sessions || []).forEach((s) => {
+    const key = (s.client || "").toLowerCase().trim();
+    if (!key) return;
+    const t = map[key] || (map[key] = { lessonOneOff: 0, chiroOneOff: 0, exam: 0, lessonPkg: 0, chiroPkg: 0 });
+    if (s.billing === "Exam") t.exam++;
+    else if (s.billing === "Package") s.discipline === "Chiro" ? t.chiroPkg++ : t.lessonPkg++;
+    else s.discipline === "Chiro" ? t.chiroOneOff++ : t.lessonOneOff++;
+  });
+  return map;
+}
+
+function oneOffSummary(t) {
+  if (!t) return "";
+  const parts = [];
+  const plural = (n, w) => n + " " + w + (n > 1 ? "s" : "");
+  if (t.lessonOneOff) parts.push(plural(t.lessonOneOff, "lesson"));
+  if (t.chiroOneOff) parts.push(plural(t.chiroOneOff, "chiro visit"));
+  if (t.exam) parts.push(plural(t.exam, "exam"));
+  return parts.join(" · ");
+}
+
 function renderClients(d) {
+  const tally = sessionTally(d);
   const rank = { "Package Client": 0, "Active": 1, "New": 2, "Check In": 3, "At Risk": 4, "Inactive": 5 };
   const sorted = [...d.clients].sort((a, b) => {
     const ra = rank[a.stage] ?? 3, rb = rank[b.stage] ?? 3;
@@ -423,9 +448,10 @@ function renderClients(d) {
   const card = (c) => {
     const hasPkg = c.included !== "" && c.included > 0;
     const used = +c.used || 0, left = c.left === "" ? null : +c.left;
-    const total = hasPkg ? +c.included : used + (left ?? 0);
+    const total = hasPkg ? +c.included : 0;
     const pct = total > 0 ? Math.min(100, (used / total) * 100) : 0;
     const next = comingUpNext(c.notes);
+    const oneOff = oneOffSummary(tally[(c.name || "").toLowerCase().trim()]);
     const lastSession = c.last_session
       ? parseDate(c.last_session)?.toLocaleDateString("en-US", { month: "short", day: "numeric" })
       : "—";
@@ -433,9 +459,10 @@ function renderClients(d) {
     <div class="client-card">
       <div class="client-top"><span class="client-name">${c.name}</span>${chipFor(c)}</div>
       <div class="client-rows">
-        ${c.package ? `<div class="row"><span class="k">Package</span><span class="v">${c.package}</span></div>` : ""}
-        ${(used || left !== null) ? `<div class="row"><span class="k">Sessions</span><span class="v">${used} used${left !== null ? " · " + left + " left" : ""}</span></div>` : ""}
-        ${left !== null && total > 0 ? `<div class="pkg-meter"><div class="fill" style="width:${pct}%"></div></div>` : ""}
+        ${hasPkg ? `<div class="row"><span class="k">Package</span><span class="v">${c.package}</span></div>` : ""}
+        ${hasPkg ? `<div class="row"><span class="k">Package used</span><span class="v">${used} / ${total}${left !== null ? " · " + left + " left" : ""}</span></div>` : ""}
+        ${hasPkg && total > 0 ? `<div class="pkg-meter"><div class="fill" style="width:${pct}%"></div></div>` : ""}
+        ${oneOff ? `<div class="row"><span class="k">One-off</span><span class="v">${oneOff}</span></div>` : ""}
         <div class="row"><span class="k">Last session</span><span class="v">${lastSession}</span></div>
         <div class="row"><span class="k">Total paid</span><span class="v">${fmt$c(c.total_paid)}</span></div>
         ${c.outstanding > 0 ? `<div class="row"><span class="k">Outstanding</span><span class="v" style="color:var(--warn)">${fmt$c(c.outstanding)}</span></div>` : ""}
