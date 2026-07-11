@@ -280,7 +280,8 @@ main {
   text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;
 }
 .cal-week-daylabel span { color: var(--white); font-weight: 600; margin-left: 4px; }
-.cal-week-events .cal-event { font-size: 0.72rem; padding: 4px 6px; }
+.cal-week-events .cal-event { font-size: 0.72rem; padding: 4px 6px; flex-direction: column; align-items: flex-start; gap: 2px; }
+.cal-week-events .cal-event-title { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: break-word; min-width: 0; }
 
 .cal-month-grid { display: flex; flex-direction: column; gap: 4px; }
 .cal-month-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
