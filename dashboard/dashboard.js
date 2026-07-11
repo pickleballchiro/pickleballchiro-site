@@ -612,22 +612,28 @@ function renderReengage(d) {
       reason = `No session in ${since} days`;
     }
     if (reason) {
-      items.push({ name: c.name, since: since === null ? Infinity : since, reason, last: c.last_session, paid: c.total_paid });
+      items.push({ name: c.name, since: since === null ? Infinity : since, reason, last: c.last_session, paid: c.total_paid, notes: c.notes });
     }
   });
   items.sort((a, b) => b.since - a.since); // coldest first
+  const shown = items.slice(0, 4);
 
-  $("reengage-sub").textContent = items.length ? `${items.length} worth a nudge` : "all warm";
-  $("reengage").innerHTML = items.length
-    ? `<div class="reengage-grid">${items
+  $("reengage-sub").textContent = items.length
+    ? (items.length > shown.length ? `${shown.length} of ${items.length} worth a nudge` : `${items.length} worth a nudge`)
+    : "all warm";
+  $("reengage").innerHTML = shown.length
+    ? `<div class="reengage-grid">${shown
         .map((i) => {
           const lastTxt = i.last && parseDate(i.last)
             ? parseDate(i.last).toLocaleDateString("en-US", { month: "short", day: "numeric" })
             : "never";
+          const notesTxt = (i.notes || "").trim();
+          const notesShort = notesTxt.length > 90 ? notesTxt.slice(0, 90) + "…" : notesTxt;
           return `<div class="reengage-item">
             <div class="reengage-top"><span class="reengage-name">${i.name}</span><span class="reengage-days">${i.since === Infinity ? "—" : i.since + "d"}</span></div>
             <div class="reengage-reason">${i.reason}</div>
             <div class="reengage-meta">Last: ${lastTxt} · ${fmt$c(i.paid)} paid</div>
+            ${notesShort ? `<div class="reengage-notes">${notesShort}</div>` : ""}
           </div>`;
         })
         .join("")}</div>`
