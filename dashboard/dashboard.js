@@ -202,7 +202,7 @@ function buildPeriodBuckets(startDate, now, mode) {
     while (cur <= now) {
       const end = new Date(cur.getFullYear(), cur.getMonth() + 3, 1);
       const q = Math.floor(cur.getMonth() / 3) + 1;
-      const label = "Q" + q + (cur.getFullYear() !== now.getFullYear() ? " '" + String(cur.getFullYear()).slice(2) : "");
+      const label = "Q" + q + (cur.getFullYear() !== now.getFullYear() ? " ’" + String(cur.getFullYear()).slice(2) : "");
       buckets.push({ start: new Date(cur), end, label });
       cur = end;
     }
