@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=4" />
+  <link rel="stylesheet" href="dashboard.css?v=5" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -48,6 +48,25 @@
 
     <!-- KPI row -->
     <section id="kpis" class="kpi-grid" aria-label="Key numbers"></section>
+
+    <!-- Schedule -->
+    <section class="card">
+      <div class="card-head">
+        <h2>📅 Schedule</h2>
+        <div class="seg-toggle" role="group" aria-label="Calendar view">
+          <button id="cal-view-day" class="seg">Day</button>
+          <button id="cal-view-week" class="seg active">Week</button>
+          <button id="cal-view-month" class="seg">Month</button>
+        </div>
+      </div>
+      <div class="cal-nav">
+        <button id="cal-prev" class="btn btn-ghost btn-cal-nav" aria-label="Previous">‹</button>
+        <span id="cal-range-label" class="cal-range-label"></span>
+        <button id="cal-today" class="linklike">Today</button>
+        <button id="cal-next" class="btn btn-ghost btn-cal-nav" aria-label="Next">›</button>
+      </div>
+      <div id="calendar" class="calendar-wrap"></div>
+    </section>
 
     <!-- Month over month -->
     <section class="card">
@@ -128,6 +147,6 @@
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard.js?v=4"></script>
+  <script src="dashboard.js?v=5"></script>
 </body>
 </html>

@@ -28,6 +28,10 @@ let DATA = null;
 let lineMode = "sessions"; // or "clients"
 let periodMode = "month"; // "week" | "month" | "quarter"
 
+let calMode = "week"; // "day" | "week" | "month"
+let calAnchor = new Date();
+let CAL_CACHE = { start: null, end: null, events: [] };
+
 /* ---------------- boot ---------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,6 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
   $("toggle-period-month").addEventListener("click", () => setPeriodMode("month"));
   $("toggle-period-quarter").addEventListener("click", () => setPeriodMode("quarter"));
 
+  $("cal-view-day").addEventListener("click", () => setCalMode("day"));
+  $("cal-view-week").addEventListener("click", () => setCalMode("week"));
+  $("cal-view-month").addEventListener("click", () => setCalMode("month"));
+  $("cal-prev").addEventListener("click", () => calNav(-1));
+  $("cal-next").addEventListener("click", () => calNav(1));
+  $("cal-today").addEventListener("click", calToday);
+
   if (localStorage.getItem(KEY_STORE)) {
     loadData();
   } else {
@@ -71,6 +82,18 @@ function setPeriodMode(mode) {
     $("toggle-period-" + m).classList.toggle("active", m === mode)
   );
   if (DATA) renderPeriodChart(DATA);
+}
+
+async function fetchCalendarEvents(start, end) {
+  const key = localStorage.getItem(KEY_STORE);
+  const iso = (d) => d.toISOString().slice(0, 10);
+  const res = await fetch(
+    WEBHOOK + "?action=get_calendar_events&key=" + encodeURIComponent(key) +
+    "&range_start=" + iso(start) + "&range_end=" + iso(end)
+  );
+  const data = await res.json();
+  if (data.status !== "ok") throw new Error(data.message || "calendar fetch failed");
+  return data.events;
 }
 
 async function loadData() {
@@ -246,6 +269,7 @@ function renderAll(d) {
     "Data as of " + asof.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   renderDrift(d);
   renderKpis(d);
+  renderSchedule(d);
   renderPeriodChart(d);
   renderStreams(d);
   renderMoney(d);
@@ -416,6 +440,167 @@ function niceCeil(v) {
     if (v <= m * mag) return m * mag;
   }
   return 10 * mag;
+}
+
+/* ------- schedule (Google Calendar sync) ------- */
+
+function normalizeEvent(ev) {
+  return {
+    id: ev.id, title: ev.title,
+    start: new Date(ev.start), end: new Date(ev.end),
+    allDay: !!ev.all_day, description: ev.description || "",
+  };
+}
+
+function renderSchedule(d) {
+  const now = new Date();
+  CAL_CACHE = {
+    start: new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7),
+    end: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 83),
+    events: (d.calendar_events || []).map(normalizeEvent),
+  };
+  drawCalendar();
+}
+
+function weekBounds(date) {
+  const start = new Date(date);
+  start.setDate(start.getDate() - start.getDay());
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 6);
+  end.setHours(23, 59, 59, 999);
+  return { start, end };
+}
+
+function eventsInRange(start, end) {
+  return CAL_CACHE.events
+    .filter((ev) => ev.start < end && ev.end > start)
+    .sort((a, b) => a.start - b.start);
+}
+
+async function ensureCalWindow(neededStart, neededEnd) {
+  if (CAL_CACHE.start && CAL_CACHE.end && neededStart >= CAL_CACHE.start && neededEnd <= CAL_CACHE.end) return;
+  try {
+    const bufStart = new Date(neededStart); bufStart.setDate(bufStart.getDate() - 30);
+    const bufEnd = new Date(neededEnd); bufEnd.setDate(bufEnd.getDate() + 30);
+    const events = await fetchCalendarEvents(bufStart, bufEnd);
+    CAL_CACHE = { start: bufStart, end: bufEnd, events: events.map(normalizeEvent) };
+  } catch (err) {
+    // keep the stale cache — the card just won't show anything outside it
+  }
+}
+
+function eventChip(ev) {
+  const time = ev.allDay ? "All day" : ev.start.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+  return `<div class="cal-event"><span class="cal-event-time">${time}</span><span class="cal-event-title">${ev.title}</span></div>`;
+}
+
+async function drawCalendar() {
+  if (calMode === "day") {
+    const dayStart = new Date(calAnchor); dayStart.setHours(0, 0, 0, 0);
+    const dayEnd = new Date(calAnchor); dayEnd.setHours(23, 59, 59, 999);
+    await ensureCalWindow(dayStart, dayEnd);
+    renderCalDay();
+  } else if (calMode === "month") {
+    const monthStart = new Date(calAnchor.getFullYear(), calAnchor.getMonth(), 1);
+    const monthEnd = new Date(calAnchor.getFullYear(), calAnchor.getMonth() + 1, 0, 23, 59, 59, 999);
+    await ensureCalWindow(monthStart, monthEnd);
+    renderCalMonth();
+  } else {
+    const { start, end } = weekBounds(calAnchor);
+    await ensureCalWindow(start, end);
+    renderCalWeek();
+  }
+}
+
+function renderCalDay() {
+  $("cal-range-label").textContent = calAnchor.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
+  const dayStart = new Date(calAnchor); dayStart.setHours(0, 0, 0, 0);
+  const dayEnd = new Date(calAnchor); dayEnd.setHours(23, 59, 59, 999);
+  const evs = eventsInRange(dayStart, dayEnd);
+  $("calendar").innerHTML = evs.length
+    ? `<div class="cal-day-list">${evs.map(eventChip).join("")}</div>`
+    : '<p class="empty-note">No sessions scheduled.</p>';
+}
+
+function renderCalWeek() {
+  const { start, end } = weekBounds(calAnchor);
+  $("cal-range-label").textContent =
+    start.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + " – " +
+    end.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  const days = [];
+  for (let i = 0; i < 7; i++) { const day = new Date(start); day.setDate(day.getDate() + i); days.push(day); }
+
+  $("calendar").innerHTML = `<div class="cal-week-grid">${days
+    .map((day) => {
+      const dayEnd = new Date(day); dayEnd.setHours(23, 59, 59, 999);
+      const evs = eventsInRange(day, dayEnd);
+      const isToday = day.getTime() === today0.getTime();
+      return `<div class="cal-week-col${isToday ? " is-today" : ""}">
+        <div class="cal-week-daylabel">${day.toLocaleDateString("en-US", { weekday: "short" })}<span>${day.getDate()}</span></div>
+        <div class="cal-week-events">${evs.length ? evs.map(eventChip).join("") : ""}</div>
+      </div>`;
+    })
+    .join("")}</div>`;
+}
+
+function renderCalMonth() {
+  const y = calAnchor.getFullYear(), m = calAnchor.getMonth();
+  $("cal-range-label").textContent = calAnchor.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const gridStart = new Date(y, m, 1);
+  gridStart.setDate(gridStart.getDate() - gridStart.getDay());
+  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  const MAX_CHIPS = 3;
+
+  const cells = [];
+  for (let i = 0; i < 42; i++) { const day = new Date(gridStart); day.setDate(day.getDate() + i); cells.push(day); }
+  const rows = [];
+  for (let r = 0; r < 6; r++) rows.push(cells.slice(r * 7, r * 7 + 7));
+
+  const cellHtml = (day) => {
+    const inMonth = day.getMonth() === m;
+    const dayEnd = new Date(day); dayEnd.setHours(23, 59, 59, 999);
+    const evs = eventsInRange(day, dayEnd);
+    const isToday = day.getTime() === today0.getTime();
+    const shown = evs.slice(0, MAX_CHIPS);
+    const overflow = evs.length - shown.length;
+    return `<div class="cal-month-cell${inMonth ? "" : " is-outside"}${isToday ? " is-today" : ""}" data-date="${day.toISOString().slice(0, 10)}">
+      <div class="cal-month-daynum">${day.getDate()}</div>
+      ${shown.map((ev) => `<div class="cal-month-chip" title="${ev.title}">${ev.allDay ? "" : ev.start.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + " "}${ev.title}</div>`).join("")}
+      ${overflow > 0 ? `<div class="cal-month-more">+${overflow} more</div>` : ""}
+    </div>`;
+  };
+
+  $("calendar").innerHTML = `<div class="cal-month-grid">
+    <div class="cal-month-row cal-month-head">${["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((wd) => `<div class="cal-month-headcell">${wd}</div>`).join("")}</div>
+    ${rows.map((row) => `<div class="cal-month-row">${row.map(cellHtml).join("")}</div>`).join("")}
+  </div>`;
+
+  $("calendar").querySelectorAll(".cal-month-cell").forEach((cell) => {
+    cell.addEventListener("click", () => {
+      calAnchor = new Date(cell.getAttribute("data-date") + "T00:00:00");
+      setCalMode("day");
+    });
+  });
+}
+
+function setCalMode(mode) {
+  calMode = mode;
+  ["day", "week", "month"].forEach((m) => $("cal-view-" + m).classList.toggle("active", m === mode));
+  drawCalendar();
+}
+
+function calNav(dir) {
+  if (calMode === "day") calAnchor.setDate(calAnchor.getDate() + dir);
+  else if (calMode === "week") calAnchor.setDate(calAnchor.getDate() + dir * 7);
+  else calAnchor = new Date(calAnchor.getFullYear(), calAnchor.getMonth() + dir, 1);
+  drawCalendar();
+}
+
+function calToday() {
+  calAnchor = new Date();
+  drawCalendar();
 }
 
 /* ------- revenue by stream ------- */
