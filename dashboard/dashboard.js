@@ -26,6 +26,7 @@ const fmt$c = (n) =>
 
 let DATA = null;
 let lineMode = "sessions"; // or "clients"
+let periodMode = "month"; // "week" | "month" | "quarter"
 
 /* ---------------- boot ---------------- */
 
@@ -46,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   $("toggle-sessions").addEventListener("click", () => setLineMode("sessions"));
   $("toggle-clients").addEventListener("click", () => setLineMode("clients"));
+  $("toggle-period-week").addEventListener("click", () => setPeriodMode("week"));
+  $("toggle-period-month").addEventListener("click", () => setPeriodMode("month"));
+  $("toggle-period-quarter").addEventListener("click", () => setPeriodMode("quarter"));
 
   if (localStorage.getItem(KEY_STORE)) {
     loadData();
@@ -58,7 +62,15 @@ function setLineMode(mode) {
   lineMode = mode;
   $("toggle-sessions").classList.toggle("active", mode === "sessions");
   $("toggle-clients").classList.toggle("active", mode === "clients");
-  if (DATA) renderMonthly(DATA);
+  if (DATA) renderPeriodChart(DATA);
+}
+
+function setPeriodMode(mode) {
+  periodMode = mode;
+  ["week", "month", "quarter"].forEach((m) =>
+    $("toggle-period-" + m).classList.toggle("active", m === mode)
+  );
+  if (DATA) renderPeriodChart(DATA);
 }
 
 async function loadData() {
@@ -113,6 +125,99 @@ function monthLabel(key) {
   return MONTH_NAMES[+m - 1] + (+y !== new Date().getFullYear() ? " ’" + y.slice(2) : "");
 }
 
+// Sum (amountField given) or count (amountField null) rows in a trailing window vs the
+// equal-length window immediately before it. Window is (now-days, now].
+function trailingWindow(rows, days, amountField) {
+  const now = new Date();
+  const curStart = new Date(now); curStart.setDate(curStart.getDate() - days);
+  const prevStart = new Date(now); prevStart.setDate(prevStart.getDate() - 2 * days);
+  let cur = 0, prev = 0;
+  rows.forEach((r) => {
+    const dt = parseDate(r.date);
+    if (!dt) return;
+    const v = amountField ? (r[amountField] || 0) : 1;
+    if (dt > curStart && dt <= now) cur += v;
+    else if (dt > prevStart && dt <= curStart) prev += v;
+  });
+  return { cur, prev };
+}
+
+// Same-day-count month-to-date: days 1..N of this month vs days 1..N of last month.
+function sameDayCountMTD(rows, amountField) {
+  const now = new Date();
+  const dayCount = now.getDate();
+  const prevMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+  const daysInPrevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+  const prevDayCount = Math.min(dayCount, daysInPrevMonth);
+  const thisKey = monthKey(now);
+  const prevKey = monthKey(prevMonth);
+  let cur = 0, prev = 0;
+  rows.forEach((r) => {
+    const dt = parseDate(r.date);
+    if (!dt) return;
+    const v = amountField ? (r[amountField] || 0) : 1;
+    const k = monthKey(dt);
+    if (k === thisKey && dt.getDate() <= dayCount) cur += v;
+    else if (k === prevKey && dt.getDate() <= prevDayCount) prev += v;
+  });
+  return { cur, prev, dayCount };
+}
+
+function computeConversion(leads) {
+  const total = leads.length;
+  const converted = leads.filter((l) => l.status === "Converted").length;
+  return { total, converted, rate: total ? (converted / total) * 100 : 0 };
+}
+
+function computeClientValue(clients) {
+  const billed = clients.filter((c) => (c.total_paid || 0) > 0);
+  const n = billed.length;
+  const totalPaid = billed.reduce((s, c) => s + c.total_paid, 0);
+  const rebooked = billed.filter((c) => (+c.sessions_total || 0) > 1).length;
+  return { avg: n ? totalPaid / n : 0, rebookRate: n ? (rebooked / n) * 100 : 0, n };
+}
+
+// Build [{start, end (exclusive), label}] buckets spanning startDate..now at the given grain.
+function buildPeriodBuckets(startDate, now, mode) {
+  const buckets = [];
+  if (mode === "week") {
+    // Monday-aligned 7-day buckets.
+    const day = startDate.getDay(); // 0=Sun..6=Sat
+    const mondayOffset = day === 0 ? -6 : 1 - day;
+    let cur = new Date(startDate); cur.setDate(cur.getDate() + mondayOffset);
+    cur.setHours(0, 0, 0, 0);
+    while (cur <= now) {
+      const end = new Date(cur); end.setDate(end.getDate() + 7);
+      buckets.push({
+        start: new Date(cur),
+        end,
+        label: cur.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+      });
+      cur = end;
+    }
+    return buckets.slice(-12);
+  }
+  if (mode === "quarter") {
+    let cur = new Date(startDate.getFullYear(), Math.floor(startDate.getMonth() / 3) * 3, 1);
+    while (cur <= now) {
+      const end = new Date(cur.getFullYear(), cur.getMonth() + 3, 1);
+      const q = Math.floor(cur.getMonth() / 3) + 1;
+      const label = "Q" + q + (cur.getFullYear() !== now.getFullYear() ? " '" + String(cur.getFullYear()).slice(2) : "");
+      buckets.push({ start: new Date(cur), end, label });
+      cur = end;
+    }
+    return buckets;
+  }
+  // month (default)
+  let cur = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+  while (cur <= now) {
+    const end = new Date(cur.getFullYear(), cur.getMonth() + 1, 1);
+    buckets.push({ start: new Date(cur), end, label: monthLabel(monthKey(cur)) });
+    cur = end;
+  }
+  return buckets;
+}
+
 // Classify an income row into { parent, sub }
 function classify(row) {
   const desc = (row.description || "").toLowerCase();
@@ -141,7 +246,7 @@ function renderAll(d) {
     "Data as of " + asof.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   renderDrift(d);
   renderKpis(d);
-  renderMonthly(d);
+  renderPeriodChart(d);
   renderStreams(d);
   renderMoney(d);
   renderClients(d);
@@ -167,41 +272,42 @@ function renderDrift(d) {
 }
 
 function renderKpis(d) {
-  const now = new Date();
-  const thisKey = monthKey(now);
-  const prev = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-  const prevKey = monthKey(prev);
-
-  const inMonth = (rows, key) =>
-    rows.filter((r) => { const dt = parseDate(r.date); return dt && monthKey(dt) === key; });
-
-  const revThis = inMonth(d.income, thisKey).reduce((s, r) => s + r.amount, 0);
-  const revPrev = inMonth(d.income, prevKey).reduce((s, r) => s + r.amount, 0);
-  const sessThis = inMonth(d.mileage, thisKey).length;
-  const sessPrev = inMonth(d.mileage, prevKey).length;
+  const revTrailing = trailingWindow(d.income, 30, "amount");
+  const sessTrailing = trailingWindow(d.mileage, 30, null);
+  const revMTD = sameDayCountMTD(d.income, "amount");
+  const sessMTD = sameDayCountMTD(d.mileage, null);
 
   const activeClients = d.clients.filter((c) => c.status === "Active").length;
   const incomeTotal = d.income.reduce((s, r) => s + r.amount, 0);
   const expenseTotal = d.expenses.reduce((s, r) => s + r.amount, 0);
   const net = incomeTotal - expenseTotal;
-  const taxSetAside = Math.max(0, net) * 0.25;
-  const mileageDeduction = d.mileage.reduce((s, r) => s + r.deduction, 0);
+
+  const conversion = computeConversion(d.leads);
+  const avgTicket = sessTrailing.cur ? revTrailing.cur / sessTrailing.cur : null;
+  const clientValue = computeClientValue(d.clients);
 
   const delta = (cur, prevV, money) => {
     if (!prevV) return "";
     const pct = ((cur - prevV) / prevV) * 100;
     const cls = pct >= 0 ? "up" : "down";
     const arrow = pct >= 0 ? "▲" : "▼";
-    return `<div class="kpi-delta ${cls}">${arrow} ${Math.abs(pct).toFixed(0)}% vs last month (${money ? fmt$(prevV) : prevV})</div>`;
+    return `<div class="kpi-delta ${cls}">${arrow} ${Math.abs(pct).toFixed(0)}% vs prior 30 days (${money ? fmt$(prevV) : prevV})</div>`;
+  };
+  const mtdLine = (mtd, money) => {
+    if (!mtd.cur && !mtd.prev) return "";
+    const curTxt = money ? fmt$(mtd.cur) : mtd.cur;
+    const prevTxt = money ? fmt$(mtd.prev) : mtd.prev;
+    return `<div class="kpi-delta">Day 1–${mtd.dayCount}: ${curTxt} vs ${prevTxt} last month</div>`;
   };
 
   const tiles = [
-    { label: "Revenue · " + MONTH_NAMES[now.getMonth()], value: fmt$(revThis), extra: delta(revThis, revPrev, true) },
-    { label: "Sessions · " + MONTH_NAMES[now.getMonth()], value: sessThis, extra: delta(sessThis, sessPrev, false) },
+    { label: "Revenue · 30d", value: fmt$(revTrailing.cur), extra: delta(revTrailing.cur, revTrailing.prev, true) + mtdLine(revMTD, true) },
+    { label: "Sessions · 30d", value: sessTrailing.cur, extra: delta(sessTrailing.cur, sessTrailing.prev, false) + mtdLine(sessMTD, false) },
     { label: "Active clients", value: activeClients, extra: "" },
     { label: "Net profit · YTD", value: fmt$(net), extra: `<div class="kpi-delta">${fmt$(incomeTotal)} in − ${fmt$(expenseTotal)} out</div>` },
-    { label: "Tax set-aside (25% of net)", value: fmt$(taxSetAside), extra: `<div class="kpi-delta">keep this much in reserve</div>` },
-    { label: "Mileage deduction · YTD", value: fmt$c(mileageDeduction), extra: `<div class="kpi-delta">${d.mileage.length} trips logged</div>` },
+    { label: "Avg ticket · 30d", value: avgTicket !== null ? fmt$(avgTicket) : "—", extra: "" },
+    { label: "Lead conversion", value: conversion.rate.toFixed(0) + "%", extra: `<div class="kpi-delta">${conversion.converted} of ${conversion.total} leads · all-time</div>` },
+    { label: "Avg client value", value: fmt$(clientValue.avg), extra: `<div class="kpi-delta">${clientValue.rebookRate.toFixed(0)}% rebook (${clientValue.n} clients)</div>` },
   ];
   $("kpis").innerHTML = tiles
     .map(
@@ -210,40 +316,40 @@ function renderKpis(d) {
     .join("");
 }
 
-/* ------- monthly chart (bars = revenue, line = sessions/clients) ------- */
+/* ------- period chart (bars = revenue, line = sessions/clients) ------- */
 
-function renderMonthly(d) {
-  // month range: first month with activity -> current month
+function renderPeriodChart(d) {
+  // range: first activity in 2026+ -> now
   const dates = [];
   d.income.forEach((r) => { const dt = parseDate(r.date); if (dt && dt.getFullYear() >= 2026) dates.push(dt); });
   d.mileage.forEach((r) => { const dt = parseDate(r.date); if (dt && dt.getFullYear() >= 2026) dates.push(dt); });
   if (!dates.length) { $("monthly-chart").innerHTML = '<p class="empty-note">No data yet.</p>'; return; }
   dates.sort((a, b) => a - b);
-  const start = new Date(dates[0].getFullYear(), dates[0].getMonth(), 1);
   const now = new Date();
-  const months = [];
-  for (let dt = new Date(start); dt <= now; dt.setMonth(dt.getMonth() + 1)) {
-    months.push(monthKey(dt));
-  }
+  const buckets = buildPeriodBuckets(dates[0], now, periodMode);
+  if (!buckets.length) { $("monthly-chart").innerHTML = '<p class="empty-note">No data yet.</p>'; return; }
 
-  const revenue = {}, sessions = {}, clients = {};
-  months.forEach((k) => { revenue[k] = 0; sessions[k] = 0; clients[k] = new Set(); });
+  const revenue = buckets.map(() => 0);
+  const sessions = buckets.map(() => 0);
+  const clients = buckets.map(() => new Set());
+  const bucketFor = (dt) => buckets.findIndex((b) => dt >= b.start && dt < b.end);
+
   d.income.forEach((r) => {
     const dt = parseDate(r.date); if (!dt) return;
-    const k = monthKey(dt); if (k in revenue) {
-      revenue[k] += r.amount;
-      clients[k].add((r.client || "").toLowerCase().trim());
-    }
+    const i = bucketFor(dt); if (i === -1) return;
+    revenue[i] += r.amount;
+    clients[i].add((r.client || "").toLowerCase().trim());
   });
   d.mileage.forEach((r) => {
     const dt = parseDate(r.date); if (!dt) return;
-    const k = monthKey(dt); if (k in sessions) sessions[k]++;
+    const i = bucketFor(dt); if (i === -1) return;
+    sessions[i]++;
   });
 
-  const lineVals = months.map((k) => lineMode === "sessions" ? sessions[k] : clients[k].size);
-  const barVals = months.map((k) => revenue[k]);
+  const lineVals = buckets.map((b, i) => lineMode === "sessions" ? sessions[i] : clients[i].size);
+  const barVals = revenue;
 
-  // --- SVG: two aligned panels sharing the month axis (never dual-axis) ---
+  // --- SVG: two aligned panels sharing the period axis (never dual-axis) ---
   const W = 720, padL = 52, padR = 16, padT = 14;
   const barH = 170, gapH = 30, lineH = 80, padB = 26;
   const H = padT + barH + gapH + lineH + padB;
@@ -251,15 +357,17 @@ function renderMonthly(d) {
   const niceMax = niceCeil(Math.max(...barVals, 1));
   const lineMax = niceCeil(Math.max(...lineVals, 1));
 
-  const bw = Math.min(44, (plotW / months.length) * 0.55);
-  const xC = (i) => padL + (plotW / months.length) * (i + 0.5);
+  const bw = Math.min(44, (plotW / buckets.length) * 0.55);
+  const xC = (i) => padL + (plotW / buckets.length) * (i + 0.5);
   const barBase = padT + barH;
   const lineTop = padT + barH + gapH;
   const lineBase = lineTop + lineH;
   const yBar = (v) => barBase - (v / niceMax) * barH;
   const yLine = (v) => lineBase - (v / lineMax) * lineH;
 
-  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Monthly revenue and ${lineMode}">`;
+  const periodLabel = periodMode === "week" ? "Weekly" : periodMode === "quarter" ? "Quarterly" : "Monthly";
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${periodLabel} revenue and ${lineMode}">`;
   // ---- panel 1: revenue bars ----
   for (let g = 0; g <= 4; g++) {
     const v = (niceMax / 4) * g;
@@ -267,13 +375,13 @@ function renderMonthly(d) {
     svg += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>`;
     svg += `<text x="${padL - 8}" y="${y + 3}" text-anchor="end" font-size="10" fill="#9C9C9C">${fmt$(v)}</text>`;
   }
-  months.forEach((k, i) => {
+  buckets.forEach((b, i) => {
     const v = barVals[i];
     const x = xC(i) - bw / 2;
     const y = yBar(v);
     if (v > 0) {
       svg += `<path d="M${x},${barBase} L${x},${y + 4} Q${x},${y} ${x + 4},${y} L${x + bw - 4},${y} Q${x + bw},${y} ${x + bw},${y + 4} L${x + bw},${barBase} Z"
-        fill="${COLORS.lessons}" data-tip="${monthLabel(k)}|Revenue: ${fmt$c(v)}"/>`;
+        fill="${COLORS.lessons}" data-tip="${b.label}|Revenue: ${fmt$c(v)}"/>`;
     }
   });
   // ---- panel 2: sessions / clients line ----
@@ -281,15 +389,15 @@ function renderMonthly(d) {
   svg += `<text x="${padL - 8}" y="${lineBase + 3}" text-anchor="end" font-size="10" fill="#9C9C9C">0</text>`;
   svg += `<line x1="${padL}" y1="${lineBase}" x2="${W - padR}" y2="${lineBase}" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>`;
   svg += `<line x1="${padL}" y1="${lineTop}" x2="${W - padR}" y2="${lineTop}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
-  const linePts = months.map((k, i) => [xC(i), yLine(lineVals[i])]);
+  const linePts = buckets.map((b, i) => [xC(i), yLine(lineVals[i])]);
   svg += `<polyline points="${linePts.map((p) => p.join(",")).join(" ")}" fill="none" stroke="${COLORS.chiro}" stroke-width="2"/>`;
   linePts.forEach((p, i) => {
     svg += `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="${COLORS.chiro}" stroke="#202226" stroke-width="2"
-      data-tip="${monthLabel(months[i])}|${lineMode === "sessions" ? "Sessions" : "Paying clients"}: ${lineVals[i]}"/>`;
+      data-tip="${buckets[i].label}|${lineMode === "sessions" ? "Sessions" : "Paying clients"}: ${lineVals[i]}"/>`;
   });
-  // ---- shared month labels ----
-  months.forEach((k, i) => {
-    svg += `<text x="${xC(i)}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#9C9C9C">${monthLabel(k)}</text>`;
+  // ---- shared period labels ----
+  buckets.forEach((b, i) => {
+    svg += `<text x="${xC(i)}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#9C9C9C">${b.label}</text>`;
   });
   svg += "</svg>";
   $("monthly-chart").innerHTML = svg;
@@ -364,12 +472,14 @@ function renderMoney(d) {
   const expenses = d.expenses.reduce((s, r) => s + r.amount, 0);
   const net = income - expenses;
   const setAside = Math.max(0, net) * 0.25;
+  const mileageDeduction = d.mileage.reduce((s, r) => s + r.deduction, 0);
 
   $("money-summary").innerHTML = `
     <div class="money-line"><div class="m-label">Total income</div><div class="m-value">${fmt$c(income)}</div></div>
     <div class="money-line"><div class="m-label">Total expenses</div><div class="m-value">${fmt$c(expenses)}</div></div>
     <div class="money-line"><div class="m-label">Net profit (taxable est.)</div><div class="m-value">${fmt$c(net)}</div></div>
-    <div class="money-line accent"><div class="m-label">Tax set-aside · 25%</div><div class="m-value">${fmt$c(setAside)}</div></div>`;
+    <div class="money-line accent"><div class="m-label">Tax set-aside · 25%</div><div class="m-value">${fmt$c(setAside)}</div></div>
+    <div class="money-line"><div class="m-label">Mileage deduction · YTD</div><div class="m-value">${fmt$c(mileageDeduction)}</div></div>`;
 
   const cats = {};
   d.expenses.forEach((r) => {
@@ -568,10 +678,8 @@ function renderPipeline(d) {
     if (l.status in counts) counts[l.status]++;
     else other++;
   });
-  const total = d.leads.length;
-  const converted = counts["Converted"];
-  const rate = total ? ((converted / total) * 100).toFixed(1) : "0";
-  $("conversion").textContent = `${total} leads · ${rate}% converted`;
+  const conversion = computeConversion(d.leads);
+  $("conversion").textContent = `${conversion.total} leads · ${conversion.rate.toFixed(1)}% converted`;
 
   const maxC = Math.max(...statuses.map((s) => counts[s]), 1);
   $("pipeline").innerHTML =

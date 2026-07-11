@@ -140,7 +140,7 @@ main {
 
 /* ---------- KPI tiles ---------- */
 .kpi-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;
 }
 @media (max-width: 760px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
 .kpi {
