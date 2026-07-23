@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=6" />
+  <link rel="stylesheet" href="dashboard.css?v=7" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -74,7 +74,7 @@
         <h2>Month over month</h2>
         <div class="seg-toggle" role="group" aria-label="Line series">
           <button id="toggle-sessions" class="seg active">Sessions</button>
-          <button id="toggle-clients" class="seg">Paying clients</button>
+          <button id="toggle-leads" class="seg">New leads</button>
         </div>
         <div class="seg-toggle" role="group" aria-label="Time period">
           <button id="toggle-period-week" class="seg">Weekly</button>
@@ -102,6 +102,12 @@
         <p class="footnote">“Mileage &amp; Travel” is the IRS paper deduction (already logged as expense rows) — net profit here is your estimated taxable profit, not cash in the bank.</p>
       </section>
     </div>
+
+    <!-- Unserviced (prepaid) package value -->
+    <section class="card">
+      <div class="card-head"><h2>Unserviced sessions</h2><span id="unserviced-sub" class="card-sub"></span></div>
+      <div id="unserviced"></div>
+    </section>
 
     <!-- Clients -->
     <section class="card">
@@ -134,6 +140,20 @@
         <div id="pipeline"></div>
       </section>
 
+      <!-- Leads by source -->
+      <section class="card">
+        <div class="card-head"><h2>Leads by source</h2><span class="card-sub">where they come from</span></div>
+        <div id="lead-sources"></div>
+      </section>
+    </div>
+
+    <div class="two-col">
+      <!-- Recent leads -->
+      <section class="card">
+        <div class="card-head"><h2>Recent leads</h2><span class="card-sub">last 5</span></div>
+        <div id="recent-leads" class="lead-list"></div>
+      </section>
+
       <!-- Action needed -->
       <section class="card">
         <div class="card-head"><h2>Needs your attention</h2></div>
@@ -147,6 +167,6 @@
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard.js?v=5"></script>
+  <script src="dashboard.js?v=6"></script>
 </body>
 </html>

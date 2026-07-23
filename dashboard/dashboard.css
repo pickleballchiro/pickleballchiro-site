@@ -311,3 +311,34 @@ main {
 .activity-amt { font-family: 'Oswald', sans-serif; font-weight: 600; flex-shrink: 0; }
 .activity-amt.in { color: var(--good); }
 .activity-amt.out { color: var(--orange-soft); }
+
+/* ---------- unserviced (prepaid) package value ---------- */
+.unserviced-totals { display: flex; gap: 14px; margin-bottom: 12px; }
+.u-tot {
+  flex: 1; background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--orange); border-radius: 8px; padding: 10px 12px;
+}
+.u-tot-num { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--white); }
+.u-tot-lbl { font-size: 0.7rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+.unserviced-list { display: flex; flex-direction: column; }
+.u-pkg { color: var(--gray-mid); font-size: 0.72rem; font-weight: 400; }
+.u-left { flex-shrink: 0; color: var(--gray-mid); font-size: 0.76rem; }
+.u-amt { font-family: 'Oswald', sans-serif; font-weight: 600; flex-shrink: 0; color: var(--orange-soft); }
+
+/* ---------- leads by source (donut) ---------- */
+.src-wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.src-donut { width: 160px; height: 160px; flex-shrink: 0; }
+.src-legend { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 6px; }
+.src-legend-row { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; }
+.src-swatch { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.src-name { flex: 1; color: var(--off-white); }
+.src-val { color: var(--gray-mid); font-size: 0.76rem; }
+
+/* ---------- recent leads ---------- */
+.lead-list { display: flex; flex-direction: column; }
+.lead-row { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.lead-row:last-child { border-bottom: none; }
+.lead-main { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.lead-name { font-weight: 700; font-size: 0.9rem; color: var(--white); }
+.lead-meta { font-size: 0.76rem; color: var(--off-white); margin-top: 3px; }
+.lead-date { font-size: 0.72rem; color: var(--gray-mid); margin-top: 2px; }

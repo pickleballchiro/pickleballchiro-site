@@ -25,7 +25,7 @@ const fmt$c = (n) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
 let DATA = null;
-let lineMode = "sessions"; // or "clients"
+let lineMode = "sessions"; // or "leads"
 let periodMode = "month"; // "week" | "month" | "quarter"
 
 let calMode = "week"; // "day" | "week" | "month"
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     location.reload();
   });
   $("toggle-sessions").addEventListener("click", () => setLineMode("sessions"));
-  $("toggle-clients").addEventListener("click", () => setLineMode("clients"));
+  $("toggle-leads").addEventListener("click", () => setLineMode("leads"));
   $("toggle-period-week").addEventListener("click", () => setPeriodMode("week"));
   $("toggle-period-month").addEventListener("click", () => setPeriodMode("month"));
   $("toggle-period-quarter").addEventListener("click", () => setPeriodMode("quarter"));
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function setLineMode(mode) {
   lineMode = mode;
   $("toggle-sessions").classList.toggle("active", mode === "sessions");
-  $("toggle-clients").classList.toggle("active", mode === "clients");
+  $("toggle-leads").classList.toggle("active", mode === "leads");
   if (DATA) renderPeriodChart(DATA);
 }
 
@@ -273,10 +273,13 @@ function renderAll(d) {
   renderPeriodChart(d);
   renderStreams(d);
   renderMoney(d);
+  renderUnserviced(d);
   renderClients(d);
   renderReengage(d);
   renderRecent(d);
   renderPipeline(d);
+  renderLeadSources(d);
+  renderRecentLeads(d);
   renderAttention(d);
 }
 
@@ -301,7 +304,14 @@ function renderKpis(d) {
   const revMTD = sameDayCountMTD(d.income, "amount");
   const sessMTD = sameDayCountMTD(d.mileage, null);
 
-  const activeClients = d.clients.filter((c) => c.status === "Active").length;
+  // Active = anyone not Inactive: on an open package, seen within 14 days, with a
+  // booked next session, or brand-new (single source of truth = the webhook's Stage).
+  const activeClients = d.clients.filter(
+    (c) => c.name && c.stage !== "Inactive"
+  ).length;
+  const leadRows = d.leads.map((l) => ({ date: l.date_added }));
+  const leadsTrailing = trailingWindow(leadRows, 30, null);
+  const ig = d.instagram || null;
   const incomeTotal = d.income.reduce((s, r) => s + r.amount, 0);
   const expenseTotal = d.expenses.reduce((s, r) => s + r.amount, 0);
   const net = incomeTotal - expenseTotal;
@@ -330,9 +340,17 @@ function renderKpis(d) {
     { label: "Active clients", value: activeClients, extra: "" },
     { label: "Net profit · YTD", value: fmt$(net), extra: `<div class="kpi-delta">${fmt$(incomeTotal)} in − ${fmt$(expenseTotal)} out</div>` },
     { label: "Avg ticket · 30d", value: avgTicket !== null ? fmt$(avgTicket) : "—", extra: "" },
+    { label: "New leads · 30d", value: leadsTrailing.cur, extra: delta(leadsTrailing.cur, leadsTrailing.prev, false) },
     { label: "Lead conversion", value: conversion.rate.toFixed(0) + "%", extra: `<div class="kpi-delta">${conversion.converted} of ${conversion.total} leads · all-time</div>` },
     { label: "Avg client value", value: fmt$(clientValue.avg), extra: `<div class="kpi-delta">${clientValue.rebookRate.toFixed(0)}% rebook (${clientValue.n} clients)</div>` },
   ];
+  if (ig && ig.followers) {
+    const d7 = ig.delta_7d;
+    const igExtra = d7 === null || d7 === undefined
+      ? `<div class="kpi-delta">@${"dr.lane_o"} · as of ${ig.as_of || "—"}</div>`
+      : `<div class="kpi-delta ${d7 >= 0 ? "up" : "down"}">${d7 >= 0 ? "▲" : "▼"} ${Math.abs(d7).toLocaleString("en-US")} in 7 days</div>`;
+    tiles.push({ label: "Instagram followers", value: ig.followers.toLocaleString("en-US"), extra: igExtra });
+  }
   $("kpis").innerHTML = tiles
     .map(
       (t) => `<div class="kpi"><div class="kpi-label">${t.label}</div><div class="kpi-value">${t.value}</div>${t.extra}</div>`
@@ -347,6 +365,7 @@ function renderPeriodChart(d) {
   const dates = [];
   d.income.forEach((r) => { const dt = parseDate(r.date); if (dt && dt.getFullYear() >= 2026) dates.push(dt); });
   d.mileage.forEach((r) => { const dt = parseDate(r.date); if (dt && dt.getFullYear() >= 2026) dates.push(dt); });
+  d.leads.forEach((r) => { const dt = parseDate(r.date_added); if (dt && dt.getFullYear() >= 2026) dates.push(dt); });
   if (!dates.length) { $("monthly-chart").innerHTML = '<p class="empty-note">No data yet.</p>'; return; }
   dates.sort((a, b) => a - b);
   const now = new Date();
@@ -355,22 +374,26 @@ function renderPeriodChart(d) {
 
   const revenue = buckets.map(() => 0);
   const sessions = buckets.map(() => 0);
-  const clients = buckets.map(() => new Set());
+  const leads = buckets.map(() => 0);
   const bucketFor = (dt) => buckets.findIndex((b) => dt >= b.start && dt < b.end);
 
   d.income.forEach((r) => {
     const dt = parseDate(r.date); if (!dt) return;
     const i = bucketFor(dt); if (i === -1) return;
     revenue[i] += r.amount;
-    clients[i].add((r.client || "").toLowerCase().trim());
   });
   d.mileage.forEach((r) => {
     const dt = parseDate(r.date); if (!dt) return;
     const i = bucketFor(dt); if (i === -1) return;
     sessions[i]++;
   });
+  d.leads.forEach((r) => {
+    const dt = parseDate(r.date_added); if (!dt) return;
+    const i = bucketFor(dt); if (i === -1) return;
+    leads[i]++;
+  });
 
-  const lineVals = buckets.map((b, i) => lineMode === "sessions" ? sessions[i] : clients[i].size);
+  const lineVals = buckets.map((b, i) => lineMode === "sessions" ? sessions[i] : leads[i]);
   const barVals = revenue;
 
   // --- SVG: two aligned panels sharing the period axis (never dual-axis) ---
@@ -391,7 +414,8 @@ function renderPeriodChart(d) {
 
   const periodLabel = periodMode === "week" ? "Weekly" : periodMode === "quarter" ? "Quarterly" : "Monthly";
 
-  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${periodLabel} revenue and ${lineMode}">`;
+  const lineLabel = lineMode === "sessions" ? "Sessions" : "New leads";
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${periodLabel} revenue and ${lineLabel}">`;
   // ---- panel 1: revenue bars ----
   for (let g = 0; g <= 4; g++) {
     const v = (niceMax / 4) * g;
@@ -417,7 +441,7 @@ function renderPeriodChart(d) {
   svg += `<polyline points="${linePts.map((p) => p.join(",")).join(" ")}" fill="none" stroke="${COLORS.chiro}" stroke-width="2"/>`;
   linePts.forEach((p, i) => {
     svg += `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="${COLORS.chiro}" stroke="#202226" stroke-width="2"
-      data-tip="${buckets[i].label}|${lineMode === "sessions" ? "Sessions" : "Paying clients"}: ${lineVals[i]}"/>`;
+      data-tip="${buckets[i].label}|${lineLabel}: ${lineVals[i]}"/>`;
   });
   // ---- shared period labels ----
   buckets.forEach((b, i) => {
@@ -428,7 +452,7 @@ function renderPeriodChart(d) {
 
   $("monthly-legend").innerHTML = `
     <span class="legend-item"><span class="legend-swatch" style="background:${COLORS.lessons}"></span>Revenue</span>
-    <span class="legend-item"><span class="legend-line" style="background:${COLORS.chiro}"></span>${lineMode === "sessions" ? "Sessions (trips logged)" : "Unique paying clients"}</span>`;
+    <span class="legend-item"><span class="legend-line" style="background:${COLORS.chiro}"></span>${lineMode === "sessions" ? "Sessions (trips logged)" : "New leads added"}</span>`;
 
   attachTooltips($("monthly-chart"));
 }
@@ -691,8 +715,7 @@ function chipFor(c) {
   const stage = c.stage || c.status || "";
   if (stage === "Package Client") return '<span class="chip package">Package</span>';
   if (stage === "Active") return '<span class="chip active">Active</span>';
-  if (stage === "Check In") return '<span class="chip checkin">Check in</span>';
-  if (stage === "At Risk") return '<span class="chip atrisk">At risk</span>';
+  if (stage === "Inactive") return '<span class="chip atrisk">Inactive</span>';
   if (stage === "New") return '<span class="chip">New</span>';
   return '<span class="chip">' + (stage || "—") + "</span>";
 }
@@ -730,9 +753,9 @@ function oneOffSummary(t) {
 
 function renderClients(d) {
   const tally = sessionTally(d);
-  const rank = { "Package Client": 0, "Active": 1, "New": 2, "Check In": 3, "At Risk": 4, "Inactive": 5 };
+  const rank = { "Package Client": 0, "Active": 1, "New": 2, "Inactive": 3 };
   const sorted = [...d.clients].sort((a, b) => {
-    const ra = rank[a.stage] ?? 3, rb = rank[b.stage] ?? 3;
+    const ra = rank[a.stage] ?? 2, rb = rank[b.stage] ?? 2;
     if (ra !== rb) return ra - rb;
     return (b.last_session || "").localeCompare(a.last_session || "");
   });
@@ -782,7 +805,7 @@ function daysSince(dateStr) {
 }
 
 function renderReengage(d) {
-  const COOL_DAYS = 21;
+  const COOL_DAYS = 14;
   const items = [];
   d.clients.forEach((c) => {
     if (c.status === "Inactive") return;
@@ -899,9 +922,7 @@ function renderAttention(d) {
     }
   });
   d.clients.forEach((c) => {
-    if (c.stage === "At Risk") items.push({ tag: "atrisk", label: "At risk", name: c.name, note: "60+ days since last session — reach out" });
-    else if (c.stage === "Check In") items.push({ tag: "checkin", label: "Check in", name: c.name, note: "31–60 days since last session" });
-    else if (c.stage === "New") items.push({ tag: "new", label: "New", name: c.name, note: "no sessions yet — book their first" });
+    if (c.stage === "New") items.push({ tag: "new", label: "New", name: c.name, note: "no sessions yet — book their first" });
   });
 
   $("attention").innerHTML = items.length
@@ -911,6 +932,139 @@ function renderAttention(d) {
         )
         .join("")
     : '<p class="empty-note">Nothing urgent — everyone’s covered. 🎉</p>';
+}
+
+/* ------- unserviced (prepaid) package value ------- */
+
+function renderUnserviced(d) {
+  const rows = [];
+  let totalSessions = 0, totalDollars = 0;
+  d.clients.forEach((c) => {
+    const incl = +c.included || 0;
+    const left = c.left === "" ? 0 : (+c.left || 0);
+    if (incl <= 0 || left <= 0) return;
+    const perValue = (+c.pkg_value || 0) > 0 ? +c.pkg_value / incl : 0;
+    const dollars = left * perValue;
+    totalSessions += left;
+    totalDollars += dollars;
+    rows.push({ name: c.name, left, dollars, pkg: c.package });
+  });
+  rows.sort((a, b) => b.dollars - a.dollars);
+
+  $("unserviced-sub").textContent = rows.length
+    ? `${totalSessions} session${totalSessions === 1 ? "" : "s"} · ${fmt$(totalDollars)} prepaid`
+    : "none outstanding";
+
+  if (!rows.length) {
+    $("unserviced").innerHTML = '<p class="empty-note">No open packages — nothing prepaid left to deliver. 🎉</p>';
+    return;
+  }
+  $("unserviced").innerHTML = `
+    <div class="unserviced-totals">
+      <div class="u-tot"><div class="u-tot-num">${totalSessions}</div><div class="u-tot-lbl">sessions owed</div></div>
+      <div class="u-tot"><div class="u-tot-num">${fmt$(totalDollars)}</div><div class="u-tot-lbl">prepaid value to deliver</div></div>
+    </div>
+    <div class="unserviced-list">${rows
+      .map(
+        (r) => `<div class="activity-row">
+        <span class="activity-name">${r.name}${r.pkg ? ` <span class="u-pkg">${r.pkg}</span>` : ""}</span>
+        <span class="u-left">${r.left} left</span>
+        <span class="u-amt">${fmt$(r.dollars)}</span>
+      </div>`
+      )
+      .join("")}</div>`;
+}
+
+/* ------- leads by source (donut) ------- */
+
+const SOURCE_COLORS = [
+  "#E8622A", "#1F97AE", "#9678F0", "#6B8ECC",
+  "#E0A32E", "#4FB477", "#D8577D", "#8A8F98",
+];
+
+function donutSlices(entries, total, cx, cy, rOuter, rInner) {
+  let a0 = -Math.PI / 2; // start at 12 o'clock
+  return entries
+    .map(([label, value], i) => {
+      let sweep = (value / total) * Math.PI * 2;
+      if (sweep >= Math.PI * 2) sweep = Math.PI * 2 - 0.001; // avoid degenerate full-circle path
+      const a1 = a0 + sweep;
+      const large = sweep > Math.PI ? 1 : 0;
+      const x0o = cx + rOuter * Math.cos(a0), y0o = cy + rOuter * Math.sin(a0);
+      const x1o = cx + rOuter * Math.cos(a1), y1o = cy + rOuter * Math.sin(a1);
+      const x0i = cx + rInner * Math.cos(a1), y0i = cy + rInner * Math.sin(a1);
+      const x1i = cx + rInner * Math.cos(a0), y1i = cy + rInner * Math.sin(a0);
+      const color = SOURCE_COLORS[i % SOURCE_COLORS.length];
+      const pct = ((value / total) * 100).toFixed(0);
+      a0 = a1;
+      return `<path d="M${x0o},${y0o} A${rOuter},${rOuter} 0 ${large} 1 ${x1o},${y1o} L${x0i},${y0i} A${rInner},${rInner} 0 ${large} 0 ${x1i},${y1i} Z"
+        fill="${color}" data-tip="${label}|${value} lead${value === 1 ? "" : "s"} · ${pct}%"/>`;
+    })
+    .join("");
+}
+
+function renderLeadSources(d) {
+  const counts = {};
+  d.leads.forEach((l) => {
+    const s = (l.source || "").trim() || "Unknown";
+    counts[s] = (counts[s] || 0) + 1;
+  });
+  const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const total = entries.reduce((s, e) => s + e[1], 0);
+  if (!total) { $("lead-sources").innerHTML = '<p class="empty-note">No leads yet.</p>'; return; }
+
+  const cx = 90, cy = 90, rOuter = 80, rInner = 46;
+  const legend = entries
+    .map(([label, value], i) => {
+      const pct = ((value / total) * 100).toFixed(0);
+      return `<div class="src-legend-row">
+        <span class="src-swatch" style="background:${SOURCE_COLORS[i % SOURCE_COLORS.length]}"></span>
+        <span class="src-name">${label}</span>
+        <span class="src-val">${value} · ${pct}%</span>
+      </div>`;
+    })
+    .join("");
+
+  $("lead-sources").innerHTML = `
+    <div class="src-wrap">
+      <svg viewBox="0 0 180 180" class="src-donut" role="img" aria-label="Leads by source">
+        ${donutSlices(entries, total, cx, cy, rOuter, rInner)}
+        <text x="${cx}" y="${cy - 3}" text-anchor="middle" font-size="26" font-weight="700" fill="#F2F1EE">${total}</text>
+        <text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="10" fill="#9C9C9C">leads</text>
+      </svg>
+      <div class="src-legend">${legend}</div>
+    </div>`;
+  attachTooltips($("lead-sources"));
+}
+
+/* ------- recent leads ------- */
+
+function leadStatusChip(status) {
+  const s = status || "New";
+  const cls = s === "Converted" ? "active" : (s === "Lost" || s === "Not a Fit") ? "atrisk" : "";
+  return `<span class="chip ${cls}">${s}</span>`;
+}
+
+function renderRecentLeads(d) {
+  const sorted = [...d.leads]
+    .sort((a, b) => {
+      const da = parseDate(a.date_added), db = parseDate(b.date_added);
+      return (db ? db.getTime() : 0) - (da ? da.getTime() : 0);
+    })
+    .slice(0, 5);
+  if (!sorted.length) { $("recent-leads").innerHTML = '<p class="empty-note">No leads yet.</p>'; return; }
+  $("recent-leads").innerHTML = sorted
+    .map((l) => {
+      const dt = parseDate(l.date_added);
+      const dstr = dt ? dt.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
+      const meta = [l.interest, l.source].filter(Boolean).join(" · ") || "—";
+      return `<div class="lead-row">
+        <div class="lead-main"><span class="lead-name">${l.name}</span>${leadStatusChip(l.status)}</div>
+        <div class="lead-meta">${meta}</div>
+        <div class="lead-date">${dstr}</div>
+      </div>`;
+    })
+    .join("");
 }
 
 /* ------- tooltips ------- */
