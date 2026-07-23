@@ -26,6 +26,7 @@ const fmt$c = (n) =>
 
 let DATA = null;
 let lineMode = "sessions"; // or "leads"
+let leadSrcMode = "all"; // "all" | "chiro" | "lessons"
 let periodMode = "month"; // "week" | "month" | "quarter"
 
 let calMode = "week"; // "day" | "week" | "month"
@@ -51,6 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   $("toggle-sessions").addEventListener("click", () => setLineMode("sessions"));
   $("toggle-leads").addEventListener("click", () => setLineMode("leads"));
+  $("src-all").addEventListener("click", () => setLeadSrcMode("all"));
+  $("src-chiro").addEventListener("click", () => setLeadSrcMode("chiro"));
+  $("src-lessons").addEventListener("click", () => setLeadSrcMode("lessons"));
   $("toggle-period-week").addEventListener("click", () => setPeriodMode("week"));
   $("toggle-period-month").addEventListener("click", () => setPeriodMode("month"));
   $("toggle-period-quarter").addEventListener("click", () => setPeriodMode("quarter"));
@@ -74,6 +78,14 @@ function setLineMode(mode) {
   $("toggle-sessions").classList.toggle("active", mode === "sessions");
   $("toggle-leads").classList.toggle("active", mode === "leads");
   if (DATA) renderPeriodChart(DATA);
+}
+
+function setLeadSrcMode(mode) {
+  leadSrcMode = mode;
+  ["all", "chiro", "lessons"].forEach((m) =>
+    $("src-" + m).classList.toggle("active", m === mode)
+  );
+  if (DATA) renderLeadSources(DATA);
 }
 
 function setPeriodMode(mode) {
@@ -1003,15 +1015,25 @@ function donutSlices(entries, total, cx, cy, rOuter, rInner) {
     .join("");
 }
 
+function leadMatchesSrcMode(l) {
+  const it = (l.interest || "").toLowerCase();
+  if (leadSrcMode === "chiro") return it.indexOf("chiro") !== -1;
+  if (leadSrcMode === "lessons") return it.indexOf("lesson") !== -1 || it.indexOf("pickleball") !== -1;
+  return true;
+}
+
 function renderLeadSources(d) {
   const counts = {};
-  d.leads.forEach((l) => {
+  d.leads.filter(leadMatchesSrcMode).forEach((l) => {
     const s = (l.source || "").trim() || "Unknown";
     counts[s] = (counts[s] || 0) + 1;
   });
   const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
   const total = entries.reduce((s, e) => s + e[1], 0);
-  if (!total) { $("lead-sources").innerHTML = '<p class="empty-note">No leads yet.</p>'; return; }
+  if (!total) {
+    $("lead-sources").innerHTML = '<p class="empty-note">No ' + (leadSrcMode === "all" ? "" : leadSrcMode + " ") + 'leads yet.</p>';
+    return;
+  }
 
   const cx = 90, cy = 90, rOuter = 80, rInner = 46;
   const legend = entries
@@ -1030,7 +1052,7 @@ function renderLeadSources(d) {
       <svg viewBox="0 0 180 180" class="src-donut" role="img" aria-label="Leads by source">
         ${donutSlices(entries, total, cx, cy, rOuter, rInner)}
         <text x="${cx}" y="${cy - 3}" text-anchor="middle" font-size="26" font-weight="700" fill="#F2F1EE">${total}</text>
-        <text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="10" fill="#9C9C9C">leads</text>
+        <text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="10" fill="#9C9C9C">${leadSrcMode === "all" ? "leads" : leadSrcMode}</text>
       </svg>
       <div class="src-legend">${legend}</div>
     </div>`;
