@@ -13,6 +13,7 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 | `pickleballchiro.co/` | `index.html` | Main landing page — quiz-first funnel, reviews, offers |
 | `pickleballchiro.co/links/` | `links/index.html` | Link-in-bio hub (this is the Instagram bio link) |
 | `pickleballchiro.co/quiz/` | `quiz/index.html` | "Why You're Stuck at 3.5" self-diagnosis quiz |
+| `pickleballchiro.co/90daysto40/` | `90daysto40/index.html` | "90 Days to 4.0" virtual coaching sales page |
 | `pickleballchiro.co/stats.html` | `stats.html` | Private click-analytics viewer (this browser only) |
 
 ## File Structure
@@ -22,8 +23,9 @@ pickleballchiro-site/
 ├── index.html          ← main landing page
 ├── links/index.html    ← link-in-bio page (own layout, shares styles.css)
 ├── quiz/index.html     ← quiz (fully self-contained: own styles + scripts)
-├── styles.css          ← design system: colors, fonts, cards, buttons (/ and /links)
-├── main.js             ← click tracking, scroll animations, sticky bar (/ only)
+├── 90daysto40/index.html ← "90 Days to 4.0" sales page (shares styles.css + main.js)
+├── styles.css          ← design system: colors, fonts, cards, buttons (/, /links, /90daysto40)
+├── main.js             ← click tracking, scroll animations, sticky bar (/ and /90daysto40)
 ├── analytics.js        ← Google Analytics (GA4) config — one ID for every page
 ├── stats.html          ← click-event viewer
 ├── CNAME               ← pickleballchiro.co (DO NOT DELETE)

@@ -1,8 +1,8 @@
 /* ============================================================
    PICKLEBALL CHIRO — styles.css
    Mobile-first. Edit brand colors in :root below.
-   Shared by / (index.html) and /links. Quiz + stats + checklist
-   are self-contained and do NOT use this file.
+   Shared by / (index.html), /links, and /90daysto40. Quiz + stats
+   + checklist are self-contained and do NOT use this file.
    ============================================================ */
 
 :root {
@@ -849,4 +849,279 @@ section { padding: var(--space-4) 0; }
   .btn, .card, .guide-arrow, .ig-arrow, .btn .arrow { transition: none; }
   .btn:hover, .card:hover, .gear-tile-main:hover { transform: none; }
   .carousel-track { transition: none; }
+}
+
+/* ============================================================
+   90 DAYS TO 4.0 — LANDING PAGE COMPONENTS  (/90daysto40)
+   Only what that page needs beyond the shared system above.
+   Everything else on it reuses .hero, .card, .btn, .stage-card,
+   .offer-card, .pricing-list, .site-footer, .sticky-cta-bar.
+   ============================================================ */
+
+/* ---- Shared long-form paragraph + small note under a CTA ---- */
+.body-text {
+  font-size: 0.9rem;
+  color: var(--off-white);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto 22px;
+}
+
+.cta-note {
+  font-size: 0.78rem;
+  color: var(--gray-mid);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ---- IS THIS FOR YOU — qualifier rows ---- */
+.fit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.fit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--off-white);
+  line-height: 1.6;
+  background: linear-gradient(180deg, #24262A, #1B1C1F);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 16px 18px;
+}
+
+.fit-mark {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 1px;
+}
+.fit-mark.yes { background: rgba(240, 90, 40, 0.16); color: var(--orange); }
+.fit-mark.no  { background: rgba(255, 255, 255, 0.07); color: var(--gray-mid); }
+
+/* ---- VIDEO EMBED — 16:9 box ---- */
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #0D0E10;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-caption {
+  font-size: 0.82rem;
+  color: var(--gray-mid);
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ---- CALLOUT — orange left border ---- */
+.callout {
+  border-left: 3px solid var(--orange);
+  background: rgba(240, 90, 40, 0.07);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 18px;
+  margin: 0 auto 20px;
+  max-width: 560px;
+}
+.callout p {
+  font-size: 0.9rem;
+  color: var(--off-white);
+  line-height: 1.65;
+}
+
+/* ---- PRICING CARD — the visually prioritized offer ---- */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  border-color: rgba(240, 90, 40, 0.55);
+  box-shadow: var(--glow);
+  padding: 28px 22px;
+}
+
+.pricing-headline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 9vw, 3rem);
+  color: var(--orange);
+  line-height: 1.05;
+}
+
+.pricing-per {
+  font-size: 1.1rem;
+  color: var(--off-white);
+  letter-spacing: 0.02em;
+}
+
+.pricing-total {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  color: var(--gray-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-top: -6px;
+}
+
+.pricing-card .pricing-row { text-align: left; gap: 16px; }
+.pricing-card .pricing-row span:last-child {
+  color: var(--white);
+  font-weight: 600;
+  text-align: right;
+}
+
+.pricing-cap-note {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pricing-card .offer-fine-print { text-align: left; }
+
+/* ---- FAQ — native <details>, styled to match the card system ---- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: linear-gradient(180deg, #24262A, #1B1C1F);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  transition: border-color 0.25s ease;
+}
+.faq-item[open] { border-color: rgba(240, 90, 40, 0.4); }
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  -webkit-tap-highlight-color: transparent;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--orange); }
+
+/* The +/- marker, drawn in CSS so no JS is involved */
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--orange);
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { content: '\2212'; }
+
+.faq-answer {
+  font-size: 0.87rem;
+  color: var(--off-white);
+  line-height: 1.7;
+  padding: 0 18px 18px;
+}
+
+/* ---- NEXT STEPS — numbered rows ---- */
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.88rem;
+  color: var(--off-white);
+  line-height: 1.6;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--glow-soft);
+}
+
+/* ---- CONTACT LINE ---- */
+.contact-line {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--gray-mid);
+  line-height: 2;
+  margin-top: 22px;
+}
+.contact-line a {
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 600;
+}
+.contact-line a:hover { text-decoration: underline; }
+.contact-line span { padding: 0 6px; opacity: 0.5; }
+
+/* ---- DESKTOP ---- */
+@media (min-width: 700px) {
+  .pricing-card { max-width: 520px; margin: 0 auto; }
+  .contact-line span { padding: 0 10px; }
+}
+
+/* ---- REDUCED MOTION ---- */
+@media (prefers-reduced-motion: reduce) {
+  .faq-item, .faq-item summary::after { transition: none; }
 }
