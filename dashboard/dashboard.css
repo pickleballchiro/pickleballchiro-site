@@ -29,13 +29,34 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+  /* Stops iOS inflating body text when the phone is turned landscape. */
+  -webkit-text-size-adjust: 100%;
+}
 body {
   background: var(--dark);
   color: var(--off-white);
   font-family: 'Montserrat', sans-serif;
   line-height: 1.55;
+  /* dvh tracks Safari's collapsing URL bar; the vh line is the fallback for
+     anything that doesn't know dvh yet. */
   min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Visible to a password manager, invisible to everyone else. Not display:none —
+   managers skip fields they consider unrendered, which is the whole point of the
+   hidden username field this class exists for. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 h1, h2, h3 {
@@ -63,35 +84,62 @@ h1, h2, h3 {
 .gate-card h1 { font-size: 1.4rem; margin-bottom: 6px; }
 .gate-card p { color: var(--gray-mid); font-size: 0.9rem; margin-bottom: 18px; }
 .gate-card form { display: flex; flex-direction: column; gap: 10px; }
-.gate-card input {
+.gate-field { position: relative; display: flex; }
+.gate-card input[type="password"], .gate-card input[type="text"] {
+  flex: 1;
   background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-  color: var(--white); padding: 12px 14px; font-size: 1rem; font-family: inherit;
+  color: var(--white); padding: 12px 62px 12px 14px; font-size: 1rem; font-family: inherit;
   text-align: center;
+  /* A random hex key is unreadable in a proportional face; this keeps l/1 and
+     O/0 apart while it's revealed. */
+  letter-spacing: 0.04em;
 }
 .gate-card input:focus { outline: 2px solid var(--orange); border-color: transparent; }
+.gate-reveal {
+  position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+  min-width: 52px; min-height: 40px;
+  background: none; border: none; cursor: pointer;
+  color: var(--gray-mid); font: inherit; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.gate-reveal:hover { color: var(--off-white); }
 .gate-error { color: var(--serious); font-size: 0.85rem; margin-top: 12px; }
 
 /* ---------- buttons ---------- */
+/* Kills the 300ms tap delay Safari still applies to anything it thinks might be
+   a double-tap-to-zoom. */
+button { touch-action: manipulation; }
+
 .btn {
   background: var(--orange); color: var(--white); border: none; cursor: pointer;
   border-radius: 10px; padding: 12px 18px; font-family: 'Oswald', sans-serif;
   font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em;
+  min-height: 44px;
 }
 .btn:hover { filter: brightness(1.1); }
 .btn-ghost {
   background: transparent; border: 1px solid var(--border); color: var(--off-white);
-  padding: 8px 14px; font-size: 0.8rem;
+  padding: 8px 14px; font-size: 0.8rem; min-height: 40px;
 }
 .linklike {
   background: none; border: none; color: var(--gray-mid); cursor: pointer;
   font: inherit; font-size: 0.85rem; text-decoration: underline;
+  /* These were bare text — "Today", "Lock dashboard", "Enter a different key" —
+     with no padding at all, which on a phone is a target you have to aim at. */
+  min-height: 40px; padding: 0 6px;
 }
 .linklike:hover { color: var(--off-white); }
 
 /* ---------- loading / error ---------- */
 .loading, .load-error {
-  min-height: 100vh; display: flex; flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 16px; color: var(--gray-mid);
+  padding: 24px; text-align: center;
+}
+.load-error-actions {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
 .spinner {
   width: 36px; height: 36px; border-radius: 50%;
@@ -102,7 +150,11 @@ h1, h2, h3 {
 
 /* ---------- layout ---------- */
 main {
-  max-width: 1080px; margin: 0 auto; padding: 24px 16px 64px;
+  max-width: 1080px; margin: 0 auto;
+  /* env() insets keep content clear of the notch and the home indicator once the
+     app is launched standalone from the home screen. */
+  padding: calc(24px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right))
+           calc(64px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
   display: flex; flex-direction: column; gap: 18px;
 }
 .topbar { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -158,6 +210,7 @@ main {
 .chart-wrap svg { display: block; width: 100%; height: auto; }
 .legend { display: flex; gap: 18px; margin-top: 10px; flex-wrap: wrap; }
 .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--gray-mid); }
+.legend-note { font-style: italic; opacity: 0.8; }
 .legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
 .legend-line { width: 16px; height: 2px; border-radius: 1px; position: relative; }
 .legend-line::after {
@@ -169,7 +222,8 @@ main {
 .seg-toggle { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
 .seg {
   background: transparent; border: none; color: var(--gray-mid); cursor: pointer;
-  padding: 6px 12px; font-family: inherit; font-size: 0.76rem;
+  padding: 9px 14px; font-family: inherit; font-size: 0.76rem;
+  min-height: 40px;
 }
 .seg.active { background: var(--surface); color: var(--white); }
 
@@ -185,6 +239,9 @@ main {
 
 /* ---------- money ---------- */
 .money-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+/* Two columns inside a card on a 375px screen leaves ~140px per tile, which is
+   not enough for "Net profit (taxable est.)" plus a currency figure. */
+@media (max-width: 480px) { .money-summary { grid-template-columns: 1fr; } }
 .money-line { background: var(--surface); border-radius: 10px; padding: 10px 12px; }
 .money-line .m-label { color: var(--gray-mid); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .money-line .m-value { font-family: 'Oswald', sans-serif; font-size: 1.25rem; color: var(--white); }
@@ -223,8 +280,12 @@ main {
 .pipe-bar .fill { height: 100%; background: var(--blue); border-radius: 4px; min-width: 2px; }
 .pipe-count { width: 26px; text-align: right; font-family: 'Oswald', sans-serif; color: var(--white); }
 
-.attn-item { display: flex; gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
+/* Three children on one unwrapped line squeezed the note down to a couple of
+   characters on a phone. */
+.attn-item { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
 .attn-item:last-child { border-bottom: none; }
+.attn-name { font-weight: 600; }
+@media (max-width: 600px) { .attn-note { flex-basis: 100%; } }
 .attn-tag { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
 .attn-tag.followup { background: rgba(107, 142, 204, 0.15); color: var(--blue); }
 .attn-tag.checkin { background: rgba(224, 169, 59, 0.15); color: var(--warn); }
@@ -259,8 +320,9 @@ main {
 /* ---------- schedule / calendar ---------- */
 .cal-nav { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .cal-range-label { font-family: 'Oswald', sans-serif; font-size: 0.85rem; color: var(--off-white); flex: 1; text-align: center; }
-.btn-cal-nav { padding: 4px 10px; font-size: 0.9rem; line-height: 1; }
+.btn-cal-nav { padding: 4px 10px; font-size: 1.1rem; line-height: 1; min-width: 44px; min-height: 40px; }
 .calendar-wrap { width: 100%; }
+.cal-error { color: var(--warn); }
 
 .cal-event {
   display: flex; gap: 8px; align-items: baseline; padding: 5px 8px; margin-bottom: 4px;
@@ -302,6 +364,20 @@ main {
 }
 .cal-month-more { font-size: 0.62rem; color: var(--gray-mid); }
 
+/* Phone month view. Seven columns on a 375px screen is ~45px each, which fits a
+   day number and nothing else — so the chips become a count, and the day cell
+   stays a tap target that opens Day view with the real titles. */
+.cal-month-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  border-radius: 10px; background: rgba(232, 98, 42, 0.22);
+  color: var(--orange-soft); font-family: 'Oswald', sans-serif; font-size: 0.72rem;
+}
+.cal-month-grid.is-compact .cal-month-cell {
+  min-height: 52px; padding: 4px 2px; text-align: center;
+}
+.cal-month-grid.is-compact .cal-month-daynum { margin-bottom: 2px; }
+
 /* ---------- recent activity ---------- */
 .activity-list { display: flex; flex-direction: column; }
 .activity-row { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
@@ -313,9 +389,9 @@ main {
 .activity-amt.out { color: var(--orange-soft); }
 
 /* ---------- unserviced (prepaid) package value ---------- */
-.unserviced-totals { display: flex; gap: 14px; margin-bottom: 12px; }
+.unserviced-totals { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
 .u-tot {
-  flex: 1; background: var(--surface); border: 1px solid var(--border);
+  flex: 1 1 150px; background: var(--surface); border: 1px solid var(--border);
   border-left: 3px solid var(--orange); border-radius: 8px; padding: 10px 12px;
 }
 .u-tot-num { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--white); }
