@@ -50,6 +50,21 @@
       margin: 0 auto 14px;
       box-shadow: var(--glow-soft);
     }
+
+    /* Page-specific: brighter, slightly larger subtext in the Location and
+       Pricing sections only — the shared .section-subtext / .offer-fine-print
+       rules in styles.css stay untouched since other pages use them too. */
+    #location .section-subtext,
+    #pricing .section-subtext {
+      font-size: 1rem;
+      color: var(--off-white);
+    }
+    #location .offer-fine-print,
+    #pricing .offer-fine-print {
+      font-size: 0.8rem;
+      color: var(--off-white);
+      opacity: 0.85;
+    }
   </style>
 
   <!-- Google Analytics -->
@@ -79,7 +94,7 @@
       "@type": "Offer",
       "price": "80",
       "priceCurrency": "USD",
-      "description": "Solo lessons start at $80/hour. Group rates from $30/person/hour."
+      "description": "Solo lessons start at $80/hour. Group rates from $40/person/hour."
     }
   }
   </script>
@@ -169,7 +184,7 @@
   <!-- ============================================================
        LOCATION
        ============================================================ -->
-  <section class="band fade-up">
+  <section class="band fade-up" id="location">
     <div class="container">
       <span class="eyebrow">Location</span>
       <h2 class="section-title">Chipshot Or Any Court In Volusia County</h2>
@@ -198,7 +213,7 @@
   <!-- ============================================================
        PRICING
        ============================================================ -->
-  <section class="fade-up">
+  <section class="fade-up" id="pricing">
     <div class="container">
       <span class="eyebrow">Investment</span>
       <h2 class="section-title">Pricing</h2>
@@ -218,12 +233,11 @@
         </div>
 
         <div class="pricing-card card">
-          <p class="pricing-headline">$30&ndash;50<span class="pricing-per">/person/hr</span></p>
-          <p class="pricing-total">Group, 2 to 4 Players</p>
+          <p class="pricing-headline">$40&ndash;50<span class="pricing-per">/person/hr</span></p>
+          <p class="pricing-total">Group, 2 to 3 Players</p>
           <div class="pricing-list">
             <div class="pricing-row"><span>2 players</span><span>$50/person &middot; $100 total</span></div>
             <div class="pricing-row"><span>3 players</span><span>$40/person &middot; $120 total</span></div>
-            <div class="pricing-row"><span>4 players</span><span>$30/person &middot; $120 total</span></div>
           </div>
           <p class="offer-fine-print">More reps and more game speed practice per hour. Same coaching, same feedback, split across the group. Group packages available by inquiry.</p>
         </div>
