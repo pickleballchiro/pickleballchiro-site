@@ -29,6 +29,29 @@
        The leading slash means "from the top of the site", so it works from /lessons too. -->
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- Page-specific tweak: this hero headline is longer than the other pages' one-liners
+       ("90 Days to 4.0"), so it gets its own smaller, single-line sizing here rather than
+       changing the shared .hero-headline rule used on the homepage and /90daysto40. -->
+  <style>
+    .hero-headline--lessons {
+      font-size: clamp(1.15rem, 5.7vw, 2.6rem);
+      white-space: nowrap;
+    }
+    .hero-name--lessons {
+      font-size: clamp(0.6rem, 3vw, 0.95rem);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .location-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 16px;
+      box-shadow: var(--glow-soft);
+    }
+  </style>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV3RTC7XXK"></script>
   <script src="/analytics.js"></script>
@@ -69,8 +92,8 @@
   <section class="hero">
     <div class="container">
       <img src="/profile.jpg" alt="Dr. Lane Odom" class="hero-photo" />
-      <p class="hero-name">Dr. Lane Odom &middot; The Pickleball Chiro</p>
-      <h1 class="hero-headline">Find The <span class="highlight">Leak</span>. Drill The Fix.</h1>
+      <p class="hero-name hero-name--lessons">Dr. Lane Odom &middot; The Pickleball Chiro</p>
+      <h1 class="hero-headline hero-headline--lessons">Ready To <span class="highlight">Level Up</span> Your Game?</h1>
       <p class="hero-sub">1-on-1 and group pickleball lessons with a coach who's still competing at the 5.0 level and a Doctor of Chiropractic who knows how your body moves.</p>
       <div class="chip-row">
         <span class="chip">4.7 DUPR</span>
@@ -128,6 +151,16 @@
           <p class="stage-body">As a rehab chiropractor and movement specialist, I can see what your body's doing during the shot, not just the shot itself. If something physical is capping your game, we find it and address it.</p>
         </div>
 
+        <div class="stage-card card">
+          <p class="stage-label">The Record</p>
+          <h3 class="stage-title">Notes, Drills &amp; Progress</h3>
+          <p class="stage-body">Every lesson's notes and drill assignments go straight into your own client portal. You'll always know what we covered, what to work on next, and you can watch your progress from week to week.</p>
+        </div>
+
+      </div>
+
+      <div class="callout">
+        <p>Video analysis is optional but recommended. I can record any part of your lesson, break it down afterward, and send you feedback on your technique. It's included in your lesson, no extra charge.</p>
       </div>
     </div>
   </section>
@@ -140,6 +173,7 @@
     <div class="container">
       <span class="eyebrow">Location</span>
       <h2 class="section-title">Chipshot Or Any Court In Volusia County</h2>
+      <img src="/images/chipshot-logo.avif" alt="Chipshot logo" class="location-logo" />
       <p class="body-text">Lessons happen indoors at Chipshot in Daytona or outdoors at public courts around Volusia County. Not sure what's closest to you? Just ask and we'll find a spot that works.</p>
     </div>
   </section>
@@ -167,18 +201,65 @@
           <p class="offer-fine-print">On-court coaching, video analysis, personalized feedback. Packages don't expire.</p>
         </div>
 
-        <div class="offer-card card">
-          <div class="offer-header">
-            <h3>Group Lessons (per person)</h3>
-          </div>
-          <p class="offer-desc">More people on court means more reps and more game speed practice every hour. Same coaching, same feedback, split across the group.</p>
+        <div class="pricing-card card">
+          <p class="pricing-headline">$30&ndash;50<span class="pricing-per">/person/hr</span></p>
+          <p class="pricing-total">Group, 2 to 4 Players</p>
           <div class="pricing-list">
             <div class="pricing-row"><span>2 players</span><span>$50/person &middot; $100 total</span></div>
             <div class="pricing-row"><span>3 players</span><span>$40/person &middot; $120 total</span></div>
             <div class="pricing-row"><span>4 players</span><span>$30/person &middot; $120 total</span></div>
           </div>
-          <p class="offer-detail">Group packages available by inquiry. Message me and we'll build a schedule that works.</p>
+          <p class="offer-fine-print">More reps and more game speed practice per hour. Same coaching, same feedback, split across the group. Group packages available by inquiry.</p>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FAQ — native <details>, no JS needed
+       ============================================================ -->
+  <section class="fade-up">
+    <div class="container">
+      <span class="eyebrow">Before You Book</span>
+      <h2 class="section-title">Questions</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>What makes you different from other coaches?</summary>
+          <p class="faq-answer">A few things. I'm still competing at the 5.0 level, so what I teach is what I'm using right now on the court. I have 13+ years of racket sport experience, so the fundamentals are deep. And I'm a rehab chiropractor and movement specialist too, so I can look at your body, not just your technique. Most coaches only see half the picture.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What does a typical lesson look like?</summary>
+          <p class="faq-answer">We start by figuring out where you're at, what you want to work on, and what we're focusing on that day. Then we go over the technique, introduce the skill, and drill it. I use a ball machine that holds up to 80 balls so we get a lot of quality reps in without stopping. At the end you'll get your 2 to 3 main focuses for the week uploaded to your portal.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What level of player do you work with?</summary>
+          <p class="faq-answer">Mostly 3.0 to 4.5. The serious recreational player who plays consistently and wants to keep improving. If you're not sure where you fall, just reach out and ask.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you bring the equipment?</summary>
+          <p class="faq-answer">Yes. Ball machine, balls, a ball tube for pickup. You just show up ready to play with your paddle.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I track my notes and progress between lessons?</summary>
+          <p class="faq-answer">After every lesson your notes and drill assignments go into your own client portal. You'll always know what we covered, what to work on, and you can see your progress from week to week.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's your cancellation policy?</summary>
+          <p class="faq-answer">I ask for at least 12 hours notice if you need to cancel or reschedule. Life happens, I get it. Last-minute no-shows affect everyone's time so a heads-up goes a long way.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I book?</summary>
+          <p class="faq-answer">Use the booking link on this page or DM me on Instagram. I'll get back to you fast and we'll lock in a time.</p>
+        </details>
 
       </div>
     </div>
