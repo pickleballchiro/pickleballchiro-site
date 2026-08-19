@@ -193,6 +193,7 @@ main {
 /* ---------- KPI tiles ---------- */
 .kpi-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;
+  align-items: start;
 }
 @media (max-width: 760px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
 .kpi {
@@ -204,6 +205,20 @@ main {
 .kpi .kpi-delta { font-size: 0.74rem; margin-top: 2px; color: var(--gray-mid); }
 .kpi .kpi-delta.up { color: var(--good); }
 .kpi .kpi-delta.down { color: var(--serious); }
+.kpi-owed-list {
+  display: flex; flex-direction: column; gap: 3px; margin-top: 6px;
+  max-height: 88px; overflow-y: auto; scrollbar-width: thin;
+}
+.kpi-owed-list::-webkit-scrollbar { width: 5px; }
+.kpi-owed-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.kpi-owed-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+  font-size: 0.74rem; color: var(--gray-mid);
+}
+.kpi-owed-row .kpi-owed-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kpi-owed-row .kpi-owed-amt {
+  font-family: 'Oswald', sans-serif; font-weight: 600; flex-shrink: 0; color: var(--warn);
+}
 
 /* ---------- charts ---------- */
 .chart-wrap { width: 100%; overflow-x: auto; }

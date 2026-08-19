@@ -495,7 +495,6 @@ function renderAll(d) {
     "Data as of " + asof.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   renderDrift(d);
   renderKpis(d);
-  renderOutstanding(d);
   renderSchedule(d);
   renderPeriodChart(d);
   renderStreams(d);
@@ -574,7 +573,11 @@ function renderKpis(d) {
     { label: "Net profit · YTD", value: fmt$(net), extra: `<div class="kpi-delta">${fmt$(incomeTotal)} in − ${fmt$(expenseTotal)} out</div>` },
     { label: "Money outstanding", value: fmt$(owedTotal),
       extra: owed.length
-        ? `<div class="kpi-delta">${owed.length} client${owed.length === 1 ? "" : "s"} · top: ${esc(owed[0].name)} ${fmt$(owed[0].amount)}</div>`
+        ? `<div class="kpi-owed-list">${owed
+            .map(
+              (o) => `<div class="kpi-owed-row"><span class="kpi-owed-name">${esc(o.name)}</span><span class="kpi-owed-amt">${fmt$(o.amount)}</span></div>`
+            )
+            .join("")}</div>`
         : `<div class="kpi-delta">all paid up</div>` },
     // Spell out the denominator — this tile reads very differently depending on
     // whether it is dividing by sessions or by trips.
@@ -1307,34 +1310,6 @@ function renderUnserviced(d) {
         <span class="activity-name">${esc(r.name)}${r.pkg ? ` <span class="u-pkg">${esc(r.pkg)}</span>` : ""}</span>
         <span class="u-left">${r.left} left</span>
         <span class="u-amt">${fmt$(r.dollars)}</span>
-      </div>`
-      )
-      .join("")}</div>`;
-}
-
-/* ------- money outstanding (who owes what) ------- */
-
-function renderOutstanding(d) {
-  const rows = d.clients
-    .filter((c) => c.name && (+c.outstanding || 0) > 0)
-    .map((c) => ({ name: c.name, amount: +c.outstanding || 0 }))
-    .sort((a, b) => b.amount - a.amount);
-  const total = rows.reduce((s, r) => s + r.amount, 0);
-
-  $("outstanding-sub").textContent = rows.length
-    ? `${rows.length} client${rows.length === 1 ? "" : "s"} · ${fmt$(total)} owed`
-    : "all paid up";
-
-  if (!rows.length) {
-    $("outstanding").innerHTML = '<p class="empty-note">No open balances — everyone’s paid up. 🎉</p>';
-    return;
-  }
-  $("outstanding").innerHTML = `
-    <div class="unserviced-list">${rows
-      .map(
-        (r) => `<div class="activity-row">
-        <span class="activity-name">${esc(r.name)}</span>
-        <span class="u-amt" style="color:var(--warn)">${fmt$(r.amount)}</span>
       </div>`
       )
       .join("")}</div>`;
