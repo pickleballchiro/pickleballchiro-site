@@ -8,9 +8,9 @@
   QUICK EDIT GUIDE (no coding knowledge needed):
   -----------------------------------------------
 
-  1. BOOKING LINK
-     Search for: BOOKING_LINK =
-     Change the value in quotes to your real booking URL.
+  1. COACHING LINK
+     Search for: COACHING_LINK =
+     Change the value in quotes to your real coaching URL.
      It only appears once — one change updates all buttons.
 
   2. RESULT COPY (the text shown after the quiz)
@@ -555,9 +555,9 @@
 
 <script>
 // ============================================================
-//  BOOKING LINK — change this one line to update all buttons
+//  COACHING LINK — change this one line to update all buttons
 // ============================================================
-const BOOKING_LINK = "https://calendly.com/pbchiro/free-game-diagnosis";
+const COACHING_LINK = "https://www.gocrestline.app/coaches/lane-odom";
 
 // ============================================================
 //  QUESTIONS
@@ -755,42 +755,42 @@ const results = {
     headline: "Your Game Is Capped Before the Rally Even Starts",
     body: `Here's the truth: it doesn't matter how good your dinks are if you never get to hit one. Your serve, return, and third shot are where most points at your level are actually decided — and right now, that's where your game is leaking. You could spend the next six months drilling dinks and your rating wouldn't move, because the dink rally isn't where you're losing. This is fixable, and it's usually faster to fix than people expect.`,
     ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
-    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you precisely what's capping your first four shots and what to do about it."
+    ctaBody: "Start virtual coaching on Crestline. Send me some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you precisely what's capping your first four shots and what to do about it."
   },
 
   shot_selection: {
     headline: "You're Guessing, Not Deciding",
     body: `Every shot in pickleball is a decision: attack or reset. Right now, you don't have a clear rule for making that call, so you're guessing in real time — and guessing under pressure usually goes wrong. This isn't about athleticism or hand-eye coordination. It's about building a simple decision framework so your hands know what to do before your brain has to think about it.`,
     ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
-    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly where your decision-making is breaking down and how to fix it."
+    ctaBody: "Start virtual coaching on Crestline. Send me some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly where your decision-making is breaking down and how to fix it."
   },
 
   transition_zone: {
     headline: "You're Living in No-Man's-Land",
     body: `The transition zone — the space between the baseline and the kitchen — is where more points get lost than anywhere else on the court. If you're getting caught in between, rushed, or a step behind, this is almost certainly your biggest leak. It's also one of the most fixable things in your entire game, because it's about footwork patterns, not talent.`,
     ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
-    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening with your footwork and positioning, and how to fix it."
+    ctaBody: "Start virtual coaching on Crestline. Send me some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening with your footwork and positioning, and how to fix it."
   },
 
   kitchen_game: {
     headline: "You're Losing at the Line — Or Never Getting There",
     body: `At your level, the kitchen line is where points are actually won — and your answers show that's exactly where your game is leaking. This leak wears two disguises: either the point gets decided while you're still in the back half of the court, or you arrive at the line without a plan — aimless dinks, panicky speed-ups, hands that lose the exchange. Both cap your rating the same way, because the team that controls the line controls the game. The good news: the soft game is patterns and intent, not talent, and it responds to targeted drilling faster than almost anything else.`,
     ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
-    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's breaking down in your soft game and what to do about it."
+    ctaBody: "Start virtual coaching on Crestline. Send me some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's breaking down in your soft game and what to do about it."
   },
 
   physical: {
     headline: "Your Technique Works in Warmup. It's Not Surviving the Match.",
     body: `If your game falls apart by game three, that's not a mental toughness problem — it's a body problem. The movements pickleball demands (the low dig, the lateral recovery step, the controlled reset) all have a physical floor most players never build off the court. You can drill the right technique for months, but if your body can't hold up under fatigue, it'll break down exactly when it matters most. As a Doctor of Chiropractic who also competes at a high level, this is the gap I see most often — and it's completely fixable.`,
     ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
-    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening and how to fix it."
+    ctaBody: "Start virtual coaching on Crestline. Send me some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening and how to fix it."
   },
 
   tie: {
     headline: "You've Got More Than One Thing Capping You — And They're Connected",
     body: `Your results show more than one area pulling your average down at the same time. That's common, and it's usually not a coincidence — these things tend to feed each other. The good news: fixing one often makes the others easier to fix too.`,
     ctaHeader: "Want to know exactly what's breaking down — and how to fix it?",
-    ctaBody: "Book a Free Game Diagnosis. Bring some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening and how the two connect."
+    ctaBody: "Start virtual coaching on Crestline. Send me some footage (drills are fine — serves, returns, resets, volleys, dinks) and I'll show you exactly what's happening and how the two connect."
   }
 
 };
@@ -922,9 +922,9 @@ function showResults() {
     <div class="cta-card">
       <p class="cta-card-header">${r.ctaHeader}</p>
       <p class="cta-card-body">${r.ctaBody}</p>
-      <a href="${BOOKING_LINK}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-track="quiz_calendly_cta">Book My Free Game Diagnosis</a>
+      <a href="${COACHING_LINK}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-track="quiz_crestline_cta">Start Virtual Coaching on Crestline</a>
     </div>
-    <p class="footage-note">This call involves reviewing real footage of your game — I'll send you simple instructions after you book.</p>
+    <p class="footage-note">Virtual coaching is built around real footage of your game — you'll get simple instructions on what to send once you're set up on Crestline.</p>
   `;
 
   // Log completion to GA4 with the diagnosed category
