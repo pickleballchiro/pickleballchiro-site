@@ -433,3 +433,42 @@ main {
 .lead-name { font-weight: 700; font-size: 0.9rem; color: var(--white); }
 .lead-meta { font-size: 0.76rem; color: var(--off-white); margin-top: 3px; }
 .lead-date { font-size: 0.72rem; color: var(--gray-mid); margin-top: 2px; }
+
+/* ---------- tasks ---------- */
+.task-form { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.task-input {
+  flex: 1 1 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--white); padding: 10px 12px; font-size: 0.92rem; font-family: inherit; min-height: 44px;
+}
+.task-deadline {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--off-white); padding: 10px 12px; font-size: 0.85rem; font-family: inherit;
+  min-height: 44px; color-scheme: dark;
+}
+.task-input:focus, .task-deadline:focus { outline: 2px solid var(--orange); border-color: transparent; }
+.task-error { color: var(--serious); font-size: 0.82rem; margin-bottom: 10px; }
+.task-group + .task-group { margin-top: 16px; }
+.task-group-title {
+  font-size: 0.72rem; color: var(--gray-mid); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 8px;
+}
+.task-row {
+  display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border);
+}
+.task-row:last-child { border-bottom: none; }
+.task-check {
+  width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%;
+  border: 2px solid var(--border); background: transparent; cursor: pointer; padding: 0;
+}
+.task-check:hover { border-color: var(--good); }
+.task-text { flex: 1; font-size: 0.9rem; color: var(--off-white); word-break: break-word; }
+.task-deadline-chip {
+  flex-shrink: 0; font-size: 0.72rem; color: var(--gray-mid); border: 1px solid var(--border);
+  border-radius: 20px; padding: 3px 9px;
+}
+.task-deadline-chip.is-overdue { color: var(--serious); border-color: var(--serious); }
+.task-del {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px; border: none; background: transparent;
+  color: var(--gray-mid); cursor: pointer; font-size: 0.85rem;
+}
+.task-del:hover { color: var(--serious); }

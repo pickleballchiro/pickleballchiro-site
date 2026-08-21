@@ -49,7 +49,7 @@
   <!-- Weights trimmed to the ones the stylesheet actually asks for: Oswald 400
        and 600, Montserrat 400, 600 and 700. -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=11" />
+  <link rel="stylesheet" href="dashboard.css?v=12" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -126,6 +126,21 @@
         <button id="cal-next" class="btn btn-ghost btn-cal-nav" aria-label="Next">›</button>
       </div>
       <div id="calendar" class="calendar-wrap"></div>
+    </section>
+
+    <!-- Tasks -->
+    <section class="card">
+      <div class="card-head">
+        <h2>✅ Tasks</h2>
+        <span id="task-count" class="card-sub"></span>
+      </div>
+      <form id="task-form" class="task-form">
+        <input type="text" id="task-input" class="task-input" placeholder="Add a task…" autocomplete="off" maxlength="200" />
+        <input type="date" id="task-deadline" class="task-deadline" aria-label="Deadline (optional)" />
+        <button type="submit" class="btn">Add</button>
+      </form>
+      <p id="task-error" class="task-error hidden"></p>
+      <div id="tasks" class="tasks-wrap"></div>
     </section>
 
     <!-- Month over month -->
@@ -234,6 +249,6 @@
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard.js?v=11"></script>
+  <script src="dashboard.js?v=12"></script>
 </body>
 </html>

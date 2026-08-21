@@ -5,7 +5,7 @@
    ============================================================ */
 
 const WEBHOOK =
-  "https://script.google.com/macros/s/AKfycbxLcsR_4HVnmf3GkJkSx2kOf2KErYONQvEHROXjMLuThcHjnCI6IulpcDOIDrE1-1AKJw/exec";
+  "https://script.google.com/macros/s/AKfycbyBhh67LuNS1AK7BeA1E0w9OulfH8zlH-rlIZUwgF_ES_dMWCw3iVhAO5f72du3h0xv2w/exec";
 
 /* ---------------- session ----------------
 
@@ -171,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
   $("toggle-period-week").addEventListener("click", () => setPeriodMode("week"));
   $("toggle-period-month").addEventListener("click", () => setPeriodMode("month"));
   $("toggle-period-quarter").addEventListener("click", () => setPeriodMode("quarter"));
+
+  $("task-form").addEventListener("submit", submitTask);
 
   $("cal-view-day").addEventListener("click", () => setCalMode("day"));
   $("cal-view-week").addEventListener("click", () => setCalMode("week"));
@@ -496,6 +498,7 @@ function renderAll(d) {
   renderDrift(d);
   renderKpis(d);
   renderSchedule(d);
+  renderTasks(d);
   renderPeriodChart(d);
   renderStreams(d);
   renderMoney(d);
@@ -962,6 +965,118 @@ function calNav(dir) {
 function calToday() {
   calAnchor = new Date();
   drawCalendar();
+}
+
+/* ------- tasks (day-to-day to-dos, separate from the Calendar) ------- */
+
+function renderTasks(d) {
+  const open = (d.tasks || []).filter((t) => t.status !== "Done");
+  const withDeadline = open
+    .filter((t) => t.deadline)
+    .sort((a, b) => parseDate(a.deadline) - parseDate(b.deadline));
+  const whenever = open.filter((t) => !t.deadline);
+
+  $("task-count").textContent = open.length ? `${open.length} open` : "";
+
+  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  const row = (t) => {
+    const dl = t.deadline ? parseDate(t.deadline) : null;
+    const overdue = !!(dl && dl < today0);
+    const dlLabel = dl ? dl.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
+    return `<div class="task-row">
+      <button type="button" class="task-check" aria-label="Mark done" data-action="complete" data-id="${escAttr(t.id)}"></button>
+      <span class="task-text">${esc(t.task)}</span>
+      ${dl ? `<span class="task-deadline-chip${overdue ? " is-overdue" : ""}">${esc(dlLabel)}</span>` : ""}
+      <button type="button" class="task-del" aria-label="Delete task" data-action="delete" data-id="${escAttr(t.id)}">✕</button>
+    </div>`;
+  };
+
+  const section = (title, list) =>
+    list.length ? `<div class="task-group"><h3 class="task-group-title">${title}</h3>${list.map(row).join("")}</div>` : "";
+
+  $("tasks").innerHTML =
+    section("Has a deadline", withDeadline) + section("Whenever", whenever) ||
+    '<p class="empty-note">No open tasks — you’re caught up.</p>';
+
+  $("tasks").querySelectorAll("[data-action]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-id");
+      if (btn.getAttribute("data-action") === "complete") completeTaskUI(id);
+      else deleteTaskUI(id);
+    });
+  });
+}
+
+// Re-fetches dashboard data and re-renders just the Tasks card, so an add/
+// complete/delete doesn't flash the whole app through the full-page loading
+// screen the way a "Refresh" tap does.
+async function refreshTasksQuietly() {
+  const key = readSession();
+  if (!key) return;
+  try {
+    const data = await webhookGet(new URLSearchParams({ action: "get_dashboard_data", key }));
+    if (data.status !== "ok") return;
+    DATA = data;
+    renderTasks(DATA);
+  } catch (err) {
+    // The mutating call already reported success or failure; a failed refresh
+    // just means the list looks stale until the next tap or manual refresh.
+  }
+}
+
+function showTaskError(msg) {
+  $("task-error").textContent = msg;
+  $("task-error").classList.remove("hidden");
+}
+
+async function submitTask(e) {
+  e.preventDefault();
+  const key = readSession();
+  if (!key) { showGate(); return; }
+  const input = $("task-input");
+  const task = input.value.trim();
+  if (!task) return;
+  const deadline = $("task-deadline").value;
+  $("task-error").classList.add("hidden");
+  const btn = e.target.querySelector("button[type=submit]");
+  btn.disabled = true;
+  try {
+    const params = new URLSearchParams({ action: "add_task", key, task });
+    if (deadline) params.set("deadline", deadline);
+    const res = await webhookGet(params);
+    if (res.status !== "ok") throw new Error(res.message || "Couldn’t add the task.");
+    input.value = "";
+    $("task-deadline").value = "";
+    await refreshTasksQuietly();
+  } catch (err) {
+    showTaskError(err.message || "Couldn’t add the task.");
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function completeTaskUI(id) {
+  const key = readSession();
+  if (!key) return;
+  try {
+    const res = await webhookGet(new URLSearchParams({ action: "complete_task", key, id }));
+    if (res.status !== "ok") throw new Error(res.message || "Couldn’t update the task.");
+    await refreshTasksQuietly();
+  } catch (err) {
+    showTaskError(err.message || "Couldn’t update the task.");
+  }
+}
+
+async function deleteTaskUI(id) {
+  const key = readSession();
+  if (!key) return;
+  try {
+    const res = await webhookGet(new URLSearchParams({ action: "delete_task", key, id }));
+    if (res.status !== "ok") throw new Error(res.message || "Couldn’t delete the task.");
+    await refreshTasksQuietly();
+  } catch (err) {
+    showTaskError(err.message || "Couldn’t delete the task.");
+  }
 }
 
 /* ------- revenue by stream ------- */
