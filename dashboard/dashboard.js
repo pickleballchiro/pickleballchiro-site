@@ -503,6 +503,7 @@ function renderAll(d) {
   renderStreams(d);
   renderMoney(d);
   renderUnserviced(d);
+  renderOwed(d);
   renderClients(d);
   renderReengage(d);
   renderRecent(d);
@@ -549,12 +550,6 @@ function renderKpis(d) {
   const conversion = computeConversion(d.leads);
   const avgTicket = sessTrailing.cur ? revTrailing.cur / sessTrailing.cur : null;
   const clientValue = computeClientValue(d.clients);
-  const owed = d.clients
-    .filter((c) => c.name && (+c.outstanding || 0) > 0)
-    .map((c) => ({ name: c.name, amount: +c.outstanding || 0 }))
-    .sort((a, b) => b.amount - a.amount);
-  const owedTotal = owed.reduce((s, r) => s + r.amount, 0);
-
   const delta = (cur, prevV, money) => {
     if (!prevV) return "";
     const pct = ((cur - prevV) / prevV) * 100;
@@ -574,14 +569,6 @@ function renderKpis(d) {
     { label: src.label + " · 30d", value: sessTrailing.cur, extra: delta(sessTrailing.cur, sessTrailing.prev, false) + mtdLine(sessMTD, false) },
     { label: "Active clients", value: activeClients, extra: "" },
     { label: "Net profit · YTD", value: fmt$(net), extra: `<div class="kpi-delta">${fmt$(incomeTotal)} in − ${fmt$(expenseTotal)} out</div>` },
-    { label: "Money outstanding", value: fmt$(owedTotal),
-      extra: owed.length
-        ? `<div class="kpi-owed-list">${owed
-            .map(
-              (o) => `<div class="kpi-owed-row"><span class="kpi-owed-name">${esc(o.name)}</span><span class="kpi-owed-amt">${fmt$(o.amount)}</span></div>`
-            )
-            .join("")}</div>`
-        : `<div class="kpi-delta">all paid up</div>` },
     // Spell out the denominator — this tile reads very differently depending on
     // whether it is dividing by sessions or by trips.
     { label: "Avg ticket · 30d", value: avgTicket !== null ? fmt$(avgTicket) : "—",
@@ -1425,6 +1412,38 @@ function renderUnserviced(d) {
         <span class="activity-name">${esc(r.name)}${r.pkg ? ` <span class="u-pkg">${esc(r.pkg)}</span>` : ""}</span>
         <span class="u-left">${r.left} left</span>
         <span class="u-amt">${fmt$(r.dollars)}</span>
+      </div>`
+      )
+      .join("")}</div>`;
+}
+
+/* ------- money outstanding (delivered but not yet paid for) ------- */
+
+function renderOwed(d) {
+  const owed = d.clients
+    .filter((c) => c.name && (+c.outstanding || 0) > 0)
+    .map((c) => ({ name: c.name, amount: +c.outstanding || 0 }))
+    .sort((a, b) => b.amount - a.amount);
+  const owedTotal = owed.reduce((s, r) => s + r.amount, 0);
+
+  $("owed-sub").textContent = owed.length
+    ? `${owed.length} client${owed.length === 1 ? "" : "s"} behind`
+    : "all paid up";
+
+  if (!owed.length) {
+    $("owed").innerHTML = '<p class="empty-note">Nobody owes you a dime. 🎉</p>';
+    return;
+  }
+  $("owed").innerHTML = `
+    <div class="unserviced-totals">
+      <div class="u-tot owed"><div class="u-tot-num">${fmt$(owedTotal)}</div><div class="u-tot-lbl">still to collect</div></div>
+      <div class="u-tot owed"><div class="u-tot-num">${owed.length}</div><div class="u-tot-lbl">client${owed.length === 1 ? "" : "s"} owing</div></div>
+    </div>
+    <div class="owed-list">${owed
+      .map(
+        (o) => `<div class="activity-row">
+        <span class="activity-name">${esc(o.name)}</span>
+        <span class="owed-amt">${fmt$(o.amount)}</span>
       </div>`
       )
       .join("")}</div>`;
