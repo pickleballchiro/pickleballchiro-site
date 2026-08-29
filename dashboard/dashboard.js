@@ -106,6 +106,7 @@ const COLORS = {
   chiro: "#1F97AE",
   chiroSoft: "#66BFCE",
   digital: "#9678F0",
+  crestline: "#3DAA6B",
   other: "#6B8ECC",
   unclassified: "#8A8F98",
 };
@@ -484,6 +485,8 @@ function classify(row) {
       return { parent: "Unclassified", sub: "Package" };
     case "Digital Products (Guides)":
       return { parent: "Digital Products", sub: "One-off" };
+    case "Crestline":
+      return { parent: "Crestline", sub: "One-off" };
     default:
       return { parent: "Other", sub: "One-off" };
   }
@@ -1080,10 +1083,11 @@ function renderStreams(d) {
     "Pickleball Lessons": [COLORS.lessons, COLORS.lessonsSoft],
     "Mobile Chiro": [COLORS.chiro, COLORS.chiroSoft],
     "Digital Products": [COLORS.digital, COLORS.digital],
+    "Crestline": [COLORS.crestline, COLORS.crestline],
     "Other": [COLORS.other, COLORS.other],
     "Unclassified": [COLORS.unclassified, COLORS.unclassified],
   };
-  const order = ["Pickleball Lessons", "Mobile Chiro", "Digital Products", "Other", "Unclassified"];
+  const order = ["Pickleball Lessons", "Mobile Chiro", "Digital Products", "Crestline", "Other", "Unclassified"];
   const parents = order.filter((p) => buckets[p] && (buckets[p]["One-off"] + buckets[p]["Package"]) > 0);
   const maxTotal = Math.max(...parents.map((p) => buckets[p]["One-off"] + buckets[p]["Package"]), 1);
 
