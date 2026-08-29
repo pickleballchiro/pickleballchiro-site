@@ -107,6 +107,7 @@ const COLORS = {
   chiroSoft: "#66BFCE",
   digital: "#9678F0",
   crestline: "#3DAA6B",
+  crestlineSoft: "#7BC99A",
   other: "#6B8ECC",
   unclassified: "#8A8F98",
 };
@@ -486,7 +487,10 @@ function classify(row) {
     case "Digital Products (Guides)":
       return { parent: "Digital Products", sub: "One-off" };
     case "Crestline":
-      return { parent: "Crestline", sub: "One-off" };
+      // Opposite default from the other categories: Crestline's normal case is
+      // a recurring monthly subscription, and Lane only notates the exception
+      // (a one-off), so unmarked income defaults to Package/subscription.
+      return { parent: "Crestline", sub: /one[\s-]?off|one[\s-]?time/.test(desc) ? "One-off" : "Package" };
     default:
       return { parent: "Other", sub: "One-off" };
   }
@@ -1083,7 +1087,7 @@ function renderStreams(d) {
     "Pickleball Lessons": [COLORS.lessons, COLORS.lessonsSoft],
     "Mobile Chiro": [COLORS.chiro, COLORS.chiroSoft],
     "Digital Products": [COLORS.digital, COLORS.digital],
-    "Crestline": [COLORS.crestline, COLORS.crestline],
+    "Crestline": [COLORS.crestline, COLORS.crestlineSoft],
     "Other": [COLORS.other, COLORS.other],
     "Unclassified": [COLORS.unclassified, COLORS.unclassified],
   };
@@ -1099,7 +1103,7 @@ function renderStreams(d) {
       const wTotal = (total / maxTotal) * 100;
       const wOne = total ? (one / total) * wTotal : 0;
       const wPkg = wTotal - wOne;
-      const showSplit = p === "Pickleball Lessons" || p === "Mobile Chiro";
+      const showSplit = p === "Pickleball Lessons" || p === "Mobile Chiro" || p === "Crestline";
       return `
       <div class="hbar-row">
         <div class="hbar-top"><span class="hbar-name">${p}${p === "Unclassified" ? " ⚠" : ""}</span><span class="hbar-total">${fmt$c(total)}</span></div>
