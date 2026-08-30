@@ -645,6 +645,50 @@ section { padding: var(--space-4) 0; }
 .ig-banner:hover .ig-arrow { transform: translateX(5px); }
 
 /* ============================================================
+   YOUTUBE BANNER
+   ============================================================ */
+.yt-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  padding: 22px 20px;
+}
+
+.yt-glyph {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--orange-hot), var(--orange-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--glow-soft);
+}
+.yt-glyph svg { width: 28px; height: 28px; }
+
+.yt-info { flex: 1; }
+
+.yt-handle {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.yt-line { font-size: 0.8rem; color: var(--gray-mid); margin-top: 2px; line-height: 1.5; }
+
+.yt-arrow {
+  color: var(--orange);
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.yt-banner:hover .yt-arrow { transform: translateX(5px); }
+
+/* ============================================================
    GEAR TILES (matches /links treatment)
    ============================================================ */
 .gear-grid-main {
