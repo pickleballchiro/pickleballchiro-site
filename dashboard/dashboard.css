@@ -261,6 +261,9 @@ main {
 .chip.active { border-color: var(--good); color: var(--good); }
 .chip.checkin { border-color: var(--warn); color: var(--warn); }
 .chip.atrisk { border-color: var(--serious); color: var(--serious); }
+/* Crestline subscribers — matches the Crestline bar on the revenue-by-stream chart
+   (dashboard.js COLORS.crestline) so the two read as the same business line. */
+.chip.crestline { border-color: #3DAA6B; color: #7BC99A; }
 .client-rows { display: flex; flex-direction: column; gap: 4px; font-size: 0.78rem; }
 .client-rows .row { display: flex; justify-content: space-between; gap: 8px; }
 .client-rows .k { color: var(--gray-mid); }

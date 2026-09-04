@@ -422,8 +422,42 @@ function firstDate(rows) {
   return min;
 }
 
+/* ------- Crestline subscriptions -------
+   Crestline is a subscription, not sessions. A subscriber never logs a session, so
+   every session-shaped signal on this page (last_session, sessions_total) is blank or
+   zero for them *by design* — which is why they used to render as "One-off only, never
+   came back". Their activity is Last Paid, which the webhook folds into Stage:
+   "Subscriber" (paying) / "Lapsed" (no payment in 60 days = churned).
+   Canonical rules: 06 Reference/FACTS.md -> "Crestline is a SUBSCRIPTION, not sessions". */
+
+// A one-off Crestline charge isn't a subscription month. Same regex classify() uses,
+// so "is this a subscription payment" has exactly one definition on this page.
+const CRESTLINE_ONEOFF_RE = /one[\s-]?off|one[\s-]?time/;
+
+function isSubscriber(c) {
+  return c.stage === "Subscriber" || c.stage === "Lapsed" || !!String(c.crestline_tier || "").trim();
+}
+
+/* Months subscribed + the current monthly rate, DERIVED from the Income ledger rather
+   than stored in a column. Lane only ever logs the payment, so counting his Crestline
+   income rows keeps this true with nothing extra for him to maintain and nothing to
+   drift. (Deliberately not written into col J Total Sessions — the audit cross-checks
+   that column against the Sessions tab and would fail immediately.) */
+function subscriptionInfo(d, c) {
+  const key = (c.name || "").toLowerCase().trim();
+  const rows = (d.income || [])
+    .filter((r) => r.type === "Crestline" &&
+                   String(r.client || "").toLowerCase().trim() === key &&
+                   !CRESTLINE_ONEOFF_RE.test((r.description || "").toLowerCase()))
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+  return { months: rows.length, rate: rows.length ? rows[0].amount : 0, lastPaid: rows.length ? rows[0].date : "" };
+}
+
 function computeClientValue(clients) {
-  const billed = clients.filter((c) => (c.total_paid || 0) > 0);
+  // Subscribers are excluded outright: they have 0 sessions forever, so counting them
+  // as never-rebooked would permanently drag the rate down for a metric that is only
+  // about whether session clients come back.
+  const billed = clients.filter((c) => (c.total_paid || 0) > 0 && !isSubscriber(c));
   const n = billed.length;
   const totalPaid = billed.reduce((s, c) => s + c.total_paid, 0);
   const rebooked = billed.filter((c) => (+c.sessions_total || 0) > 1).length;
@@ -555,8 +589,20 @@ function renderKpis(d) {
   const net = incomeTotal - expenseTotal;
 
   const conversion = computeConversion(d.leads);
-  const avgTicket = sessTrailing.cur ? revTrailing.cur / sessTrailing.cur : null;
+  // Avg ticket is revenue-per-SESSION, so Crestline has to come out of the numerator:
+  // subscription dollars land in revenue while adding nothing to the session count,
+  // which silently inflated this tile. Denominator is unaffected (they log no sessions).
+  const crestlineTrailing = trailingWindow(d.income.filter((r) => r.type === "Crestline"), 30, "amount");
+  const sessionRev30 = revTrailing.cur - crestlineTrailing.cur;
+  const avgTicket = sessTrailing.cur ? sessionRev30 / sessTrailing.cur : null;
   const clientValue = computeClientValue(d.clients);
+
+  // MRR, derived from real payments rather than a hardcoded price table: sum each
+  // active subscriber's most recent (non-one-off) Crestline payment. A price change or
+  // a discount therefore needs no code edit. See FACTS.md.
+  const subs = d.clients.filter((c) => c.name && c.stage === "Subscriber");
+  const mrr = subs.reduce((s, c) => s + subscriptionInfo(d, c).rate, 0);
+  const lapsedCount = d.clients.filter((c) => c.name && c.stage === "Lapsed").length;
   const delta = (cur, prevV, money) => {
     if (!prevV) return "";
     const pct = ((cur - prevV) / prevV) * 100;
@@ -579,7 +625,9 @@ function renderKpis(d) {
     // Spell out the denominator — this tile reads very differently depending on
     // whether it is dividing by sessions or by trips.
     { label: "Avg ticket · 30d", value: avgTicket !== null ? fmt$(avgTicket) : "—",
-      extra: avgTicket !== null ? `<div class="kpi-delta">${fmt$(revTrailing.cur)} ÷ ${sessTrailing.cur} ${src.noun}</div>` : "" },
+      extra: avgTicket !== null ? `<div class="kpi-delta">${fmt$(sessionRev30)} ÷ ${sessTrailing.cur} ${src.noun}${crestlineTrailing.cur ? " (excl. Crestline)" : ""}</div>` : "" },
+    { label: "Crestline MRR", value: fmt$(mrr),
+      extra: `<div class="kpi-delta">${subs.length} subscriber${subs.length === 1 ? "" : "s"}${lapsedCount ? ` · ${lapsedCount} lapsed` : ""}</div>` },
     { label: "New leads · 30d", value: leadsTrailing.cur, extra: delta(leadsTrailing.cur, leadsTrailing.prev, false) },
     { label: "Lead conversion", value: conversion.rate.toFixed(0) + "%", extra: `<div class="kpi-delta">${conversion.converted} of ${conversion.total} leads · all-time</div>` },
     { label: "Avg client value", value: fmt$(clientValue.avg), extra: `<div class="kpi-delta">${clientValue.rebookRate.toFixed(0)}% rebook (${clientValue.n} clients)</div>` },
@@ -1160,6 +1208,9 @@ function renderMoney(d) {
 
 function chipFor(c) {
   const stage = c.stage || c.status || "";
+  const tier = String(c.crestline_tier || "").trim();
+  if (stage === "Subscriber") return '<span class="chip crestline">' + esc(tier ? "Crestline · " + tier : "Crestline") + "</span>";
+  if (stage === "Lapsed") return '<span class="chip atrisk">' + esc(tier ? "Lapsed · " + tier : "Lapsed") + "</span>";
   if (stage === "Package Client") return '<span class="chip package">Package</span>';
   if (stage === "Active") return '<span class="chip active">Active</span>';
   if (stage === "Inactive") return '<span class="chip atrisk">Inactive</span>';
@@ -1200,7 +1251,7 @@ function oneOffSummary(t) {
 
 function renderClients(d) {
   const tally = sessionTally(d);
-  const rank = { "Package Client": 0, "Active": 1, "New": 2, "Inactive": 3 };
+  const rank = { "Package Client": 0, "Subscriber": 1, "Active": 2, "New": 3, "Lapsed": 4, "Inactive": 5 };
   const sorted = [...d.clients].sort((a, b) => {
     const ra = rank[a.stage] ?? 2, rb = rank[b.stage] ?? 2;
     if (ra !== rb) return ra - rb;
@@ -1220,6 +1271,26 @@ function renderClients(d) {
     const lastSession = c.last_session
       ? parseDate(c.last_session)?.toLocaleDateString("en-US", { month: "short", day: "numeric" })
       : "—";
+    const short = (ds) => (ds && parseDate(ds) ? parseDate(ds).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "—");
+
+    // A subscriber's card shows the subscription, not the session fields — those are
+    // empty by design and rendered "Last session —", which read as neglect.
+    if (isSubscriber(c)) {
+      const sub = subscriptionInfo(d, c);
+      return `
+    <div class="client-card">
+      <div class="client-top"><span class="client-name">${esc(c.name)}</span>${chipFor(c)}</div>
+      <div class="client-rows">
+        <div class="row"><span class="k">Plan</span><span class="v">${esc(c.crestline_tier || "Crestline")}${sub.rate ? " · " + fmt$c(sub.rate) + "/mo" : ""}</span></div>
+        <div class="row"><span class="k">Months subscribed</span><span class="v">${sub.months || "—"}</span></div>
+        <div class="row"><span class="k">Last payment</span><span class="v">${esc(short(c.last_paid))}</span></div>
+        <div class="row"><span class="k">Total paid</span><span class="v">${fmt$c(c.total_paid)}</span></div>
+        ${c.outstanding > 0 ? `<div class="row"><span class="k">Outstanding</span><span class="v" style="color:var(--warn)">${fmt$c(c.outstanding)}</span></div>` : ""}
+      </div>
+      ${next ? `<div class="client-next"><strong>Up next:</strong> ${esc(next)}</div>` : ""}
+    </div>`;
+    }
+
     return `
     <div class="client-card">
       <div class="client-top"><span class="client-name">${esc(c.name)}</span>${chipFor(c)}</div>
@@ -1259,6 +1330,21 @@ function renderReengage(d) {
     // computed one, and everything else on this page treats Stage as the single
     // source of truth (see renderKpis).
     if (c.stage === "Inactive") return;
+    // Crestline subscribers have no sessions by design, so every session-based test
+    // below reads them as ice-cold. A paying subscriber is not a re-engage target; a
+    // LAPSED one is the best target on the page, which is exactly why the webhook keeps
+    // "Lapsed" distinct from "Inactive" instead of letting it be filtered out above.
+    if (isSubscriber(c)) {
+      if (c.stage !== "Lapsed") return;
+      const sinceSub = daysSince(c.last_paid);
+      items.push({
+        name: c.name,
+        since: sinceSub === null ? Infinity : sinceSub,
+        reason: `Crestline subscription lapsed${c.crestline_tier ? " (" + c.crestline_tier + ")" : ""} — no payment in ${sinceSub === null ? "60+" : sinceSub} days`,
+        last: c.last_paid, lastLabel: "Last paid", paid: c.total_paid, notes: c.notes,
+      });
+      return;
+    }
     const onActivePackage = c.pkg_status === "Active" || (c.left !== "" && +c.left > 0);
     if (onActivePackage) return; // still working through a package — not a re-engage target
     const since = daysSince(c.last_session);
@@ -1290,7 +1376,7 @@ function renderReengage(d) {
           return `<div class="reengage-item">
             <div class="reengage-top"><span class="reengage-name">${esc(i.name)}</span><span class="reengage-days">${i.since === Infinity ? "—" : i.since + "d"}</span></div>
             <div class="reengage-reason">${esc(i.reason)}</div>
-            <div class="reengage-meta">Last: ${esc(lastTxt)} · ${fmt$c(i.paid)} paid</div>
+            <div class="reengage-meta">${esc(i.lastLabel || "Last")}: ${esc(lastTxt)} · ${fmt$c(i.paid)} paid</div>
             ${notesShort ? `<div class="reengage-notes">${esc(notesShort)}</div>` : ""}
           </div>`;
         })
@@ -1372,6 +1458,8 @@ function renderAttention(d) {
     }
   });
   d.clients.forEach((c) => {
+    // A Crestline subscriber has no sessions by design — never nag to "book their first".
+    if (isSubscriber(c)) return;
     if (c.stage === "New") items.push({ tag: "new", label: "New", name: c.name, note: "no sessions yet — book their first" });
   });
 
