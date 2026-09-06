@@ -237,6 +237,11 @@ main {
 .hbar-split { display: flex; gap: 14px; margin-top: 3px; font-size: 0.72rem; color: var(--gray-mid); }
 .hbar-split .dot { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; vertical-align: 0; }
 
+.streams-pie { display: flex; align-items: center; gap: 20px; margin-top: 18px; flex-wrap: wrap; }
+.streams-pie-chart { flex: 0 0 auto; }
+.streams-pie-legend { flex-direction: column; gap: 8px; margin-top: 0; }
+@media (max-width: 480px) { .streams-pie { justify-content: center; text-align: center; } .streams-pie-chart { margin: 0 auto; } }
+
 /* ---------- money ---------- */
 .money-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 /* Two columns inside a card on a 375px screen leaves ~140px per tile, which is

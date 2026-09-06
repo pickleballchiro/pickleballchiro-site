@@ -542,6 +542,7 @@ function renderAll(d) {
   renderTasks(d);
   renderPeriodChart(d);
   renderStreams(d);
+  renderStreamsPie(d);
   renderMoney(d);
   renderUnserviced(d);
   renderOwed(d);
@@ -1169,6 +1170,56 @@ function renderStreams(d) {
   attachTooltips($("streams"));
 }
 
+// Same per-stream totals as renderStreams, as a donut instead of stacked bars —
+// answers "what % of revenue" at a glance, which the bars above don't.
+function renderStreamsPie(d) {
+  const el = $("streams-pie");
+  if (!el) return;
+  const totals = {}; // parent -> total $
+  d.income.forEach((r) => {
+    const c = classify(r);
+    totals[c.parent] = (totals[c.parent] || 0) + r.amount;
+  });
+  const primaryColor = {
+    "Pickleball Lessons": COLORS.lessons,
+    "Mobile Chiro": COLORS.chiro,
+    "Digital Products": COLORS.digital,
+    "Crestline": COLORS.crestline,
+    "Other": COLORS.other,
+    "Unclassified": COLORS.unclassified,
+  };
+  const order = ["Pickleball Lessons", "Mobile Chiro", "Digital Products", "Crestline", "Other", "Unclassified"];
+  const parents = order.filter((p) => totals[p] > 0);
+  const grand = parents.reduce((s, p) => s + totals[p], 0);
+  if (!grand) { el.innerHTML = ""; return; }
+
+  const size = 160, stroke = 28, r = (size - stroke) / 2, cx = size / 2, cy = size / 2;
+  const circumference = 2 * Math.PI * r;
+  let offsetSoFar = 0;
+  let svg = `<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" role="img" aria-label="Revenue share by stream">`;
+  parents.forEach((p) => {
+    const frac = totals[p] / grand;
+    const dash = frac * circumference;
+    svg += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${primaryColor[p]}" stroke-width="${stroke}"
+      stroke-dasharray="${dash} ${circumference - dash}" stroke-dashoffset="${-offsetSoFar}"
+      transform="rotate(-90 ${cx} ${cy})" data-tip="${escAttr(p)}|${escAttr(fmt$c(totals[p]))} (${(frac * 100).toFixed(0)}%)"/>`;
+    offsetSoFar += dash;
+  });
+  svg += `<text x="${cx}" y="${cy - 6}" text-anchor="middle" font-size="16" font-weight="700" fill="var(--white)">${fmt$c(grand)}</text>`;
+  svg += `<text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="10" fill="#9C9C9C">total</text>`;
+  svg += "</svg>";
+
+  const legend = parents
+    .map((p) => {
+      const pct = ((totals[p] / grand) * 100).toFixed(0);
+      return `<span class="legend-item"><span class="legend-swatch" style="background:${primaryColor[p]}"></span>${esc(p)} · ${fmt$c(totals[p])} (${pct}%)</span>`;
+    })
+    .join("");
+
+  el.innerHTML = `<div class="streams-pie-chart">${svg}</div><div class="legend streams-pie-legend">${legend}</div>`;
+  attachTooltips(el);
+}
+
 /* ------- money ------- */
 
 function renderMoney(d) {
@@ -1225,6 +1276,33 @@ function comingUpNext(notes) {
   return "";
 }
 
+// Pull a {month, day} out of a "next…" sentence so it can be checked against
+// the authoritative next_session date — a Notes sentence left behind by an
+// old booking should never outrank the sheet's own Next Session column.
+function extractMonthDay(text) {
+  if (!text) return null;
+  const m = /(\d{1,2})\/(\d{1,2})/.exec(text);
+  if (!m) return null;
+  return { month: +m[1], day: +m[2] };
+}
+
+// The one place a card's "Up next" line gets decided: next_session (col W,
+// already staleness-guarded server-side) is the source of truth. A Notes
+// sentence is only used to add color (time/location) when its embedded date
+// agrees with next_session — otherwise it's exactly the kind of leftover text
+// that made Jesper's card show a postponed date as still-upcoming.
+function upNextText(c) {
+  if (!c.next_session) return "";
+  const nsDate = parseDate(c.next_session);
+  const base = nsDate ? nsDate.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : c.next_session;
+  const notesNext = comingUpNext(c.notes);
+  const notesDate = extractMonthDay(notesNext);
+  if (notesDate && nsDate && notesDate.month === nsDate.getMonth() + 1 && notesDate.day === nsDate.getDate()) {
+    return notesNext;
+  }
+  return base;
+}
+
 // Tally each client's one-off vs package sessions from the ledger.
 function sessionTally(d) {
   const map = {};
@@ -1266,7 +1344,7 @@ function renderClients(d) {
     const used = +c.used || 0, left = c.left === "" ? null : +c.left;
     const total = hasPkg ? +c.included : 0;
     const pct = total > 0 ? Math.min(100, (used / total) * 100) : 0;
-    const next = comingUpNext(c.notes);
+    const next = upNextText(c);
     const oneOff = oneOffSummary(tally[(c.name || "").toLowerCase().trim()]);
     const lastSession = c.last_session
       ? parseDate(c.last_session)?.toLocaleDateString("en-US", { month: "short", day: "numeric" })
@@ -1330,6 +1408,11 @@ function renderReengage(d) {
     // computed one, and everything else on this page treats Stage as the single
     // source of truth (see renderKpis).
     if (c.stage === "Inactive") return;
+    // Already has a session booked (col W, staleness-guarded server-side) — a
+    // real upcoming booking means they're not cold, whatever their session
+    // history looks like. See Amy Roberts: one-off + stale last_session, but
+    // booked for tomorrow, used to still get flagged here.
+    if (c.next_session) return;
     // Crestline subscribers have no sessions by design, so every session-based test
     // below reads them as ice-cold. A paying subscriber is not a re-engage target; a
     // LAPSED one is the best target on the page, which is exactly why the webhook keeps
