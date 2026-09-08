@@ -1053,6 +1053,56 @@ section { padding: var(--space-4) 0; }
 
 .pricing-card .offer-fine-print { text-align: left; }
 
+/* ---- PRICING TABLE — real <table> for AI/GEO extractability (/virtual-coaching) ---- */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, #24262A, #1B1C1F);
+  margin: 20px 0;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+  font-size: 0.85rem;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--off-white);
+  line-height: 1.5;
+}
+
+.pricing-table thead th {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  border-bottom: 1px solid rgba(240, 90, 40, 0.35);
+}
+
+.pricing-table tbody tr:last-child td { border-bottom: none; }
+
+.pricing-table tbody td:first-child {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.pricing-table tbody td:nth-child(2) {
+  color: var(--orange);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 /* ---- FAQ — native <details>, styled to match the card system ---- */
 .faq-list {
   display: flex;
