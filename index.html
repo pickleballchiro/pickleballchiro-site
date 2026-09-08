@@ -51,7 +51,13 @@
       "addressRegion": "FL",
       "addressLocality": "Volusia County"
     },
-    "knowsAbout": ["Pickleball coaching", "Chiropractic", "Sports performance", "Injury rehabilitation"]
+    "knowsAbout": ["Pickleball coaching", "Chiropractic", "Sports performance", "Injury rehabilitation"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certification",
+      "name": "PCI Certified Coach",
+      "recognizedBy": { "@type": "Organization", "name": "Pickleball Coaching International" }
+    }
   }
   </script>
 
@@ -168,6 +174,51 @@
     }
   }
   </script>
+
+  <!-- Structured data: homepage FAQ, for AI Overview / ChatGPT / Perplexity citation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What makes a chiropractor-coach different from a regular pickleball coach?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most coaches only see your technique. As a Doctor of Chiropractic and PCI Certified Coach, I also see what your body is doing during the shot — a physical limitation, a technical flaw, or a strategic decision can all look the same from the sideline. I diagnose all three together instead of guessing at one." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does virtual pickleball coaching work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Through Crestline, you send me footage of your games or drills 1-2 times a week. I review it and send back detailed feedback — written or live voice-and-video, depending on your plan — plus a custom drill plan built around exactly what I see. No travel, no scheduling around a court." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to live near Florida to work with you?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. My in-person lessons and mobile chiropractic care are limited to Volusia County, FL, but virtual coaching through Crestline works with players anywhere in the world. All I need is footage of your games or drills — the coaching works the same no matter where you play." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in a Crestline coaching program?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Crestline plans range from a free monthly game diagnosis up to $159/month for unlimited reviews. Every plan includes footage review and a custom drill plan; higher tiers add live voice-and-video feedback, faster turnaround, and strength/nutrition guidance. Pick the plan that matches how much feedback you want." }
+      },
+      {
+        "@type": "Question",
+        "name": "What level of player do you work with?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Mostly serious recreational players in the 3.0 to 4.0 range who are ready to break through a plateau, plus higher-level players wanting a second set of eyes on their game. Not sure where you fall or if it's a fit? Just reach out and ask." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much do lessons cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4, 6, or 8 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's your cancellation policy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For in-person lessons, I ask for at least 12 hours' notice to cancel or reschedule — last-minute no-shows affect other players' time too. Crestline virtual coaching is a monthly subscription you can pause or cancel anytime before your next billing date." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -184,6 +235,7 @@
         <span class="chip">4.7 DUPR</span>
         <span class="chip">Doctor of Chiropractic</span>
         <span class="chip">Performance Coach</span>
+        <span class="chip">PCI Certified Coach</span>
       </div>
       <div class="hero-cta-wrap">
         <a href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="hero_guide">Get the Free &ldquo;Stuck at 3.5&rdquo; Guide <span class="arrow">&rarr;</span></a>
@@ -525,12 +577,74 @@
 
 
   <!-- ============================================================
+       FAQ — native <details>, no JS needed
+       ============================================================ -->
+  <section class="fade-up">
+    <div class="container">
+      <span class="eyebrow">Common Questions</span>
+      <h2 class="section-title">Questions</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>What makes a chiropractor-coach different from a regular pickleball coach?</summary>
+          <p class="faq-answer">Most coaches only see your technique. As a Doctor of Chiropractic and PCI Certified Coach, I also see what your body is doing during the shot &mdash; a physical limitation, a technical flaw, or a strategic decision can all look the same from the sideline. I diagnose all three together instead of guessing at one.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How does virtual pickleball coaching work?</summary>
+          <p class="faq-answer">Through Crestline, you send me footage of your games or drills 1-2 times a week. I review it and send back detailed feedback &mdash; written or live voice-and-video, depending on your plan &mdash; plus a custom drill plan built around exactly what I see. No travel, no scheduling around a court.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I need to live near Florida to work with you?</summary>
+          <p class="faq-answer">No. My in-person lessons and mobile chiropractic care are limited to Volusia County, FL, but virtual coaching through Crestline works with players anywhere in the world. All I need is footage of your games or drills &mdash; the coaching works the same no matter where you play.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's included in a Crestline coaching program?</summary>
+          <p class="faq-answer">Crestline plans range from a free monthly game diagnosis up to $159/month for unlimited reviews. Every plan includes footage review and a custom drill plan; higher tiers add live voice-and-video feedback, faster turnaround, and strength/nutrition guidance. Pick the plan that matches how much feedback you want.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What level of player do you work with?</summary>
+          <p class="faq-answer">Mostly serious recreational players in the 3.0 to 4.0 range who are ready to break through a plateau, plus higher-level players wanting a second set of eyes on their game. Not sure where you fall or if it's a fit? Just reach out and ask.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How much do lessons cost?</summary>
+          <p class="faq-answer">In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4, 6, or 8 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's your cancellation policy?</summary>
+          <p class="faq-answer">For in-person lessons, I ask for at least 12 hours' notice to cancel or reschedule &mdash; last-minute no-shows affect other players' time too. Crestline virtual coaching is a monthly subscription you can pause or cancel anytime before your next billing date.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
        FOOTER
        ============================================================ -->
   <footer class="site-footer fade-up">
     <div class="container">
+      <p class="contact-line">
+        <a href="tel:+14079956966" data-track="footer_contact_phone">(407) 995-6966</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="mailto:drlanepickleballchiro@gmail.com" data-track="footer_contact_email">drlanepickleballchiro@gmail.com</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="footer_contact_ig">@dr.lane_o on Instagram</a>
+      </p>
+      <p class="contact-line">
+        <a href="/about/" data-track="footer_about">About</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="/privacy/" data-track="footer_privacy">Privacy Policy</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="/terms/" data-track="footer_terms">Terms of Service</a>
+      </p>
       <p>&copy; 2026 Dr. Lane Odom &middot; The Pickleball Chiro</p>
-      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="footer_ig">@dr.lane_o on Instagram</a>
     </div>
   </footer>
 
