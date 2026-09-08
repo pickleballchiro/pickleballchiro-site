@@ -61,6 +61,21 @@
   }
   </script>
 
+  <!-- Structured data: page-level freshness + speakable FAQ answers for voice/AI citation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Dr. Lane Odom · The Pickleball Chiro",
+    "url": "https://pickleballchiro.co/",
+    "dateModified": "2026-09-07",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".faq-answer"]
+    }
+  }
+  </script>
+
   <!-- Structured data: the business itself — local (in-person lessons + mobile chiro
        across East Volusia County) and virtual (Crestline coaching, available anywhere) -->
   <script type="application/ld+json">
@@ -93,7 +108,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "3"
+      "reviewCount": "2"
     },
     "review": [
       {

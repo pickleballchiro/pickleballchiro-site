@@ -32,6 +32,60 @@
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV3RTC7XXK"></script>
   <script src="/analytics.js"></script>
+
+  <!-- Structured data: same Person entity as the homepage, so this credentials page
+       carries its own machine-readable signal instead of relying on the homepage alone. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Lane Odom",
+    "alternateName": "The Pickleball Chiro",
+    "url": "https://pickleballchiro.co/",
+    "image": "https://pickleballchiro.co/images/about.jpg",
+    "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
+    "sameAs": [
+      "https://instagram.com/dr.lane_o",
+      "https://youtube.com/@pickleballchiro",
+      "https://www.gocrestline.app/coaches/lane-odom",
+      "https://www.google.com/maps/place/?q=place_id:ChIJBWVTQvzqRCIR6c4jBLejDWc"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "FL",
+      "addressLocality": "Volusia County"
+    },
+    "knowsAbout": ["Pickleball coaching", "Chiropractic", "Sports performance", "Injury rehabilitation"],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "license",
+        "name": "Doctor of Chiropractic, licensed in Florida",
+        "educationalLevel": "Professional degree",
+        "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Palmer College of Chiropractic" },
+        "dateCreated": "2025-03"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certification",
+        "name": "PCI Certified Coach",
+        "recognizedBy": { "@type": "Organization", "name": "Pickleball Coaching International" },
+        "dateCreated": "2026"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: page-level freshness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About Dr. Lane Odom · The Pickleball Chiro",
+    "url": "https://pickleballchiro.co/about/",
+    "dateModified": "2026-09-07"
+  }
+  </script>
 </head>
 <body>
 
