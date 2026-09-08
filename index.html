@@ -40,13 +40,86 @@
     "url": "https://pickleballchiro.co/",
     "image": "https://pickleballchiro.co/images/profile.jpg",
     "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
-    "sameAs": ["https://instagram.com/dr.lane_o"],
+    "sameAs": [
+      "https://instagram.com/dr.lane_o",
+      "https://youtube.com/@pickleballchiro",
+      "https://gocrestline.app/coaches/lane-odom"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "FL",
       "addressLocality": "Volusia County"
     },
     "knowsAbout": ["Pickleball coaching", "Chiropractic", "Sports performance", "Injury rehabilitation"]
+  }
+  </script>
+
+  <!-- Structured data: the business itself — local (in-person lessons + mobile chiro
+       across East Volusia County) and virtual (Crestline coaching, available anywhere) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "name": "Pickleball Chiro",
+    "url": "https://pickleballchiro.co/",
+    "image": "https://pickleballchiro.co/images/profile.jpg",
+    "description": "Pickleball performance coaching and mobile chiropractic care from Dr. Lane Odom, serving Daytona Beach, Ormond Beach, New Smyrna Beach, Port Orange, and Edgewater, FL — plus virtual coaching available anywhere.",
+    "priceRange": "$$",
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Lane Odom"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Daytona Beach, FL" },
+      { "@type": "City", "name": "Ormond Beach, FL" },
+      { "@type": "City", "name": "New Smyrna Beach, FL" },
+      { "@type": "City", "name": "Port Orange, FL" },
+      { "@type": "City", "name": "Edgewater, FL" }
+    ],
+    "sameAs": [
+      "https://instagram.com/dr.lane_o",
+      "https://youtube.com/@pickleballchiro",
+      "https://gocrestline.app/coaches/lane-odom"
+    ],
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "In-Person Pickleball Lessons",
+          "areaServed": [
+            { "@type": "City", "name": "Daytona Beach, FL" },
+            { "@type": "City", "name": "Ormond Beach, FL" },
+            { "@type": "City", "name": "New Smyrna Beach, FL" },
+            { "@type": "City", "name": "Port Orange, FL" },
+            { "@type": "City", "name": "Edgewater, FL" }
+          ],
+          "url": "https://pickleballchiro.co/lessons/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mobile Chiropractic Care",
+          "areaServed": [
+            { "@type": "City", "name": "Daytona Beach, FL" },
+            { "@type": "City", "name": "Ormond Beach, FL" },
+            { "@type": "City", "name": "New Smyrna Beach, FL" },
+            { "@type": "City", "name": "Port Orange, FL" },
+            { "@type": "City", "name": "Edgewater, FL" }
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Virtual Pickleball Coaching (Crestline)",
+          "url": "https://www.gocrestline.app/coaches/lane-odom"
+        }
+      }
+    ]
   }
   </script>
 </head>

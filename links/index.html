@@ -34,6 +34,29 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV3RTC7XXK"></script>
   <script src="/analytics.js"></script>
 
+  <!-- Structured data: mirrors the homepage's Person identity so this page
+       (the actual Instagram bio link) isn't a structured-data dead zone -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "dateModified": "2026-09-07",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Dr. Lane Odom",
+      "alternateName": "The Pickleball Chiro",
+      "url": "https://pickleballchiro.co/",
+      "image": "https://pickleballchiro.co/images/profile.jpg",
+      "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
+      "sameAs": [
+        "https://instagram.com/dr.lane_o",
+        "https://youtube.com/@pickleballchiro",
+        "https://gocrestline.app/coaches/lane-odom"
+      ]
+    }
+  }
+  </script>
+
   <!-- Page-specific layout for the link hub only -->
   <style>
     /* Keep the hub narrow and centered — it's a single phone-width column */
