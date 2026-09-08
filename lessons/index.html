@@ -81,6 +81,7 @@
     "description": "1-on-1 and group pickleball lessons, on court, in person. Technique breakdown and movement analysis with a coach who competes at the 5.0 level and a Doctor of Chiropractic.",
     "url": "https://pickleballchiro.co/lessons/",
     "provider": {
+      "@id": "https://pickleballchiro.co/#lane-odom",
       "@type": "Person",
       "name": "Dr. Lane Odom",
       "alternateName": "The Pickleball Chiro",
@@ -271,37 +272,78 @@
 
 
   <!-- ============================================================
-       PRICING
+       PRICING — real table, matching /virtual-coaching/'s pattern
+       per the platform-optimization audit's note that AI systems
+       extract pricing tables more reliably than div/card layouts.
        ============================================================ -->
   <section class="fade-up" id="pricing">
     <div class="container">
       <span class="eyebrow">Investment</span>
       <h2 class="section-title">Pricing</h2>
       <p class="section-subtext">Pricing listed upfront, no surprises. All sessions are 60 minutes, on court, in person.</p>
-      <div class="offer-grid stagger">
 
-        <div class="pricing-card card">
-          <p class="pricing-headline">$80<span class="pricing-per">/hour</span></p>
-          <p class="pricing-total">Solo, 1-on-1</p>
-          <div class="pricing-list">
-            <div class="pricing-row"><span>Single session</span><span>$80</span></div>
-            <div class="pricing-row"><span>4-Pack</span><span>$305</span></div>
-            <div class="pricing-row"><span>6-Pack</span><span>$460</span></div>
-            <div class="pricing-row"><span>8-Pack</span><span>$580</span></div>
-          </div>
-          <p class="offer-fine-print">On-court coaching, video analysis, personalized feedback. Packages don't expire.</p>
-        </div>
+      <div class="table-wrap">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Price</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Includes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Format">Solo, 1-on-1</td>
+              <td data-label="Price">$80</td>
+              <td data-label="Duration">60 min</td>
+              <td data-label="Includes">On-court coaching, video analysis, personalized feedback</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Solo, 4-Pack</td>
+              <td data-label="Price">$305 ($76.25/session)</td>
+              <td data-label="Duration">60 min each</td>
+              <td data-label="Includes">Same as single session &middot; packages don't expire</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Solo, 6-Pack</td>
+              <td data-label="Price">$460 ($76.67/session)</td>
+              <td data-label="Duration">60 min each</td>
+              <td data-label="Includes">Same as single session &middot; packages don't expire</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Solo, 8-Pack</td>
+              <td data-label="Price">$580 ($72.50/session)</td>
+              <td data-label="Duration">60 min each</td>
+              <td data-label="Includes">Same as single session &middot; packages don't expire</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Group, 2 Players</td>
+              <td data-label="Price">$50/person ($100 total)</td>
+              <td data-label="Duration">60 min</td>
+              <td data-label="Includes">Same coaching and feedback, split across the group</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Group, 3 Players</td>
+              <td data-label="Price">$40/person ($120 total)</td>
+              <td data-label="Duration">60 min</td>
+              <td data-label="Includes">Same coaching and feedback, split across the group</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pricing-cap-note" style="text-align:center; margin-top: 14px;">Group packages available by inquiry.</p>
+    </div>
+  </section>
 
-        <div class="pricing-card card">
-          <p class="pricing-headline">$40&ndash;50<span class="pricing-per">/person/hr</span></p>
-          <p class="pricing-total">Group, 2 to 3 Players</p>
-          <div class="pricing-list">
-            <div class="pricing-row"><span>2 players</span><span>$50/person &middot; $100 total</span></div>
-            <div class="pricing-row"><span>3 players</span><span>$40/person &middot; $120 total</span></div>
-          </div>
-          <p class="offer-fine-print">More reps and more game speed practice per hour. Same coaching, same feedback, split across the group. Group packages available by inquiry.</p>
-        </div>
 
+  <!-- ============================================================
+       CROSS-LINK — can't make it in person? point to virtual coaching
+       ============================================================ -->
+  <section class="band fade-up">
+    <div class="container">
+      <div class="callout">
+        <p>Not local to Volusia County, or can't make it to a court? <a href="/virtual-coaching/" data-track="lessons_crosslink_virtualcoaching">Virtual coaching through Crestline</a> uses the same whole-chain approach, built around footage you send in instead of a court session.</p>
       </div>
     </div>
   </section>
@@ -383,8 +425,23 @@
        ============================================================ -->
   <footer class="site-footer fade-up">
     <div class="container">
+      <p class="contact-line">
+        <a href="tel:+14079956966" data-track="lessons_footer_phone">(407) 995-6966</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="mailto:drlanepickleballchiro@gmail.com" data-track="lessons_footer_email">drlanepickleballchiro@gmail.com</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="lessons_footer_ig">@dr.lane_o on Instagram</a>
+      </p>
+      <p class="contact-line">
+        <a href="/about/" data-track="lessons_footer_about">About</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="/virtual-coaching/" data-track="lessons_footer_virtualcoaching">Virtual Coaching</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="/privacy/" data-track="lessons_footer_privacy">Privacy Policy</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="/terms/" data-track="lessons_footer_terms">Terms of Service</a>
+      </p>
       <p>&copy; 2026 Dr. Lane Odom &middot; The Pickleball Chiro</p>
-      <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="lessons_footer_ig">@dr.lane_o on Instagram</a>
     </div>
   </footer>
 
