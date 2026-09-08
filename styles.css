@@ -237,7 +237,7 @@ section { padding: var(--space-4) 0; }
 }
 
 .hero-headline {
-  font-size: clamp(2.2rem, 8.5vw, 3.6rem);
+  font-size: clamp(1.6rem, 6.8vw, 3.4rem);
   color: var(--white);
   line-height: 1.05;
   margin: 0 auto 18px;
