@@ -1105,6 +1105,52 @@ section { padding: var(--space-4) 0; }
   white-space: nowrap;
 }
 
+/* ---- SOLO PACKAGES — collapsible via native <details>, mirrors the FAQ toggle style ---- */
+.pricing-packages-toggle {
+  background: linear-gradient(180deg, #24262A, #1B1C1F);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  transition: border-color 0.25s ease;
+  margin: 20px 0;
+}
+.pricing-packages-toggle[open] { border-color: rgba(240, 90, 40, 0.4); }
+
+.pricing-packages-toggle summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  -webkit-tap-highlight-color: transparent;
+}
+.pricing-packages-toggle summary::-webkit-details-marker { display: none; }
+.pricing-packages-toggle summary:hover { color: var(--orange); }
+
+.pricing-packages-toggle summary::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--orange);
+  transition: transform 0.2s ease;
+}
+.pricing-packages-toggle[open] summary::after { content: '\2212'; }
+
+.pricing-packages-toggle .table-wrap {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
 /* ---- FAQ — native <details>, styled to match the card system ---- */
 .faq-list {
   display: flex;
@@ -1219,5 +1265,6 @@ section { padding: var(--space-4) 0; }
 
 /* ---- REDUCED MOTION ---- */
 @media (prefers-reduced-motion: reduce) {
-  .faq-item, .faq-item summary::after { transition: none; }
+  .faq-item, .faq-item summary::after,
+  .pricing-packages-toggle, .pricing-packages-toggle summary::after { transition: none; }
 }
