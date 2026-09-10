@@ -1563,7 +1563,11 @@ function renderUnserviced(d) {
   d.clients.forEach((c) => {
     const incl = +c.included || 0;
     const left = c.left === "" ? 0 : (+c.left || 0);
-    if (incl <= 0 || left <= 0) return;
+    const paid = +c.total_paid || 0;
+    // A scheduled-but-unpaid slot (e.g. a Single Lesson someone's just booked
+    // for, nothing paid yet) has incl/left > 0 like a real package. Nothing
+    // is actually owed until something's been paid.
+    if (incl <= 0 || left <= 0 || paid <= 0) return;
     const perValue = (+c.pkg_value || 0) > 0 ? +c.pkg_value / incl : 0;
     const dollars = left * perValue;
     totalSessions += left;
