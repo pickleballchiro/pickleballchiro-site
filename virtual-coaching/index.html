@@ -44,6 +44,11 @@
       letter-spacing: 0.08em;
       white-space: nowrap;
     }
+  
+    .video-grid { display: grid; gap: 22px; }
+    .video-card { background: var(--card, #202226); border-radius: 12px; padding: 14px 14px 18px; border: 1px solid rgba(255,255,255,0.08); }
+    .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; background: #000; margin-bottom: 12px; }
+    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   </style>
 
   <!-- Google Analytics -->
@@ -465,6 +470,65 @@
     }
   }
   </script>
+
+  <!-- Structured data: the embedded match analyses -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Game film breakdowns embedded on this page",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "VideoObject",
+          "name": "3.0 Rec Game Match Analysis",
+          "description": "A full rec game at the 3.0 level, broken down point by point: where the leaks are, why they happen, and what to drill.",
+          "thumbnailUrl": "https://i.ytimg.com/vi/xMtTSqcm0SU/hqdefault.jpg",
+          "uploadDate": "2026-08-27",
+          "duration": "PT25M11S",
+          "contentUrl": "https://www.youtube.com/watch?v=xMtTSqcm0SU",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/xMtTSqcm0SU",
+          "creator": { "@id": "https://pickleballchiro.co/#lane-odom" },
+          "publisher": { "@id": "https://pickleballchiro.co/#business" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "VideoObject",
+          "name": "4.5 Men's Doubles Match Analysis",
+          "description": "A 4.5 men's doubles match reviewed the way a Crestline submission gets reviewed: patterns, decisions, and the physical side of the game.",
+          "thumbnailUrl": "https://i.ytimg.com/vi/9weUOg7VKoE/hqdefault.jpg",
+          "uploadDate": "2026-08-20",
+          "duration": "PT31M15S",
+          "contentUrl": "https://www.youtube.com/watch?v=9weUOg7VKoE",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/9weUOg7VKoE",
+          "creator": { "@id": "https://pickleballchiro.co/#lane-odom" },
+          "publisher": { "@id": "https://pickleballchiro.co/#business" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "VideoObject",
+          "name": "4.5 Rec Play Game Analysis",
+          "description": "Rec play at 4.5, analyzed for the one or two patterns that separate the players who keep climbing from the ones who stall.",
+          "thumbnailUrl": "https://i.ytimg.com/vi/9_0esVmdwbs/hqdefault.jpg",
+          "uploadDate": "2026-08-02",
+          "duration": "PT26M56S",
+          "contentUrl": "https://www.youtube.com/watch?v=9_0esVmdwbs",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/9_0esVmdwbs",
+          "creator": { "@id": "https://pickleballchiro.co/#lane-odom" },
+          "publisher": { "@id": "https://pickleballchiro.co/#business" }
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -522,6 +586,42 @@
 
       <div class="callout">
         <p>Everything happens through Crestline: footage submission, feedback, and your drill plans all live in one place, so you can see your progress from review to review.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       REAL BREAKDOWNS — the YouTube match analyses, embedded so the
+       page shows the actual product instead of describing it
+       ============================================================ -->
+  <section class="fade-up" id="breakdowns">
+    <div class="container">
+      <span class="eyebrow">Watch a Real Breakdown</span>
+      <h2 class="section-title">This Is What a Review Looks Like</h2>
+      <p class="section-subtext">Three full match analyses from my <a href="https://www.youtube.com/@pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="vc_youtube_channel">YouTube channel</a>. A Crestline review is the same read, on your footage, with a drill plan attached.</p>
+      <div class="video-grid stagger">
+        <div class="video-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/xMtTSqcm0SU" title="3.0 Rec Game Match Analysis by Dr. Lane Odom" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <h3 class="stage-title">3.0 Rec Game Match Analysis</h3>
+          <p class="stage-body">A full rec game at the 3.0 level, broken down point by point: where the leaks are, why they happen, and what to drill.</p>
+        </div>
+        <div class="video-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/9weUOg7VKoE" title="4.5 Men's Doubles Match Analysis by Dr. Lane Odom" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <h3 class="stage-title">4.5 Men's Doubles Match Analysis</h3>
+          <p class="stage-body">A 4.5 men's doubles match reviewed the way a Crestline submission gets reviewed: patterns, decisions, and the physical side of the game.</p>
+        </div>
+        <div class="video-card">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/9_0esVmdwbs" title="4.5 Rec Play Game Analysis by Dr. Lane Odom" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <h3 class="stage-title">4.5 Rec Play Game Analysis</h3>
+          <p class="stage-body">Rec play at 4.5, analyzed for the one or two patterns that separate the players who keep climbing from the ones who stall.</p>
+        </div>
       </div>
     </div>
   </section>
