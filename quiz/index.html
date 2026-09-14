@@ -93,7 +93,8 @@
         var(--dark);
       color: var(--off-white);
       display: flex;
-      justify-content: center;
+      flex-direction: column;   /* shell (full viewport) stacked above the crawlable section */
+      align-items: center;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -501,7 +502,78 @@
       .score-bar { transition: none; }
       .progress-fill { transition: none; }
     }
+
+    /* ── What this diagnosis covers (static, crawlable) ── */
+    .covers {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      flex-shrink: 0;
+      padding: 32px 24px 8px;
+      border-top: 1px solid var(--border);
+      color: var(--off-white);
+      line-height: 1.65;
+    }
+    .covers-title {
+      font-family: 'Oswald', 'Arial Narrow', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: 1.35rem;
+      color: var(--white);
+      margin: 0 0 10px;
+      text-align: center;
+    }
+    .covers-intro, .covers-outro { font-size: 0.93rem; color: var(--gray-mid); }
+    .covers h3 {
+      font-family: 'Oswald', 'Arial Narrow', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.98rem;
+      color: var(--orange);
+      margin: 26px 0 6px;
+    }
+    .covers-def { font-size: 0.93rem; margin: 0 0 8px; }
+    .covers ul { margin: 0; padding-left: 20px; font-size: 0.9rem; color: var(--gray-mid); }
+    .covers li { margin: 3px 0; }
+    .covers a { color: var(--orange); }
   </style>
+  <!-- Structured data: page entity + speakable pointer at the crawlable section -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://pickleballchiro.co/quiz/#webpage",
+    "name": "Why You're Stuck at 3.5 · Free Self-Diagnosis",
+    "url": "https://pickleballchiro.co/quiz/",
+    "description": "Free 15-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro: which of the five areas of your game (first four shots, shot selection, transition zone, kitchen game, physical) is capping your rating at 3.5.",
+    "inLanguage": "en-US",
+    "isPartOf": { "@type": "WebSite", "@id": "https://pickleballchiro.co/#website", "name": "The Pickleball Chiro", "url": "https://pickleballchiro.co/" },
+    "author": { "@id": "https://pickleballchiro.co/#lane-odom" },
+    "about": { "@type": "Thing", "name": "Pickleball skill development for 3.0-4.0 players" },
+    "dateModified": "2026-09-13",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#what-this-covers .covers-def", ".covers-intro"] }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@id": "https://pickleballchiro.co/#lane-odom",
+    "@type": "Person",
+    "name": "Dr. Lane Odom",
+    "alternateName": "The Pickleball Chiro",
+    "url": "https://pickleballchiro.co/",
+    "image": "https://pickleballchiro.co/images/profile.jpg",
+    "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
+    "worksFor": { "@id": "https://pickleballchiro.co/#business" },
+    "sameAs": [
+      "https://www.instagram.com/dr.lane_o/",
+      "https://www.youtube.com/@pickleballchiro",
+      "https://www.gocrestline.app/coaches/lane-odom",
+      "https://pickleballchiro.gumroad.com",
+      "https://www.linkedin.com/in/lane-odom-189569226/"
+    ]
+  }
+  </script>
 </head>
 <body>
 <div class="shell">
@@ -537,7 +609,7 @@
 
     <!-- ── SCREEN: Question ── -->
     <div class="screen" id="screen-question">
-      <h2 class="q-text" id="qText"></h2>
+      <p class="q-text" role="heading" aria-level="2" id="qText"></p>
       <div class="answers" id="answersContainer" role="list"></div>
       <button class="back-btn" id="backBtn" onclick="goBack()" aria-label="Go back to previous question">
         <svg class="back-icon" viewBox="0 0 18 18"><polyline points="11 14 6 9 11 4"/></svg>
@@ -552,56 +624,61 @@
 
   </div><!-- /screens -->
 
-  <!-- Static fallback for non-JS crawlers/AI systems: the quiz UI above is entirely
-       JS-rendered, so without this, a text-only fetch of this page sees only the
-       55-word intro and none of the actual diagnostic content. This block is
-       invisible to real browsers with JS enabled (the standard <noscript> behavior)
-       but present in the raw HTML for anything that doesn't execute JS. -->
-  <noscript>
-    <div style="max-width:480px; margin:0 auto; padding:24px; font-family:Georgia,serif; color:#F2F1EE; background:#121316; line-height:1.6;">
-      <h2 style="font-family:sans-serif; text-transform:uppercase; color:#fff;">Why Are You Stuck at 3.5? &mdash; The 15 Questions</h2>
-      <p>This free self-diagnosis asks 15 questions across 5 areas of your game to find the one leaking the most points. Here's what it covers:</p>
-
-      <h3 style="color:#F05A28; margin-top:20px;">First Four Shots</h3>
-      <ul>
-        <li>When you serve, what usually happens?</li>
-        <li>On your return of serve, where does the ball usually end up?</li>
-        <li>Your third shot, the one that's supposed to get you to the kitchen &mdash; what happens most often?</li>
-      </ul>
-
-      <h3 style="color:#F05A28; margin-top:20px;">Shot Selection</h3>
-      <ul>
-        <li>When a ball comes at you below your waist, what's your instinct?</li>
-        <li>After you reset or dink, what usually happens next?</li>
-        <li>How often do you feel like you "didn't mean to hit it that hard," or get caught off guard by your own shot?</li>
-      </ul>
-
-      <h3 style="color:#F05A28; margin-top:20px;">Transition Zone</h3>
-      <ul>
-        <li>After your third shot, what do you usually do?</li>
-        <li>When a ball comes fast at your feet while you're moving forward, what happens?</li>
-        <li>How often do you feel like you're "a step behind" during a point?</li>
-      </ul>
-
-      <h3 style="color:#F05A28; margin-top:20px;">Kitchen / Soft Game</h3>
-      <ul>
-        <li>Honest check: in a typical rec game, how often do you actually get to the kitchen line before the point is decided?</li>
-        <li>A speed-up comes at you at the kitchen line &mdash; what usually happens?</li>
-        <li>When you're in a dink rally, what's actually happening?</li>
-      </ul>
-
-      <h3 style="color:#F05A28; margin-top:20px;">Physical</h3>
-      <ul>
-        <li>How does your game change between game one and game three of the same session?</li>
-        <li>Do you do anything physical off the court (mobility, strength, conditioning) to support your game?</li>
-        <li>Do you have any nagging stiffness, pain, or "that's just how my body feels now" spots that affect how you move on court?</li>
-      </ul>
-
-      <p style="margin-top:20px;">Your answers are scored into 5 categories, and whichever one scores lowest is the specific leak capping your rating right now. <a href="/" style="color:#F05A28;">Enable JavaScript</a> to take the interactive version, or go straight to <a href="https://www.gocrestline.app/coaches/lane-odom" style="color:#F05A28;">virtual coaching on Crestline</a>.</p>
-    </div>
-  </noscript>
 
 </div><!-- /shell -->
+
+  <!-- What the diagnosis covers: real, visible HTML (not <noscript>) so crawlers and AI
+       systems can read the actual diagnostic content. The interactive quiz above is JS-rendered. -->
+  <section class="covers" id="what-this-covers" aria-labelledby="covers-title">
+    <h2 class="covers-title" id="covers-title">What This Diagnosis Covers</h2>
+    <p class="covers-intro">Fifteen questions across the five areas where 3.0&ndash;4.0 players leak the most points. Your answers are scored by category; the lowest-scoring one is the specific leak capping your rating right now.</p>
+
+    <h3>First Four Shots</h3>
+    <p class="covers-def">The serve, the return, the third shot, and the fourth. These four shots decide who reaches the kitchen line first, and most points between 3.0 and 4.0 players are effectively over before anyone gets there.</p>
+    <ul>
+      <li>When you serve, what usually happens?</li>
+      <li>On your return of serve, where does the ball usually end up?</li>
+      <li>Your third shot, the one that&rsquo;s supposed to get you to the kitchen &mdash; what happens most often?</li>
+    </ul>
+
+    <h3>Shot Selection</h3>
+    <p class="covers-def">Choosing the right shot for the ball you actually got: drive, drop, reset, or dink. A 3.5 player usually hits the shot they like; a 4.0 player hits the shot the ball height and position call for.</p>
+    <ul>
+      <li>When a ball comes at you below your waist, what&rsquo;s your instinct?</li>
+      <li>After you reset or dink, what usually happens next?</li>
+      <li>How often do you feel like you &ldquo;didn&rsquo;t mean to hit it that hard,&rdquo; or get caught off guard by your own shot?</li>
+    </ul>
+
+    <h3>Transition Zone</h3>
+    <p class="covers-def">The space between the baseline and the kitchen line, roughly 7 to 15 feet from the net. Getting through it safely after the third shot, without getting stuck or rushing, is the single most common gap in a 3.5 game.</p>
+    <ul>
+      <li>After your third shot, what do you usually do?</li>
+      <li>When a ball comes fast at your feet while you&rsquo;re moving forward, what happens?</li>
+      <li>How often do you feel like you&rsquo;re &ldquo;a step behind&rdquo; during a point?</li>
+    </ul>
+
+    <h3>Kitchen / Soft Game</h3>
+    <p class="covers-def">Dinking, resets, and handling speed-ups at the non-volley line. Points at the 4.0 level are won here, so a player who can&rsquo;t sustain a dink rally or defend a speed-up can&rsquo;t hold a lead against better opponents.</p>
+    <ul>
+      <li>Honest check: in a typical rec game, how often do you actually get to the kitchen line before the point is decided?</li>
+      <li>A speed-up comes at you at the kitchen line &mdash; what usually happens?</li>
+      <li>When you&rsquo;re in a dink rally, what&rsquo;s actually happening?</li>
+    </ul>
+
+    <h3>Physical</h3>
+    <p class="covers-def">Whether your body can hold up your technique for a full session. Fatigue, stiffness, and old injuries change footwork and contact point in game three even when the mechanics looked fine in warmup. This is the part a coach who is also a chiropractor sees first.</p>
+    <ul>
+      <li>How does your game change between game one and game three of the same session?</li>
+      <li>Do you do anything physical off the court (mobility, strength, conditioning) to support your game?</li>
+      <li>Do you have any nagging stiffness, pain, or &ldquo;that&rsquo;s just how my body feels now&rdquo; spots that affect how you move on court?</li>
+    </ul>
+
+    <p class="covers-outro">Built by <a href="/about/">Dr. Lane Odom, DC</a> &mdash; Doctor of Chiropractic, PCI certified pickleball coach, 4.7 DUPR. Take the quiz above, or go straight to <a href="/virtual-coaching/">virtual coaching</a> or <a href="/lessons/">in-person lessons in Volusia County, FL</a>.</p>
+  </section>
+
+  <noscript>
+    <p style="max-width:480px; margin:0 auto; padding:24px; color:#F2F1EE; text-align:center;">The interactive quiz needs JavaScript. The full list of questions and what each category means is just below.</p>
+  </noscript>
 
 <script>
 // ============================================================
