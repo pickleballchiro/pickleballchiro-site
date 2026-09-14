@@ -35,52 +35,65 @@
 
   <!-- Structured data for Google search / Business Profile -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@id": "https://pickleballchiro.co/#lane-odom",
-    "@type": "Person",
-    "name": "Dr. Lane Odom",
-    "alternateName": "The Pickleball Chiro",
-    "honorificSuffix": "DC",
-    "url": "https://pickleballchiro.co/",
-    "image": "https://pickleballchiro.co/images/profile.jpg",
-    "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
-    "description": "Dr. Lane Odom, DC, is the founder of Pickleball Chiro, a pickleball performance coaching and mobile chiropractic practice based in Daytona Beach, FL. Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience.",
-    "worksFor": { "@id": "https://pickleballchiro.co/#business" },
-    "sameAs": [
-      "https://www.instagram.com/dr.lane_o/",
-      "https://www.youtube.com/@pickleballchiro",
-      "https://www.gocrestline.app/coaches/lane-odom",
-      "https://pickleballchiro.gumroad.com",
-      "https://www.linkedin.com/in/drlaneodom/"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Daytona Beach",
-      "addressRegion": "FL",
-      "postalCode": "32117",
-      "addressCountry": "US"
-    },
-    "knowsAbout": ["Pickleball coaching", "Chiropractic", "Sports performance", "Injury rehabilitation"],
-    "hasCredential": [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "license",
-        "name": "Doctor of Chiropractic, licensed in Florida",
-        "educationalLevel": "Professional degree",
-        "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Palmer College of Chiropractic" },
-        "dateCreated": "2025-03"
+{
+  "@context": "https://schema.org",
+  "@id": "https://pickleballchiro.co/#lane-odom",
+  "@type": "Person",
+  "name": "Dr. Lane Odom",
+  "alternateName": "The Pickleball Chiro",
+  "honorificSuffix": "DC",
+  "url": "https://pickleballchiro.co/",
+  "image": "https://pickleballchiro.co/images/profile.jpg",
+  "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
+  "description": "Dr. Lane Odom, DC, is the founder of Pickleball Chiro, a pickleball performance coaching and mobile chiropractic practice based in Daytona Beach, FL. Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience.",
+  "worksFor": {
+    "@id": "https://pickleballchiro.co/#business"
+  },
+  "sameAs": [
+    "https://www.instagram.com/dr.lane_o/",
+    "https://www.youtube.com/@pickleballchiro",
+    "https://www.gocrestline.app/coaches/lane-odom",
+    "https://pickleballchiro.gumroad.com",
+    "https://www.linkedin.com/in/drlaneodom/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Daytona Beach",
+    "addressRegion": "FL",
+    "postalCode": "32117",
+    "addressCountry": "US"
+  },
+  "knowsAbout": [
+    "Pickleball coaching",
+    "Chiropractic",
+    "Sports performance",
+    "Injury rehabilitation"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": "Doctor of Chiropractic, licensed in Florida",
+      "educationalLevel": "Professional degree",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "Palmer College of Chiropractic"
       },
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "certification",
-        "name": "PCI Certified Coach",
-        "recognizedBy": { "@type": "Organization", "name": "Pickleball Coaching International" },
-        "dateCreated": "2026"
-      }
-    ]
-  }
-  </script>
+      "dateCreated": "2025-03"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certification",
+      "name": "PCI Certified Coach",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Pickleball Coaching International"
+      },
+      "dateCreated": "2026"
+    }
+  ]
+}
+</script>
 
   <!-- Structured data: page-level freshness + speakable FAQ answers for voice/AI citation -->
   <script type="application/ld+json">
@@ -89,6 +102,8 @@
     "@type": "WebPage",
     "name": "Dr. Lane Odom · The Pickleball Chiro",
     "url": "https://pickleballchiro.co/",
+    "isPartOf": { "@id": "https://pickleballchiro.co/#website" },
+    "about": { "@id": "https://pickleballchiro.co/#business" },
     "dateModified": "2026-09-14",
     "speakable": {
       "@type": "SpeakableSpecification",
@@ -100,173 +115,316 @@
   <!-- Structured data: the business itself — local (in-person lessons + mobile chiro
        across East Volusia County) and virtual (Crestline coaching, available anywhere) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
-    "@id": "https://pickleballchiro.co/#business",
-    "name": "Pickleball Chiro",
-    "legalName": "Pickleball Chiro LLC",
-    "url": "https://pickleballchiro.co/",
-    "image": "https://pickleballchiro.co/images/profile.jpg",
-    "logo": "https://pickleballchiro.co/images/profile.jpg",
-    "description": "Pickleball performance coaching and mobile chiropractic care from Dr. Lane Odom, based in Daytona Beach, FL and serving Volusia County: Ormond Beach, New Smyrna Beach, Port Orange, and Edgewater. Virtual pickleball coaching available anywhere via Crestline.",
-    "priceRange": "$40-$520",
-    "telephone": "+14079956966",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Daytona Beach",
-      "addressRegion": "FL",
-      "postalCode": "32117",
-      "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "LocalBusiness",
+    "ProfessionalService"
+  ],
+  "@id": "https://pickleballchiro.co/#business",
+  "name": "Pickleball Chiro",
+  "legalName": "Pickleball Chiro LLC",
+  "url": "https://pickleballchiro.co/",
+  "image": "https://pickleballchiro.co/images/profile.jpg",
+  "logo": "https://pickleballchiro.co/images/profile.jpg",
+  "description": "Pickleball performance coaching and mobile chiropractic care from Dr. Lane Odom, based in Daytona Beach, FL and serving Volusia County: Ormond Beach, New Smyrna Beach, Port Orange, and Edgewater. Virtual pickleball coaching available anywhere via Crestline.",
+  "priceRange": "$40-$520",
+  "telephone": "+14079956966",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Daytona Beach",
+    "addressRegion": "FL",
+    "postalCode": "32117",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "29.21",
+    "longitude": "-81.06"
+  },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJBWVTQvzqRCIR6c4jBLejDWc",
+  "founder": {
+    "@id": "https://pickleballchiro.co/#lane-odom"
+  },
+  "employee": {
+    "@id": "https://pickleballchiro.co/#lane-odom"
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Volusia County, FL"
     },
-    "geo": { "@type": "GeoCoordinates", "latitude": "29.21", "longitude": "-81.06" },
-    "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJBWVTQvzqRCIR6c4jBLejDWc",
-    "founder": { "@id": "https://pickleballchiro.co/#lane-odom" },
-    "employee": { "@id": "https://pickleballchiro.co/#lane-odom" },
-    "areaServed": [
-      { "@type": "AdministrativeArea", "name": "Volusia County, FL" },
-      { "@type": "City", "name": "Daytona Beach, FL" },
-      { "@type": "City", "name": "Ormond Beach, FL" },
-      { "@type": "City", "name": "New Smyrna Beach, FL" },
-      { "@type": "City", "name": "Port Orange, FL" },
-      { "@type": "City", "name": "Edgewater, FL" }
-    ],
-    "sameAs": [
-      "https://www.instagram.com/dr.lane_o/",
-      "https://www.youtube.com/@pickleballchiro",
-      "https://www.gocrestline.app/coaches/lane-odom",
-      "https://pickleballchiro.gumroad.com",
-      "https://www.linkedin.com/in/drlaneodom/"
-    ],
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Michael Caviness" },
-        "publisher": { "@type": "Organization", "name": "Google" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "If you are serious about your pickleball game get a serious coach. Lane was able to correct the bad habits I developed since beginning play. He also showed me adjustments to my paddle grip that provided better ball contact and improved my serve. I highly recommend you try a few sessions."
+    {
+      "@type": "City",
+      "name": "Daytona Beach, FL"
+    },
+    {
+      "@type": "City",
+      "name": "Ormond Beach, FL"
+    },
+    {
+      "@type": "City",
+      "name": "New Smyrna Beach, FL"
+    },
+    {
+      "@type": "City",
+      "name": "Port Orange, FL"
+    },
+    {
+      "@type": "City",
+      "name": "Edgewater, FL"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/dr.lane_o/",
+    "https://www.youtube.com/@pickleballchiro",
+    "https://www.gocrestline.app/coaches/lane-odom",
+    "https://pickleballchiro.gumroad.com",
+    "https://www.linkedin.com/in/drlaneodom/"
+  ],
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Michael Caviness"
       },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Laura Cadigan" },
-        "publisher": { "@type": "Organization", "name": "Google" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "The results have been incredible. My knee and shoulder feel stronger and more stable, I'm moving better on the court, and I have more confidence in my game than I've had in a long time. Working with him has been one of the best investments I've made in my health, mobility, and athletic performance."
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "If you are serious about your pickleball game get a serious coach. Lane was able to correct the bad habits I developed since beginning play. He also showed me adjustments to my paddle grip that provided better ball contact and improved my serve. I highly recommend you try a few sessions."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Laura Cadigan"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "The results have been incredible. My knee and shoulder feel stronger and more stable, I'm moving better on the court, and I have more confidence in my game than I've had in a long time. Working with him has been one of the best investments I've made in my health, mobility, and athletic performance."
+    }
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "url": "https://pickleballchiro.co/lessons/",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "In-Person Pickleball Lessons",
+        "provider": {
+          "@id": "https://pickleballchiro.co/#business"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Daytona Beach, FL"
+          },
+          {
+            "@type": "City",
+            "name": "Ormond Beach, FL"
+          },
+          {
+            "@type": "City",
+            "name": "New Smyrna Beach, FL"
+          },
+          {
+            "@type": "City",
+            "name": "Port Orange, FL"
+          },
+          {
+            "@type": "City",
+            "name": "Edgewater, FL"
+          }
+        ],
+        "url": "https://pickleballchiro.co/lessons/"
       }
-    ],
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "url": "https://pickleballchiro.co/lessons/",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "In-Person Pickleball Lessons",
-          "provider": { "@id": "https://pickleballchiro.co/#business" },
-          "areaServed": [
-            { "@type": "City", "name": "Daytona Beach, FL" },
-            { "@type": "City", "name": "Ormond Beach, FL" },
-            { "@type": "City", "name": "New Smyrna Beach, FL" },
-            { "@type": "City", "name": "Port Orange, FL" },
-            { "@type": "City", "name": "Edgewater, FL" }
-          ],
-          "url": "https://pickleballchiro.co/lessons/"
-        }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://pickleballchiro.co/mobile-chiro/",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Mobile Chiropractic Care",
-          "provider": { "@id": "https://pickleballchiro.co/#business" },
-          "areaServed": [
-            { "@type": "City", "name": "Daytona Beach, FL" },
-            { "@type": "City", "name": "Ormond Beach, FL" },
-            { "@type": "City", "name": "New Smyrna Beach, FL" },
-            { "@type": "City", "name": "Port Orange, FL" },
-            { "@type": "City", "name": "Edgewater, FL" }
-          ],
-          "url": "https://pickleballchiro.co/mobile-chiro/"
-        }
-      },
-      {
-        "@type": "Offer",
+    },
+    {
+      "@type": "Offer",
+      "url": "https://pickleballchiro.co/mobile-chiro/",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Mobile Chiropractic Care",
+        "provider": {
+          "@id": "https://pickleballchiro.co/#business"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Daytona Beach, FL"
+          },
+          {
+            "@type": "City",
+            "name": "Ormond Beach, FL"
+          },
+          {
+            "@type": "City",
+            "name": "New Smyrna Beach, FL"
+          },
+          {
+            "@type": "City",
+            "name": "Port Orange, FL"
+          },
+          {
+            "@type": "City",
+            "name": "Edgewater, FL"
+          }
+        ],
+        "url": "https://pickleballchiro.co/mobile-chiro/"
+      }
+    },
+    {
+      "@type": "Offer",
+      "url": "https://pickleballchiro.co/virtual-coaching/",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Virtual Pickleball Coaching (Crestline)",
+        "provider": {
+          "@id": "https://pickleballchiro.co/#business"
+        },
+        "description": "Online pickleball coaching for players anywhere: game film review, custom drill programming, and weekly accountability from a 4.7 DUPR performance coach and Doctor of Chiropractic.",
         "url": "https://pickleballchiro.co/virtual-coaching/",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Virtual Pickleball Coaching (Crestline)",
-          "provider": { "@id": "https://pickleballchiro.co/#business" },
-          "description": "Online pickleball coaching for players anywhere: game film review, custom drill programming, and weekly accountability from a 4.7 DUPR performance coach and Doctor of Chiropractic.",
-          "url": "https://pickleballchiro.co/virtual-coaching/",
-          "areaServed": "Worldwide"
-        }
+        "areaServed": "Worldwide"
       }
-    ]
-  }
-  </script>
+    }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "12:00",
+      "closes": "18:00"
+    }
+  ]
+}
+</script>
 
   <!-- Structured data: the $97 course + two free guides as Products -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Product",
-        "@id": "https://pickleballchiro.co/#knee-fix-course",
-        "name": "The Pickleball Knee Fix",
-        "description": "A complete pickleball-specific knee rehab course from Dr. Lane Odom, DC: three stages, movement by movement, built for players who want to actually fix knee pain instead of managing it. Digital course, delivered via Gumroad.",
-        "image": "https://pickleballchiro.co/images/profile.jpg",
-        "category": "Online course",
-        "brand": { "@id": "https://pickleballchiro.co/#business" },
-        "author": { "@id": "https://pickleballchiro.co/#lane-odom" },
-        "offers": {
-          "@type": "Offer",
-          "price": "97",
-          "priceCurrency": "USD",
-          "url": "https://pickleballchiro.gumroad.com/l/thepickleballkneefix",
-          "availability": "https://schema.org/InStock",
-          "seller": { "@id": "https://pickleballchiro.co/#business" }
-        }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://pickleballchiro.co/#knee-fix-course",
+      "name": "The Pickleball Knee Fix",
+      "description": "A complete pickleball-specific knee rehab course from Dr. Lane Odom, DC: three stages, movement by movement, built for players who want to actually fix knee pain instead of managing it. Digital course, delivered via Gumroad.",
+      "image": "https://pickleballchiro.co/images/profile.jpg",
+      "category": "Online course",
+      "brand": {
+        "@id": "https://pickleballchiro.co/#business"
       },
-      {
-        "@type": "Product",
-        "@id": "https://pickleballchiro.co/#stuck-at-35-guide",
-        "name": "Why You're Stuck at 3.5 (Free Guide)",
-        "description": "Free PDF guide from Dr. Lane Odom: the patterns capping most 3.0-4.0 pickleball players' ratings, and how to break them.",
-        "image": "https://pickleballchiro.co/images/guide-35.jpg",
-        "category": "Free guide",
-        "brand": { "@id": "https://pickleballchiro.co/#business" },
-        "author": { "@id": "https://pickleballchiro.co/#lane-odom" },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "url": "https://pickleballchiro.gumroad.com/l/whyyourestuckat35",
-          "availability": "https://schema.org/InStock",
-          "seller": { "@id": "https://pickleballchiro.co/#business" }
-        }
+      "author": {
+        "@id": "https://pickleballchiro.co/#lane-odom"
       },
-      {
-        "@type": "Product",
-        "@id": "https://pickleballchiro.co/#knee-pain-guide",
-        "name": "The Knee Pain Guide (Free)",
-        "description": "Free PDF guide from Dr. Lane Odom, DC: why your knee hurts on the pickleball court, and what to do about it.",
-        "image": "https://pickleballchiro.co/images/guide-knee.jpg",
-        "category": "Free guide",
-        "brand": { "@id": "https://pickleballchiro.co/#business" },
-        "author": { "@id": "https://pickleballchiro.co/#lane-odom" },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "url": "https://pickleballchiro.gumroad.com/l/kneepainguide",
-          "availability": "https://schema.org/InStock",
-          "seller": { "@id": "https://pickleballchiro.co/#business" }
+      "offers": {
+        "@type": "Offer",
+        "price": "97",
+        "priceCurrency": "USD",
+        "url": "https://pickleballchiro.gumroad.com/l/thepickleballkneefix",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://pickleballchiro.co/#business"
         }
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Product",
+      "@id": "https://pickleballchiro.co/#stuck-at-35-guide",
+      "name": "Why You're Stuck at 3.5 (Free Guide)",
+      "description": "Free PDF guide from Dr. Lane Odom: the patterns capping most 3.0-4.0 pickleball players' ratings, and how to break them.",
+      "image": "https://pickleballchiro.co/images/guide-35.jpg",
+      "category": "Free guide",
+      "brand": {
+        "@id": "https://pickleballchiro.co/#business"
+      },
+      "author": {
+        "@id": "https://pickleballchiro.co/#lane-odom"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "url": "https://pickleballchiro.gumroad.com/l/whyyourestuckat35",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://pickleballchiro.co/#business"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://pickleballchiro.co/#knee-pain-guide",
+      "name": "The Knee Pain Guide (Free)",
+      "description": "Free PDF guide from Dr. Lane Odom, DC: why your knee hurts on the pickleball court, and what to do about it.",
+      "image": "https://pickleballchiro.co/images/guide-knee.jpg",
+      "category": "Free guide",
+      "brand": {
+        "@id": "https://pickleballchiro.co/#business"
+      },
+      "author": {
+        "@id": "https://pickleballchiro.co/#lane-odom"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "url": "https://pickleballchiro.gumroad.com/l/kneepainguide",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://pickleballchiro.co/#business"
+        }
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pickleballchiro.co/#website",
+      "name": "The Pickleball Chiro",
+      "alternateName": "Pickleball Chiro",
+      "url": "https://pickleballchiro.co/",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://pickleballchiro.co/#business"
+      },
+      "author": {
+        "@id": "https://pickleballchiro.co/#lane-odom"
+      }
+    }
+  ]
+}
+</script>
 
   <!-- Structured data: game film breakdowns on YouTube (@pickleballchiro) -->
   <script type="application/ld+json">
