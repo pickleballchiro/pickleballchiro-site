@@ -22,7 +22,7 @@
 - [YouTube — Game Film Breakdowns](https://www.youtube.com/@pickleballchiro)
 - [Instagram](https://www.instagram.com/dr.lane_o/)
 - [Crestline coach profile](https://www.gocrestline.app/coaches/lane-odom)
-- [LinkedIn](https://www.linkedin.com/in/lane-odom-189569226/)
+- [LinkedIn](https://www.linkedin.com/in/drlaneodom/)
 
 ## Optional
 - [Full site text](https://pickleballchiro.co/llms-full.txt): Every public page's content in one plain-text file.
