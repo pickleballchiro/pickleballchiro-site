@@ -24,11 +24,12 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 
 **AI / search plumbing** (all at the root): `robots.txt` (every AI crawler allowed + `Content-Signal`), `sitemap.xml`
 (only bump `lastmod` on pages you actually changed), `llms.txt` (facts + links for AI systems), `llms-full.txt`
-(plain-text mirror of every page — regenerate when copy changes), `favicon.ico` / `favicon-32.png` /
+(plain-text mirror of every page — regenerate after any copy change with `python3 build-llms-full.py`), `favicon.ico` / `favicon-32.png` /
 `apple-touch-icon.png`, and a 32-hex `*.txt` IndexNow key file (don't delete it; Bing uses it to verify pings).
 
-**Structured data:** every page carries the same `Person` (`#lane-odom`) and `LocalBusiness` (`#business`) JSON-LD
-in `<head>`. Postal locality is Daytona Beach 32117 — keep it identical across pages. Canonical facts live in the
+**Structured data:** every page carries the same `Person` (`#lane-odom`), `LocalBusiness` (`#business`, incl. opening
+hours from the Google Business Profile), and `WebSite` (`#website`) JSON-LD in `<head>`; inner pages add a `BreadcrumbList`.
+If you change the business node, change it on the homepage and copy it to every other page so the entity stays identical. Postal locality is Daytona Beach 32117 — keep it identical across pages. Canonical facts live in the
 main repo's `06 Reference/FACTS.md`.
 
 ## File Structure
@@ -65,6 +66,8 @@ and change the URL in quotes (currently the Crestline coach page). One line upda
 
 **Change the profile photo:** replace `images/profile.jpg` (must keep that exact
 name, lowercase) and also `profile.jpg` at the root (used by the main page).
+Then regenerate the small hero variant: `sips --resampleWidth 192 profile.jpg --out images/profile-192.jpg`.
+The carousel and gear tiles use `-480`/`-440` variants next to the originals; make one the same way if you add an image.
 
 **Change colors:** everything is defined at the top of `styles.css` in `:root`.
 `--orange` is the brand accent; `--dark` is the page background. The quiz has its
