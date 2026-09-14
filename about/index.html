@@ -171,6 +171,12 @@
         "https://www.facebook.com/profile.php?id=61578074523794",
         "https://app.getopencourt.com/club/chipshotdaytona/coaches/lane-odom"
       ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "reviewCount": "3"
+      },
       "review": [
         {
           "@type": "Review",
@@ -357,10 +363,16 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "ProfilePage",
     "name": "About Dr. Lane Odom · The Pickleball Chiro",
     "url": "https://pickleballchiro.co/about/",
-    "dateModified": "2026-09-14"
+    "isPartOf": { "@id": "https://pickleballchiro.co/#website" },
+    "mainEntity": { "@id": "https://pickleballchiro.co/#lane-odom" },
+    "dateModified": "2026-09-14",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".hero h1", ".body-text--fact"]
+    }
   }
   </script>
 </head>
