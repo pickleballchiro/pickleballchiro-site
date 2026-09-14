@@ -34,9 +34,9 @@
        changing the shared .hero-headline rule used on the homepage and /90daysto40. -->
   <style>
     .hero-headline--lessons {
-      font-size: clamp(1.15rem, 5.7vw, 2.6rem);
-      white-space: nowrap;
+      font-size: clamp(1.35rem, 5.4vw, 2.4rem);
     }
+    .hero-headline--lessons .highlight { white-space: nowrap; }
     .hero-name--lessons {
       font-size: clamp(0.6rem, 3vw, 0.95rem);
       letter-spacing: 0.08em;
@@ -71,6 +71,108 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV3RTC7XXK"></script>
   <script src="/analytics.js"></script>
 
+  <!-- Structured data: canonical Person + business entity (same @ids as the homepage, so every page carries the full entity) -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@id": "https://pickleballchiro.co/#lane-odom",
+        "@type": "Person",
+        "name": "Dr. Lane Odom",
+        "alternateName": "The Pickleball Chiro",
+        "honorificSuffix": "DC",
+        "url": "https://pickleballchiro.co/",
+        "image": "https://pickleballchiro.co/images/profile.jpg",
+        "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
+        "description": "Dr. Lane Odom, DC, is the founder of Pickleball Chiro, a pickleball performance coaching and mobile chiropractic practice based in Daytona Beach, FL. Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience.",
+        "worksFor": {
+          "@id": "https://pickleballchiro.co/#business"
+        },
+        "sameAs": [
+          "https://www.instagram.com/dr.lane_o/",
+          "https://www.youtube.com/@pickleballchiro",
+          "https://www.gocrestline.app/coaches/lane-odom",
+          "https://pickleballchiro.gumroad.com",
+          "https://www.linkedin.com/in/lane-odom-189569226/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Daytona Beach",
+          "addressRegion": "FL",
+          "postalCode": "32117",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "Pickleball coaching",
+          "Chiropractic",
+          "Sports performance",
+          "Injury rehabilitation"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "name": "Doctor of Chiropractic, licensed in Florida",
+            "educationalLevel": "Professional degree",
+            "recognizedBy": {
+              "@type": "CollegeOrUniversity",
+              "name": "Palmer College of Chiropractic"
+            },
+            "dateCreated": "2025-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "PCI Certified Coach",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Pickleball Coaching International"
+            },
+            "dateCreated": "2026"
+          }
+        ]
+      },
+      {
+        "@type": [
+          "LocalBusiness",
+          "ProfessionalService"
+        ],
+        "@id": "https://pickleballchiro.co/#business",
+        "name": "Pickleball Chiro",
+        "legalName": "Pickleball Chiro LLC",
+        "url": "https://pickleballchiro.co/",
+        "image": "https://pickleballchiro.co/images/profile.jpg",
+        "telephone": "+14079956966",
+        "priceRange": "$40-$520",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Daytona Beach",
+          "addressRegion": "FL",
+          "postalCode": "32117",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Volusia County, FL"
+          }
+        ],
+        "founder": {
+          "@id": "https://pickleballchiro.co/#lane-odom"
+        },
+        "sameAs": [
+          "https://www.instagram.com/dr.lane_o/",
+          "https://www.youtube.com/@pickleballchiro",
+          "https://www.gocrestline.app/coaches/lane-odom",
+          "https://pickleballchiro.gumroad.com",
+          "https://www.linkedin.com/in/lane-odom-189569226/"
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- Structured data: the service itself -->
   <script type="application/ld+json">
   {
@@ -80,22 +182,24 @@
     "serviceType": "Pickleball coaching",
     "description": "1-on-1 and group pickleball lessons, on court, in person. Technique breakdown and movement analysis with a coach who competes at the 5.0 level and a Doctor of Chiropractic.",
     "url": "https://pickleballchiro.co/lessons/",
-    "provider": {
-      "@id": "https://pickleballchiro.co/#lane-odom",
-      "@type": "Person",
-      "name": "Dr. Lane Odom",
-      "alternateName": "The Pickleball Chiro",
-      "url": "https://pickleballchiro.co/",
-      "image": "https://pickleballchiro.co/images/profile.jpg",
-      "jobTitle": "Pickleball Performance Coach, Doctor of Chiropractic",
-      "sameAs": ["https://instagram.com/dr.lane_o"]
-    },
-    "areaServed": "Volusia County, FL",
+    "provider": { "@id": "https://pickleballchiro.co/#business" },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Volusia County, FL" },
+      { "@type": "City", "name": "Daytona Beach, FL" },
+      { "@type": "City", "name": "Ormond Beach, FL" },
+      { "@type": "City", "name": "New Smyrna Beach, FL" },
+      { "@type": "City", "name": "Port Orange, FL" },
+      { "@type": "City", "name": "Edgewater, FL" }
+    ],
     "offers": {
-      "@type": "Offer",
-      "price": "80",
+      "@type": "AggregateOffer",
+      "lowPrice": "40",
+      "highPrice": "520",
       "priceCurrency": "USD",
-      "description": "Solo lessons start at $80/hour. Group rates from $40/person/hour."
+      "offerCount": "6",
+      "url": "https://forms.gle/Dz98yAxHX2rUjHQx7",
+      "availability": "https://schema.org/InStock",
+      "description": "Solo lessons $80/hour. Group lessons $50/person (2 players) or $40/person (3+). Packages: 4 lessons $300, 6 lessons $420, 8 lessons $520. Packages don't expire."
     }
   }
   </script>
@@ -169,7 +273,7 @@
     <div class="container">
       <img src="/profile.jpg" alt="Dr. Lane Odom" class="hero-photo" />
       <p class="hero-name hero-name--lessons">Dr. Lane Odom &middot; The Pickleball Chiro</p>
-      <h1 class="hero-headline hero-headline--lessons">Ready To <span class="highlight">Level Up</span> Your Game?</h1>
+      <h1 class="hero-headline hero-headline--lessons">1-on-1 Pickleball Lessons<br> in Volusia County, FL &mdash; <span class="highlight">$80/hour</span></h1>
       <p class="hero-sub">1-on-1 and group pickleball lessons with a coach who's still competing at the 5.0 level and a Doctor of Chiropractic who knows how your body moves.</p>
       <div class="chip-row">
         <span class="chip">4.7 DUPR</span>
