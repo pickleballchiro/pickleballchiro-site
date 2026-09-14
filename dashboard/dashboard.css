@@ -353,6 +353,25 @@ main {
 .cal-week-events .cal-event { font-size: 0.72rem; padding: 4px 6px; flex-direction: column; align-items: flex-start; gap: 2px; }
 .cal-week-events .cal-event-title { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: break-word; min-width: 0; }
 
+/* ---------- upcoming sessions ---------- */
+.upcoming-group + .upcoming-group { margin-top: 16px; }
+.upcoming-group-title {
+  font-size: 0.72rem; color: var(--gray-mid); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 8px;
+}
+.upcoming-row {
+  display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border);
+}
+.upcoming-row:last-child { border-bottom: none; }
+.upcoming-time { color: var(--gray-mid); font-size: 0.78rem; flex-shrink: 0; width: 72px; }
+.upcoming-client { flex: 1; font-size: 0.9rem; color: var(--off-white); word-break: break-word; }
+.upcoming-badge {
+  flex-shrink: 0; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 3px 9px; border-radius: 20px; border: 1px solid var(--border); color: var(--gray-mid);
+}
+.upcoming-badge-chiro { border-color: var(--teal); color: var(--teal-soft); }
+.upcoming-badge-lesson { border-color: var(--orange); color: var(--orange-soft); }
+
 .cal-month-grid { display: flex; flex-direction: column; gap: 4px; }
 .cal-month-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
 .cal-month-head { margin-bottom: 2px; }

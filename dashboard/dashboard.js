@@ -539,6 +539,7 @@ function renderAll(d) {
   renderDrift(d);
   renderKpis(d);
   renderSchedule(d);
+  renderUpcomingSessions(d);
   renderTasks(d);
   renderPeriodChart(d);
   renderStreams(d);
@@ -834,6 +835,77 @@ function renderSchedule(d) {
     : { start: null, end: null, events: [] };
 
   drawCalendar();
+}
+
+// scheduleSession() in Code.gs always titles a booked event "Chiro - Name" or
+// "Lesson - Name" but doesn't enforce casing on the discipline it's handed, so
+// match case-insensitively and normalize the label ourselves rather than
+// trusting whatever case came through.
+function parseUpcomingEvent(ev) {
+  const m = /^(chiro|lesson)\s*-\s*(.+)$/i.exec(String(ev.title || "").trim());
+  if (!m) return null;
+  const discipline = m[1][0].toUpperCase() + m[1].slice(1).toLowerCase();
+  const client = m[2].trim();
+  if (!client) return null;
+  return { discipline, client, start: new Date(ev.start) };
+}
+
+// Agenda list of everything actually booked through schedule_session, pulled
+// from the same d.calendar_events the Schedule card gets -- not from
+// CAL_CACHE, which narrows/widens as Lane pages the calendar and would make
+// entries appear/disappear here depending on what he last looked at.
+function renderUpcomingSessions(d) {
+  const now = new Date();
+  const upcoming = (d.calendar_events || [])
+    .map(parseUpcomingEvent)
+    .filter((s) => s && s.start > now)
+    .sort((a, b) => a.start - b.start);
+
+  $("upcoming-count").textContent = upcoming.length ? `${upcoming.length} booked` : "";
+
+  if (!upcoming.length) {
+    $("upcoming-sessions").innerHTML = '<p class="empty-note">No upcoming sessions booked.</p>';
+    return;
+  }
+
+  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  const dayLabel = (dt) => {
+    const d0 = new Date(dt); d0.setHours(0, 0, 0, 0);
+    const days = Math.round((d0 - today0) / 86400000);
+    if (days === 0) return "Today";
+    if (days === 1) return "Tomorrow";
+    return dt.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+  };
+
+  const groups = [];
+  let current = null;
+  upcoming.forEach((s) => {
+    const key = s.start.toDateString();
+    if (!current || current.key !== key) {
+      current = { key, label: dayLabel(s.start), sessions: [] };
+      groups.push(current);
+    }
+    current.sessions.push(s);
+  });
+
+  const row = (s) => {
+    const time = s.start.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+    const badgeClass = s.discipline === "Chiro" ? "upcoming-badge-chiro" : "upcoming-badge-lesson";
+    return `<div class="upcoming-row">
+      <span class="upcoming-time">${esc(time)}</span>
+      <span class="upcoming-client">${esc(s.client)}</span>
+      <span class="upcoming-badge ${badgeClass}">${esc(s.discipline)}</span>
+    </div>`;
+  };
+
+  $("upcoming-sessions").innerHTML = groups
+    .map(
+      (g) =>
+        `<div class="upcoming-group"><h3 class="upcoming-group-title">${esc(g.label)}</h3>${g.sessions
+          .map(row)
+          .join("")}</div>`
+    )
+    .join("");
 }
 
 function weekBounds(date) {
