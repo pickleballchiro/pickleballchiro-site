@@ -25,6 +25,8 @@
 - [Instagram](https://www.instagram.com/dr.lane_o/)
 - [Crestline coach profile](https://www.gocrestline.app/coaches/lane-odom)
 - [LinkedIn](https://www.linkedin.com/in/drlaneodom/)
+- [Facebook page](https://www.facebook.com/profile.php?id=61578074523794)
+- [Chipshot Daytona coach listing (OpenCourt)](https://app.getopencourt.com/club/chipshotdaytona/coaches/lane-odom)
 
 ## Optional
 - [Full site text](https://pickleballchiro.co/llms-full.txt): Every public page's content in one plain-text file.
