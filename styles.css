@@ -595,6 +595,18 @@ section { padding: var(--space-4) 0; }
   border-top: 1px solid var(--border-subtle);
 }
 
+.fine-print {
+  font-size: 0.73rem;
+  color: var(--gray-mid);
+  line-height: 1.55;
+  opacity: 0.8;
+  text-align: center;
+  margin: 14px auto 0;
+  max-width: 560px;
+}
+.fine-print a { color: inherit; text-decoration: underline; }
+.hero-sub--define { font-size: 0.88em; opacity: 0.85; margin: -12px auto 22px; max-width: 460px; }
+
 .location-note {
   font-size: 0.8rem;
   color: var(--gray-mid);
