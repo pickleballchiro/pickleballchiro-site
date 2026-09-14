@@ -13,7 +13,10 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 | `pickleballchiro.co/` | `index.html` | Main landing page — quiz-first funnel, reviews, offers |
 | `pickleballchiro.co/links/` | `links/index.html` | Link-in-bio hub (this is the Instagram bio link) |
 | `pickleballchiro.co/quiz/` | `quiz/index.html` | "Why You're Stuck at 3.5" self-diagnosis quiz (+ crawlable question outline below it) |
-| `pickleballchiro.co/why-youre-stuck-at-3-5/` | `why-youre-stuck-at-3-5/index.html` | The pillar article: the five leaks, full teach, Article + FAQ schema. Add future articles the same way |
+| `pickleballchiro.co/why-youre-stuck-at-3-5/` | `why-youre-stuck-at-3-5/index.html` | The pillar article (hub): the five leaks, full teach, Article + FAQ schema |
+| `pickleballchiro.co/third-shot-drive-or-drop/` | `third-shot-drive-or-drop/index.html` | Spoke article #1: the three-read third-shot checklist (Leak 1). Copy this file's pattern for the next spokes |
+| `pickleballchiro.co/pickleball-knee-pain/` | `pickleball-knee-pain/index.html` | Knee-pain article: 3-stage fix, cited references, Course schema for The Pickleball Knee Fix |
+| `pickleballchiro.co/mobile-chiro/` | `mobile-chiro/index.html` | Mobile chiropractic service page: pricing, service area, FAQ |
 | `pickleballchiro.co/lessons/` | `lessons/index.html` | In-person lessons: pricing, courts, FAQ, Google Form booking |
 | `pickleballchiro.co/virtual-coaching/` | `virtual-coaching/index.html` | Virtual coaching via Crestline: plans, how it works, FAQ |
 | `pickleballchiro.co/about/` | `about/index.html` | Credentials and story |
@@ -31,6 +34,20 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 hours from the Google Business Profile), and `WebSite` (`#website`) JSON-LD in `<head>`; inner pages add a `BreadcrumbList`.
 If you change the business node, change it on the homepage and copy it to every other page so the entity stays identical. Postal locality is Daytona Beach 32117 — keep it identical across pages. Canonical facts live in the
 main repo's `06 Reference/FACTS.md`.
+
+## Adding an article (the spoke pattern)
+
+1. Copy `third-shot-drive-or-drop/index.html` to `<slug>/index.html`. Change: `<title>`, meta description, canonical, every `og:`/`twitter:` tag, the `Article` node (`@id`, headline, description, url, image, dates, wordCount), the `BreadcrumbList`, and the `FAQPage` (its answers must be the exact visible `.faq-answer` text). Leave the three shared entity nodes (`#lane-odom`, `#business`, `#website`) untouched.
+2. Use `/images/og-lane-1200x630.jpg` (or a new 1200×630 image) for `og:image` / `twitter:image` / Article `image`.
+3. Link the new page from the hub article (`/why-youre-stuck-at-3-5/`) and the homepage quiz card note.
+4. Add a `<url>` to `sitemap.xml`, a bullet under **Free Resources** in `llms.txt`, and a tuple to `PAGES` in `build-llms-full.py`; then run `python3 build-llms-full.py`.
+5. Push. Then POST the URL to IndexNow (see below) and request indexing in Search Console.
+
+**IndexNow ping** (Bing/Copilot/ChatGPT search; the key file is already hosted):
+```
+curl -s -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' \
+  -d '{"host":"pickleballchiro.co","key":"e3a6ec4da849dba154f7c93884028fa6","keyLocation":"https://pickleballchiro.co/e3a6ec4da849dba154f7c93884028fa6.txt","urlList":["https://pickleballchiro.co/<slug>/"]}'
+```
 
 ## File Structure
 

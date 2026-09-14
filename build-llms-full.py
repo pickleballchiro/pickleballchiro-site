@@ -6,6 +6,7 @@ from html.parser import HTMLParser
 PAGES = [
     ("Homepage", "https://pickleballchiro.co/", "index.html"),
     ("Why You're Stuck at 3.5: The Five Leaks (article)", "https://pickleballchiro.co/why-youre-stuck-at-3-5/", "why-youre-stuck-at-3-5/index.html"),
+    ("Third Shot Drive or Drop? The Three-Read Checklist (article)", "https://pickleballchiro.co/third-shot-drive-or-drop/", "third-shot-drive-or-drop/index.html"),
     ("Pickleball Knee Pain: The 3-Stage Fix (article)", "https://pickleballchiro.co/pickleball-knee-pain/", "pickleball-knee-pain/index.html"),
     ("About Dr. Lane Odom", "https://pickleballchiro.co/about/", "about/index.html"),
     ("In-Person Pickleball Lessons", "https://pickleballchiro.co/lessons/", "lessons/index.html"),
