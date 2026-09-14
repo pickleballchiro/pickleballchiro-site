@@ -25,7 +25,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Reuse the site's shared stylesheet so colors, fonts, and buttons match exactly.
        The leading slash means "from the top of the site", so it works from /about too. -->
@@ -363,7 +365,7 @@
        ============================================================ -->
   <section class="hero">
     <div class="container">
-      <img src="/images/about.jpg" alt="Dr. Lane Odom" class="hero-photo" />
+      <img src="/images/about-192.jpg" srcset="/images/about-192.jpg 192w, /images/about.jpg 2047w" sizes="96px" width="96" height="96" alt="Dr. Lane Odom, DC" class="hero-photo" fetchpriority="high" />
       <p class="hero-name">Dr. Lane Odom &middot; The Pickleball Chiro</p>
       <h1 class="hero-headline">The Chiropractor Who<br> Coaches <span class="highlight">Pickleball</span>.</h1>
       <p class="hero-sub">The coach who understands bodies, still competing at the 5.0 level.</p>

@@ -26,7 +26,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="/styles.css" />
 
   <!-- Google Analytics -->
@@ -492,7 +494,7 @@
        ============================================================ -->
   <section class="hero">
     <div class="container">
-      <img src="/profile.jpg" alt="Dr. Lane Odom" class="hero-photo" />
+      <img src="/images/profile-192.jpg" srcset="/images/profile-192.jpg 192w, /profile.jpg 600w" sizes="96px" width="96" height="96" alt="Dr. Lane Odom, DC" class="hero-photo" fetchpriority="high" />
       <p class="hero-name">Dr. Lane Odom &middot; The Pickleball Chiro</p>
       <h1 class="hero-headline">Pickleball Knee Pain:<br> The <span class="highlight">3-Stage Fix</span></h1>
       <p class="hero-sub">Foam rolling and rest keep the pain quiet for a week. Here&rsquo;s why it comes back, and the system I use to actually fix it.</p>

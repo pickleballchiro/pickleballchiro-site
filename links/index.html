@@ -26,7 +26,9 @@
   <!-- Same fonts the rest of the site uses: Oswald (headlines) + Montserrat (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Reuse the site's shared stylesheet so colors, fonts, and buttons match exactly.
        The leading slash means "from the top of the site", so it works from /links too. -->
@@ -692,7 +694,7 @@
       <div class="gear-grid">
 
         <a class="gear-tile" href="https://11six24.com/pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_11six24">
-          <img src="/images/gear-11six24.jpg" alt="11six24" />
+          <img src="/images/gear-11six24-440.jpg" width="440" height="440" alt="11six24" loading="lazy" />
           <span class="gear-caption">
             <span class="gear-brand">11six24</span>
             <span class="gear-code">Code PBCHIRO</span>
@@ -700,7 +702,7 @@
         </a>
 
         <a class="gear-tile" href="https://www.udrippin.com/pbchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_udrippin">
-          <img src="/images/gear-udrippin.jpg" alt="UDRIPPIN" />
+          <img src="/images/gear-udrippin-440.jpg" width="440" height="440" alt="UDRIPPIN" loading="lazy" />
           <span class="gear-caption">
             <span class="gear-brand">UDRIPPIN</span>
             <span class="gear-code">Code PBCHIRO15</span>
@@ -708,7 +710,7 @@
         </a>
 
         <a class="gear-tile" href="https://shop.hesacore.com/discount/PBCHIRO?ref=pbchiro" target="_blank" rel="noopener noreferrer" data-track="links_gear_hesacore">
-          <img src="/images/gear-hesacore.jpg" alt="Hesacore" />
+          <img src="/images/gear-hesacore-440.jpg" width="440" height="440" alt="Hesacore" loading="lazy" />
           <span class="gear-caption">
             <span class="gear-brand">Hesacore</span>
             <span class="gear-code">Code PBCHIRO</span>
@@ -716,7 +718,7 @@
         </a>
 
         <a class="gear-tile" href="https://www.lcubedlifestyle.com?sca_ref=8365911.T1OAMWMDCg" target="_blank" rel="noopener noreferrer" data-track="links_gear_lcubed">
-          <img src="/images/gear-lcubed.jpg" alt="L Cubed Lifestyle" />
+          <img src="/images/gear-lcubed-440.jpg" width="440" height="440" alt="L Cubed Lifestyle" loading="lazy" />
           <span class="gear-caption">
             <span class="gear-brand">L Cubed Lifestyle</span>
             <span class="gear-code">Code PBCHIRO</span>

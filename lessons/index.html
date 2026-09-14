@@ -25,7 +25,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Reuse the site's shared stylesheet so colors, fonts, and buttons match exactly.
        The leading slash means "from the top of the site", so it works from /lessons too. -->
@@ -481,7 +483,7 @@
        ============================================================ -->
   <section class="hero">
     <div class="container">
-      <img src="/profile.jpg" alt="Dr. Lane Odom" class="hero-photo" />
+      <img src="/images/profile-192.jpg" srcset="/images/profile-192.jpg 192w, /profile.jpg 600w" sizes="96px" width="96" height="96" alt="Dr. Lane Odom, DC" class="hero-photo" fetchpriority="high" />
       <p class="hero-name hero-name--lessons">Dr. Lane Odom &middot; The Pickleball Chiro</p>
       <h1 class="hero-headline hero-headline--lessons">1-on-1 Pickleball Lessons<br> in Volusia County, FL &mdash; <span class="highlight">$80/hour</span></h1>
       <p class="hero-sub">1-on-1 and group pickleball lessons with a coach who's still competing at the 5.0 level and a Doctor of Chiropractic who knows how your body moves.</p>
