@@ -12,9 +12,23 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 |---|---|---|
 | `pickleballchiro.co/` | `index.html` | Main landing page — quiz-first funnel, reviews, offers |
 | `pickleballchiro.co/links/` | `links/index.html` | Link-in-bio hub (this is the Instagram bio link) |
-| `pickleballchiro.co/quiz/` | `quiz/index.html` | "Why You're Stuck at 3.5" self-diagnosis quiz |
-| `pickleballchiro.co/90daysto40/` | `90daysto40/index.html` | "90 Days to 4.0" virtual coaching sales page |
+| `pickleballchiro.co/quiz/` | `quiz/index.html` | "Why You're Stuck at 3.5" self-diagnosis quiz (+ crawlable question outline below it) |
+| `pickleballchiro.co/lessons/` | `lessons/index.html` | In-person lessons: pricing, courts, FAQ, Google Form booking |
+| `pickleballchiro.co/virtual-coaching/` | `virtual-coaching/index.html` | Virtual coaching via Crestline: plans, how it works, FAQ |
+| `pickleballchiro.co/about/` | `about/index.html` | Credentials and story |
+| `pickleballchiro.co/privacy/`, `/terms/` | `privacy/`, `terms/` | Legal pages (Terms carries the medical disclaimer) |
+| `pickleballchiro.co/90daysto40/` | `90daysto40/index.html` | **Retired.** noindex stub pointing at lessons/Crestline; not in the sitemap |
+| `pickleballchiro.co/404.html` | `404.html` | Custom not-found page (GitHub Pages serves it for any missing path) |
 | `pickleballchiro.co/stats.html` | `stats.html` | Private click-analytics viewer (this browser only) |
+
+**AI / search plumbing** (all at the root): `robots.txt` (every AI crawler allowed + `Content-Signal`), `sitemap.xml`
+(only bump `lastmod` on pages you actually changed), `llms.txt` (facts + links for AI systems), `llms-full.txt`
+(plain-text mirror of every page — regenerate when copy changes), `favicon.ico` / `favicon-32.png` /
+`apple-touch-icon.png`, and a 32-hex `*.txt` IndexNow key file (don't delete it; Bing uses it to verify pings).
+
+**Structured data:** every page carries the same `Person` (`#lane-odom`) and `LocalBusiness` (`#business`) JSON-LD
+in `<head>`. Postal locality is Daytona Beach 32117 — keep it identical across pages. Canonical facts live in the
+main repo's `06 Reference/FACTS.md`.
 
 ## File Structure
 
@@ -23,7 +37,9 @@ pickleballchiro-site/
 ├── index.html          ← main landing page
 ├── links/index.html    ← link-in-bio page (own layout, shares styles.css)
 ├── quiz/index.html     ← quiz (fully self-contained: own styles + scripts)
-├── 90daysto40/index.html ← "90 Days to 4.0" sales page (shares styles.css + main.js)
+├── lessons/, virtual-coaching/, about/, privacy/, terms/  ← subpages (share styles.css + main.js)
+├── 90daysto40/index.html ← retired stub (noindex)
+├── 404.html            ← custom not-found page
 ├── styles.css          ← design system: colors, fonts, cards, buttons (/, /links, /90daysto40)
 ├── main.js             ← click tracking, scroll animations, sticky bar (/ and /90daysto40)
 ├── analytics.js        ← Google Analytics (GA4) config — one ID for every page
@@ -39,8 +55,8 @@ pickleballchiro-site/
 **Change a link or price:** open the page's HTML file, search for the button text or
 dollar amount, edit the `href="..."` or the number, save, push.
 
-**Change the quiz's Calendly link:** in `quiz/index.html`, search for `BOOKING_LINK =`
-and change the URL in quotes. One line updates every button.
+**Change the quiz's coaching link:** in `quiz/index.html`, search for `COACHING_LINK =`
+and change the URL in quotes (currently the Crestline coach page). One line updates every button.
 
 **Add a Google review:** in `index.html`, find the comment
 `<!-- To add more reviews: ... -->` in the reviews section, copy an existing
