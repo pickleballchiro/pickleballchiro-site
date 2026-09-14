@@ -13,6 +13,7 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 | `pickleballchiro.co/` | `index.html` | Main landing page — quiz-first funnel, reviews, offers |
 | `pickleballchiro.co/links/` | `links/index.html` | Link-in-bio hub (this is the Instagram bio link) |
 | `pickleballchiro.co/quiz/` | `quiz/index.html` | "Why You're Stuck at 3.5" self-diagnosis quiz (+ crawlable question outline below it) |
+| `pickleballchiro.co/why-youre-stuck-at-3-5/` | `why-youre-stuck-at-3-5/index.html` | The pillar article: the five leaks, full teach, Article + FAQ schema. Add future articles the same way |
 | `pickleballchiro.co/lessons/` | `lessons/index.html` | In-person lessons: pricing, courts, FAQ, Google Form booking |
 | `pickleballchiro.co/virtual-coaching/` | `virtual-coaching/index.html` | Virtual coaching via Crestline: plans, how it works, FAQ |
 | `pickleballchiro.co/about/` | `about/index.html` | Credentials and story |
