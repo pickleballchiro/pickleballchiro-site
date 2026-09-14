@@ -50,6 +50,10 @@ body {
   min-height: 100vh;
 }
 
+/* Base: links never fall back to browser blue/purple; components set their own color on top. */
+a { color: inherit; }
+a:visited { color: inherit; }
+
 img { max-width: 100%; }
 
 /* ============================================================
@@ -604,6 +608,16 @@ section { padding: var(--space-4) 0; }
   margin: 14px auto 0;
   max-width: 560px;
 }
+/* Inline text links: brand orange everywhere, never the browser's blue/purple.
+   Buttons, chips, footer, and contact lines set their own colors and are unaffected. */
+p a, li a, td a, .callout a, .faq-answer a, .body-text a, .section-subtext a, .stage-body a, .review-card a {
+  color: var(--orange);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+p a:visited, li a:visited, td a:visited, .callout a:visited, .faq-answer a:visited, .body-text a:visited { color: var(--orange); }
+p a:hover, li a:hover, .callout a:hover, .faq-answer a:hover, .body-text a:hover { filter: brightness(1.15); }
 .fine-print a { color: inherit; text-decoration: underline; }
 .hero-sub--define { font-size: 0.88em; opacity: 0.85; margin: -12px auto 22px; max-width: 460px; }
 
