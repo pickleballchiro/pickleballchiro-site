@@ -10,7 +10,7 @@ PAGES = [
     ("Pickleball Knee Pain: The 3-Stage Fix (article)", "https://pickleballchiro.co/pickleball-knee-pain/", "pickleball-knee-pain/index.html"),
     ("About Dr. Lane Odom", "https://pickleballchiro.co/about/", "about/index.html"),
     ("In-Person Pickleball Lessons", "https://pickleballchiro.co/lessons/", "lessons/index.html"),
-    ("Pickleball Coaches in Daytona Beach & Ormond Beach: How to Choose (guide)", "https://pickleballchiro.co/pickleball-coaches-daytona-beach/", "pickleball-coaches-daytona-beach/index.html"),
+    ("Pickleball Coach in Daytona Beach: How I'm Different From the Average Lesson", "https://pickleballchiro.co/pickleball-coaches-daytona-beach/", "pickleball-coaches-daytona-beach/index.html"),
     ("Mobile Chiropractic & Rehab Care", "https://pickleballchiro.co/mobile-chiro/", "mobile-chiro/index.html"),
     ("Virtual Pickleball Coaching", "https://pickleballchiro.co/virtual-coaching/", "virtual-coaching/index.html"),
     ("Why You're Stuck at 3.5 — Free Self-Diagnosis (quiz)", "https://pickleballchiro.co/quiz/", "quiz/index.html"),

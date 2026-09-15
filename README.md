@@ -18,7 +18,7 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 | `pickleballchiro.co/pickleball-knee-pain/` | `pickleball-knee-pain/index.html` | Knee-pain article: 3-stage fix, cited references, Course schema for The Pickleball Knee Fix |
 | `pickleballchiro.co/mobile-chiro/` | `mobile-chiro/index.html` | Mobile chiropractic service page: pricing, service area, FAQ |
 | `pickleballchiro.co/lessons/` | `lessons/index.html` | In-person lessons: pricing, courts, FAQ, Google Form booking |
-| `pickleballchiro.co/pickleball-coaches-daytona-beach/` | `pickleball-coaches-daytona-beach/index.html` | Local hub/comparison guide to every coach and club in the Daytona area (incl. competitors, with disclosure). Built for AI engines that cite multi-option pages; Article + ItemList + FAQ schema. Re-check competitor prices when editing |
+| `pickleballchiro.co/pickleball-coaches-daytona-beach/` | `pickleball-coaches-daytona-beach/index.html` | "How I'm different from the average lesson" page targeting *pickleball coach Daytona Beach* queries (ChatGPT/Bing). **Names no other coach or facility** (Lane's rule, Sep 15 2026). Article + FAQ schema |
 | `pickleballchiro.co/virtual-coaching/` | `virtual-coaching/index.html` | Virtual coaching via Crestline: plans, how it works, FAQ |
 | `pickleballchiro.co/about/` | `about/index.html` | Credentials and story |
 | `pickleballchiro.co/privacy/`, `/terms/` | `privacy/`, `terms/` | Legal pages (Terms carries the medical disclaimer) |
