@@ -1332,10 +1332,14 @@ function renderMoney(d) {
 function chipFor(c) {
   const stage = c.stage || c.status || "";
   const tier = String(c.crestline_tier || "").trim();
+  // Package Type is the truth on whether a client is actually on an open package;
+  // Stage is only a fallback and can read "Package Client" for a one-off (Single
+  // Lesson) client whose Included/Left happened to get filled in by mistake.
+  const isOneOff = String(c.package || "").trim() === "Single Lesson";
   if (stage === "Subscriber") return '<span class="chip crestline">' + esc(tier ? "Crestline · " + tier : "Crestline") + "</span>";
   if (stage === "Lapsed") return '<span class="chip atrisk">' + esc(tier ? "Lapsed · " + tier : "Lapsed") + "</span>";
-  if (stage === "Package Client") return '<span class="chip package">Package</span>';
-  if (stage === "Active") return '<span class="chip active">Active</span>';
+  if (stage === "Package Client" && !isOneOff) return '<span class="chip package">Package</span>';
+  if (stage === "Active" || (stage === "Package Client" && isOneOff)) return '<span class="chip active">Active</span>';
   if (stage === "Inactive") return '<span class="chip atrisk">Inactive</span>';
   if (stage === "New") return '<span class="chip">New</span>';
   return '<span class="chip">' + esc(stage || "—") + "</span>";
@@ -1640,6 +1644,9 @@ function renderUnserviced(d) {
     // for, nothing paid yet) has incl/left > 0 like a real package. Nothing
     // is actually owed until something's been paid.
     if (incl <= 0 || left <= 0 || paid <= 0) return;
+    // Package Type is the truth: a Single Lesson is a one-off, never an open
+    // package, even if Included/Left got filled in like a real package.
+    if (String(c.package || "").trim() === "Single Lesson") return;
     const perValue = (+c.pkg_value || 0) > 0 ? +c.pkg_value / incl : 0;
     const dollars = left * perValue;
     totalSessions += left;

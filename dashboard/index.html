@@ -47,10 +47,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Weights trimmed to the ones the stylesheet actually asks for: Oswald 400
-       and 600, Montserrat 400, 600 and 700. -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+       and 600, Montserrat 400, 600 and 700. The page's CSP blocks inline event
+       handlers, so the async media="print"/onload swap (used on the main site)
+       never fires here — load the stylesheet directly instead. -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="dashboard.css?v=17" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
