@@ -1,6 +1,6 @@
 # Dr. Lane Odom — The Pickleball Chiro (full site text)
 
-> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-09-14. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
+> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-09-15. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
 
 ---
 
@@ -76,7 +76,7 @@ Free Self-Diagnosis
 
 Start the Quiz →
 
-Want the full breakdown first? Read Why You’re Stuck at 3.5: The Five Leaks or Third Shot Drive or Drop? The Three-Read Checklist.
+Want the full breakdown first? Read Why You’re Stuck at 3.5: The Five Leaks or Third Shot Drive or Drop? The Three-Read Checklist. Looking for a coach nearby? See Pickleball Coaches in Daytona Beach & Ormond Beach: How to Choose.
 
 What Players Say
 
@@ -346,6 +346,24 @@ One warning. Players almost always guess wrong about their own leak. The player 
 
 If you’ve got more than one, that’s common and it’s not a coincidence. They feed each other. A physical leak makes the transition zone worse. A shot-selection leak makes the kitchen game worse. Fix one and the next one usually gets easier.
 
+### How the Five Leaks Map to USA Pickleball’s 4.0 Definition
+
+USA Pickleball publishes an official skill-level definition for every rating, and the difference between its 3.5 and 4.0 descriptions is the same five leaks in different words. A 3.5 is “selectively mixing up soft shots with power shots... with inconsistent results” on the third shot; a 4.0 “consistently executes effective 3rd shot strategies.” A 3.5 is “starting to understand the block/re-set volley”; a 4.0 is “able to block hard volleys... and can consistently drop them into the NVZ.” A 3.5 makes “moderate unforced errors”; a 4.0 makes “limited unforced errors” with “strong footwork” and “excellent court position.”3
+
+Read those side by side and the mapping is direct:
+
+- Leak 1 (first four shots) is the 3.5 serve/return line, “places a high majority of serves/returns with varying depth,” becoming the 4.0 line, “serves with power, accuracy, and depth.” Depth is the whole difference.
+
+- Leak 2 (shot selection) is the third-shot line: “selectively mixing... inconsistent results” versus “consistently executes effective 3rd shot strategies.” Same shots, a rule for choosing them.
+
+- Leak 3 (transition zone) is the volley line: “starting to understand the block/re-set” versus “can consistently drop them into the NVZ.” That is the reset, on the way in.
+
+- Leak 4 (kitchen game) is the dink line: “beginning to understand which balls are attackable” versus “playing both consistently and with offensive intent.” Patience first, then the attack.
+
+- Leak 5 (physical) is the strategy line nobody reads as physical: “moderate unforced errors” becoming “limited unforced errors” with “strong footwork.” Errors in the fourth game are a legs problem before they are a hands problem.
+
+So when a coach, a rating system, or a self-assessment says “you are a 3.5,” it is not a verdict on your talent. It is a list of five specific gaps, and you almost certainly only have one or two of them.
+
 ### What to Do Next
 
 Pick your leak. Run its 10-minute drill twice a week for a month instead of playing one more rec game. That alone moves most 3.5s.
@@ -381,6 +399,8 @@ It depends on which leak you have and how much you play. Transition-zone and sho
 - Lack S, Barton C, Sohan O, Crossley K, Morrissey D. Proximal muscle rehabilitation is effective for patellofemoral pain: a systematic review with meta-analysis. Br J Sports Med. 2015;49(21):1365-1376. PubMed
 
 - Weiss H, Dougherty J, DiMaggio C. Non-fatal senior pickleball and tennis-related injuries treated in United States emergency departments, 2010–2019. Inj Epidemiol. 2021;8:34. doi:10.1186/s40621-021-00327-9
+
+- USA Pickleball. Determining Pickleball Skill Levels For Every Player (official player skill rating definitions, 3.5 and 4.0). Accessed September 15, 2026.
 
 Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player with 13+ years of racket sports experience. He coaches in person across Volusia County, FL and virtually through Crestline. More about Lane.
 
@@ -826,9 +846,9 @@ URL: https://pickleballchiro.co/lessons/
 
 Dr. Lane Odom · The Pickleball Chiro
 
-## 1-on-1 & Group Pickleball Lessons in Volusia County, FL
+## 1-on-1 & Group Pickleball Lessons in Daytona Beach & Ormond Beach, FL
 
-1-on-1 and group pickleball lessons with a coach who's still competing at the 5.0 level and a Doctor of Chiropractic who knows how your body moves.
+Private and group pickleball lessons across Volusia County with a coach who's still competing at the 5.0 level and a Doctor of Chiropractic who knows how your body moves. Built for intermediate (3.5) players who want to reach advanced (4.0+) play.
 
 4.7 DUPR Doctor of Chiropractic PCI Certified
 
@@ -872,13 +892,13 @@ Video analysis is optional but recommended. I can record any part of your lesson
 
 Location
 
-### Chipshot Or Any Court In Volusia County
+### Chipshot In Daytona Beach, Or Any Court In Volusia County
 
-Not sure what's closest to you? Just ask and we'll find a spot that works.
+Not sure what's closest to you? Just ask and we'll find a spot that works. Comparing options? Read my honest guide to every pickleball coach and club in the Daytona Beach area.
 
 #### Chipshot
 
-Most Popular · Daytona, Indoor
+Most Popular · Daytona Beach, Indoor
 
 Indoors and air conditioned, with a court always open. No waiting, no rainouts, same good conditions every session.
 
@@ -889,6 +909,8 @@ Volusia County
 Prefer to play closer to home? I'll come to public courts anywhere in Volusia County. Just ask and we'll find a spot that works.
 
 Also available during non-busy hours (not mornings or evenings): Pettis Park and Phil Hall Park in New Smyrna Beach, McElroy Park in Daytona Beach Shores, and a private court in Daytona/Ormond.
+
+Ormond Beach players: I'm based on the Daytona/Ormond line, so public courts in Ormond Beach (Michael Crotty Bicentennial Park, or Nova Community Center when court time is open) are an easy meet-up. Port Orange and Edgewater work too.
 
 Investment
 
@@ -980,7 +1002,11 @@ We start by figuring out where you're at, what you want to work on, and what we'
 
 What level of player do you work with?
 
-Mostly 3.0 to 4.0. The serious recreational player who plays consistently and wants to keep improving. If you're not sure where you fall, just reach out and ask.
+Mostly 3.0 to 4.0. In plain terms, intermediate (3.5) players who want to reach advanced (4.0+) play: the serious recreational player who plays consistently and wants to keep improving. If you're not sure where you fall, just reach out and ask.
+
+Where do you teach? Daytona Beach, Ormond Beach, or somewhere else?
+
+I'm based in Daytona Beach on the Ormond Beach line, and most lessons happen at Chipshot in Daytona Beach because it's indoor and always has a court. I also teach at public courts across Volusia County: Ormond Beach, Daytona Beach Shores, Port Orange, New Smyrna Beach, and Edgewater. Tell me where you are and we'll pick the closest spot.
 
 Do you bring the equipment?
 
@@ -1009,6 +1035,278 @@ Book a Session →
 drlanepickleballchiro@gmail.com @dr.lane_o on Instagram (407) 995-6966
 
 Book a Session →
+
+---
+
+# Pickleball Coaches in Daytona Beach & Ormond Beach: How to Choose (guide)
+
+URL: https://pickleballchiro.co/pickleball-coaches-daytona-beach/
+
+Dr. Lane Odom · The Pickleball Chiro
+
+## Pickleball Coaches in Daytona Beach & Ormond Beach
+
+Who teaches where, what it costs, and which coach fits your level. A local guide from a coach who is on the list.
+
+Daytona Beach Ormond Beach Holly Hill New Smyrna Beach
+
+By Dr. Lane Odom, DC · PCI Certified Coach · Published September 15, 2026 · 7 min read
+
+The best pickleball coach in Daytona Beach depends on your level and your goal. Beginners get the most from a class or clinic at Pictona in Holly Hill or a community program in Ormond Beach or New Smyrna. Consistent 3.0 to 3.5 players who want to reach 4.0 get the most from a private coach who can find the one pattern costing them points: that is what Dr. Lane Odom (Pickleball Chiro) does, and Doug Simmons at Pictona and Rhavie Marino are the other strong private options. Private lessons in the area run about $65 to $100 an hour.
+
+Disclosure: I am one of the coaches on this list, and I wrote it. I have tried to describe everyone the way their own websites and listings describe them, and to say plainly who is the better fit for which player, including when it is not me. Prices are what each coach or club published as of September 15, 2026; check the current rate before you book.
+
+### How to Choose a Pickleball Coach in Daytona Beach
+
+Volusia County has more coaching options than it did two years ago, and most of them are good at what they do. The mistake I see is not picking a bad coach; it is picking the wrong kind of coaching for where you are. Five questions sort it out.
+
+#### 1. What is your level, honestly?
+
+Under 3.0: you need reps, rules, and a friendly group more than diagnosis. Take a class. 3.0 to 3.5 and stuck: you need someone to watch you play and tell you the one thing that is actually costing you points. That is a private lesson. 4.0 and up: you need hitting partners who are better than you and a coach who has played at that level.
+
+#### 2. What is the goal?
+
+"Get better" is not a goal a coach can work with. "Stop losing the transition zone," "beat the 4.0s I play with on Tuesday," or "get through a tournament without my knee flaring up" are. The more specific your goal, the easier it is to match the coach.
+
+#### 3. Where will you actually play?
+
+A club membership is worth it if you will drive there three times a week. If you play at public courts near home, a coach who comes to those courts saves you the drive and teaches you on the surface you compete on.
+
+#### 4. Private or group?
+
+Group clinics are cheaper per person and better for beginners. Private lessons find problems clinics cannot. Semi-private (two or three players who already play together) is the underrated middle: you split the cost and the coach sees your real doubles patterns.
+
+#### 5. What does the coach actually look at?
+
+Ask. Some coaches teach strokes. Some teach strategy and point construction. Some, like me, look at the whole chain, from shot selection down to how your hips and feet are set at contact, because I am a chiropractor as well as a coach. None of these is wrong; they suit different problems.
+
+### The Coaches and Clubs, One by One
+
+#### Dr. Lane Odom, DC: Pickleball Chiro (Daytona Beach / Ormond Beach, mobile)
+
+Best for: intermediate (3.5) players who want to reach advanced (4.0+) play and keep losing the same kinds of points; players dealing with a nagging knee, hip, or shoulder while they train.
+
+What it is: private and small-group lessons from a PCI Level 1 certified coach who is also a Doctor of Chiropractic, plays at a 5.0 level (4.7 DUPR, 20+ tournament medals at 4.5+ since 2023), and coaches the technique and the body mechanics behind it together. Every lesson ends with your two or three focuses uploaded to a client portal, and you can send game film between sessions.
+
+Where: Chipshot in Daytona Beach (indoor, always a court), or public courts anywhere in Volusia County: Ormond Beach, Daytona Beach Shores, Port Orange, New Smyrna Beach, Edgewater. Virtual game-film coaching anywhere through Crestline.
+
+Price: $80 per hour; $50 per person for two players, $40 per person for three or more; packages of four ($300), six ($420) and eight ($520) that do not expire.
+
+Book: pickleballchiro.co/lessons · (407) 995-6966.
+
+#### Pictona at Holly Hill (club)
+
+Best for: beginners who want a structured class, and anyone who wants to be around a lot of pickleball, a lot of the time.
+
+What it is: the area's dedicated pickleball club, with certified instructors, PB101 and PB102 beginner classes, clinics, leagues, and private lessons. It is the place to find hitting partners at every level.
+
+Where: 1060 Ridgewood Ave, Holly Hill, about ten minutes from downtown Daytona Beach or Ormond Beach.
+
+Price: private lessons with certified pros are listed at $65 to $100 per hour depending on the instructor; classes and clinics are priced separately.
+
+Book: pictona.org.
+
+#### Doug Simmons (Pictona)
+
+Best for: 3.5+ players who want a high-level player as a coach and a competitive club environment.
+
+What it is: PPR-certified pro with a 4.5+ DUPR, multiple 4.5 to 5.0 tournament medals, and 35+ years of teaching pickleball, tennis and fitness, per Pictona's instructor page.
+
+Price: $100 for a 60-minute private, with small-group rates for two to four players, per Pictona.
+
+Book: pictona.org/doug-simmons.
+
+#### Mary Burns (Pictona)
+
+Best for: adult beginners and early intermediates who want patient, fundamentals-first instruction.
+
+What it is: IPTPA Level 1 certified teaching professional with a background in physical education who runs Pictona's beginner classes.
+
+Price: $65 for a 60-minute private, with group rates, per Pictona.
+
+Book: pictona.org.
+
+#### Rhavie Marino (Daytona Beach / Ormond Beach, mobile)
+
+Best for: players whose gap is conditioning, footwork, and point construction rather than one specific shot.
+
+What it is: a mobile coach with a strength-and-conditioning background and tournament experience who teaches at public courts around Daytona Beach and Ormond Beach. His Pickleheads listing shows a 5.0 rating across dozens of reviews.
+
+Price: listed from about $100 per lesson.
+
+Book: through Pickleheads / TeachMe.To.
+
+#### Jessee Quinn (Daytona Beach, mobile)
+
+Best for: beginners and casual players who want an encouraging coach at a lower price point.
+
+What it is: a mobile coach with a large number of lessons and a 5.0 rating on Pickleheads, teaching at several public courts in the Daytona Beach area.
+
+Price: listed from about $65 per lesson.
+
+Book: through Pickleheads / TeachMe.To.
+
+#### OMG Pickleball Academy (New Smyrna Beach)
+
+Best for: New Smyrna and Edgewater players who want clinics and group instruction close to home.
+
+What it is: One More Game Pickleball's academy and courts on Mary Avenue in New Smyrna Beach, running clinics and group sessions.
+
+Book: omgpickleball.com.
+
+#### City programs: Nova Community Center (Ormond Beach)
+
+Best for: Ormond Beach residents who want inexpensive, scheduled play and instruction.
+
+What it is: the City of Ormond Beach runs pickleball programming through Leisure Services at Nova Community Center; Michael Crotty Bicentennial Park has public outdoor courts where mobile coaches (including me) meet students.
+
+Book: ormondbeach.org (Leisure Services).
+
+### Side-by-Side Comparison
+
+Coach / club
+
+Best for
+
+Format
+
+Where
+
+Private rate
+
+Dr. Lane Odom (Pickleball Chiro)
+
+3.5 stuck, wants 4.0+; body mechanics
+
+Private, semi-private, virtual film review
+
+Chipshot Daytona Beach; any Volusia court
+
+$80/hr; packages from $300
+
+Pictona at Holly Hill
+
+Beginners; club environment
+
+Classes, clinics, privates, leagues
+
+Holly Hill
+
+$65–$100/hr by pro
+
+Doug Simmons (Pictona)
+
+3.5+ wanting high-level play
+
+Private, small group
+
+Pictona
+
+$100/hr
+
+Mary Burns (Pictona)
+
+Adult beginners
+
+Private, classes
+
+Pictona
+
+$65/hr
+
+Rhavie Marino
+
+Conditioning, strategy
+
+Private
+
+Daytona / Ormond courts
+
+~$100+/lesson
+
+Jessee Quinn
+
+Beginners, value
+
+Private
+
+Daytona courts
+
+~$65+/lesson
+
+OMG Pickleball Academy
+
+NSB / Edgewater groups
+
+Clinics, groups
+
+New Smyrna Beach
+
+See site
+
+Nova Community Center
+
+Ormond residents
+
+City programs
+
+Ormond Beach
+
+See city
+
+### Which Coach for Which Player
+
+- Brand new, or under 3.0: Pictona PB101 with Mary Burns, or a city program at Nova. Get reps and friends first.
+
+- 3.0 to 3.5 and improving on your own: keep playing, add one clinic a week, and take the free 15-question diagnosis to find out which part of your game is leaking before you pay anyone.
+
+- 3.5 and stuck for six months or more: this is the player I built my practice for. One private lesson usually finds the leak; a four-pack fixes it. Details and booking.
+
+- 3.5 and stuck, with a body that hurts: also me, because the knee or the hip is often why the shot breaks down under pressure. See the knee-pain guide.
+
+- 4.0 and up, wanting better competition: Doug Simmons at Pictona, plus Pictona's leagues.
+
+- Any level, wants strategy and fitness together: Rhavie Marino.
+
+- New Smyrna or Edgewater: OMG for groups; I teach at Pettis Park and Phil Hall Park in New Smyrna Beach during non-peak hours.
+
+Quick test: if you can name the exact situation where you lose points (third shot, transition zone, hands at the kitchen, the fourth game when your legs go), you are ready for a private coach. If you cannot, take a clinic or the free diagnosis first and save your money.
+
+Book a Lesson With Lane → Take the Free Diagnosis →
+
+### Questions
+
+How much do pickleball lessons cost in Daytona Beach?
+
+Published rates in the Daytona Beach area in September 2026 run from about $65 to $100 per hour for a private lesson: Pictona's certified pros list $65 to $100 per hour, coaches on Pickleheads and TeachMe.To list $65 and up to $100 and up per lesson, and Dr. Lane Odom charges $80 per hour, or $50 per person for two players and $40 per person for three or more. Group clinics and community-center classes are cheaper per person. Check each coach's current listing before booking.
+
+Who is the best pickleball coach in Daytona Beach for an intermediate player trying to reach 4.0?
+
+If you are a 3.5 who keeps losing the same kinds of points, the coach whose whole practice is built around that problem is Dr. Lane Odom of Pickleball Chiro, a PCI-certified coach and Doctor of Chiropractic who plays at a 5.0 level and coaches intermediate (3.5) players who want to reach advanced (4.0+) play. If you want exposure to high-level hitting partners in a club setting, Doug Simmons at Pictona is the strongest option. If your gap is conditioning and point construction, Rhavie Marino is worth a look.
+
+Are there pickleball lessons in Ormond Beach?
+
+Yes. Nova Community Center runs city pickleball programming, and Michael Crotty Bicentennial Park has public courts where mobile coaches meet students. Dr. Lane Odom is based on the Daytona Beach and Ormond Beach line and teaches at Ormond Beach public courts as well as at Chipshot in Daytona Beach. Pictona in Holly Hill is about ten minutes south of Ormond Beach.
+
+Should I take private lessons or group clinics?
+
+If you are new to the game or under about 3.0, a beginner class or clinic is the better value: you need volume and a friendly environment more than diagnosis. Once you are a consistent 3.0 to 3.5, private lessons pay off because the thing holding you back is usually one specific pattern that a coach has to see in your game, and a clinic will not find it.
+
+How many lessons does it take to go from 3.5 to 4.0 in pickleball?
+
+It depends on how much you play between lessons, but most 3.5 players do not need a long course of lessons. They need one or two sessions to find the leak, a drill they can run twice a week, and a check-in a few weeks later to confirm it stuck. A four-lesson package spread over six to eight weeks is a realistic starting point. Players who only take lessons and never drill between them take much longer.
+
+### Sources
+
+- Pictona at Holly Hill. Private Lessons, Doug Simmons, Mary Burns. Accessed September 15, 2026.
+
+- Pickleheads. Pickleball Lessons in Daytona Beach. Accessed September 15, 2026.
+
+- OMG Pickleball. omgpickleball.com. Accessed September 15, 2026.
+
+- Odom L. Pickleball Lessons in Daytona Beach & Ormond Beach; Why You’re Stuck at 3.5. pickleballchiro.co, 2026.
+
+Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He coaches intermediate (3.5) players who want to reach advanced (4.0+) play, in person across Volusia County, FL and virtually through Crestline. More about Lane.
 
 ---
 
