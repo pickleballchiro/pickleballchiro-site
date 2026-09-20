@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- Enforced CSP (frame-ancestors lives in the X-Frame-Options header set at Cloudflare; meta CSP cannot carry it). Keep in sync with the Cloudflare report-only header. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; object-src 'none'" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Meet Dr. Lane Odom, Doctor of Chiropractic (Palmer College of Chiropractic, 2025) and PCI Certified Coach. Why he combined chiropractic care with pickleball performance coaching." />
   <title>About Dr. Lane Odom · The Pickleball Chiro</title>
