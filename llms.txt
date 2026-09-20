@@ -29,6 +29,8 @@
 - [LinkedIn](https://www.linkedin.com/in/drlaneodom/)
 - [Facebook page](https://www.facebook.com/profile.php?id=61578074523794)
 - [Chipshot Daytona coach listing (OpenCourt)](https://app.getopencourt.com/club/chipshotdaytona/coaches/lane-odom)
+- [Google Business Profile](https://www.google.com/maps/place/?q=place_id:ChIJBWVTQvzqRCIR6c4jBLejDWc)
+- [Yelp](https://www.yelp.com/biz/pickleball-chiro-holly-hill-2)
 
 ## Optional
 - [Full site text](https://pickleballchiro.co/llms-full.txt): Every public page's content in one plain-text file.
