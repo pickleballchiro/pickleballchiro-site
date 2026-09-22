@@ -893,9 +893,14 @@ p a:hover, li a:hover, .callout a:hover, .faq-answer a:hover, .body-text a:hover
   .stage-card { flex: 1; }
 
   .review-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+    display: block;
+    columns: 2;
+    column-gap: 24px;
+  }
+
+  .review-grid .review-card {
+    break-inside: avoid;
+    margin-bottom: 24px;
   }
 
   .guide-grid {
