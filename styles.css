@@ -893,14 +893,24 @@ p a:hover, li a:hover, .callout a:hover, .faq-answer a:hover, .body-text a:hover
   .stage-card { flex: 1; }
 
   .review-grid {
-    display: block;
-    columns: 2;
-    column-gap: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
   }
 
-  .review-grid .review-card {
-    break-inside: avoid;
-    margin-bottom: 24px;
+  .review-card {
+    flex: 1 1 260px;
+    max-width: 320px;
+  }
+
+  /* Long reviews take the full row so their extra text wraps wider
+     instead of running tall next to short cards. */
+  .review-card--wide {
+    flex: 1 1 100%;
+    max-width: none;
   }
 
   .guide-grid {
