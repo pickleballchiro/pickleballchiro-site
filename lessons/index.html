@@ -35,42 +35,63 @@
        The leading slash means "from the top of the site", so it works from /lessons too. -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Page-specific tweak: this hero headline is longer than the other pages' one-liners
-       ("90 Days to 4.0"), so it gets its own smaller, single-line sizing here rather than
-       changing the shared .hero-headline rule used on the homepage and /90daysto40. -->
   <style>
-    .hero-headline--lessons {
-      font-size: clamp(1.35rem, 5.4vw, 2.4rem);
+    /* Page-specific styles for the lessons landing page (tier cards, steps, proof line).
+       Shared rules in styles.css stay untouched since other pages use them too. */
+    /* ---- hero ---- */
+    .hero-eyebrow-loc {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 8px;
     }
-    .hero-headline--lessons .highlight { white-space: nowrap; }
-    .hero-name--lessons {
-      font-size: clamp(0.6rem, 3vw, 0.95rem);
-      letter-spacing: 0.08em;
-      white-space: nowrap;
+    .hero-headline--lessons { font-size: clamp(1.9rem, 8.4vw, 3rem); }
+    .hero-proof {
+      max-width: 520px; margin: 18px auto 0; text-align: center;
+      font-size: 0.85rem; color: var(--off-white); line-height: 1.55;
     }
-    .location-logo {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 14px;
-      box-shadow: var(--glow-soft);
+    .hero-proof .stars { color: var(--orange); letter-spacing: 2px; }
+    .hero-proof strong { color: var(--white); }
+    .hero-proof em { display: block; margin-top: 4px; color: var(--gray-mid); }
+    .contact-buttons {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      max-width: 520px; margin: 12px auto 0;
+    }
+    .contact-buttons .btn { padding: 12px 6px; font-size: 0.82rem; }
+
+    /* ---- pick your format ---- */
+    .tier-grid { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 720px) { .tier-grid { grid-template-columns: repeat(2, 1fr); } }
+    .tier-card { display: flex; flex-direction: column; gap: 6px; text-align: left; padding: 20px; }
+    .tier-card.featured { border-color: rgba(240, 90, 40, 0.7); box-shadow: var(--glow); }
+    .tier-badge { align-self: flex-start; margin: 0 0 4px; }
+    .tier-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .tier-name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; }
+    .tier-price { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.35rem; color: var(--orange); white-space: nowrap; }
+    .tier-price small { font-size: 0.75rem; color: var(--gray-mid); font-weight: 500; }
+    .tier-who { font-size: 0.78rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.08em; }
+    .tier-desc { font-size: 0.88rem; color: var(--off-white); line-height: 1.55; }
+    .tier-link { margin-top: 6px; font-size: 0.85rem; font-weight: 600; color: var(--orange); text-decoration: none; }
+
+    /* ---- what happens next ---- */
+    .steps { list-style: none; counter-reset: step; display: flex; flex-direction: column; gap: 10px; max-width: 520px; margin: 0 auto 22px; padding: 0; }
+    .steps li { counter-increment: step; display: flex; gap: 12px; align-items: flex-start; font-size: 0.9rem; color: var(--off-white); line-height: 1.5; text-align: left; }
+    .steps li::before {
+      content: counter(step); flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(240, 90, 40, 0.16); color: var(--orange);
+      font: 700 0.85rem/26px 'Oswald', sans-serif; text-align: center;
     }
 
-    /* Page-specific: brighter, slightly larger subtext in the Location and
-       Pricing sections only — the shared .section-subtext / .offer-fine-print
-       rules in styles.css stay untouched since other pages use them too. */
-    #location .section-subtext,
-    #pricing .section-subtext {
-      font-size: 1rem;
-      color: var(--off-white);
-    }
-    #location .offer-fine-print,
-    #pricing .offer-fine-print {
-      font-size: 0.8rem;
-      color: var(--off-white);
-      opacity: 0.85;
-    }
+    /* ---- pricing extras ---- */
+    .price-tag { display: inline-block; margin-left: 6px; padding: 2px 6px; border-radius: 4px; background: rgba(240, 90, 40, 0.16); color: var(--orange); font: 600 0.68rem/1.3 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+    .table-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); margin: 26px 0 0; text-align: center; }
+    .table-label span { display: block; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.8rem; text-transform: none; letter-spacing: 0; color: var(--gray-mid); margin-top: 2px; }
+
+    /* ---- reviews: bolded result phrase ---- */
+    .review-text strong { color: var(--white); font-weight: 600; }
+
+
+    #location .offer-fine-print, #pricing .offer-fine-print { font-size: 0.85rem; color: var(--off-white); }
+    .location-logo { width: 72px; height: 72px; border-radius: 50%; display: block; margin: 0 auto 10px; box-shadow: var(--glow-soft); }
   </style>
 
   <!-- Google Analytics -->
@@ -464,7 +485,7 @@
       "offerCount": "7",
       "url": "https://forms.gle/Dz98yAxHX2rUjHQx7",
       "availability": "https://schema.org/InStock",
-      "description": "Solo lessons $80/hour. Group lessons $50/person (2 players) or $40/person (3 players). Team Hybrid lessons for 4-player league teams: $40/person ($160 total), live coaching plus a video breakdown for each set of partners. Packages: 4 lessons $300, 6 lessons $420, 8 lessons $520. Packages don't expire."
+      "description": "Solo lessons $80/hour. Group lessons $50/person (2 players, individual technique analysis) or $40/person (3 players, live-game analysis). Team Hybrid lessons for 4-player league teams: $40/person ($160 total), live coaching plus a video breakdown for each set of partners. Packages: 4 lessons $300, 6 lessons $420, 8 lessons $520. Packages don't expire."
     }
   }
   </script>
@@ -536,367 +557,348 @@
 </head>
 <body>
 
+
   <!-- ============================================================
-       HERO (always visible on load, no fade-up)
+       HERO — outcome headline, proof, one primary CTA + tap-to-contact
        ============================================================ -->
   <section class="hero">
     <div class="container">
       <img src="/images/profile-192.jpg" srcset="/images/profile-192.jpg 192w, /profile.jpg 600w" sizes="96px" width="96" height="96" alt="Dr. Lane Odom, DC" class="hero-photo" fetchpriority="high" />
-      <p class="hero-name hero-name--lessons">Dr. Lane Odom &middot; The Pickleball Chiro</p>
-      <h1 class="hero-headline hero-headline--lessons">1-on-1 &amp; Group <span class="highlight">Pickleball Lessons</span><br> in Daytona Beach &amp; Volusia County</h1>
-      <p class="hero-sub">Private and group pickleball lessons across Volusia County with a coach who's still competing at the 5.0 level and a Doctor of Chiropractic who knows how your body moves. Built for intermediate (3.5) players who want to reach advanced (4.0+) play.</p>
+      <p class="hero-eyebrow-loc">Pickleball Lessons &middot; Daytona Beach, FL</p>
+      <h1 class="hero-headline hero-headline--lessons">Stuck Between <span class="highlight">3.0 and 4.0?</span></h1>
+      <p class="hero-sub">1-on-1 and group lessons for intermediate players who&rsquo;ve plateaued, with a coach who competes at the 5.0 level and is also a Doctor of Chiropractic. We fix the shot <em>and</em> the body behind it.</p>
       <div class="chip-row">
         <span class="chip">4.7 DUPR</span>
         <span class="chip">Doctor of Chiropractic</span>
         <span class="chip">PCI Certified</span>
       </div>
       <div class="hero-cta-wrap">
-        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_hero_cta">Book a Session <span class="arrow">&rarr;</span></a>
-        <p class="cta-note">Prefer to message instead? DM me on Instagram or send an email, fastest ways to reach me.</p>
+        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_hero_cta">Book Your First Lesson <span class="arrow">&rarr;</span></a>
+        <div class="contact-buttons">
+          <a href="sms:+14079956966" class="btn btn-outline" data-track="lessons_hero_sms">Text Me</a>
+          <a href="https://instagram.com/dr.lane_o" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-track="lessons_hero_ig">Instagram</a>
+          <a href="mailto:drlanepickleballchiro@gmail.com" class="btn btn-outline" data-track="lessons_hero_email">Email</a>
+        </div>
       </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       IS THIS FOR YOU — qualifier list
-       ============================================================ -->
-  <section class="band fade-up">
-    <div class="container">
-      <span class="eyebrow">Read This First</span>
-      <h2 class="section-title">Is This For You?</h2>
-      <ul class="fit-list">
-        <li class="fit-item">
-          <span class="fit-mark yes" aria-hidden="true">&#10003;</span>
-          <span>You're a serious recreational player (3.0 to 4.0) who's ready to break through a plateau or win a tournament in your current division.</span>
-        </li>
-        <li class="fit-item">
-          <span class="fit-mark no" aria-hidden="true">&times;</span>
-          <span>Not the right fit if you're a total beginner or just looking for a casual intro to the game.</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       WHAT YOU GET — the dual diagnostic
-       ============================================================ -->
-  <section class="fade-up">
-    <div class="container">
-      <span class="eyebrow">What You Get</span>
-      <h2 class="section-title">Every Lesson Looks At The Whole Chain</h2>
-      <p class="section-subtext">Most coaches only watch the shot. You get the shot and the chain behind it, every session.</p>
-      <div class="stage-grid stagger">
-
-        <div class="stage-card card">
-          <p class="stage-label">The Game</p>
-          <h3 class="stage-title">Technique Breakdown</h3>
-          <p class="stage-body">We find the exact shot, pattern, or decision that's costing you points and drill the fix on court, with video analysis built in. You leave with 2 to 3 specific things to work on before the next session.</p>
-        </div>
-
-        <div class="stage-card card">
-          <p class="stage-label">The Body</p>
-          <h3 class="stage-title">The Chain Behind It</h3>
-          <p class="stage-body">As a rehab chiropractor and movement specialist, I look at how your legs, hips, core, and arm work together to produce that shot. Most of the time the fix is sequencing. Sometimes there's a real physical limitation in the chain, and I'll find that too.</p>
-        </div>
-
-        <div class="stage-card card">
-          <p class="stage-label">The Record</p>
-          <h3 class="stage-title">Notes, Drills &amp; Progress</h3>
-          <p class="stage-body">Every lesson's notes and drill assignments go straight into your own client portal. You'll always know what we covered, what to work on next, and you can watch your progress from week to week.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       LOCATION
-       ============================================================ -->
-  <section class="band fade-up" id="location">
-    <div class="container">
-      <span class="eyebrow">Location</span>
-      <h2 class="section-title">Chipshot In Daytona Beach, Or Any Court In Volusia County</h2>
-      <p class="section-subtext">Not sure what's closest to you? Just ask and we'll find a spot that works. Wondering how this compares to a typical lesson? Read <a href="/pickleball-coaches-daytona-beach/" data-track="lessons_coaches_guide">how I&rsquo;m different from the average pickleball coach in Daytona Beach</a>.</p>
-      <div class="offer-grid stagger">
-
-        <div class="pricing-card card">
-          <img src="/images/chipshot-logo.avif" alt="Chipshot logo" class="location-logo" />
-          <h3 class="stage-title">Chipshot</h3>
-          <p class="pricing-total">Most Popular &middot; Daytona Beach, Indoor</p>
-          <p class="offer-fine-print">Indoors and air conditioned, with a court always open. No waiting, no rainouts, same good conditions every session.</p>
-        </div>
-
-        <div class="pricing-card card">
-          <h3 class="stage-title">Public Courts</h3>
-          <p class="pricing-total">Volusia County</p>
-          <p class="offer-fine-print">Prefer to play closer to home? I'll come to public courts anywhere in Volusia County. Just ask and we'll find a spot that works.</p>
-          <p class="offer-fine-print">Also available during non-busy hours (not mornings or evenings): Pettis Park and Phil Hall Park in New Smyrna Beach, McElroy Park in Daytona Beach Shores, and a private court in Daytona/Ormond.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       FOR TEAMS — Team Hybrid callout for league players
-       ============================================================ -->
-  <section class="band fade-up">
-    <div class="container">
-      <span class="eyebrow">For Teams</span>
-      <h2 class="section-title">Got a League Team?</h2>
-      <p class="body-text">If you're playing in one of the local team leagues right now &mdash; four players, two sets of partners who usually pair up &mdash; the Team Hybrid lesson is built for that. I coach live during your games, then break down film for each duo afterward so both pairs know exactly what to work on before the next match.</p>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       PRICING — real table, matching /virtual-coaching/'s pattern
-       per the platform-optimization audit's note that AI systems
-       extract pricing tables more reliably than div/card layouts.
-       ============================================================ -->
-  <section class="fade-up" id="pricing">
-    <div class="container">
-      <span class="eyebrow">Investment</span>
-      <h2 class="section-title">Pricing</h2>
-      <p class="section-subtext">Pricing listed upfront, no surprises. All sessions are 60 minutes, on court, in person.</p>
-
-      <div class="table-wrap">
-        <table class="pricing-table">
-          <thead>
-            <tr>
-              <th scope="col">Format</th>
-              <th scope="col">Price</th>
-              <th scope="col">Duration</th>
-              <th scope="col">Includes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Format">Solo, 1-on-1</td>
-              <td data-label="Price">$80</td>
-              <td data-label="Duration">60 min</td>
-              <td data-label="Includes">On-court coaching, video analysis, personalized feedback</td>
-            </tr>
-            <tr>
-              <td data-label="Format">Group, 2 Players</td>
-              <td data-label="Price">$50/person ($100 total)</td>
-              <td data-label="Duration">60 min</td>
-              <td data-label="Includes">Same coaching and feedback as a private lesson, split across two players. Video analysis available in the same biomechanical, slow-motion style as private lessons.</td>
-            </tr>
-            <tr>
-              <td data-label="Format">Group, 3 Players</td>
-              <td data-label="Price">$40/person ($120 total)</td>
-              <td data-label="Duration">60 min</td>
-              <td data-label="Includes">Same coaching and feedback, split across the group. Ask about adding a live-game video breakdown &mdash; I join and play in your game, then send back one shared video review.</td>
-            </tr>
-            <tr>
-              <td data-label="Format">Team Hybrid, 4 Players</td>
-              <td data-label="Price">$40/person ($160 total)</td>
-              <td data-label="Duration">60 min lesson + video review</td>
-              <td data-label="Includes">Live coaching for the full hour (usually 2&ndash;3 games), plus two video breakdowns afterward &mdash; one for each set of partners</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <details class="pricing-packages-toggle">
-        <summary>Solo Session Packages &mdash; Save with a Pack</summary>
-        <div class="table-wrap">
-          <table class="pricing-table">
-            <thead>
-              <tr>
-                <th scope="col">Format</th>
-                <th scope="col">Price</th>
-                <th scope="col">Duration</th>
-                <th scope="col">Includes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="Format">Solo, 4-Pack</td>
-                <td data-label="Price">$300 ($75/session)</td>
-                <td data-label="Duration">60 min each</td>
-                <td data-label="Includes">Same as single session &middot; packages don't expire</td>
-              </tr>
-              <tr>
-                <td data-label="Format">Solo, 6-Pack</td>
-                <td data-label="Price">$420 ($70/session)</td>
-                <td data-label="Duration">60 min each</td>
-                <td data-label="Includes">Same as single session &middot; packages don't expire</td>
-              </tr>
-              <tr>
-                <td data-label="Format">Solo, 8-Pack</td>
-                <td data-label="Price">$520 ($65/session)</td>
-                <td data-label="Duration">60 min each</td>
-                <td data-label="Includes">Same as single session &middot; packages don't expire</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
-
-      <p class="pricing-cap-note" style="text-align:center; margin-top: 14px;">Group packages available by inquiry.</p>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       LESSONS REVIEW
-       ============================================================ -->
-  <section class="reviews-section band fade-up">
-    <div class="container">
-      <span class="eyebrow">What Players Say</span>
-      <h2 class="section-title">Real Results, Real Reviews</h2>
-      <div class="review-grid stagger">
-
-        <div class="review-card card">
-          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <p class="review-text">&ldquo;I've had the pleasure of coaching alongside Lane Odom and also being coached by him as my mixed doubles partner, and the improvement in my game has been huge. Lane has a keen eye for body mechanics &mdash; he sees things in your movement that other coaches miss, and he&rsquo;s incredibly generous with his advice. He&rsquo;s helped me gain more power in my torso and on my serve, refined my backhand dink, and worked through a calf issue with me from a chiropractic and strengthening perspective. My movement on the court has genuinely improved because of him.&rdquo;</p>
-          <div class="review-meta">
-            <span class="review-avatar" aria-hidden="true">K</span>
-            <div>
-              <p class="review-name">Katy Savage</p>
-              <p class="review-source">Google review</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card card">
-          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <p class="review-text">&ldquo;The results have been incredible. My knee and shoulder feel stronger and more stable, I'm moving better on the court, and I have more confidence in my game than I've had in a long time. Working with him has been one of the best investments I've made in my health, mobility, and athletic performance.&rdquo;</p>
-          <div class="review-meta">
-            <span class="review-avatar" aria-hidden="true">L</span>
-            <div>
-              <p class="review-name">Laura Cadigan</p>
-              <p class="review-source">Google review</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card card">
-          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <p class="review-text">&ldquo;I can't recommend working with Lane enough! In just two weeks, he's helped me build a fitness and drilling plan that has already made a real difference in my game and my confidence on the court. Every session feels focused and purposeful, and he tailors everything to what I actually need to work on instead of running a one-size-fits-all routine. His video analysis has been a game changer too. Breaking down my footage with him has helped me understand strategy on a whole new level and spot habits I never would have caught on my own. If you're looking to level up, Lane is the coach to call!&rdquo;</p>
-          <div class="review-meta">
-            <span class="review-avatar" aria-hidden="true">A</span>
-            <div>
-              <p class="review-name">Amanda Maxim</p>
-              <p class="review-source">Google review</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card card">
-          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <p class="review-text">&ldquo;If you are serious about your pickleball game get a serious coach. Lane was able to correct the bad habits I developed since beginning play. He also showed me adjustments to my paddle grip that provided better ball contact and improved my serve. I highly recommend you try a few sessions.&rdquo;</p>
-          <div class="review-meta">
-            <span class="review-avatar" aria-hidden="true">M</span>
-            <div>
-              <p class="review-name">Michael Caviness</p>
-              <p class="review-source">Google review</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       CROSS-LINK — can't make it in person? point to virtual coaching
-       ============================================================ -->
-  <section class="band fade-up">
-    <div class="container">
-      <div class="callout">
-        <p>Not local to Volusia County, or can't make it to a court? <a href="/virtual-coaching/" data-track="lessons_crosslink_virtualcoaching">Virtual coaching through Crestline</a> uses the same whole-chain approach, built around footage you send in instead of a court session.</p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       FAQ — native <details>, no JS needed
-       ============================================================ -->
-  <section class="fade-up">
-    <div class="container">
-      <span class="eyebrow">Before You Book</span>
-      <h2 class="section-title">Questions</h2>
-      <div class="faq-list">
-
-        <details class="faq-item">
-          <summary>What makes you different from other coaches?</summary>
-          <p class="faq-answer">A few things. I'm still competing at the 5.0 level, so what I teach is what I'm using right now on the court. I have 13+ years of racket sport experience, so the fundamentals are deep. And I'm a rehab chiropractor and movement specialist too, so I can look at the chain behind your swing, legs, hips, core, and arm, and catch what's really driving or limiting your shot. Most coaches only see half the picture.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>What does a typical lesson look like?</summary>
-          <p class="faq-answer">We start by figuring out where you're at, what you want to work on, and what we're focusing on that day. Then we go over the technique, introduce the skill, and drill it. Most reps I feed by hand since I can control the pace and placement live. I've also got a ball machine for when we want a different kind of rep work, but we don't always need it. At the end you'll get your 2 to 3 main focuses for the week uploaded to your portal.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>What level of player do you work with?</summary>
-          <p class="faq-answer">Mostly 3.0 to 4.0. In plain terms, intermediate (3.5) players who want to reach advanced (4.0+) play: the serious recreational player who plays consistently and wants to keep improving. If you're not sure where you fall, just reach out and ask.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Where do you teach?</summary>
-          <p class="faq-answer">Most lessons happen at Chipshot in Daytona Beach: it's indoor, air conditioned, and there's always a court, so no rainouts and no waiting. I also teach at public courts around Volusia County when they're not busy. The most popular is Pettis Park in New Smyrna Beach, and there are courts in Daytona Beach and Port Orange we can use during quieter hours. Tell me where you are and we'll pick the spot that works.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Do you bring the equipment?</summary>
-          <p class="faq-answer">Balls and a ball tube for pickup, always. I've also got a ball machine, but I'm good enough at feeding by hand that we don't always need it. You just show up ready to play with your paddle.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>How do I track my notes and progress between lessons?</summary>
-          <p class="faq-answer">After every lesson your notes and drill assignments go into your own client portal. You'll always know what we covered, what to work on, and you can see your progress from week to week.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>What's your cancellation policy?</summary>
-          <p class="faq-answer">I ask for at least 12 hours notice if you need to cancel or reschedule. Life happens, I get it. Last-minute no-shows affect everyone's time so a heads-up goes a long way.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>How do I book?</summary>
-          <p class="faq-answer">Use the booking link on this page, DM me on Instagram, or send an email, whatever's easiest. Instagram DM is usually the fastest way to reach me.</p>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       NEXT STEPS / FINAL CTA
-       ============================================================ -->
-  <section class="band fade-up">
-    <div class="container">
-      <span class="eyebrow">Ready?</span>
-      <h2 class="section-title">Book Your Lesson</h2>
-      <p class="body-text">Fill out the form, DM me on Instagram, or send an email. Instagram DM is usually the fastest way to reach me.</p>
-      <div class="hero-cta-wrap">
-        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_final_cta">Book a Session <span class="arrow">&rarr;</span></a>
-      </div>
-      <p class="contact-line">
-        <a href="mailto:drlanepickleballchiro@gmail.com" data-track="lessons_contact_email">drlanepickleballchiro@gmail.com</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="lessons_contact_ig">@dr.lane_o on Instagram</a>
-        <span aria-hidden="true">&middot;</span>
-        <a href="tel:+14079956966" data-track="lessons_contact_phone">(407) 995-6966</a>
+      <p class="hero-proof">
+        <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong>5.0 on Google</strong>
+        <em>&ldquo;If you are serious about your pickleball game, get a serious coach.&rdquo; &mdash; Michael C.</em>
       </p>
     </div>
   </section>
 
 
   <!-- ============================================================
-       FOOTER
+       PICK YOUR FORMAT — every tier + starting price, first thing after the hero
        ============================================================ -->
+  <section class="band fade-up" id="formats">
+    <div class="container">
+      <span class="eyebrow">Something For Every Player</span>
+      <h2 class="section-title">Pick Your Format</h2>
+      <p class="section-subtext">All in-person lessons are 60 minutes on court. Full pricing is <a href="#pricing">further down</a>.</p>
+      <div class="tier-grid">
+
+        <div class="tier-card card">
+          <div class="tier-top">
+            <span class="tier-name">1-on-1</span>
+            <span class="tier-price">$80 <small>/ hr</small></span>
+          </div>
+          <p class="tier-who">Fastest improvement</p>
+          <p class="tier-desc">Every rep is about your game. Slow-motion technique analysis on a specific shot, a movement check, and 2&ndash;3 focuses in your portal after every session. As low as $65/session with a pack.</p>
+          <a href="#pricing" class="tier-link" data-track="lessons_tier_solo">See packages &rarr;</a>
+        </div>
+
+        <div class="tier-card card">
+          <div class="tier-top">
+            <span class="tier-name">Small Group</span>
+            <span class="tier-price">$40&ndash;50 <small>/ person</small></span>
+          </div>
+          <p class="tier-who">2&ndash;3 players &middot; bring a partner</p>
+          <p class="tier-desc">The same coaching, split with your regular partner or friends. With 2 players you get individual technique analysis; with 3 it shifts to live-game analysis.</p>
+          <a href="#pricing" class="tier-link" data-track="lessons_tier_group">See group pricing &rarr;</a>
+        </div>
+
+        <div class="tier-card card featured">
+          <span class="price-tag tier-badge">&#128293; Popular Right Now</span>
+          <div class="tier-top">
+            <span class="tier-name">Team Hybrid</span>
+            <span class="tier-price">$40 <small>/ person</small></span>
+          </div>
+          <p class="tier-who">League teams of 4</p>
+          <p class="tier-desc">I coach live during your games, then send a film breakdown to each pair of partners, so both pairs know exactly what to fix before the next match.</p>
+          <a href="#pricing" class="tier-link" data-track="lessons_tier_team">See details &rarr;</a>
+        </div>
+
+        <div class="tier-card card">
+          <div class="tier-top">
+            <span class="tier-name">Virtual</span>
+            <span class="tier-price">from $49 <small>/ mo</small></span>
+          </div>
+          <p class="tier-who">Not local, or between lessons</p>
+          <p class="tier-desc">Send in your game film through Crestline. You get the same whole-chain breakdown plus a drill plan, from anywhere.</p>
+          <a href="/virtual-coaching/" class="tier-link" data-track="lessons_tier_virtual">See virtual coaching &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       IS THIS FOR YOU
+       ============================================================ -->
+  <section class="fade-up">
+    <div class="container">
+      <span class="eyebrow">Read This First</span>
+      <h2 class="section-title">Is This For You?</h2>
+      <ul class="fit-list">
+        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>You're around 3.0&ndash;3.5 and stuck. Playing more open play isn't moving your rating anymore.</span></li>
+        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>You want to win in your current division, or reach 4.0+ and move up.</span></li>
+        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>A nagging shoulder, knee, or back is holding you back, and you want a coach who understands the game <em>and</em> the body.</span></li>
+        <li class="fit-item"><span class="fit-mark no" aria-hidden="true">&times;</span><span>Not the right fit if you're a total beginner or just want a casual intro to the game.</span></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       WHAT YOU GET
+       ============================================================ -->
+  <section class="band fade-up">
+    <div class="container">
+      <span class="eyebrow">What You Get</span>
+      <h2 class="section-title">Every Lesson Looks At The Whole Chain</h2>
+      <p class="section-subtext">Most coaches only watch the shot. You get the shot and the chain behind it, every session.</p>
+      <div class="stage-grid stagger">
+        <div class="stage-card card">
+          <p class="stage-label">The Game</p>
+          <h3 class="stage-title">Technique Breakdown</h3>
+          <p class="stage-body">We find the exact shot, pattern, or decision that's costing you points and drill the fix on court, with video analysis built in.</p>
+        </div>
+        <div class="stage-card card">
+          <p class="stage-label">The Body</p>
+          <h3 class="stage-title">The Chain Behind It</h3>
+          <p class="stage-body">As a rehab chiropractor, I look at how your legs, hips, core, and arm work together. Most of the time the fix is sequencing. When there's a real physical limitation, I'll find that too.</p>
+        </div>
+        <div class="stage-card card">
+          <p class="stage-label">The Record</p>
+          <h3 class="stage-title">Notes, Drills &amp; Progress</h3>
+          <p class="stage-body">Your notes and 2&ndash;3 weekly focuses go into your own client portal after every lesson, so you always know what to work on next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROOF — video slot + trimmed reviews
+       ============================================================ -->
+  <section class="reviews-section fade-up">
+    <div class="container">
+      <span class="eyebrow">What Players Say</span>
+      <h2 class="section-title">Real Results, Real Reviews</h2>
+
+      <!-- TODO: embed the Katy biomechanics clip here once it is on YouTube
+           (use a .video-frame wrapper + youtube-nocookie.com iframe; CSP already allows it). -->
+
+
+      <div class="review-grid stagger">
+        <div class="review-card card">
+          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="review-text">&ldquo;<strong>The improvement in my game has been huge.</strong> Lane has a keen eye for body mechanics &mdash; he sees things in your movement that other coaches miss.&rdquo;</p>
+          <div class="review-meta"><span class="review-avatar" aria-hidden="true">K</span><div><p class="review-name">Katy Savage</p><p class="review-source">Google review</p></div></div>
+        </div>
+        <div class="review-card card">
+          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="review-text">&ldquo;In just two weeks, he's helped me build a fitness and drilling plan that <strong>has already made a real difference in my game</strong> and my confidence on the court.&rdquo;</p>
+          <div class="review-meta"><span class="review-avatar" aria-hidden="true">A</span><div><p class="review-name">Amanda Maxim</p><p class="review-source">Google review</p></div></div>
+        </div>
+        <div class="review-card card">
+          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="review-text">&ldquo;<strong>My knee and shoulder feel stronger and more stable</strong>, I'm moving better on the court, and I have more confidence in my game than I've had in a long time.&rdquo;</p>
+          <div class="review-meta"><span class="review-avatar" aria-hidden="true">L</span><div><p class="review-name">Laura Cadigan</p><p class="review-source">Google review</p></div></div>
+        </div>
+        <div class="review-card card">
+          <p class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="review-text">&ldquo;<strong>Lane was able to correct the bad habits I developed since beginning play.</strong> He also showed me adjustments to my paddle grip that provided better ball contact and improved my serve.&rdquo;</p>
+          <div class="review-meta"><span class="review-avatar" aria-hidden="true">M</span><div><p class="review-name">Michael Caviness</p><p class="review-source">Google review</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PRICING — real tables (kept for AI/GEO extractability), packages visible
+       ============================================================ -->
+  <section class="band fade-up" id="pricing">
+    <div class="container">
+      <span class="eyebrow">Investment</span>
+      <h2 class="section-title">Pricing</h2>
+      <p class="section-subtext">All prices up front. Every session is 60 minutes, on court, in person.</p>
+
+      <div class="table-wrap">
+        <table class="pricing-table">
+          <thead>
+            <tr><th scope="col">Format</th><th scope="col">Price</th><th scope="col">Includes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Format">1-on-1</td>
+              <td data-label="Price">$80</td>
+              <td data-label="Includes">On-court coaching, slow-motion technique analysis on one specific skill or shot, movement check, and notes in your portal</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Group, 2 Players</td>
+              <td data-label="Price">$50/person ($100 total)</td>
+              <td data-label="Includes">Same coaching and feedback, split between two players. Individual technique analysis on one specific skill or shot for each player</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Group, 3 Players</td>
+              <td data-label="Price">$40/person ($120 total)</td>
+              <td data-label="Includes">Same coaching and feedback, split across the group. Game analysis: I play in your game, then send back one shared video review</td>
+            </tr>
+            <tr>
+              <td data-label="Format">Team Hybrid, 4 Players <span class="price-tag">Popular Right Now</span></td>
+              <td data-label="Price">$40/person ($160 total)</td>
+              <td data-label="Includes">Live coaching for the full hour (usually 2&ndash;3 games), plus a game-analysis video breakdown for each pair of partners afterward</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="table-label">1-on-1 Packages<span>Save up to $120. Packages never expire.</span></p>
+      <div class="table-wrap">
+        <table class="pricing-table">
+          <thead>
+            <tr><th scope="col">Package</th><th scope="col">Price</th><th scope="col">You Save</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Package">4 Lessons <span class="price-tag">Most Popular</span></td>
+              <td data-label="Price">$300 ($75/session)</td>
+              <td data-label="You Save">$20</td>
+            </tr>
+            <tr>
+              <td data-label="Package">6 Lessons</td>
+              <td data-label="Price">$420 ($70/session)</td>
+              <td data-label="You Save">$60</td>
+            </tr>
+            <tr>
+              <td data-label="Package">8 Lessons <span class="price-tag">Best Value</span></td>
+              <td data-label="Price">$520 ($65/session)</td>
+              <td data-label="You Save">$120</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pricing-cap-note" style="text-align:center; margin-top: 4px;">Group packages available by inquiry.</p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       LOCATION — condensed, one consistent court list
+       ============================================================ -->
+  <section class="fade-up" id="location">
+    <div class="container">
+      <span class="eyebrow">Location</span>
+      <h2 class="section-title">Where We Play</h2>
+      <div class="offer-grid stagger">
+        <div class="pricing-card card">
+          <img src="/images/chipshot-logo.avif" alt="Chipshot logo" class="location-logo" />
+          <h3 class="stage-title">Chipshot &middot; Daytona Beach</h3>
+          <p class="pricing-total">Most Popular &middot; Indoor</p>
+          <p class="offer-fine-print">Air conditioned, and a court is always open. No waiting, no rainouts.</p>
+        </div>
+        <div class="pricing-card card">
+          <h3 class="stage-title">Public Courts &middot; Volusia County</h3>
+          <p class="offer-fine-print">Prefer somewhere closer to home? I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach during quieter hours (not early morning or evening peak). Tell me where you are and we'll pick the spot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="band fade-up">
+    <div class="container">
+      <span class="eyebrow">Before You Book</span>
+      <h2 class="section-title">Questions</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>Which option should I pick?</summary>
+          <p class="faq-answer">If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $65 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What makes you different from other coaches?</summary>
+          <p class="faq-answer">I'm still competing at the 5.0 level, so what I teach is what I'm using on the court right now. I have 13+ years of racket sport experience. And I'm a rehab chiropractor and movement specialist, so I can look at the chain behind your swing (legs, hips, core, and arm) and catch what's really driving or limiting your shot. More on that in <a href="/pickleball-coaches-daytona-beach/" data-track="lessons_coaches_guide">how I'm different from the average pickleball coach in Daytona Beach</a>.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I take lessons if I'm dealing with pain or an injury?</summary>
+          <p class="faq-answer">Usually, yes. That's where my chiropractic background helps most. I'll work around what hurts, and a lot of the time we find that a mechanical issue in your stroke is feeding the pain. If something needs real treatment first, I'll tell you.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What does a typical lesson look like?</summary>
+          <p class="faq-answer">We start by figuring out where you're at and what we're focusing on that day. Then we go over the technique, introduce the skill, and drill it. I feed most reps by hand, so I can control pace and placement live. I also have a ball machine when we want a different kind of rep work. At the end, your 2 to 3 main focuses for the week go up in your portal.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What level of player do you work with?</summary>
+          <p class="faq-answer">Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) play. That's the serious recreational player who plays consistently and wants to keep improving. Not sure where you fall? Just ask.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Where do you teach?</summary>
+          <p class="faq-answer">Most lessons happen at Chipshot in Daytona Beach. It's indoor and air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach during quieter hours. Tell me where you are and we'll pick the spot.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you bring the equipment?</summary>
+          <p class="faq-answer">Balls and a ball tube for pickup, always, plus a ball machine when we need it. You just show up with your paddle.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's your cancellation policy?</summary>
+          <p class="faq-answer">I ask for at least 12 hours' notice if you need to cancel or reschedule. Life happens, I get it. A heads-up goes a long way.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FINAL CTA — with "what happens next"
+       ============================================================ -->
+  <section class="fade-up">
+    <div class="container">
+      <span class="eyebrow">Ready?</span>
+      <h2 class="section-title">Book Your First Lesson</h2>
+      <ol class="steps">
+        <li><span>Fill out the 60-second booking form (or just text me).</span></li>
+        <li><span>I'll text you back within 12&ndash;24 hours to lock in a time.</span></li>
+        <li><span>We pick the court. Bring your paddle, and I bring everything else.</span></li>
+      </ol>
+      <div class="hero-cta-wrap">
+        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_final_cta">Book Your First Lesson <span class="arrow">&rarr;</span></a>
+        <div class="contact-buttons">
+          <a href="sms:+14079956966" class="btn btn-outline" data-track="lessons_final_sms">Text Me</a>
+          <a href="https://instagram.com/dr.lane_o" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-track="lessons_final_ig">Instagram</a>
+          <a href="mailto:drlanepickleballchiro@gmail.com" class="btn btn-outline" data-track="lessons_final_email">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <footer class="site-footer fade-up">
     <div class="container">
       <p class="contact-line">
@@ -919,12 +921,8 @@
     </div>
   </footer>
 
-
-  <!-- ============================================================
-       STICKY MOBILE CTA BAR
-       ============================================================ -->
   <div class="sticky-cta-bar" id="sticky-cta-bar">
-    <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="sticky-cta-link" target="_blank" rel="noopener noreferrer" data-track="lessons_sticky_cta">Book a Session &rarr;</a>
+    <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="sticky-cta-link" target="_blank" rel="noopener noreferrer" data-track="lessons_sticky_cta">Book Your First Lesson &rarr;</a>
     <button class="sticky-cta-dismiss" id="sticky-cta-dismiss" aria-label="Dismiss">&times;</button>
   </div>
 
