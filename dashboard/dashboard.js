@@ -557,7 +557,18 @@ function renderAll(d) {
 }
 
 function renderDrift(d) {
-  const incomeTotal = d.income.reduce((s, r) => s + r.amount, 0);
+  // Only reconcile income rows that belong to a tracked client (has a Clients
+  // row) -- a walk-up group-lesson attendee Lane deliberately hasn't added as
+  // a lead/client yet (no contact info) has no Total Paid to compare against,
+  // and counting their income here made this banner false-alarm permanently
+  // the moment that income was logged. Per-client reconciliation (matching by
+  // name, same approach as audit.py's "Total Paid matches the Income tab"
+  // check) is the correct comparison; a global sum isn't.
+  const clientNames = new Set(d.clients.map((c) => (c.name || "").toLowerCase().trim()));
+  const incomeTotal = d.income.reduce(
+    (s, r) => (clientNames.has((r.client || "").toLowerCase().trim()) ? s + r.amount : s),
+    0
+  );
   const clientTotal = d.clients.reduce((s, c) => s + (c.total_paid || 0), 0);
   const gap = incomeTotal - clientTotal;
   const el = $("drift-banner");
