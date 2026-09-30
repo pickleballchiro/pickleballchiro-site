@@ -111,9 +111,9 @@ const COLORS = {
   other: "#6B8ECC",
   unclassified: "#8A8F98",
   mixPrivate: "#B5876F",
-  mixPartner: "#F59B72",
-  mixGroup: "#E8622A",
-  mixTeam: "#C2410C",
+  mixSmall: "#F59B72",
+  mixClinic: "#9678F0",
+  mixTeam: "#E8622A",
   mixCrestline: "#3DAA6B",
 };
 
@@ -1321,7 +1321,7 @@ function renderStreamsPie(d) {
 
 /* ------- revenue mix (by delivery format) ------- */
 
-// Goal shares, as fractions summing to 1, e.g. { Group: 0.3, "Team Hybrid": 0.3, Crestline: 0.3, Partner: 0.08, Private: 0.02 }.
+// Goal shares, as fractions summing to 1, e.g. { "Team Hybrid": 0.4, Crestline: 0.3, Clinic: 0.1, "Small Group": 0.15, Private: 0.05 }.
 // Empty = no goal markers drawn. Fill in when targets are chosen.
 const MIX_GOALS = {};
 
@@ -1347,10 +1347,10 @@ function renderMix(d) {
     totals[f] = (totals[f] || 0) + r.amount;
   });
   const color = {
-    Private: COLORS.mixPrivate, Partner: COLORS.mixPartner, Group: COLORS.mixGroup,
+    Private: COLORS.mixPrivate, "Small Group": COLORS.mixSmall, Clinic: COLORS.mixClinic,
     "Team Hybrid": COLORS.mixTeam, Crestline: COLORS.mixCrestline, Unassigned: COLORS.unclassified,
   };
-  const order = ["Team Hybrid", "Group", "Crestline", "Partner", "Private", "Unassigned"];
+  const order = ["Team Hybrid", "Crestline", "Clinic", "Small Group", "Private", "Unassigned"];
   const parts = order.filter((p) => totals[p] > 0);
   const grand = parts.reduce((s, p) => s + totals[p], 0);
   if (!grand) { el.innerHTML = '<div class="card-sub">No lesson or Crestline income in this period.</div>'; return; }
