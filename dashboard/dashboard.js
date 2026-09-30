@@ -110,6 +110,11 @@ const COLORS = {
   crestlineSoft: "#7BC99A",
   other: "#6B8ECC",
   unclassified: "#8A8F98",
+  mixPrivate: "#B5876F",
+  mixPartner: "#F59B72",
+  mixGroup: "#E8622A",
+  mixTeam: "#C2410C",
+  mixCrestline: "#3DAA6B",
 };
 
 const $ = (id) => document.getElementById(id);
@@ -170,6 +175,9 @@ document.addEventListener("DOMContentLoaded", () => {
   $("src-all").addEventListener("click", () => setLeadSrcMode("all"));
   $("src-chiro").addEventListener("click", () => setLeadSrcMode("chiro"));
   $("src-lessons").addEventListener("click", () => setLeadSrcMode("lessons"));
+  ["month", "90d", "ytd"].forEach((m) =>
+    $("mix-" + m).addEventListener("click", () => setMixMode(m))
+  );
   $("toggle-period-week").addEventListener("click", () => setPeriodMode("week"));
   $("toggle-period-month").addEventListener("click", () => setPeriodMode("month"));
   $("toggle-period-quarter").addEventListener("click", () => setPeriodMode("quarter"));
@@ -258,6 +266,13 @@ function setLeadSrcMode(mode) {
     $("src-" + m).classList.toggle("active", m === mode)
   );
   if (DATA) renderLeadSources(DATA);
+}
+
+let mixMode = "month"; // "month" | "90d" | "ytd"
+function setMixMode(mode) {
+  mixMode = mode;
+  ["month", "90d", "ytd"].forEach((m) => $("mix-" + m).classList.toggle("active", m === mode));
+  if (DATA) renderMix(DATA);
 }
 
 function setPeriodMode(mode) {
@@ -544,6 +559,7 @@ function renderAll(d) {
   renderPeriodChart(d);
   renderStreams(d);
   renderStreamsPie(d);
+  renderMix(d);
   renderMoney(d);
   renderUnserviced(d);
   renderOwed(d);
@@ -1300,6 +1316,72 @@ function renderStreamsPie(d) {
     .join("");
 
   el.innerHTML = `<div class="streams-pie-chart">${svg}</div><div class="legend streams-pie-legend">${legend}</div>`;
+  attachTooltips(el);
+}
+
+/* ------- revenue mix (by delivery format) ------- */
+
+// Goal shares, as fractions summing to 1, e.g. { Group: 0.3, "Team Hybrid": 0.3, Crestline: 0.3, Partner: 0.08, Private: 0.02 }.
+// Empty = no goal markers drawn. Fill in when targets are chosen.
+const MIX_GOALS = {};
+
+function renderMix(d) {
+  const el = $("mix-pie");
+  if (!el) return;
+  const now = new Date();
+  const start =
+    mixMode === "month" ? new Date(now.getFullYear(), now.getMonth(), 1)
+    : mixMode === "90d" ? new Date(now.getFullYear(), now.getMonth(), now.getDate() - 90)
+    : new Date(now.getFullYear(), 0, 1);
+  const totals = {}; // format -> $
+  d.income.forEach((r) => {
+    const dt = parseDate(r.date);
+    if (!dt || dt < start || !(r.amount > 0)) return;
+    const c = classify(r);
+    let f = r.format;
+    if (!f) {
+      if (c.parent === "Crestline") f = "Crestline";
+      else if (c.parent === "Pickleball Lessons") f = "Unassigned";
+      else return; // chiro, digital, other: not part of the pickleball mix
+    }
+    totals[f] = (totals[f] || 0) + r.amount;
+  });
+  const color = {
+    Private: COLORS.mixPrivate, Partner: COLORS.mixPartner, Group: COLORS.mixGroup,
+    "Team Hybrid": COLORS.mixTeam, Crestline: COLORS.mixCrestline, Unassigned: COLORS.unclassified,
+  };
+  const order = ["Team Hybrid", "Group", "Crestline", "Partner", "Private", "Unassigned"];
+  const parts = order.filter((p) => totals[p] > 0);
+  const grand = parts.reduce((s, p) => s + totals[p], 0);
+  if (!grand) { el.innerHTML = '<div class="card-sub">No lesson or Crestline income in this period.</div>'; return; }
+
+  const size = 160, stroke = 28, r = (size - stroke) / 2, cx = size / 2, cy = size / 2;
+  const circumference = 2 * Math.PI * r;
+  let offsetSoFar = 0;
+  let svg = `<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" role="img" aria-label="Revenue share by lesson format">`;
+  parts.forEach((p) => {
+    const frac = totals[p] / grand;
+    const dash = frac * circumference;
+    svg += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color[p]}" stroke-width="${stroke}"
+      stroke-dasharray="${dash} ${circumference - dash}" stroke-dashoffset="${-offsetSoFar}"
+      transform="rotate(-90 ${cx} ${cy})" data-tip="${escAttr(p)}|${escAttr(fmt$c(totals[p]))} (${(frac * 100).toFixed(0)}%)"/>`;
+    offsetSoFar += dash;
+  });
+  svg += `<text x="${cx}" y="${cy - 6}" text-anchor="middle" font-size="16" font-weight="700" fill="var(--white)">${fmt$c(grand)}</text>`;
+  svg += `<text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="10" fill="#9C9C9C">lessons + Crestline</text>`;
+  svg += "</svg>";
+
+  const legend = parts
+    .map((p) => {
+      const pct = Math.round((totals[p] / grand) * 100);
+      const goal = MIX_GOALS[p] != null ? ` · goal ${Math.round(MIX_GOALS[p] * 100)}%` : "";
+      return `<span class="legend-item"><span class="legend-swatch" style="background:${color[p]}"></span>${esc(p)} · ${fmt$c(totals[p])} (${pct}%${goal})</span>`;
+    })
+    .join("");
+  const unassigned = totals.Unassigned
+    ? `<div class="card-sub">Unassigned = lesson income with no Format set yet.</div>` : "";
+
+  el.innerHTML = `<div class="streams-pie-chart">${svg}</div><div class="legend streams-pie-legend">${legend}</div>${unassigned}`;
   attachTooltips(el);
 }
 
