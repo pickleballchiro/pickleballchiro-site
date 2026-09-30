@@ -489,3 +489,11 @@ main {
   color: var(--gray-mid); cursor: pointer; font-size: 0.85rem;
 }
 .task-del:hover { color: var(--serious); }
+
+/* revenue mix table */
+.mix-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.85rem; flex: 1 0 100%; }
+.mix-table th { text-align: right; font-weight: 600; color: var(--gray-mid); padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.mix-table td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+.mix-table th:first-child, .mix-table td:first-child { text-align: left; }
+.mix-table td:first-child .legend-swatch { display: inline-block; vertical-align: middle; margin-right: 8px; }
+#mix-pie .card-sub { flex: 1 0 100%; margin-top: 8px; }

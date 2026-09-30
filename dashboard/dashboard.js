@@ -1381,8 +1381,52 @@ function renderMix(d) {
   const unassigned = totals.Unassigned
     ? `<div class="card-sub">Unassigned = lesson income with no Format set yet.</div>` : "";
 
-  el.innerHTML = `<div class="streams-pie-chart">${svg}</div><div class="legend streams-pie-legend">${legend}</div>${unassigned}`;
+  el.innerHTML = `<div class="streams-pie-chart">${svg}</div><div class="legend streams-pie-legend">${legend}</div>${unassigned}${mixTable(d, start, totals, grand, parts, color)}`;
   attachTooltips(el);
+}
+
+// Minutes for one lesson from free text ("90-min", "3hr", "1.5 hours"); 60 when it says nothing.
+function lessonMinutes(text) {
+  const t = String(text || "").toLowerCase();
+  let m = /(\d{2,3})\s*-?\s*min/.exec(t);
+  if (m) return +m[1];
+  m = /(\d(?:\.\d)?)\s*-?\s*(?:hr|hour)/.exec(t);
+  if (m) return Math.round(parseFloat(m[1]) * 60);
+  return 60;
+}
+
+// Per-format table: income share, lessons taught, estimated hours, and $/hour.
+// A "lesson" is one date+format (+client for Private), so a 4-person team lesson counts once.
+function mixTable(d, start, totals, grand, parts, color) {
+  const textBy = {}; // date|client -> income description, for duration hints
+  d.income.forEach((r) => { textBy[r.date + "|" + r.client] = (textBy[r.date + "|" + r.client] || "") + " " + r.description; });
+  const lessons = {}; // key -> { format, minutes }
+  (d.sessions || []).forEach((s) => {
+    if (s.discipline !== "Lesson" || !s.format) return;
+    const dt = parseDate(s.date);
+    if (!dt || dt < start) return;
+    const key = s.date + "|" + s.format + (s.format === "Private" ? "|" + s.client : "");
+    const mins = lessonMinutes(s.notes + " " + (textBy[s.date + "|" + s.client] || ""));
+    if (!lessons[key] || mins > lessons[key].minutes) lessons[key] = { format: s.format, minutes: mins };
+  });
+  const agg = {};
+  Object.values(lessons).forEach((l) => {
+    const a = (agg[l.format] = agg[l.format] || { n: 0, min: 0 });
+    a.n += 1; a.min += l.minutes;
+  });
+  const totalHours = Object.values(agg).reduce((s, a) => s + a.min / 60, 0);
+  const rows = parts.map((p) => {
+    const a = agg[p];
+    const hrs = a ? a.min / 60 : 0;
+    const perHr = hrs ? fmt$(totals[p] / hrs) : "—";
+    const timePct = a && totalHours ? Math.round((hrs / totalHours) * 100) + "%" : "—";
+    return `<tr><td><span class="legend-swatch" style="background:${color[p]}"></span>${esc(p)}</td>
+      <td>${Math.round((totals[p] / grand) * 100)}%</td><td>${a ? a.n : "—"}</td>
+      <td>${a ? hrs.toFixed(1) : "—"}</td><td>${timePct}</td><td>${perHr}</td></tr>`;
+  }).join("");
+  return `<table class="mix-table"><thead><tr><th>Format</th><th>Income</th><th>Lessons</th><th>Hours</th><th>Time</th><th>$/hr</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <div class="card-sub">Hours assume 60 min unless the notes say otherwise (90-min, 3hr). Crestline has no session log, so no hours. $/hr is rough: packages count when paid.</div>`;
 }
 
 /* ------- money ------- */
