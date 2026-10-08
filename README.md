@@ -22,7 +22,6 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 | `pickleballchiro.co/virtual-coaching/` | `virtual-coaching/index.html` | Virtual coaching via Crestline: plans, how it works, FAQ |
 | `pickleballchiro.co/about/` | `about/index.html` | Credentials and story |
 | `pickleballchiro.co/privacy/`, `/terms/` | `privacy/`, `terms/` | Legal pages (Terms carries the medical disclaimer) |
-| `pickleballchiro.co/90daysto40/` | `90daysto40/index.html` | **Retired.** noindex stub pointing at lessons/Crestline; not in the sitemap |
 | `pickleballchiro.co/404.html` | `404.html` | Custom not-found page (GitHub Pages serves it for any missing path) |
 | `pickleballchiro.co/stats.html` | `stats.html` | Private click-analytics viewer (this browser only) |
 
@@ -58,10 +57,9 @@ pickleballchiro-site/
 ├── links/index.html    ← link-in-bio page (own layout, shares styles.css)
 ├── quiz/index.html     ← quiz (fully self-contained: own styles + scripts)
 ├── lessons/, virtual-coaching/, about/, privacy/, terms/  ← subpages (share styles.css + main.js)
-├── 90daysto40/index.html ← retired stub (noindex)
 ├── 404.html            ← custom not-found page
-├── styles.css          ← design system: colors, fonts, cards, buttons (/, /links, /90daysto40)
-├── main.js             ← click tracking, scroll animations, sticky bar (/ and /90daysto40)
+├── styles.css          ← design system: colors, fonts, cards, buttons (/, /links, and the landing pages)
+├── main.js             ← click tracking, scroll animations, sticky bar (/ and the landing pages)
 ├── analytics.js        ← Google Analytics (GA4) config — one ID for every page
 ├── stats.html          ← click-event viewer
 ├── CNAME               ← pickleballchiro.co (DO NOT DELETE)

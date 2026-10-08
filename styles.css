@@ -1,7 +1,7 @@
 /* ============================================================
    PICKLEBALL CHIRO — styles.css
    Mobile-first. Edit brand colors in :root below.
-   Shared by / (index.html), /links, and /90daysto40. Quiz + stats
+   Shared by / (index.html), /links, and the lessons / virtual-coaching pages. Quiz + stats
    + checklist are self-contained and do NOT use this file.
    ============================================================ */
 
@@ -989,9 +989,9 @@ a.card:active,
 }
 
 /* ============================================================
-   90 DAYS TO 4.0 — LANDING PAGE COMPONENTS  (/90daysto40)
-   Only what that page needs beyond the shared system above.
-   Everything else on it reuses .hero, .card, .btn, .stage-card,
+   LONG-FORM LANDING PAGE COMPONENTS  (lessons, virtual-coaching, ...)
+   Only what those pages need beyond the shared system above.
+   Everything else on them reuses .hero, .card, .btn, .stage-card,
    .offer-card, .pricing-list, .site-footer, .sticky-cta-bar.
    ============================================================ */
 
