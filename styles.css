@@ -773,7 +773,14 @@ p a:hover, li a:hover, .callout a:hover, .faq-answer a:hover, .body-text a:hover
   border: 1px solid var(--border-subtle);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
-.carousel-track { display: flex; transition: transform 0.4s ease; }
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  touch-action: pan-y;      /* vertical scroll native; horizontal drag handled in main.js */
+  will-change: transform;
+}
+.carousel-track.dragging { transition: none; }
+.slide img { -webkit-user-drag: none; user-select: none; }
 .slide { min-width: 100%; }
 .slide img {
   width: 100%;
@@ -848,12 +855,14 @@ p a:hover, li a:hover, .callout a:hover, .faq-answer a:hover, .body-text a:hover
   align-items: center;
   justify-content: center;
   padding: 14px 20px;
+  /* Clears the iPhone home indicator; 0 everywhere else. Needs viewport-fit=cover. */
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   gap: 12px;
 }
 
 @media (max-width: 768px) {
   .sticky-cta-bar { display: flex; }
-  body { padding-bottom: 56px; }
+  body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
 }
 
 .sticky-cta-link {
@@ -928,6 +937,46 @@ p a:hover, li a:hover, .callout a:hover, .faq-answer a:hover, .body-text a:hover
 }
 
 /* ============================================================
+   PRESS FEEDBACK
+   Hover never fires on a phone, so a tap used to show nothing until the next
+   page had already started loading. Tappable things dip on pointer-down (fast)
+   and settle back on release (slower). touch-action drops the double-tap-zoom
+   wait on the same controls.
+   ============================================================ */
+/* viewport-fit=cover (sticky-bar pages) lets content run under a landscape notch */
+body {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+a, button, summary, .card, .car-dot {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a.card:active,
+.gear-tile-main:active {
+  transform: scale(0.985);
+  transition-duration: 0.08s;
+}
+
+.faq-item summary:active,
+.sticky-cta-link:active,
+.sticky-cta-dismiss:active,
+.hero-secondary-link:active,
+.site-footer a:active {
+  opacity: 0.7;
+}
+
+.car-dot:active { transform: scale(1.4); }
+
+/* ---- Material preferences: higher contrast on request ---- */
+@media (prefers-contrast: more) {
+  :root { --border-subtle: rgba(255, 255, 255, 0.4); }
+  .faq-item, .card, .carousel { border-color: var(--gray-mid); }
+}
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -936,6 +985,7 @@ p a:hover, li a:hover, .callout a:hover, .faq-answer a:hover, .body-text a:hover
   .btn, .card, .guide-arrow, .ig-arrow, .btn .arrow { transition: none; }
   .btn:hover, .card:hover, .gear-tile-main:hover { transform: none; }
   .carousel-track { transition: none; }
+  a.card:active, .gear-tile-main:active, .car-dot:active { transform: none; }
 }
 
 /* ============================================================

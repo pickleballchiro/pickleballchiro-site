@@ -503,6 +503,13 @@
       .intro-footer { padding-top: 12px; }
     }
 
+    /* ── Touch: no double-tap-zoom wait on controls; high-contrast on request ── */
+    a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    @media (prefers-contrast: more) {
+      .answer-btn { border-color: var(--gray-mid); }
+      .progress-rail { background: var(--gray-mid); }
+    }
+
     /* ── Reduced motion: keep everything visible, drop the movement ── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1317,42 +1324,47 @@ function renderQuestion(index) {
 // ============================================================
 //  PICK AN ANSWER
 // ============================================================
-function pickAnswer(qIndex, points, btn) {
-  if (busy) return;
+let advanceTimer = null;
 
-  // Visual tap feedback
+function pickAnswer(qIndex, points, btn) {
+  if (qIndex !== currentQ) return;   // a stale tap from a question already left
+
+  // Visual tap feedback. A second tap inside the beat below simply changes the
+  // answer; the last one wins and nothing is dropped.
+  btn.parentElement.querySelectorAll(".answer-btn.selected")
+    .forEach(b => { if (b !== btn) b.classList.remove("selected"); });
   btn.classList.add("selected");
   answers[qIndex] = points;
 
-  setTimeout(() => {
+  clearTimeout(advanceTimer);
+  advanceTimer = setTimeout(() => {
+    advanceTimer = null;
+    if (qIndex !== currentQ) return;
     if (qIndex < questions.length - 1) {
-      // Fade content within the same screen, then show next question
-      const nextIndex = qIndex + 1;
-      fadeContent(() => {
-        currentQ = nextIndex;
-        renderQuestion(nextIndex);
-      });
+      currentQ = qIndex + 1;
+      renderQuestion(currentQ);
+      slideContent(1);
     } else {
       showResults();
     }
-  }, 180);
+  }, 140);
 }
 
 // ============================================================
 //  BACK
 // ============================================================
 function goBack() {
-  if (busy) return;
+  if (busy) return;                  // only while a whole-screen switch is mid-flight
+  clearTimeout(advanceTimer);
+  advanceTimer = null;
   if (currentQ === 0) {
     showProgress(false);
     switchScreen("screen-question", "screen-intro", true);
     return;
   }
-  const prevIndex = currentQ - 1;
-  fadeContent(() => {
-    currentQ = prevIndex;
-    renderQuestion(prevIndex);
-  }, true);
+  currentQ -= 1;
+  renderQuestion(currentQ);
+  slideContent(-1);
 }
 
 // ============================================================
@@ -1436,21 +1448,21 @@ function updateProgress() {
 //  TRANSITIONS
 // ============================================================
 
-// Fade content within screen-question (question → question)
-function fadeContent(callback, reverse = false) {
-  if (busy) return;
-  busy = true;
+// Question → question: the new question arrives from the direction you're
+// travelling (forward from the right, back from the left). It starts at once
+// (no exit phase to wait out), never locks input, and a new one cancels the old
+// mid-flight, so tapping through quickly just keeps up.
+function slideContent(dir) {
   const scr = document.getElementById("screen-question");
-  scr.style.transition = "opacity 0.16s ease";
-  scr.style.opacity = "0";
-  setTimeout(() => {
-    if (callback) callback();
-    scr.style.opacity = "1";
-    setTimeout(() => {
-      scr.style.transition = "";
-      busy = false;
-    }, 160);
-  }, 160);
+  scr.getAnimations().forEach(a => a.cancel());
+  const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  scr.animate(
+    still
+      ? [{ opacity: 0 }, { opacity: 1 }]
+      : [{ opacity: 0, transform: `translateX(${dir * 24}px)` },
+         { opacity: 1, transform: "translateX(0)" }],
+    { duration: 220, easing: "cubic-bezier(0.22, 0.61, 0.36, 1)" }
+  );
 }
 
 // Slide between different screens

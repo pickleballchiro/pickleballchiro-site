@@ -99,16 +99,62 @@ document.addEventListener('click', function (e) {
   root.addEventListener('mouseenter', stop);
   root.addEventListener('mouseleave', restart);
 
-  // Touch swipe (left/right) — pause while a finger is down
-  var startX = null;
-  track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
-  track.addEventListener('touchend', function (e) {
-    if (startX === null) { restart(); return; }
-    var dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
-    restart();
-    startX = null;
+  // Touch drag: the track follows the finger 1:1, then settles on the nearest
+  // slide, using release velocity to decide (a short fast flick counts). Grabbing
+  // mid-settle picks the track up where it is on screen rather than where it was
+  // headed. Vertical movement is left to native scroll (touch-action: pan-y).
+  var HYST = 10;            // px before a touch commits to horizontal
+  var drag = null;
+
+  function liveX() {
+    var m = new DOMMatrix(getComputedStyle(track).transform);
+    return m.m41;
+  }
+
+  track.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse') return;   // desktop keeps arrows + dots
+    drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, base: liveX(),
+             live: false, hist: [{ x: e.clientX, t: e.timeStamp }] };
+    stop();
   });
+
+  track.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.x0, dy = e.clientY - drag.y0;
+    if (!drag.live) {
+      if (Math.abs(dx) < HYST && Math.abs(dy) < HYST) return;
+      if (Math.abs(dy) > Math.abs(dx)) { drag = null; restart(); return; }  // it's a scroll
+      drag.live = true;
+      track.classList.add('dragging');
+      track.style.transform = 'translateX(' + drag.base + 'px)';  // freeze at live position
+      try { track.setPointerCapture(e.pointerId); } catch (err) {}
+    }
+    drag.hist.push({ x: e.clientX, t: e.timeStamp });
+    if (drag.hist.length > 6) drag.hist.shift();
+    track.style.transform = 'translateX(' + (drag.base + dx) + 'px)';
+  });
+
+  function release(e, cancelled) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var d = drag; drag = null;
+    if (!d.live) { restart(); return; }
+    track.classList.remove('dragging');
+    var width = root.clientWidth;
+    var dx = e.clientX - d.x0;
+    // Velocity from the last 100ms only: a finger that paused before lifting
+    // is not a flick.
+    var recent = d.hist.filter(function (p) { return e.timeStamp - p.t <= 100; });
+    var first = recent[0], last = recent[recent.length - 1];
+    var v = recent.length > 1 && last.t > first.t ? (last.x - first.x) / (last.t - first.t) : 0;  // px/ms
+    // Where the flick is headed: position plus ~100ms of carried velocity.
+    var projected = cancelled ? 0 : dx + v * 100;
+    var step = Math.abs(projected) > width * 0.2 ? (projected < 0 ? 1 : -1) : 0;
+    // Settle from wherever the finger left the track.
+    track.style.transition = '';
+    go(idx + step);
+  }
+  track.addEventListener('pointerup', function (e) { release(e, false); restart(); });
+  track.addEventListener('pointercancel', function (e) { release(e, true); restart(); });
 
   render();
   restart();

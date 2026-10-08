@@ -580,6 +580,11 @@
       .start-row:active, .gear-tile:active, .btn:active,
       .links-footer a:active { transform: none; }
     }
+    /* Touch: no double-tap-zoom wait; reduced-motion drops the movement. */
+    a, button { touch-action: manipulation; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
   </style>
 
   <!-- Mark that JavaScript is on (used to hide sections before they animate in) -->
