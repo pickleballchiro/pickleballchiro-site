@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-"""Regenerate llms-full.txt from the public pages. Run after any copy change: python3 build-llms-full.py"""
-import datetime, html, re
+"""Regenerate llms-full.txt and the per-page Markdown twins (<page>/index.md, served to agents that send
+Accept: text/markdown by the Cloudflare Worker in _worker/). Run after any copy change: python3 build-llms-full.py"""
+import datetime, html, os, re
+from urllib.parse import urljoin
 from html.parser import HTMLParser
 
 PAGES = [
@@ -9,6 +11,7 @@ PAGES = [
     ("Third Shot Drive or Drop? The Three-Read Checklist (article)", "https://pickleballchiro.co/third-shot-drive-or-drop/", "third-shot-drive-or-drop/index.html"),
     ("Pickleball Knee Pain: The 3-Stage Fix (article)", "https://pickleballchiro.co/pickleball-knee-pain/", "pickleball-knee-pain/index.html"),
     ("About Dr. Lane Odom", "https://pickleballchiro.co/about/", "about/index.html"),
+    ("Contact Dr. Lane Odom", "https://pickleballchiro.co/contact/", "contact/index.html"),
     ("In-Person Pickleball Lessons", "https://pickleballchiro.co/lessons/", "lessons/index.html"),
     ("Pickleball Coach in Daytona Beach: How I'm Different From the Average Lesson", "https://pickleballchiro.co/pickleball-coaches-daytona-beach/", "pickleball-coaches-daytona-beach/index.html"),
     ("Mobile Chiropractic & Rehab Care", "https://pickleballchiro.co/mobile-chiro/", "mobile-chiro/index.html"),
@@ -29,10 +32,12 @@ BLOCK = {"p", "li", "h1", "h2", "h3", "h4", "div", "section", "article", "summar
 
 
 class Text(HTMLParser):
-    def __init__(self):
+    def __init__(self, base_url=None):
         super().__init__(convert_charrefs=True)
         self.out, self.buf, self.tag = [], [], None
         self.skip_stack, self.in_body = [], False
+        # base_url set = Markdown mode: <a href> becomes [text](absolute url)
+        self.base_url, self.link = base_url, None
 
     @property
     def skip(self):
@@ -40,6 +45,8 @@ class Text(HTMLParser):
 
     def flush(self):
         t = re.sub(r"\s+", " ", "".join(self.buf)).strip()
+        if self.base_url:
+            t = re.sub(r" +([,.;:!?)])", r"\1", t)
         self.buf = []
         if not t:
             return
@@ -63,12 +70,21 @@ class Text(HTMLParser):
         if tag in BLOCK:
             self.flush()
             self.tag = tag
+        if tag == "a" and self.base_url and a.get("href") and not a["href"].startswith(("#", "javascript:")):
+            self.link = (urljoin(self.base_url, a["href"]), len(self.buf))
 
     def handle_endtag(self, tag):
         if tag in VOID:
             return
         if self.skip_stack:
             self.skip_stack.pop()
+            return
+        if tag == "a" and self.link:
+            href, start = self.link
+            self.link = None
+            text = re.sub(r"\s+", " ", "".join(self.buf[start:])).strip()
+            if text:
+                self.buf[start:] = [" [%s](%s) " % (text.replace("]", "\\]"), href)]
             return
         if tag in BLOCK:
             self.flush()
@@ -79,10 +95,10 @@ class Text(HTMLParser):
             self.buf.append(data)
 
 
-def page_text(path):
+def page_text(path, base_url=None):
     src = open(path, encoding="utf-8").read()
     src = re.sub(r"<!--.*?-->", "", src, flags=re.S)
-    p = Text()
+    p = Text(base_url)
     p.feed(src)
     p.flush()
     lines, prev = [], None
@@ -99,3 +115,11 @@ for title, url, path in PAGES:
     out.append(f"---\n\n# {title}\n\nURL: {url}\n\n{page_text(path)}\n\n")
 open("llms-full.txt", "w", encoding="utf-8").write("".join(out).rstrip() + "\n")
 print("wrote llms-full.txt", len(open("llms-full.txt").read().split()), "words")
+
+# Markdown twins: same text, links kept, one file next to each page's index.html
+for title, url, path in PAGES:
+    md_path = os.path.join(os.path.dirname(path), "index.md")
+    body = page_text(path, base_url=url)
+    open(md_path, "w", encoding="utf-8").write(
+        f"# {title}\n\nCanonical: {url}\n\n{body}\n\n---\n\nSite index for AI agents: https://pickleballchiro.co/llms.txt\n")
+print("wrote", len(PAGES), "Markdown twins")

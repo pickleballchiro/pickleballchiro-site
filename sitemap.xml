@@ -67,6 +67,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://pickleballchiro.co/contact/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://pickleballchiro.co/privacy/</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>yearly</changefreq>

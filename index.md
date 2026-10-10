@@ -1,0 +1,207 @@
+# Homepage
+
+Canonical: https://pickleballchiro.co/
+
+Dr. Lane Odom · The Pickleball Chiro
+
+## What’s Keeping You Stuck at 3.5
+
+Most players drill harder at the wrong thing. I help you find the real leak in your game and fix it.
+
+A “leak” is the one shot or movement pattern that loses you the most points. Most 3.0–4.0 players have one, and it’s usually in the first four shots or the transition zone.
+
+4.7 DUPR Doctor of Chiropractic Performance Coach PCI Certified Coach
+
+[Get the Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Or take the free 2-minute game diagnosis](https://pickleballchiro.co/quiz/)
+
+4.7
+
+DUPR, Still Competing
+
+13+
+
+Years of Racket Sports
+
+DC
+
+Doctor of Chiropractic
+
+The Performance System
+
+### How I Help Players Break Through
+
+One-on-one coaching built around your game. Three stages that actually move your rating.
+
+Stage 1
+
+#### Identify the Leak
+
+Find the specific shot, pattern, or movement flaw keeping you stuck. Not a general assessment. The exact thing your game needs most right now.
+
+Stage 2
+
+#### Build the Fix
+
+Fix it through targeted 1-on-1 drilling. Reset mechanics, third shot consistency, kitchen game, footwork, whatever your game needs most.
+
+Stage 3
+
+#### Make It Stick
+
+Take it into real play. Build the habits that hold under pressure, show up in your DUPR, and last more than one good practice session.
+
+Free Downloads
+
+### Start Fixing Your Game Today
+
+Two free guides. Real fixes, not fluff.
+
+[Free Guide Why You’re Stuck at 3.5 The patterns capping your rating, and how to break them](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Free Guide The Knee Pain Guide Why your knee hurts on the court, and what to do about it](https://pickleballchiro.gumroad.com/l/kneepainguide)
+
+Want the full breakdown on knee pain first? Read [Pickleball Knee Pain: The 3-Stage Fix](https://pickleballchiro.co/pickleball-knee-pain/).
+
+Educational content, not medical advice. See the full disclaimer in our [Terms](https://pickleballchiro.co/terms/).
+
+Free Self-Diagnosis
+
+### Why You’re Stuck at 3.5
+
+15 quick questions. Instant breakdown of the #1 leak in your game: first four shots, shot selection, transition zone, kitchen game, or the physical side.
+
+[Start the Quiz →](https://pickleballchiro.co/quiz/)
+
+Want the full breakdown first? Read [Why You’re Stuck at 3.5: The Five Leaks](https://pickleballchiro.co/why-youre-stuck-at-3-5/) or [Third Shot Drive or Drop? The Three-Read Checklist](https://pickleballchiro.co/third-shot-drive-or-drop/). Looking for a coach nearby? See [how I’m different from the average pickleball coach in Daytona Beach](https://pickleballchiro.co/pickleball-coaches-daytona-beach/).
+
+What Players Say
+
+### Real Results, Real Reviews
+
+★★★★★
+
+“If you are serious about your pickleball game get a serious coach. Lane was able to correct the bad habits I developed since beginning play. He also showed me adjustments to my paddle grip that provided better ball contact and improved my serve. I highly recommend you try a few sessions.”
+
+Michael Caviness
+
+Google review
+
+★★★★★
+
+“The results have been incredible. My knee and shoulder feel stronger and more stable, I’m moving better on the court, and I have more confidence in my game than I’ve had in a long time… Working with him has been one of the best investments I’ve made in my health, mobility, and athletic performance.”
+
+Laura Cadigan
+
+Google review
+
+★★★★★
+
+“I can’t recommend working with Lane enough! In just two weeks, he’s helped me build a fitness and drilling plan that has already made a real difference in my game and my confidence on the court. Every session feels focused and purposeful… His video analysis has been a game changer too.”
+
+Amanda Maxim
+
+Google review
+
+★★★★★
+
+“Lane has a keen eye for body mechanics — he sees things in your movement that other coaches miss, and he’s incredibly generous with his advice. He’s helped me gain more power in my torso and on my serve, refined my backhand dink, and worked through a calf issue with me from a chiropractic and strengthening perspective.”
+
+Katy Savage
+
+Google review
+
+[Leave me a review on Google →](https://g.page/r/CenOIwS3ow1nEBM/review)
+
+🦵 The Pickleball Knee Fix $97
+
+The complete pickleball-specific rehab course. Three stages, movement by movement. Built for players who want to actually fix it instead of managing it.
+
+[Get the Course →](https://pickleballchiro.gumroad.com/l/thepickleballkneefix)
+
+Educational content, not medical advice. See the full disclaimer in our [Terms](https://pickleballchiro.co/terms/).
+
+Work With Me
+
+### Ways to Train Together
+
+📍 Based in Daytona Beach on the Ormond Beach line, serving all of Volusia County, FL · Virtual coaching available anywhere
+
+📈
+
+#### Virtual Coaching: Book on Crestline
+
+Anywhere
+
+Game film review, custom drill programming, and weekly accountability, built to move your rating no matter where you live.
+
+[See the Program →](https://www.gocrestline.app/coaches/lane-odom) [Pricing & FAQ →](https://pickleballchiro.co/virtual-coaching/)
+
+🏓
+
+#### Pickleball Lessons
+
+1-on-1 sessions built around your game. Find the leak, drill the fix, and leave with a plan. With a 4.7 DUPR player and DC.
+
+[See What’s Included →](https://pickleballchiro.co/lessons/) [Apply for a Lesson →](https://forms.gle/6MXZ4vofGd27bbDP6)
+
+🚗
+
+#### Mobile Chiropractic
+
+Chiropractic and rehab care that comes to you: assessment, treatment, and a movement plan in your own home.
+
+Serving Volusia County
+
+[See What’s Included →](https://pickleballchiro.co/mobile-chiro/)
+
+[@pickleballchiro Full game film breakdowns on YouTube](https://www.youtube.com/@pickleballchiro)
+
+On the Court
+
+### Highlights
+
+[@dr.lane_o Daily drills, breakdowns, and behind-the-scenes on Instagram](https://instagram.com/dr.lane_o)
+
+Gear I Use
+
+### My Setup, With Discounts
+
+Some of these are affiliate links; I may earn a commission at no extra cost to you.
+
+[11six24 Code PBCHIRO](https://11six24.com/pickleballchiro) [UDRIPPIN Code PBCHIRO15](https://www.udrippin.com/pbchiro) [Hesacore Code PBCHIRO](https://shop.hesacore.com/discount/PBCHIRO?ref=pbchiro) [L Cubed Lifestyle Code PBCHIRO](https://www.lcubedlifestyle.com?sca_ref=8365911.T1OAMWMDCg)
+
+Common Questions
+
+### Questions
+
+What makes a chiropractor-coach different from a regular pickleball coach?
+
+Most coaches only see your technique. I look at the whole chain that produces the shot, your legs, hips, core, and arm, and how well they're working together. Most breakdowns come from that chain firing out of order. A physical limitation shows up sometimes too, and I'll catch that along the way. Either way you get the real cause instead of a guess.
+
+How does virtual pickleball coaching work?
+
+Through Crestline, you send me footage of your games or drills 1 to 2 times a week. I review it and send back detailed feedback, written or live voice and video depending on your plan, plus a custom drill plan built around exactly what I see. No travel, no scheduling around a court.
+
+Do I need to live near Florida to work with you?
+
+No. My in-person lessons and mobile chiropractic care are limited to Volusia County, FL, but virtual coaching through Crestline works with players anywhere in the world. All I need is footage of your games or drills. The coaching works the same no matter where you play.
+
+What's included in a Crestline coaching program?
+
+Crestline plans range from a free monthly game diagnosis up to $159/month for unlimited reviews. Every plan includes footage review and a custom drill plan; higher tiers add live voice-and-video feedback, faster turnaround, and strength/nutrition guidance. Pick the plan that matches how much feedback you want.
+
+What level of player do you work with?
+
+Mostly serious recreational players in the 3.0 to 4.0 range who are ready to break through a plateau, plus higher-level players wanting a second set of eyes on their game. Put simply: 3.5 is the intermediate rating and 4.0+ is advanced, and I coach the intermediate player who wants to get there. Not sure where you fall or if it's a fit? Just reach out and ask.
+
+How much do lessons cost?
+
+In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4, 6, or 8 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.
+
+What's your cancellation policy?
+
+For in-person lessons, I ask for at least 12 hours' notice to cancel or reschedule. Last-minute no-shows affect other players' time too. Crestline virtual coaching is a monthly subscription you can pause or cancel anytime before your next billing date.
+
+[Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35)
+
+---
+
+Site index for AI agents: https://pickleballchiro.co/llms.txt

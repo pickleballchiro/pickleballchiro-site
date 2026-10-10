@@ -21,13 +21,14 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 | `pickleballchiro.co/pickleball-coaches-daytona-beach/` | `pickleball-coaches-daytona-beach/index.html` | "How I'm different from the average lesson" page targeting *pickleball coach Daytona Beach* queries (ChatGPT/Bing). **Names no other coach or facility** (Lane's rule, Sep 15 2026). Article + FAQ schema |
 | `pickleballchiro.co/virtual-coaching/` | `virtual-coaching/index.html` | Virtual coaching via Crestline: plans, how it works, FAQ |
 | `pickleballchiro.co/about/` | `about/index.html` | Credentials and story |
+| `pickleballchiro.co/contact/` | `contact/index.html` | Contact page: phone, email, IG, hours, service area, booking routes (ContactPage schema; trust page AI agents check) |
 | `pickleballchiro.co/privacy/`, `/terms/` | `privacy/`, `terms/` | Legal pages (Terms carries the medical disclaimer) |
 | `pickleballchiro.co/404.html` | `404.html` | Custom not-found page (GitHub Pages serves it for any missing path) |
 | `pickleballchiro.co/stats.html` | `stats.html` | Private click-analytics viewer (this browser only) |
 
 **AI / search plumbing** (all at the root): `robots.txt` (every AI crawler allowed + `Content-Signal`), `sitemap.xml`
 (only bump `lastmod` on pages you actually changed), `llms.txt` (facts + links for AI systems), `llms-full.txt`
-(plain-text mirror of every page — regenerate after any copy change with `python3 build-llms-full.py`), `favicon.ico` / `favicon-32.png` /
+(plain-text mirror of every page — regenerate after any copy change with `python3 build-llms-full.py`, which also rewrites each page's Markdown twin `<page>/index.md`), `favicon.ico` / `favicon-32.png` /
 `apple-touch-icon.png`, and a 32-hex `*.txt` IndexNow key file (don't delete it; Bing uses it to verify pings).
 
 **Structured data:** every page carries the same `Person` (`#lane-odom`), `LocalBusiness` (`#business`, incl. opening
@@ -35,12 +36,37 @@ hours from the Google Business Profile), and `WebSite` (`#website`) JSON-LD in `
 If you change the business node, change it on the homepage and copy it to every other page so the entity stays identical. Postal locality is Daytona Beach 32117 — keep it identical across pages. Canonical facts live in the
 main repo's `06 Reference/FACTS.md`.
 
+## Markdown for AI agents (Cloudflare Worker)
+
+GitHub Pages can't vary a response by the `Accept` header, so a small Cloudflare Worker
+(`_worker/worker.js`, route `pickleballchiro.co/*`) sits in front of it:
+
+- `Accept: text/markdown` on a page → that page's `index.md` twin, `Content-Type: text/markdown`, `Vary: Accept`.
+- `Accept: text/markdown` on a missing page → 404 with a short Markdown body linking `llms.txt` and the sitemap.
+- Everything else → the GitHub Pages response untouched, with `Accept` added to `Vary`. Assets pass straight through.
+- Any error → falls back to GitHub Pages (fail open).
+
+The twins are built by `build-llms-full.py`; a page missing from its `PAGES` list just gets HTML.
+`.nojekyll` (repo root, don't delete) turns off GitHub Pages' Jekyll step, so the `index.md` twins are served as raw
+files instead of being rendered over `index.html`. Nothing on the site uses Jekyll. `_worker/` and `_tests/` are
+publicly readable as a result; they hold no secrets.
+
+**Deploy the Worker** (only when `_worker/worker.js` changes):
+```bash
+cd _worker && npx wrangler@4 login && npx wrangler@4 deploy
+```
+Free plan = 100k requests/day; in Cloudflare → Workers Routes, set the route's failure mode to **Fail open**
+so the site keeps serving if that limit is ever hit.
+
+**Tests:** `node --test _worker/*.test.mjs` (Worker) and `python3 -m unittest discover _tests` (schema,
+contact page, llms.txt shape, Markdown twins, sitemap). Run both before pushing.
+
 ## Adding an article (the spoke pattern)
 
 1. Copy `third-shot-drive-or-drop/index.html` to `<slug>/index.html`. Change: `<title>`, meta description, canonical, every `og:`/`twitter:` tag, the `Article` node (`@id`, headline, description, url, image, dates, wordCount), the `BreadcrumbList`, and the `FAQPage` (its answers must be the exact visible `.faq-answer` text). Leave the three shared entity nodes (`#lane-odom`, `#business`, `#website`) untouched.
 2. Use `/images/og-lane-1200x630.jpg` (or a new 1200×630 image) for `og:image` / `twitter:image` / Article `image`.
 3. Link the new page from the hub article (`/why-youre-stuck-at-3-5/`) and the homepage quiz card note.
-4. Add a `<url>` to `sitemap.xml`, a bullet under **Free Resources** in `llms.txt`, and a tuple to `PAGES` in `build-llms-full.py`; then run `python3 build-llms-full.py`.
+4. Add a `<url>` to `sitemap.xml`, a bullet under **Free Resources** in `llms.txt`, and a tuple to `PAGES` in `build-llms-full.py`; then run `python3 build-llms-full.py` (writes the page's `index.md` twin too) and the tests.
 5. Push. Then POST the URL to IndexNow (see below) and request indexing in Search Console.
 
 **IndexNow ping** (Bing/Copilot/ChatGPT search; the key file is already hosted):
