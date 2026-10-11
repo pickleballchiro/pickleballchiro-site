@@ -51,7 +51,7 @@
        handlers, so the async media="print"/onload swap (used on the main site)
        never fires here — load the stylesheet directly instead. -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=21" />
+  <link rel="stylesheet" href="dashboard.css?v=22" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -215,6 +215,14 @@
       </section>
     </div>
 
+    <!-- Crestline -->
+    <section class="card" id="crestline">
+      <div class="card-head"><h2>Crestline</h2><span id="crestline-sub" class="card-sub"></span></div>
+      <div id="crestline-kpis" class="kpi-grid"></div>
+      <div id="crestline-table" class="cl-wrap"></div>
+      <div id="crestline-away" class="cl-wrap"></div>
+    </section>
+
     <!-- Clients -->
     <section class="card">
       <div class="card-head"><h2>Clients</h2><span id="client-count" class="card-sub"></span></div>
@@ -280,6 +288,6 @@
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard.js?v=21"></script>
+  <script src="dashboard.js?v=22"></script>
 </body>
 </html>

@@ -497,3 +497,20 @@ main {
 .mix-table th:first-child, .mix-table td:first-child { text-align: left; }
 .mix-table td:first-child .legend-swatch { display: inline-block; vertical-align: middle; margin-right: 8px; }
 #mix-pie .card-sub { flex: 1 0 100%; margin-top: 8px; }
+
+/* ---------- Crestline section ---------- */
+.cl-wrap { margin-top: 14px; overflow-x: auto; }
+.cl-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 560px; }
+.cl-table th { text-align: left; color: var(--gray-mid); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; padding: 6px 10px 8px; border-bottom: 1px solid var(--border); }
+.cl-table td { padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--off-white); }
+.cl-table tr:last-child td { border-bottom: 0; }
+.cl-table .r { text-align: right; }
+.cl-note { font-size: 0.72rem; color: var(--gray-mid); margin-top: 2px; }
+.cl-muted { color: var(--gray-mid); }
+.cl-late, .cl-table .cl-late { color: var(--serious); }
+.cl-h3 { font-size: 0.82rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.08em; margin: 18px 0 6px; font-weight: 600; }
+@media (max-width: 640px) {
+  .cl-table { min-width: 0; }
+  .cl-table .hm { display: none; }
+  .cl-table td, .cl-table th { padding-left: 6px; padding-right: 6px; }
+}

@@ -563,6 +563,7 @@ function renderAll(d) {
   renderMoney(d);
   renderUnserviced(d);
   renderOwed(d);
+  renderCrestline(d);
   renderClients(d);
   renderReengage(d);
   renderRecent(d);
@@ -1546,7 +1547,8 @@ function oneOffSummary(t) {
 function renderClients(d) {
   const tally = sessionTally(d);
   const rank = { "Package Client": 0, "Subscriber": 1, "Active": 2, "New": 3, "Paused": 4, "Lapsed": 4, "Canceled": 5, "Inactive": 5 };
-  const sorted = [...d.clients].sort((a, b) => {
+  // Crestline subscribers have their own section (renderCrestline), so the general grid skips them.
+  const sorted = d.clients.filter((c) => !isSubscriber(c)).sort((a, b) => {
     const ra = rank[a.stage] ?? 2, rb = rank[b.stage] ?? 2;
     if (ra !== rb) return ra - rb;
     return (b.last_session || "").localeCompare(a.last_session || "");
@@ -1608,6 +1610,81 @@ function renderClients(d) {
     (inactive.length
       ? `<details style="grid-column:1/-1"><summary class="empty-note" style="cursor:pointer">Show ${inactive.length} inactive clients</summary><div class="client-grid" style="margin-top:12px">${inactive.map(card).join("")}</div></details>`
       : "");
+}
+
+
+/* ------- Crestline: subscribers, plans, renewals ------- */
+
+function renderCrestline(d) {
+  const subs = (d.clients || []).filter((c) => c.name && isSubscriber(c));
+  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  const shortD = (ds) => (ds && parseDate(ds) ? parseDate(ds).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "2-digit" }) : "—");
+  const daysTo = (ds) => {
+    const dt = parseDate(ds);
+    return dt ? Math.round((new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()) - today0) / 86400000) : null;
+  };
+  const info = (c) => ({ c, sub: subscriptionInfo(d, c), due: daysTo(c.next_renewal) });
+  const rows = subs.map(info);
+  const live = rows.filter((r) => r.c.stage === "Subscriber");
+  const paused = rows.filter((r) => r.c.stage === "Paused");
+  const canceled = rows.filter((r) => r.c.stage === "Canceled" || r.c.stage === "Lapsed");
+  const mrr = live.reduce((s, r) => s + r.sub.rate, 0);
+  const next30 = live.filter((r) => r.due !== null && r.due >= 0 && r.due <= 30);
+  const next30$ = next30.reduce((s, r) => s + r.sub.rate, 0);
+  const lifetime = rows.reduce((s, r) => s + (r.c.total_paid || 0), 0);
+
+  $("crestline-sub").textContent = `${live.length} subscriber${live.length === 1 ? "" : "s"}` +
+    (paused.length ? ` · ${paused.length} paused` : "") + (canceled.length ? ` · ${canceled.length} canceled` : "");
+
+  const tile = (label, value, note) =>
+    `<div class="kpi"><div class="kpi-label">${label}</div><div class="kpi-value">${value}</div>${note ? `<div class="kpi-delta">${note}</div>` : ""}</div>`;
+  $("crestline-kpis").innerHTML =
+    tile("MRR", fmt$(mrr), "recurring, active only") +
+    tile("Renewing · 30d", fmt$(next30$), `${next30.length} subscriber${next30.length === 1 ? "" : "s"} due`) +
+    tile("Paused", paused.length, paused.length ? "expected back" : "") +
+    tile("Lifetime", fmt$(lifetime), "all Crestline clients");
+
+  const renewal = (r) => {
+    if (r.c.stage === "Subscriber") {
+      if (r.due === null) return `<span class="cl-muted">—</span>`;
+      const when = shortD(r.c.next_renewal);
+      if (r.due < 0) return `<strong class="cl-late">${when}</strong><div class="cl-note cl-late">${-r.due}d overdue</div>`;
+      if (r.due === 0) return `<strong>${when}</strong><div class="cl-note">today</div>`;
+      return `<strong>${when}</strong><div class="cl-note">in ${r.due}d</div>`;
+    }
+    return `<span class="cl-muted">—</span>`;
+  };
+  const months = (r) => r.sub.months ? `${r.sub.months} mo` : "—";
+  const tenure = (r) => {
+    const days = daysSince(r.c.crestline_since);
+    return days === null ? "—" : days < 45 ? `${days}d` : `${Math.round(days / 30.4)} mo`;
+  };
+  const planCell = (r) => `${esc(r.c.crestline_tier || "—")}${r.sub.rate ? `<div class="cl-note">${fmt$c(r.sub.rate)} net/mo</div>` : ""}`;
+
+  const order = (a, b) => (a.due ?? 9999) - (b.due ?? 9999);
+  const liveSorted = [...live].sort(order);
+  $("crestline-table").innerHTML = live.length
+    ? `<table class="cl-table"><thead><tr><th>Client</th><th>Next renewal</th><th>Plan</th><th class="hm">Since</th><th class="hm">Time as client</th><th class="r hm">Paid</th></tr></thead><tbody>` +
+      liveSorted.map((r) => `<tr>
+        <td><strong>${esc(r.c.name)}</strong></td>
+        <td>${renewal(r)}</td>
+        <td>${planCell(r)}</td>
+        <td class="hm">${esc(shortD(r.c.crestline_since))}</td>
+        <td class="hm">${tenure(r)}<div class="cl-note">${months(r)} paid</div></td>
+        <td class="r hm">${fmt$c(r.c.total_paid)}</td></tr>`).join("") + `</tbody></table>`
+    : `<div class="empty-note">No active Crestline subscribers yet.</div>`;
+
+  const away = [...paused, ...canceled];
+  $("crestline-away").innerHTML = away.length
+    ? `<h3 class="cl-h3">Paused &amp; canceled</h3><table class="cl-table"><thead><tr><th>Client</th><th>Status</th><th>Last paid</th><th class="hm">Plan</th><th class="hm">Subscribed</th><th class="r hm">Paid</th></tr></thead><tbody>` +
+      away.map((r) => `<tr>
+        <td><strong>${esc(r.c.name)}</strong></td>
+        <td>${chipFor(r.c)}</td>
+        <td>${esc(shortD(r.c.last_paid))}</td>
+        <td class="hm">${planCell(r)}</td>
+        <td class="hm">${esc(shortD(r.c.crestline_since))}</td>
+        <td class="r hm">${fmt$c(r.c.total_paid)}</td></tr>`).join("") + `</tbody></table>`
+    : "";
 }
 
 /* ------- follow up / re-engage ------- */
