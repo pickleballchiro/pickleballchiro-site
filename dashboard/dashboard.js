@@ -450,7 +450,7 @@ function firstDate(rows) {
 const CRESTLINE_ONEOFF_RE = /one[\s-]?off|one[\s-]?time/;
 
 function isSubscriber(c) {
-  return c.stage === "Subscriber" || c.stage === "Lapsed" || !!String(c.crestline_tier || "").trim();
+  return c.stage === "Subscriber" || c.stage === "Lapsed" || c.stage === "Paused" || c.stage === "Canceled" || !!String(c.crestline_tier || "").trim();
 }
 
 /* Months subscribed + the current monthly rate, DERIVED from the Income ledger rather
@@ -632,6 +632,8 @@ function renderKpis(d) {
   const subs = d.clients.filter((c) => c.name && c.stage === "Subscriber");
   const mrr = subs.reduce((s, c) => s + subscriptionInfo(d, c).rate, 0);
   const lapsedCount = d.clients.filter((c) => c.name && c.stage === "Lapsed").length;
+  // Paused / Canceled are set by hand (webhook crestline_status) and are NOT in MRR: only stage === "Subscriber" is.
+  const pausedCount = d.clients.filter((c) => c.name && c.stage === "Paused").length;
   const delta = (cur, prevV, money) => {
     if (!prevV) return "";
     const pct = ((cur - prevV) / prevV) * 100;
@@ -656,7 +658,7 @@ function renderKpis(d) {
     { label: "Avg ticket · 30d", value: avgTicket !== null ? fmt$(avgTicket) : "—",
       extra: avgTicket !== null ? `<div class="kpi-delta">${fmt$(sessionRev30)} ÷ ${sessTrailing.cur} ${src.noun}${crestlineTrailing.cur ? " (excl. Crestline)" : ""}</div>` : "" },
     { label: "Crestline MRR", value: fmt$(mrr),
-      extra: `<div class="kpi-delta">${subs.length} subscriber${subs.length === 1 ? "" : "s"}${lapsedCount ? ` · ${lapsedCount} lapsed` : ""}</div>` },
+      extra: `<div class="kpi-delta">${subs.length} subscriber${subs.length === 1 ? "" : "s"}${pausedCount ? ` · ${pausedCount} paused` : ""}${lapsedCount ? ` · ${lapsedCount} lapsed` : ""}</div>` },
     { label: "New leads · 30d", value: leadsTrailing.cur, extra: delta(leadsTrailing.cur, leadsTrailing.prev, false) },
     { label: "Lead conversion", value: conversion.rate.toFixed(0) + "%", extra: `<div class="kpi-delta">${conversion.converted} of ${conversion.total} leads · all-time</div>` },
     { label: "Avg client value", value: fmt$(clientValue.avg), extra: `<div class="kpi-delta">${clientValue.rebookRate.toFixed(0)}% rebook (${clientValue.n} clients)</div>` },
@@ -1474,6 +1476,7 @@ function chipFor(c) {
   // Lesson) client whose Included/Left happened to get filled in by mistake.
   const isOneOff = String(c.package || "").trim() === "Single Lesson";
   if (stage === "Subscriber") return '<span class="chip crestline">' + esc(tier ? "Crestline · " + tier : "Crestline") + "</span>";
+  if (stage === "Paused" || stage === "Canceled") return '<span class="chip atrisk">' + esc(tier ? stage + " · " + tier : stage) + "</span>";
   if (stage === "Lapsed") return '<span class="chip atrisk">' + esc(tier ? "Lapsed · " + tier : "Lapsed") + "</span>";
   if (stage === "Package Client" && !isOneOff) return '<span class="chip package">Package</span>';
   if (stage === "Active" || (stage === "Package Client" && isOneOff)) return '<span class="chip active">Active</span>';
@@ -1542,7 +1545,7 @@ function oneOffSummary(t) {
 
 function renderClients(d) {
   const tally = sessionTally(d);
-  const rank = { "Package Client": 0, "Subscriber": 1, "Active": 2, "New": 3, "Lapsed": 4, "Inactive": 5 };
+  const rank = { "Package Client": 0, "Subscriber": 1, "Active": 2, "New": 3, "Paused": 4, "Lapsed": 4, "Canceled": 5, "Inactive": 5 };
   const sorted = [...d.clients].sort((a, b) => {
     const ra = rank[a.stage] ?? 2, rb = rank[b.stage] ?? 2;
     if (ra !== rb) return ra - rb;
@@ -1574,6 +1577,8 @@ function renderClients(d) {
       <div class="client-rows">
         <div class="row"><span class="k">Plan</span><span class="v">${esc(c.crestline_tier || "Crestline")}${sub.rate ? " · " + fmt$c(sub.rate) + "/mo" : ""}</span></div>
         <div class="row"><span class="k">Months subscribed</span><span class="v">${sub.months || "—"}</span></div>
+        ${c.crestline_since ? `<div class="row"><span class="k">Subscribed since</span><span class="v">${esc(short(c.crestline_since))}</span></div>` : ""}
+        ${c.next_renewal ? `<div class="row"><span class="k">Next renewal</span><span class="v">${esc(short(c.next_renewal))}</span></div>` : ""}
         <div class="row"><span class="k">Last payment</span><span class="v">${esc(short(c.last_paid))}</span></div>
         <div class="row"><span class="k">Total paid</span><span class="v">${fmt$c(c.total_paid)}</span></div>
         ${c.outstanding > 0 ? `<div class="row"><span class="k">Outstanding</span><span class="v" style="color:var(--warn)">${fmt$c(c.outstanding)}</span></div>` : ""}
@@ -1631,12 +1636,12 @@ function renderReengage(d) {
     // LAPSED one is the best target on the page, which is exactly why the webhook keeps
     // "Lapsed" distinct from "Inactive" instead of letting it be filtered out above.
     if (isSubscriber(c)) {
-      if (c.stage !== "Lapsed") return;
+      if (c.stage !== "Lapsed" && c.stage !== "Canceled") return; // Paused = expected back, not nagged
       const sinceSub = daysSince(c.last_paid);
       items.push({
         name: c.name,
         since: sinceSub === null ? Infinity : sinceSub,
-        reason: `Crestline subscription lapsed${c.crestline_tier ? " (" + c.crestline_tier + ")" : ""} — no payment in ${sinceSub === null ? "60+" : sinceSub} days`,
+        reason: `Crestline subscription ${c.stage === "Canceled" ? "canceled" : "lapsed"}${c.crestline_tier ? " (" + c.crestline_tier + ")" : ""} — no payment in ${sinceSub === null ? "60+" : sinceSub} days`,
         last: c.last_paid, lastLabel: "Last paid", paid: c.total_paid, notes: c.notes,
       });
       return;

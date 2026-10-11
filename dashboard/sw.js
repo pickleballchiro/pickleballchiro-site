@@ -14,7 +14,7 @@
    included, or a version bump would serve the previous file forever.
    ============================================================ */
 
-const SHELL_VERSION = "v20";
+const SHELL_VERSION = "v21";
 const CACHE = "pbc-shell-" + SHELL_VERSION;
 
 const SHELL = [
