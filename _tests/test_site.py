@@ -75,6 +75,16 @@ class OrganizationSchema(unittest.TestCase):
             self.assertEqual(strip(node), strip(home), f)
 
 
+class WikidataLinks(unittest.TestCase):
+    def test_person_and_business_link_their_wikidata_items(self):
+        expected = {SITE + "/#lane-odom": "https://www.wikidata.org/wiki/Q141693778",
+                    SITE + "/#business": "https://www.wikidata.org/wiki/Q141693780"}
+        for f in PAGE_FILES:
+            for node in json_ld_nodes(read(f)):
+                if node.get("@id") in expected and "sameAs" in node:
+                    self.assertIn(expected[node["@id"]], node["sameAs"], (f, node["@id"]))
+
+
 class ContactPage(unittest.TestCase):
     def setUp(self):
         self.html = read("contact/index.html")
