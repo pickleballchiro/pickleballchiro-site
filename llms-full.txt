@@ -1,6 +1,6 @@
 # Dr. Lane Odom — The Pickleball Chiro (full site text)
 
-> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-11. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
+> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-12. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
 
 ---
 
@@ -222,7 +222,7 @@ You have the shots. You’re losing the same point over and over. Here’s where
 
 4.7 DUPR Doctor of Chiropractic PCI Certified Coach
 
-By Dr. Lane Odom, DC · PCI Certified Coach · Published September 13, 2026 · Updated September 15, 2026 · 10 min read
+By Dr. Lane Odom, DC · PCI Certified Coach · Published September 13, 2026 · Updated October 12, 2026 · 10 min read
 
 A 3.5 player isn’t missing a shot. A 3.5 player has a leak: one shot or movement pattern that loses the same point several times a game. Most 3.0–4.0 players have exactly one, it’s almost always in the first four shots or the transition zone, and it’s why drilling harder hasn’t moved your rating.
 
@@ -418,7 +418,7 @@ It depends on which leak you have and how much you play. Transition-zone and sho
 
 - USA Pickleball. Determining Pickleball Skill Levels For Every Player (official player skill rating definitions, 3.5 and 4.0). Accessed September 15, 2026.
 
-Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player with 13+ years of racket sports experience. He coaches in person across Volusia County, FL and virtually through Crestline. More about Lane.
+Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He coaches intermediate (3.5) players who want to reach advanced (4.0+) play, in person across Volusia County, FL and virtually through Crestline. More about Lane.
 
 ---
 
@@ -584,7 +584,7 @@ Foam rolling and rest keep the pain quiet for a week. Here’s why it comes back
 
 4.7 DUPR Doctor of Chiropractic PCI Certified Coach
 
-By Dr. Lane Odom, DC · PCI Certified Coach · Published September 14, 2026 · 10 min read
+By Dr. Lane Odom, DC · PCI Certified Coach · Published September 14, 2026 · 10 min read Reviewed by Dr. Lane Odom, DC · Last reviewed October 12, 2026
 
 Educational content only. Not intended to diagnose or treat. Results vary. Consult your physician before beginning any exercise program.
 
@@ -592,7 +592,7 @@ Knee pain is one of the most common complaints I see in recreational players ove
 
 Most players try the same three things: foam roll the IT band, stretch and ice, take a week off. All three can make the knee feel better for a little while. None of them fix why it started hurting in the first place, so it comes right back the next time you play a full session. This guide is the 3-stage system I use with players to actually get it to stop, built for people who refuse to just stop playing.
 
-I’m a Doctor of Chiropractic and I compete at the 5.0 level myself, so I see this from both sides of the net. As a chiropractor, the knee is one of the most common complaints that walks through the door. As a player, I’ve watched the same pattern happen to partners and opponents for years: they manage the pain instead of fixing it, and it costs them a season instead of a few weeks. This is the framework I built to stop that cycle.
+I’m a Doctor of Chiropractic and I play at a 5.0 level myself, so I see this from both sides of the net. As a chiropractor, the knee is one of the most common complaints that walks through the door. As a player, I’ve watched the same pattern happen to partners and opponents for years: they manage the pain instead of fixing it, and it costs them a season instead of a few weeks. This is the framework I built to stop that cycle.
 
 ### Why the Pain Keeps Coming Back
 
@@ -778,7 +778,7 @@ Footwear can be a small piece of the puzzle, but it’s rarely the actual cause.
 
 - Weiss H, Dougherty J, DiMaggio C. Non-fatal senior pickleball and tennis-related injuries treated in United States emergency departments, 2010–2019. Inj Epidemiol. 2021;8:34. doi:10.1186/s40621-021-00327-9
 
-Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player with 13+ years of racket sports experience. He treats pickleball players across Volusia County, FL through mobile chiropractic care. More about Lane.
+Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He treats pickleball players across Volusia County, FL through mobile chiropractic care. More about Lane.
 
 ---
 
@@ -1246,7 +1246,7 @@ If that’s you, no hard feelings. Take the free diagnosis anyway; it’s useful
 
 Chipshot in Daytona Beach is where most lessons happen. It’s indoor, air conditioned, and there’s always a court, so no rainouts and no waiting. I also teach at public courts around Volusia County when they’re not busy: Pettis Park in New Smyrna Beach is the most popular, and there are courts in Daytona Beach and Port Orange we can use during quieter hours. Tell me where you are and we’ll pick the spot that works.
 
-$80 per hour for a private lesson. $50 per person for two players, $40 per person for three or more. Packages of four ($300), six ($420) and eight ($520) that don’t expire. Full details on the lessons page; virtual coaching plans are on the virtual coaching page.
+$80 per hour for a private lesson. $50 per person for two players, $40 per person for three or more. Packages of four ($300) and six ($420) that don’t expire. Full details on the lessons page; virtual coaching plans are on the virtual coaching page.
 
 Book a Lesson → Take the Free Diagnosis →
 
@@ -1258,7 +1258,7 @@ It depends on what is actually holding you back, and most 3.5 players guess wron
 
 How much do pickleball lessons cost in Daytona Beach?
 
-Private pickleball lessons in the Daytona Beach area are usually priced by the hour. Lane charges $80 per hour for a private lesson, $50 per person for two players, and $40 per person for three or more, with packages of four ($300), six ($420) and eight ($520) lessons that do not expire. Group clinics and community classes cost less per person and are the better value for beginners.
+Private pickleball lessons in the Daytona Beach area are usually priced by the hour. Lane charges $80 per hour for a private lesson, $50 per person for two players, and $40 per person for three or more, with packages of four ($300) and six ($420) lessons that do not expire. Group clinics and community classes cost less per person and are the better value for beginners.
 
 Where do pickleball lessons happen in Daytona Beach?
 

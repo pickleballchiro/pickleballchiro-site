@@ -10,7 +10,7 @@ Foam rolling and rest keep the pain quiet for a week. Here’s why it comes back
 
 4.7 DUPR Doctor of Chiropractic PCI Certified Coach
 
-By [Dr. Lane Odom, DC](https://pickleballchiro.co/about/) · PCI Certified Coach · Published September 14, 2026 · 10 min read
+By [Dr. Lane Odom, DC](https://pickleballchiro.co/about/) · PCI Certified Coach · Published September 14, 2026 · 10 min read Reviewed by [Dr. Lane Odom, DC](https://pickleballchiro.co/about/) · Last reviewed October 12, 2026
 
 Educational content only. Not intended to diagnose or treat. Results vary. Consult your physician before beginning any exercise program.
 
@@ -18,7 +18,7 @@ Knee pain is one of the most common complaints I see in recreational players ove
 
 Most players try the same three things: foam roll the IT band, stretch and ice, take a week off. All three can make the knee feel better for a little while. None of them fix why it started hurting in the first place, so it comes right back the next time you play a full session. This guide is the 3-stage system I use with players to actually get it to stop, built for people who refuse to just stop playing.
 
-I’m a Doctor of Chiropractic and I compete at the 5.0 level myself, so I see this from both sides of the net. As a chiropractor, the knee is one of the most common complaints that walks through the door. As a player, I’ve watched the same pattern happen to partners and opponents for years: they manage the pain instead of fixing it, and it costs them a season instead of a few weeks. This is the framework I built to stop that cycle.
+I’m a Doctor of Chiropractic and I play at a 5.0 level myself, so I see this from both sides of the net. As a chiropractor, the knee is one of the most common complaints that walks through the door. As a player, I’ve watched the same pattern happen to partners and opponents for years: they manage the pain instead of fixing it, and it costs them a season instead of a few weeks. This is the framework I built to stop that cycle.
 
 ### Why the Pain Keeps Coming Back
 
@@ -204,7 +204,7 @@ Footwear can be a small piece of the puzzle, but it’s rarely the actual cause.
 
 - Weiss H, Dougherty J, DiMaggio C. Non-fatal senior pickleball and tennis-related injuries treated in United States emergency departments, 2010–2019. Inj Epidemiol. 2021;8:34. [doi:10.1186/s40621-021-00327-9](https://doi.org/10.1186/s40621-021-00327-9)
 
-Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player with 13+ years of racket sports experience. He treats pickleball players across Volusia County, FL through [mobile chiropractic care](https://pickleballchiro.co/mobile-chiro/). [More about Lane](https://pickleballchiro.co/about/).
+Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He treats pickleball players across Volusia County, FL through [mobile chiropractic care](https://pickleballchiro.co/mobile-chiro/). [More about Lane](https://pickleballchiro.co/about/).
 
 ---
 

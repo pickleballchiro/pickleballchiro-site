@@ -10,7 +10,7 @@ You have the shots. You’re losing the same point over and over. Here’s where
 
 4.7 DUPR Doctor of Chiropractic PCI Certified Coach
 
-By [Dr. Lane Odom, DC](https://pickleballchiro.co/about/) · PCI Certified Coach · Published September 13, 2026 · Updated September 15, 2026 · 10 min read
+By [Dr. Lane Odom, DC](https://pickleballchiro.co/about/) · PCI Certified Coach · Published September 13, 2026 · Updated October 12, 2026 · 10 min read
 
 A 3.5 player isn’t missing a shot. A 3.5 player has a leak: one shot or movement pattern that loses the same point several times a game. Most 3.0–4.0 players have exactly one, it’s almost always in the first four shots or the transition zone, and it’s why drilling harder hasn’t moved your rating.
 
@@ -206,7 +206,7 @@ It depends on which leak you have and how much you play. Transition-zone and sho
 
 - USA Pickleball. [Determining Pickleball Skill Levels For Every Player](https://usapickleball.org/skill-level/) (official player skill rating definitions, 3.5 and 4.0). Accessed September 15, 2026.
 
-Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player with 13+ years of racket sports experience. He coaches in person across Volusia County, FL and virtually through Crestline. [More about Lane](https://pickleballchiro.co/about/).
+Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He coaches intermediate (3.5) players who want to reach advanced (4.0+) play, in person across Volusia County, FL and virtually through Crestline. [More about Lane](https://pickleballchiro.co/about/).
 
 ---
 
