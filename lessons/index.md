@@ -26,7 +26,7 @@ All in-person lessons are 60 minutes on court. Full pricing is further down.
 
 Fastest improvement
 
-Every rep is about your game. Slow-motion technique analysis on a specific shot, a movement check, and 2–3 focuses in your portal after every session. As low as $65/session with a pack.
+Every rep is about your game. Slow-motion technique analysis on a specific shot, a movement check, and 2–3 focuses in your portal after every session. As low as $70/session with a pack.
 
 See packages →
 
@@ -44,17 +44,17 @@ Team Hybrid $40 / person
 
 League teams of 4
 
-I coach live during your games, then send a film breakdown to each pair of partners, so both pairs know exactly what to fix before the next match.
+We film two games, then spend whatever time is left drilling the weak spots I saw in your play, so everyone knows exactly what to fix before the next match.
 
 See details →
 
-Virtual from $49 / mo
+Virtual Plans & one-offs
 
 Not local, or between lessons
 
-Send in your game film through Crestline. You get the same whole-chain breakdown plus a drill plan, from anywhere.
+Start with a free gameplay diagnosis, then pick a monthly plan or a single one-off review. You get the same whole-chain breakdown plus a drill plan, from anywhere.
 
-[See virtual coaching →](https://pickleballchiro.co/virtual-coaching/)
+[See plans & pricing →](https://pickleballchiro.co/virtual-coaching/)
 
 Read This First
 
@@ -164,9 +164,9 @@ Team Hybrid, 4 Players Popular Right Now
 
 $40/person ($160 total)
 
-Live coaching for the full hour (usually 2–3 games), plus a game-analysis video breakdown for each pair of partners afterward
+Two filmed games, then any time left goes to drills for the weak spots I saw in your games
 
-1-on-1 PackagesSave up to $120. Packages never expire.
+1-on-1 PackagesSave up to $60. Packages never expire.
 
 Package
 
@@ -180,17 +180,11 @@ $300 ($75/session)
 
 $20
 
-6 Lessons
+6 Lessons Best Value
 
 $420 ($70/session)
 
 $60
-
-8 Lessons Best Value
-
-$520 ($65/session)
-
-$120
 
 Group packages available by inquiry.
 
@@ -214,7 +208,7 @@ Before You Book
 
 Which option should I pick?
 
-If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $65 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one.
+If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $70 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one.
 
 What makes you different from other coaches?
 

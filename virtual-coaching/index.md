@@ -74,13 +74,13 @@ Feedback Format
 
 Response Time
 
-Free
+Free Trial
 
 $0/mo
 
-1
+1 total (one video, one time)
 
-Written, ~5 min clip, biggest limitation identified
+Gameplay diagnosis: written, ~5 min clip, biggest limitation identified
 
 N/A
 
@@ -122,13 +122,7 @@ Price
 
 What You Get
 
-Basic Review
-
-$29
-
-Single written feedback review
-
-Detailed Review
+One-Off Review
 
 $39
 

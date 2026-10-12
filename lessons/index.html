@@ -68,6 +68,7 @@
     .tier-name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; }
     .tier-price { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.35rem; color: var(--orange); white-space: nowrap; }
     .tier-price small { font-size: 0.75rem; color: var(--gray-mid); font-weight: 500; }
+    .tier-price.tier-price-text { font-size: 1.05rem; white-space: normal; text-align: right; }
     .tier-who { font-size: 0.78rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.08em; }
     .tier-desc { font-size: 0.88rem; color: var(--off-white); line-height: 1.55; }
     .tier-link { margin-top: 6px; font-size: 0.85rem; font-weight: 600; color: var(--orange); text-decoration: none; }
@@ -478,10 +479,10 @@
       "lowPrice": "40",
       "highPrice": "520",
       "priceCurrency": "USD",
-      "offerCount": "7",
+      "offerCount": "6",
       "url": "https://forms.gle/Dz98yAxHX2rUjHQx7",
       "availability": "https://schema.org/InStock",
-      "description": "Solo lessons $80/hour. Group lessons $50/person (2 players, individual technique analysis) or $40/person (3 players, live-game analysis). Team Hybrid lessons for 4-player league teams: $40/person ($160 total), live coaching plus a video breakdown for each set of partners. Packages: 4 lessons $300, 6 lessons $420, 8 lessons $520. Packages don't expire."
+      "description": "Solo lessons $80/hour. Group lessons $50/person (2 players, individual technique analysis) or $40/person (3 players, live-game analysis). Team Hybrid lessons for 4-player league teams: $40/person ($160 total), two filmed games, then any remaining time spent on drills for the weak spots seen in your games. Packages: 4 lessons $300, 6 lessons $420. Packages don't expire."
     }
   }
   </script>
@@ -495,7 +496,7 @@
       {
         "@type": "Question",
         "name": "Which option should I pick?",
-        "acceptedAnswer": { "@type": "Answer", "text": "If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $65 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one." }
+        "acceptedAnswer": { "@type": "Answer", "text": "If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $70 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one." }
       },
       {
         "@type": "Question",
@@ -617,7 +618,7 @@
             <span class="tier-price">$80 <small>/ hr</small></span>
           </div>
           <p class="tier-who">Fastest improvement</p>
-          <p class="tier-desc">Every rep is about your game. Slow-motion technique analysis on a specific shot, a movement check, and 2&ndash;3 focuses in your portal after every session. As low as $65/session with a pack.</p>
+          <p class="tier-desc">Every rep is about your game. Slow-motion technique analysis on a specific shot, a movement check, and 2&ndash;3 focuses in your portal after every session. As low as $70/session with a pack.</p>
           <a href="#pricing" class="tier-link" data-track="lessons_tier_solo">See packages &rarr;</a>
         </div>
 
@@ -638,18 +639,18 @@
             <span class="tier-price">$40 <small>/ person</small></span>
           </div>
           <p class="tier-who">League teams of 4</p>
-          <p class="tier-desc">I coach live during your games, then send a film breakdown to each pair of partners, so both pairs know exactly what to fix before the next match.</p>
+          <p class="tier-desc">We film two games, then spend whatever time is left drilling the weak spots I saw in your play, so everyone knows exactly what to fix before the next match.</p>
           <a href="#pricing" class="tier-link" data-track="lessons_tier_team">See details &rarr;</a>
         </div>
 
         <div class="tier-card card">
           <div class="tier-top">
             <span class="tier-name">Virtual</span>
-            <span class="tier-price">from $49 <small>/ mo</small></span>
+            <span class="tier-price tier-price-text">Plans &amp; one-offs</span>
           </div>
           <p class="tier-who">Not local, or between lessons</p>
-          <p class="tier-desc">Send in your game film through Crestline. You get the same whole-chain breakdown plus a drill plan, from anywhere.</p>
-          <a href="/virtual-coaching/" class="tier-link" data-track="lessons_tier_virtual">See virtual coaching &rarr;</a>
+          <p class="tier-desc">Start with a free gameplay diagnosis, then pick a monthly plan or a single one-off review. You get the same whole-chain breakdown plus a drill plan, from anywhere.</p>
+          <a href="/virtual-coaching/" class="tier-link" data-track="lessons_tier_virtual">See plans &amp; pricing &rarr;</a>
         </div>
 
       </div>
@@ -776,13 +777,13 @@
             <tr>
               <td data-label="Format">Team Hybrid, 4 Players <span class="price-tag">Popular Right Now</span></td>
               <td data-label="Price">$40/person ($160 total)</td>
-              <td data-label="Includes">Live coaching for the full hour (usually 2&ndash;3 games), plus a game-analysis video breakdown for each pair of partners afterward</td>
+              <td data-label="Includes">Two filmed games, then any time left goes to drills for the weak spots I saw in your games</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <p class="table-label">1-on-1 Packages<span>Save up to $120. Packages never expire.</span></p>
+      <p class="table-label">1-on-1 Packages<span>Save up to $60. Packages never expire.</span></p>
       <div class="table-wrap">
         <table class="pricing-table">
           <thead>
@@ -795,14 +796,9 @@
               <td data-label="You Save">$20</td>
             </tr>
             <tr>
-              <td data-label="Package">6 Lessons</td>
+              <td data-label="Package">6 Lessons <span class="price-tag">Best Value</span></td>
               <td data-label="Price">$420 ($70/session)</td>
               <td data-label="You Save">$60</td>
-            </tr>
-            <tr>
-              <td data-label="Package">8 Lessons <span class="price-tag">Best Value</span></td>
-              <td data-label="Price">$520 ($65/session)</td>
-              <td data-label="You Save">$120</td>
             </tr>
           </tbody>
         </table>
@@ -847,7 +843,7 @@
 
         <details class="faq-item">
           <summary>Which option should I pick?</summary>
-          <p class="faq-answer">If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $65 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one.</p>
+          <p class="faq-answer">If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $70 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one.</p>
         </details>
 
         <details class="faq-item">

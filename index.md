@@ -194,7 +194,7 @@ Mostly serious recreational players in the 3.0 to 4.0 range who are ready to bre
 
 How much do lessons cost?
 
-In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4, 6, or 8 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.
+In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4 or 6 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.
 
 What's your cancellation policy?
 
