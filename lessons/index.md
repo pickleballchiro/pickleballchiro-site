@@ -6,7 +6,7 @@ Team Pickleball Lessons · Daytona Beach, FL
 
 ## You Know Something’s Off. I’ll Show You What.
 
-I film your team’s real games, coach the fix on court, then take the film home and break it down for every pair. For 3.0–3.5 players on league teams and regular groups, from a coach who plays at a 5.0 level and is also a Doctor of Chiropractic.
+I film your team’s real games, coach the fix on court, then take the film home and break it down for every pair. For 3.0–4.0 players on league teams and regular groups, from a coach who plays at a 5.0 level and is also a Doctor of Chiropractic.
 
 4.7 DUPR Doctor of Chiropractic PCI Certified
 
@@ -24,11 +24,7 @@ Sound Familiar?
 
 - Everyone gives you a different tip, and you can’t tell which one is right.
 
-- You hold your own at 3.0 or 3.5, but when you play up, everything feels a little too fast.
-
-- When the score gets close, you don’t want to be the one the other team keeps hitting to.
-
-- A nagging shoulder, knee, or back is holding you back, and you want a coach who understands the game and the body.
+- You hold your own at your level, but when you play up, everything feels a little too fast.
 
 - Not the right fit if you’re brand new to pickleball or just want a casual intro to the game.
 
@@ -178,7 +174,7 @@ Private, 1-on-1
 
 $90/hour
 
-On-court coaching, a slow-motion clip with a biomechanical analysis of one shot (about 10 minutes of breakdown), and your focuses in your portal
+On-court coaching, a short slow-motion video (usually 2 to 3 minutes) of a few reps of one shot with my biomechanical breakdown, and your focuses in your portal
 
 Small Group, 2–3 Players
 
@@ -218,17 +214,17 @@ How does a team lesson work?
 
 It's one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw. Then I go home and record a breakdown of each pair's film: timestamped, and uploaded unedited so you hear everything I see. A video usually runs 20 to 40 minutes, sometimes 50, and each one takes me about an hour to put together. Your videos go into a private YouTube playlist and your notes into a Google Doc, both yours to keep. It's $70 per player.
 
-Isn't $70 a lot for a one-hour lesson?
+Isn't $70 a lot for a one-hour group lesson?
 
-It's more than an hour. I coach you on court for an hour and film your games, then I go home and spend about an hour putting together each pair's video (they usually run 20 to 40 minutes). You're getting about two hours of me, with notes and videos you keep. Players often tell me they got more personal attention from one team lesson than from small groups, or even privates, because the film is of their own games.
+For a private lesson, $70 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Here's the difference: most big group lessons work on one skill or shot for everyone. That might be your bottleneck, or it might be somebody else's, so you never get the personal attention you'd get one-on-one. In a team lesson I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: I coach you on court for an hour, then spend about an hour putting together each pair's video (they usually run 20 to 40 minutes). You're getting about two hours of me, with notes and videos you keep.
 
 My team has mixed levels. Is that OK?
 
 Yes. Most league teams do. The film is per pair, so each of you hears what to fix in your own game. On court I coach what I actually saw, so the strongest player and the newest player each leave with their own fix.
 
-I don't love being filmed. Do I have to be?
+I don't love being filmed. Who sees the videos?
 
-Most people feel that way at first. I film from the side of the court while you play your normal game, and after a few points nobody notices the camera. Your videos go into a private YouTube playlist that only your team gets the link to. If you'd rather not be on camera, tell me before the lesson and we'll work it out.
+Most people feel that way at first. I film from the side of the court while you play your normal game, and after a few points nobody notices the camera. The film is how I can give each of you personal feedback, so everyone plays on camera. Everything we film stays private: your videos go into a private YouTube playlist that only your team gets, and I never post anyone on social media unless they tell me I can.
 
 Is this a clinic?
 
@@ -260,7 +256,7 @@ Most lessons teach a skill: you drill a third shot drop and hope it shows up in 
 
 What do I get in a private or small-group lesson?
 
-We pick one skill, go over the technique and drill it. I feed most reps by hand, and I bring a ball machine when we want a different kind of rep work. You also get a short slow-motion clip with a biomechanical analysis of one shot, about 10 minutes of breakdown, and your 2 to 3 focuses for the week go in your portal. It's a close look at one shot; your games get broken down in the team lesson. Private is $90 an hour; a small group of 2 to 3 players is $60 each.
+We pick one skill, go over the technique and drill it. I feed most reps by hand, and I bring a ball machine when we want a different kind of rep work. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown of what it looks like, and your 2 to 3 focuses for the week go in your portal. It's a close look at one shot; your games get broken down in the team lesson. Private is $90 an hour; a small group of 2 to 3 players is $60 each.
 
 Can I take lessons if I'm dealing with pain or an injury?
 
