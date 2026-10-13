@@ -76,7 +76,7 @@ Most lessons teach a skill. I’d rather show you what’s happening in your rea
 
 The Film
 
-#### Your Games, Not a Drill List
+#### It Starts With Your Games
 
 A drill can be the right skill for someone else’s game. I film how you actually play: where you stand, what you choose, and what happens when the score is close. Then we fix that.
 
@@ -84,7 +84,7 @@ Every Pair
 
 #### Personal, Even in a Group of 8
 
-The film is yours. Each pair gets its own breakdown of its own games, so a team lesson is about you, not the middle of the group.
+The film is yours. Each pair gets its own breakdown of its own games, so even in a group of 8, you hear about your own game.
 
 To Keep
 
@@ -186,7 +186,7 @@ $60/player (2 players = $120)
 
 The same coaching split between you, plus a slow-motion clip with a biomechanical analysis of one shot
 
-The clip is a close look at one shot and the body mechanics behind it. It isn’t a breakdown of your games; that’s what the team lesson is for.
+The clip is a close look at one shot and the body mechanics behind it. If you want your actual games broken down, that’s the team lesson.
 
 [Book a private or small-group lesson →](https://forms.gle/Dz98yAxHX2rUjHQx7)
 
@@ -224,7 +224,7 @@ It's more than an hour. I coach you on court for an hour and film your games, th
 
 My team has mixed levels. Is that OK?
 
-Yes. Most league teams do. The film is per pair, so each of you hears what to fix in your own game, not a lesson aimed at the middle of the group. On court I coach what I actually saw, so the strongest player and the newest player each leave with their own fix.
+Yes. Most league teams do. The film is per pair, so each of you hears what to fix in your own game. On court I coach what I actually saw, so the strongest player and the newest player each leave with their own fix.
 
 I don't love being filmed. Do I have to be?
 
@@ -260,7 +260,7 @@ Most lessons teach a skill: you drill a third shot drop and hope it shows up in 
 
 What do I get in a private or small-group lesson?
 
-We pick one skill, go over the technique and drill it. I feed most reps by hand, and I bring a ball machine when we want a different kind of rep work. You also get a short slow-motion clip with a biomechanical analysis of one shot, about 10 minutes of breakdown, and your 2 to 3 focuses for the week go in your portal. It's a close look at one shot, not a breakdown of your games. Private is $90 an hour; a small group of 2 to 3 players is $60 each.
+We pick one skill, go over the technique and drill it. I feed most reps by hand, and I bring a ball machine when we want a different kind of rep work. You also get a short slow-motion clip with a biomechanical analysis of one shot, about 10 minutes of breakdown, and your 2 to 3 focuses for the week go in your portal. It's a close look at one shot; your games get broken down in the team lesson. Private is $90 an hour; a small group of 2 to 3 players is $60 each.
 
 Can I take lessons if I'm dealing with pain or an injury?
 
