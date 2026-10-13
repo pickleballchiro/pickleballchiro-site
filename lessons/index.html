@@ -5,7 +5,7 @@
   <!-- Enforced CSP (frame-ancestors lives in the X-Frame-Options header set at Cloudflare; meta CSP cannot carry it). Keep in sync with the Cloudflare report-only header. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; object-src 'none'" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Pickleball lessons in Daytona Beach, FL with Dr. Lane Odom, 4.7 DUPR PCI coach, for 3.5 players reaching 4.0+. $80/hour at Chipshot or any Volusia court." />
+  <meta name="description" content="Team pickleball lessons in Daytona Beach, FL with Dr. Lane Odom, 4.7 DUPR PCI coach, for 3.5 players reaching 4.0+. Your games filmed and fixed: $70/player for teams of 4 to 8, private $90/hour, at Chipshot or any Volusia court." />
   <title>Pickleball Lessons in Daytona Beach, FL &middot; Dr. Lane Odom</title>
   <link rel="canonical" href="https://pickleballchiro.co/lessons/" />
 
@@ -18,11 +18,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pickleballchiro.co/lessons/" />
   <meta property="og:title" content="Pickleball Lessons in Daytona Beach, FL | Dr. Lane Odom" />
-  <meta property="og:description" content="Dr. Lane Odom · 4.7 DUPR · Doctor of Chiropractic · 1-on-1 and group pickleball lessons in Volusia County, FL." />
+  <meta property="og:description" content="Dr. Lane Odom · 4.7 DUPR · Doctor of Chiropractic · Team, partner and private pickleball lessons in Volusia County, FL. Your games filmed and fixed." />
   <meta property="og:image" content="https://pickleballchiro.co/images/profile.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pickleball Lessons in Daytona Beach, FL | Dr. Lane Odom" />
-  <meta name="twitter:description" content="Dr. Lane Odom · 4.7 DUPR · Doctor of Chiropractic · 1-on-1 and group pickleball lessons in Volusia County, FL." />
+  <meta name="twitter:description" content="Dr. Lane Odom · 4.7 DUPR · Doctor of Chiropractic · Team, partner and private pickleball lessons in Volusia County, FL. Your games filmed and fixed." />
   <meta name="twitter:image" content="https://pickleballchiro.co/images/profile.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,6 +71,8 @@
     .tier-price.tier-price-text { font-size: 1.05rem; white-space: normal; text-align: right; }
     .tier-who { font-size: 0.78rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.08em; }
     .tier-desc { font-size: 0.88rem; color: var(--off-white); line-height: 1.55; }
+    .tier-grid--solo { grid-template-columns: 1fr; max-width: 560px; }
+    @media (min-width: 900px) { .tier-grid--three { grid-template-columns: repeat(3, 1fr); max-width: 1000px; } }
     .tier-link { margin-top: 6px; font-size: 0.85rem; font-weight: 600; color: var(--orange); text-decoration: none; }
 
     /* ---- what happens next ---- */
@@ -185,7 +187,7 @@
       "logo": "https://pickleballchiro.co/images/profile.jpg",
       "description": "Pickleball performance coaching and mobile chiropractic care from Dr. Lane Odom, based in Daytona Beach, FL and serving Volusia County: Ormond Beach, New Smyrna Beach, Port Orange, and Edgewater. Coaching for intermediate (3.5) pickleball players who want to reach advanced (4.0+) play. Virtual pickleball coaching available anywhere via Crestline.",
       "disambiguatingDescription": "Pickleball Chiro LLC, the Daytona Beach, Florida practice of Dr. Lane Odom, DC (website pickleballchiro.co, Instagram @dr.lane_o). Not affiliated with other businesses or personalities using a similar 'pickleball chiropractor' name.",
-      "priceRange": "$40-$420",
+      "priceRange": "$60-$250",
       "telephone": "+14079956966",
       "email": "drlanepickleballchiro@gmail.com",
       "contactPoint": [
@@ -463,7 +465,7 @@
     "@type": "Service",
     "name": "Pickleball Lessons",
     "serviceType": "Pickleball coaching",
-    "description": "1-on-1 and group pickleball lessons, on court, in person. Technique breakdown and movement analysis with a coach who competes at the 5.0 level and a Doctor of Chiropractic.",
+    "description": "Team, partner and private pickleball lessons, on court, in person. Your real games filmed and broken down, then coached, by a coach who competes at the 5.0 level and is a Doctor of Chiropractic.",
     "url": "https://pickleballchiro.co/lessons/",
     "provider": { "@id": "https://pickleballchiro.co/#business" },
     "areaServed": [
@@ -476,13 +478,13 @@
     ],
     "offers": {
       "@type": "AggregateOffer",
-      "lowPrice": "40",
-      "highPrice": "420",
+      "lowPrice": "60",
+      "highPrice": "90",
       "priceCurrency": "USD",
-      "offerCount": "6",
+      "offerCount": "3",
       "url": "https://forms.gle/Dz98yAxHX2rUjHQx7",
       "availability": "https://schema.org/InStock",
-      "description": "Solo lessons $80/hour. Group lessons $50/person (2 players, individual technique analysis) or $40/person (3 players, live-game analysis). Team Hybrid lessons for 4-player league teams: $40/person ($160 total), two filmed games, then any remaining time spent on drills for the weak spots seen in your games. Packages: 4 lessons $300, 6 lessons $420. Packages don't expire."
+      "description": "Team Hybrid lessons for league teams and regular groups of 4 to 8 players: $70 per player, one hour on court, with your games filmed, coaching on the weak spots seen, and a game film review video for each pair. Private lessons: $90 per hour. Partner lessons (2 to 3 players): $60 per person."
     }
   }
   </script>
@@ -496,12 +498,27 @@
       {
         "@type": "Question",
         "name": "Which option should I pick?",
-        "acceptedAnswer": { "@type": "Answer", "text": "If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $70 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one." }
+        "acceptedAnswer": { "@type": "Answer", "text": "If you play on a league team or with a regular group of 4 or more, pick the team lesson. It is the main thing I do. If it is just you, book a private. If you have a regular partner, a partner lesson splits the hour. If you are not local, or want film between lessons, go virtual. Still not sure? Text me and I will point you to the right one." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a team lesson work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A team lesson is one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw in your play. Afterward each pair gets a video of me breaking down your game with timestamps, so you can rewatch it and keep working. It is $70 per player." }
+      },
+      {
+        "@type": "Question",
+        "name": "Who books and pays for a team lesson?",
+        "acceptedAnswer": { "@type": "Answer", "text": "One person, usually your team captain, books the session. They can pay for everyone, or each player can pay me directly by Zelle or Venmo. However you split it is up to your team." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you coach our team for the whole league season?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. If your team wants a coach for the season, message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match. We will set up whatever fits your team." }
       },
       {
         "@type": "Question",
         "name": "What makes you different from other coaches?",
-        "acceptedAnswer": { "@type": "Answer", "text": "I'm still competing at the 5.0 level, so what I teach is what I'm using on the court right now. I have 13+ years of racket sport experience. And I'm a rehab chiropractor and movement specialist, so I can look at the chain behind your swing (legs, hips, core, and arm) and catch what's really driving or limiting your shot. More on that in how I'm different from the average pickleball coach in Daytona Beach." }
+        "acceptedAnswer": { "@type": "Answer", "text": "I'm still competing at the 5.0 level, so what I teach is what I'm using on the court right now. I have 13+ years of racket sport experience. I film your real games, so you see what you're actually doing instead of guessing. And I'm a rehab chiropractor and movement specialist, so I can look at the chain behind your swing (legs, hips, core, and arm) and catch what's really driving or limiting your shot. More on that in how I'm different from the average pickleball coach in Daytona Beach." }
       },
       {
         "@type": "Question",
@@ -511,7 +528,7 @@
       {
         "@type": "Question",
         "name": "What does a typical lesson look like?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We start by figuring out where you're at and what we're focusing on that day. Then we go over the technique, introduce the skill, and drill it. I feed most reps by hand, so I can control pace and placement live. I also have a ball machine when we want a different kind of rep work. At the end, your 2 to 3 main focuses for the week go up in your portal." }
+        "acceptedAnswer": { "@type": "Answer", "text": "In a team lesson we play real games while I film, then I coach the weak spots I saw. In a private or partner lesson we pick one skill, go over the technique, and drill it; I feed most reps by hand, and I have a ball machine when we want a different kind of rep work. You also get a short slow-motion clip of one shot with a quick breakdown, and your 2 to 3 main focuses for the week go up in your portal." }
       },
       {
         "@type": "Question",
@@ -526,7 +543,7 @@
       {
         "@type": "Question",
         "name": "Do you bring the equipment?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Balls and a ball tube for pickup, always, plus a ball machine when we need it. You just show up with your paddle." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Balls and a ball tube for pickup, always, plus the cameras and a ball machine when we need it. You just show up with your paddle." }
       },
       {
         "@type": "Question",
@@ -544,7 +561,7 @@
     "@type": "WebPage",
     "name": "Pickleball Lessons · Dr. Lane Odom",
     "url": "https://pickleballchiro.co/lessons/",
-    "dateModified": "2026-10-12",
+    "dateModified": "2026-10-19",
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [".hero-headline", ".faq-answer"]
@@ -578,16 +595,16 @@
   <section class="hero">
     <div class="container">
       <img src="/images/profile-192.jpg" srcset="/images/profile-192.jpg 192w, /profile.jpg 600w" sizes="96px" width="96" height="96" alt="Dr. Lane Odom, DC" class="hero-photo" fetchpriority="high" />
-      <p class="hero-eyebrow-loc">Pickleball Lessons &middot; Daytona Beach, FL</p>
-      <h1 class="hero-headline hero-headline--lessons">Stuck Between <span class="highlight">3.0 and 4.0?</span></h1>
-      <p class="hero-sub">1-on-1 and group lessons for intermediate players who&rsquo;ve plateaued, with a coach who competes at the 5.0 level and is also a Doctor of Chiropractic. We fix the shot <em>and</em> the body behind it.</p>
+      <p class="hero-eyebrow-loc">Team Pickleball Lessons &middot; Daytona Beach, FL</p>
+      <h1 class="hero-headline hero-headline--lessons">You Know Something&rsquo;s Off. <span class="highlight">I&rsquo;ll Show You What.</span></h1>
+      <p class="hero-sub">I film your team&rsquo;s real games, show you exactly what&rsquo;s costing you points, and coach the fix on court. For 3.0&ndash;3.5 players in leagues and regular groups, from a coach who plays at a 5.0 level and is also a Doctor of Chiropractic.</p>
       <div class="chip-row">
         <span class="chip">4.7 DUPR</span>
         <span class="chip">Doctor of Chiropractic</span>
         <span class="chip">PCI Certified</span>
       </div>
       <div class="hero-cta-wrap">
-        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_hero_cta">Book Your First Lesson <span class="arrow">&rarr;</span></a>
+        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_hero_cta">Book Your Team Lesson <span class="arrow">&rarr;</span></a>
         <div class="contact-buttons">
           <a href="sms:+14079956966" class="btn btn-outline" data-track="lessons_hero_sms">Text Me</a>
           <a href="https://instagram.com/dr.lane_o" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-track="lessons_hero_ig">Instagram</a>
@@ -603,74 +620,51 @@
 
 
   <!-- ============================================================
-       PICK YOUR FORMAT — every tier + starting price, first thing after the hero
+       IS THIS YOU — the problem, in her words
        ============================================================ -->
-  <section class="band fade-up" id="formats">
+  <section class="band fade-up">
     <div class="container">
-      <span class="eyebrow">Something For Every Player</span>
-      <h2 class="section-title">Pick Your Format</h2>
-      <p class="section-subtext">All in-person lessons are 60 minutes on court. Full pricing is <a href="#pricing">further down</a>.</p>
-      <div class="tier-grid">
-
-        <div class="tier-card card">
-          <div class="tier-top">
-            <span class="tier-name">1-on-1</span>
-            <span class="tier-price">$80 <small>/ hr</small></span>
-          </div>
-          <p class="tier-who">Fastest improvement</p>
-          <p class="tier-desc">Every rep is about your game. Slow-motion technique analysis on a specific shot, a movement check, and 2&ndash;3 focuses in your portal after every session. As low as $70/session with a pack.</p>
-          <a href="#pricing" class="tier-link" data-track="lessons_tier_solo">See packages &rarr;</a>
-        </div>
-
-        <div class="tier-card card">
-          <div class="tier-top">
-            <span class="tier-name">Small Group</span>
-            <span class="tier-price">$40&ndash;50 <small>/ person</small></span>
-          </div>
-          <p class="tier-who">2&ndash;3 players &middot; bring a partner</p>
-          <p class="tier-desc">The same coaching, split with your regular partner or friends. With 2 players you get individual technique analysis; with 3 it shifts to live-game analysis.</p>
-          <a href="#pricing" class="tier-link" data-track="lessons_tier_group">See group pricing &rarr;</a>
-        </div>
-
-        <div class="tier-card card featured">
-          <span class="price-tag tier-badge">&#128293; Popular Right Now</span>
-          <div class="tier-top">
-            <span class="tier-name">Team Hybrid</span>
-            <span class="tier-price">$40 <small>/ person</small></span>
-          </div>
-          <p class="tier-who">League teams of 4</p>
-          <p class="tier-desc">We film two games, then spend whatever time is left drilling the weak spots I saw in your play, so everyone knows exactly what to fix before the next match.</p>
-          <a href="#pricing" class="tier-link" data-track="lessons_tier_team">See details &rarr;</a>
-        </div>
-
-        <div class="tier-card card">
-          <div class="tier-top">
-            <span class="tier-name">Virtual</span>
-            <span class="tier-price tier-price-text">Plans &amp; one-offs</span>
-          </div>
-          <p class="tier-who">Not local, or between lessons</p>
-          <p class="tier-desc">Start with a free gameplay diagnosis, then pick a monthly plan or a single one-off review. You get the same whole-chain breakdown plus a drill plan, from anywhere.</p>
-          <a href="/virtual-coaching/" class="tier-link" data-track="lessons_tier_virtual">See plans &amp; pricing &rarr;</a>
-        </div>
-
-      </div>
+      <span class="eyebrow">Sound Familiar?</span>
+      <h2 class="section-title">Is This You?</h2>
+      <ul class="fit-list">
+        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>You play a lot, but your game has stopped moving. Everyone gives you a different tip and you can&rsquo;t tell which one is right.</span></li>
+        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>You play on a league team or with a regular group, and you want to win more of those matches.</span></li>
+        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>You&rsquo;d rather see what you&rsquo;re actually doing in a real game than hear one more general tip.</span></li>
+        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>A nagging shoulder, knee, or back is holding you back, and you want a coach who understands the game <em>and</em> the body.</span></li>
+        <li class="fit-item"><span class="fit-mark no" aria-hidden="true">&times;</span><span>Not the right fit if you&rsquo;re brand new to pickleball or just want a casual intro to the game.</span></li>
+      </ul>
     </div>
   </section>
 
 
   <!-- ============================================================
-       IS THIS FOR YOU
+       THE TEAM LESSON — the main offer
        ============================================================ -->
-  <section class="fade-up">
+  <section class="fade-up" id="formats">
     <div class="container">
-      <span class="eyebrow">Read This First</span>
-      <h2 class="section-title">Is This For You?</h2>
-      <ul class="fit-list">
-        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>You're around 3.0&ndash;3.5 and stuck. Playing more open play isn't moving your rating anymore.</span></li>
-        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>You want to win in your current division, or reach 4.0+ and move up.</span></li>
-        <li class="fit-item"><span class="fit-mark yes" aria-hidden="true">&#10003;</span><span>A nagging shoulder, knee, or back is holding you back, and you want a coach who understands the game <em>and</em> the body.</span></li>
-        <li class="fit-item"><span class="fit-mark no" aria-hidden="true">&times;</span><span>Not the right fit if you're a total beginner or just want a casual intro to the game.</span></li>
-      </ul>
+      <span class="eyebrow">The Team Lesson</span>
+      <h2 class="section-title">Your Games, Filmed and Fixed</h2>
+      <p class="section-subtext">One hour on court for a league team or regular group of 4 to 8 players. Full pricing is <a href="#pricing">further down</a>.</p>
+      <div class="tier-grid tier-grid--solo">
+        <div class="tier-card card featured">
+          <span class="price-tag tier-badge">&#128293; Most Popular</span>
+          <div class="tier-top">
+            <span class="tier-name">Team Hybrid</span>
+            <span class="tier-price">$70 <small>/ player</small></span>
+          </div>
+          <p class="tier-who">4&ndash;8 players &middot; league teams &amp; regular groups</p>
+          <p class="tier-desc">Your real games, filmed. I coach the weak spots I see, then each pair gets a game film review, so everyone knows exactly what to fix before the next match.</p>
+        </div>
+      </div>
+      <ol class="steps" style="margin-top: 22px;">
+        <li><span><strong>We play.</strong> Bring your team (4 to 8 players). We play real games while I film from the side.</span></li>
+        <li><span><strong>We fix it.</strong> For the rest of the hour I coach the exact weak spots I saw in your play, on court.</span></li>
+        <li><span><strong>You watch it back.</strong> Each pair gets a video of me going through your game with timestamps, so you can rewatch it and keep working.</span></li>
+      </ol>
+      <div class="hero-cta-wrap">
+        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_team_cta">Book Your Team Lesson <span class="arrow">&rarr;</span></a>
+      </div>
+      <p class="section-subtext" style="margin-top: 14px;">Most teams book through their captain. One person can pay for everyone, or each player can pay me directly.</p>
     </div>
   </section>
 
@@ -681,23 +675,23 @@
   <section class="band fade-up">
     <div class="container">
       <span class="eyebrow">What You Get</span>
-      <h2 class="section-title">Every Lesson Looks At The Whole Chain</h2>
-      <p class="section-subtext">Most coaches only watch the shot. You get the shot and the chain behind it, every session.</p>
+      <h2 class="section-title">Every Lesson Starts With Your Real Game</h2>
+      <p class="section-subtext">Most lessons work on a shot by itself. I film how you actually play and show you what to fix.</p>
       <div class="stage-grid stagger">
         <div class="stage-card card">
-          <p class="stage-label">The Game</p>
-          <h3 class="stage-title">Technique Breakdown</h3>
-          <p class="stage-body">We find the exact shot, pattern, or decision that's costing you points and drill the fix on court, with video analysis built in.</p>
+          <p class="stage-label">The Film</p>
+          <h3 class="stage-title">Your Games, Filmed</h3>
+          <p class="stage-body">I film your real games and find the patterns that cost you points: where you stand, what you choose, and what you do under pressure.</p>
+        </div>
+        <div class="stage-card card">
+          <p class="stage-label">The Fix</p>
+          <h3 class="stage-title">Coached On Court</h3>
+          <p class="stage-body">We spend the rest of the hour fixing the specific weak spots from your film, not working through a generic drill list.</p>
         </div>
         <div class="stage-card card">
           <p class="stage-label">The Body</p>
           <h3 class="stage-title">The Chain Behind It</h3>
           <p class="stage-body">As a rehab chiropractor, I look at how your legs, hips, core, and arm work together. Most of the time the fix is sequencing. When there's a real physical limitation, I'll find that too.</p>
-        </div>
-        <div class="stage-card card">
-          <p class="stage-label">The Record</p>
-          <h3 class="stage-title">Notes, Drills &amp; Progress</h3>
-          <p class="stage-body">Your notes and 2&ndash;3 weekly focuses go into your own client portal after every lesson, so you always know what to work on next.</p>
         </div>
       </div>
     </div>
@@ -745,6 +739,49 @@
 
 
   <!-- ============================================================
+       OTHER WAYS — private, partner, virtual (back seat, seek-out)
+       ============================================================ -->
+  <section class="fade-up" id="more">
+    <div class="container">
+      <span class="eyebrow">Not A Team?</span>
+      <h2 class="section-title">Private, Partner &amp; Virtual</h2>
+      <p class="section-subtext">These work too. Every in-person lesson is 60 minutes on court.</p>
+      <div class="tier-grid tier-grid--three">
+
+        <div class="tier-card card">
+          <div class="tier-top">
+            <span class="tier-name">1-on-1</span>
+            <span class="tier-price">$90 <small>/ hr</small></span>
+          </div>
+          <p class="tier-who">Just you</p>
+          <p class="tier-desc">Every rep is about your game. Includes a short slow-motion clip of one specific shot with a quick breakdown, a movement check, and 2&ndash;3 focuses in your portal.</p>
+        </div>
+
+        <div class="tier-card card">
+          <div class="tier-top">
+            <span class="tier-name">Partner</span>
+            <span class="tier-price">$60 <small>/ person</small></span>
+          </div>
+          <p class="tier-who">2&ndash;3 players &middot; bring a partner or friends</p>
+          <p class="tier-desc">Split the hour with a regular partner or friends. The same coaching, plus a short slow-motion clip of one specific shot.</p>
+        </div>
+
+        <div class="tier-card card">
+          <div class="tier-top">
+            <span class="tier-name">Virtual</span>
+            <span class="tier-price tier-price-text">Plans &amp; one-offs</span>
+          </div>
+          <p class="tier-who">Not local, or between lessons</p>
+          <p class="tier-desc">Start with a free gameplay diagnosis, then pick a monthly plan or a single one-off review. You send the footage and get the same film breakdown from anywhere.</p>
+          <a href="/virtual-coaching/" class="tier-link" data-track="lessons_tier_virtual">See plans &amp; pricing &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
        PRICING — real tables (kept for AI/GEO extractability), packages visible
        ============================================================ -->
   <section class="band fade-up" id="pricing">
@@ -760,50 +797,24 @@
           </thead>
           <tbody>
             <tr>
+              <td data-label="Format">Team Hybrid, 4&ndash;8 Players <span class="price-tag">Most Popular</span></td>
+              <td data-label="Price">$70/player (4 players = $280)</td>
+              <td data-label="Includes">Your real games filmed, coaching on the weak spots I saw, and a game film review video for each pair</td>
+            </tr>
+            <tr>
               <td data-label="Format">1-on-1</td>
-              <td data-label="Price">$80</td>
-              <td data-label="Includes">On-court coaching, slow-motion technique analysis on one specific skill or shot, movement check, and notes in your portal</td>
+              <td data-label="Price">$90</td>
+              <td data-label="Includes">On-court coaching, a short slow-motion clip of one specific shot with a quick breakdown, movement check, and notes in your portal</td>
             </tr>
             <tr>
-              <td data-label="Format">Group, 2 Players</td>
-              <td data-label="Price">$50/person ($100 total)</td>
-              <td data-label="Includes">Same coaching and feedback, split between two players. Individual technique analysis on one specific skill or shot for each player</td>
-            </tr>
-            <tr>
-              <td data-label="Format">Group, 3 Players</td>
-              <td data-label="Price">$40/person ($120 total)</td>
-              <td data-label="Includes">Same coaching and feedback, split across the group. Game analysis: I play in your game, then send back one shared video review</td>
-            </tr>
-            <tr>
-              <td data-label="Format">Team Hybrid, 4 Players <span class="price-tag">Popular Right Now</span></td>
-              <td data-label="Price">$40/person ($160 total)</td>
-              <td data-label="Includes">Two filmed games, then any time left goes to drills for the weak spots I saw in your games</td>
+              <td data-label="Format">Partner, 2&ndash;3 Players</td>
+              <td data-label="Price">$60/person (2 players = $120)</td>
+              <td data-label="Includes">The same coaching split between players, plus a short slow-motion clip of one specific shot</td>
             </tr>
           </tbody>
         </table>
       </div>
-
-      <p class="table-label">1-on-1 Packages<span>Save up to $60. Packages never expire.</span></p>
-      <div class="table-wrap">
-        <table class="pricing-table">
-          <thead>
-            <tr><th scope="col">Package</th><th scope="col">Price</th><th scope="col">You Save</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Package">4 Lessons <span class="price-tag">Most Popular</span></td>
-              <td data-label="Price">$300 ($75/session)</td>
-              <td data-label="You Save">$20</td>
-            </tr>
-            <tr>
-              <td data-label="Package">6 Lessons <span class="price-tag">Best Value</span></td>
-              <td data-label="Price">$420 ($70/session)</td>
-              <td data-label="You Save">$60</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="pricing-cap-note" style="text-align:center; margin-top: 4px;">Group packages available by inquiry.</p>
+      <p class="pricing-cap-note" style="text-align:center; margin-top: 12px;">Playing a full league season? <a href="sms:+14079956966" data-track="lessons_season_sms">Message me</a> about being your team&rsquo;s coach for the season.</p>
 
     </div>
   </section>
@@ -843,12 +854,27 @@
 
         <details class="faq-item">
           <summary>Which option should I pick?</summary>
-          <p class="faq-answer">If you want the fastest improvement, go 1-on-1. A pack brings it down to as low as $70 a session. If you have a regular partner, a 2-player group gets you nearly the same attention for less. League teams should do Team Hybrid. If you're not local, go virtual. Still not sure? Text me and I'll point you to the right one.</p>
+          <p class="faq-answer">If you play on a league team or with a regular group of 4 or more, pick the team lesson. It is the main thing I do. If it is just you, book a private. If you have a regular partner, a partner lesson splits the hour. If you are not local, or want film between lessons, go virtual. Still not sure? Text me and I will point you to the right one.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How does a team lesson work?</summary>
+          <p class="faq-answer">A team lesson is one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw in your play. Afterward each pair gets a video of me breaking down your game with timestamps, so you can rewatch it and keep working. It is $70 per player.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Who books and pays for a team lesson?</summary>
+          <p class="faq-answer">One person, usually your team captain, books the session. They can pay for everyone, or each player can pay me directly by Zelle or Venmo. However you split it is up to your team.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can you coach our team for the whole league season?</summary>
+          <p class="faq-answer">Yes. If your team wants a coach for the season, message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match. We will set up whatever fits your team.</p>
         </details>
 
         <details class="faq-item">
           <summary>What makes you different from other coaches?</summary>
-          <p class="faq-answer">I'm still competing at the 5.0 level, so what I teach is what I'm using on the court right now. I have 13+ years of racket sport experience. And I'm a rehab chiropractor and movement specialist, so I can look at the chain behind your swing (legs, hips, core, and arm) and catch what's really driving or limiting your shot. More on that in <a href="/pickleball-coaches-daytona-beach/" data-track="lessons_coaches_guide">how I'm different from the average pickleball coach in Daytona Beach</a>.</p>
+          <p class="faq-answer">I'm still competing at the 5.0 level, so what I teach is what I'm using on the court right now. I have 13+ years of racket sport experience. I film your real games, so you see what you're actually doing instead of guessing. And I'm a rehab chiropractor and movement specialist, so I can look at the chain behind your swing (legs, hips, core, and arm) and catch what's really driving or limiting your shot. More on that in <a href="/pickleball-coaches-daytona-beach/" data-track="lessons_coaches_guide">how I'm different from the average pickleball coach in Daytona Beach</a>.</p>
         </details>
 
         <details class="faq-item">
@@ -858,7 +884,7 @@
 
         <details class="faq-item">
           <summary>What does a typical lesson look like?</summary>
-          <p class="faq-answer">We start by figuring out where you're at and what we're focusing on that day. Then we go over the technique, introduce the skill, and drill it. I feed most reps by hand, so I can control pace and placement live. I also have a ball machine when we want a different kind of rep work. At the end, your 2 to 3 main focuses for the week go up in your portal.</p>
+          <p class="faq-answer">In a team lesson we play real games while I film, then I coach the weak spots I saw. In a private or partner lesson we pick one skill, go over the technique, and drill it; I feed most reps by hand, and I have a ball machine when we want a different kind of rep work. You also get a short slow-motion clip of one shot with a quick breakdown, and your 2 to 3 main focuses for the week go up in your portal.</p>
         </details>
 
         <details class="faq-item">
@@ -873,7 +899,7 @@
 
         <details class="faq-item">
           <summary>Do you bring the equipment?</summary>
-          <p class="faq-answer">Balls and a ball tube for pickup, always, plus a ball machine when we need it. You just show up with your paddle.</p>
+          <p class="faq-answer">Balls and a ball tube for pickup, always, plus the cameras and a ball machine when we need it. You just show up with your paddle.</p>
         </details>
 
         <details class="faq-item">
@@ -892,14 +918,14 @@
   <section class="fade-up">
     <div class="container">
       <span class="eyebrow">Ready?</span>
-      <h2 class="section-title">Book Your First Lesson</h2>
+      <h2 class="section-title">Book Your Lesson</h2>
       <ol class="steps">
         <li><span>Fill out the 60-second booking form (or just text me).</span></li>
         <li><span>I'll text you back within 12&ndash;24 hours to lock in a time.</span></li>
-        <li><span>We pick the court. Bring your paddle, and I bring everything else.</span></li>
+        <li><span>We pick the court. Bring your team and your paddles, and I bring the cameras and balls.</span></li>
       </ol>
       <div class="hero-cta-wrap">
-        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_final_cta">Book Your First Lesson <span class="arrow">&rarr;</span></a>
+        <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_final_cta">Book Your Lesson <span class="arrow">&rarr;</span></a>
         <div class="contact-buttons">
           <a href="sms:+14079956966" class="btn btn-outline" data-track="lessons_final_sms">Text Me</a>
           <a href="https://instagram.com/dr.lane_o" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-track="lessons_final_ig">Instagram</a>
@@ -937,7 +963,7 @@
   </footer>
 
   <div class="sticky-cta-bar" id="sticky-cta-bar">
-    <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="sticky-cta-link" target="_blank" rel="noopener noreferrer" data-track="lessons_sticky_cta">Book Your First Lesson &rarr;</a>
+    <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="sticky-cta-link" target="_blank" rel="noopener noreferrer" data-track="lessons_sticky_cta">Book a Lesson &rarr;</a>
     <button class="sticky-cta-dismiss" id="sticky-cta-dismiss" aria-label="Dismiss">&times;</button>
   </div>
 

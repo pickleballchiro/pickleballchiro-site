@@ -124,6 +124,16 @@ Work With Me
 
 📍 Based in Daytona Beach on the Ormond Beach line, serving all of Volusia County, FL · Virtual coaching available anywhere
 
+🏓
+
+#### Team Lessons
+
+Most Popular
+
+Your team’s real games, filmed and fixed. I coach the weak spots on court, then send each pair a game film review. $70 per player for teams of 4 to 8. Private and partner lessons are available too. With a 4.7 DUPR player and DC.
+
+[See What’s Included →](https://pickleballchiro.co/lessons/) [Book a Team Lesson →](https://forms.gle/6MXZ4vofGd27bbDP6)
+
 📈
 
 #### Virtual Coaching: Book on Crestline
@@ -133,14 +143,6 @@ Anywhere
 Game film review, custom drill programming, and weekly accountability, built to move your rating no matter where you live.
 
 [See the Program →](https://www.gocrestline.app/coaches/lane-odom) [Pricing & FAQ →](https://pickleballchiro.co/virtual-coaching/)
-
-🏓
-
-#### Pickleball Lessons
-
-1-on-1 sessions built around your game. Find the leak, drill the fix, and leave with a plan. With a 4.7 DUPR player and DC.
-
-[See What’s Included →](https://pickleballchiro.co/lessons/) [Apply for a Lesson →](https://forms.gle/6MXZ4vofGd27bbDP6)
 
 🚗
 
@@ -194,7 +196,7 @@ Mostly serious recreational players in the 3.0 to 4.0 range who are ready to bre
 
 How much do lessons cost?
 
-In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4 or 6 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.
+Team lessons for leagues and regular groups of 4 to 8 players are $70 per player and include your games filmed and a game film review for each pair. Private lessons are $90 an hour and partner lessons are $60 per person. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.
 
 What's your cancellation policy?
 
