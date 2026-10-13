@@ -30,7 +30,7 @@ The Performance System
 
 ### How I Help Players Break Through
 
-One-on-one coaching built around your game. Three stages that actually move your rating.
+Coaching built around your real games, whether you bring your team or come on your own. Three stages that actually move your rating.
 
 Stage 1
 
@@ -42,7 +42,7 @@ Stage 2
 
 #### Build the Fix
 
-Fix it through targeted 1-on-1 drilling. Reset mechanics, third shot consistency, kitchen game, footwork, whatever your game needs most.
+Fix it on court with targeted drilling. Reset mechanics, third shot consistency, kitchen game, footwork, whatever your game needs most.
 
 Stage 3
 
@@ -130,7 +130,7 @@ Work With Me
 
 Most Popular
 
-Your team’s real games, filmed and fixed. I coach the weak spots on court, then send each pair a game film review. $70 per player for teams of 4 to 8. Private and partner lessons are available too. With a 4.7 DUPR player and DC.
+Your league team’s real games, filmed and fixed. I coach the weak spots on court, then go home and break down each pair’s film on video. You keep the videos and notes. $70 per player for teams of 4 to 8, with a 4.7 DUPR player and Doctor of Chiropractic.
 
 [See What’s Included →](https://pickleballchiro.co/lessons/) [Book a Team Lesson →](https://forms.gle/6MXZ4vofGd27bbDP6)
 
@@ -196,7 +196,7 @@ Mostly serious recreational players in the 3.0 to 4.0 range who are ready to bre
 
 How much do lessons cost?
 
-Team lessons for leagues and regular groups of 4 to 8 players are $70 per player and include your games filmed and a game film review for each pair. Private lessons are $90 an hour and partner lessons are $60 per person. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.
+Team lessons for league teams and regular groups of 4 to 8 players are $70 per player: an hour on court with your games filmed and coached, then a video breakdown of each pair's film afterward, shared with your notes in a private YouTube playlist and a Google Doc you keep. Private lessons ($90 an hour) and small-group lessons ($60 per person, 2 to 3 players) are also available. Virtual coaching through Crestline starts with a free gameplay diagnosis, with monthly plans after that.
 
 What's your cancellation policy?
 

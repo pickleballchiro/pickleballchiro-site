@@ -6,7 +6,7 @@ Team Pickleball Lessons · Daytona Beach, FL
 
 ## You Know Something’s Off. I’ll Show You What.
 
-I film your team’s real games, show you exactly what’s costing you points, and coach the fix on court. For 3.0–3.5 players in leagues and regular groups, from a coach who plays at a 5.0 level and is also a Doctor of Chiropractic.
+I film your team’s real games, coach the fix on court, then take the film home and break it down for every pair. For 3.0–3.5 players on league teams and regular groups, from a coach who plays at a 5.0 level and is also a Doctor of Chiropractic.
 
 4.7 DUPR Doctor of Chiropractic PCI Certified
 
@@ -20,63 +20,87 @@ Sound Familiar?
 
 ### Is This You?
 
-- You play a lot, but your game has stopped moving. Everyone gives you a different tip and you can’t tell which one is right.
+- You’re on a league team or play with a regular group, and there’s one team you just can’t seem to beat.
 
-- You play on a league team or with a regular group, and you want to win more of those matches.
+- Everyone gives you a different tip, and you can’t tell which one is right.
 
-- You’d rather see what you’re actually doing in a real game than hear one more general tip.
+- You hold your own at 3.0 or 3.5, but when you play up, everything feels a little too fast.
+
+- When the score gets close, you don’t want to be the one the other team keeps hitting to.
 
 - A nagging shoulder, knee, or back is holding you back, and you want a coach who understands the game and the body.
 
 - Not the right fit if you’re brand new to pickleball or just want a casual intro to the game.
 
-The Team Lesson
+Two Ways to Work With Me
 
 ### Your Games, Filmed and Fixed
 
-One hour on court for a league team or regular group of 4 to 8 players. Full pricing is further down.
+Bring your team to the court, or send me your footage from anywhere. Full pricing is further down.
 
 🔥 Most Popular
 
-Team Hybrid $70 / player
+Team Lesson $70 / player
 
 4–8 players · league teams & regular groups
 
-Your real games, filmed. I coach the weak spots I see, then each pair gets a game film review, so everyone knows exactly what to fix before the next match.
+One hour on court. I film your real games and coach the weak spots I see. Then I go home and record a breakdown of each pair’s film. You keep the videos and notes.
+
+Virtual Free trial, then plans
+
+Anywhere · you send the footage
+
+Film your own match and send it in. I break it down on video the same way and tell you what to fix first. Start with a free gameplay diagnosis.
+
+[See plans & pricing →](https://pickleballchiro.co/virtual-coaching/)
+
+#### How a Team Lesson Works
 
 - We play. Bring your team (4 to 8 players). We play real games while I film from the side.
 
-- We fix it. For the rest of the hour I coach the exact weak spots I saw in your play, on court.
+- We fix it. For the rest of the hour I coach the weak spots I saw, on court, while it’s fresh.
 
-- You watch it back. Each pair gets a video of me going through your game with timestamps, so you can rewatch it and keep working.
+- I break it down at home. I watch each pair’s film and talk through it on video, with timestamps. It goes up unedited, so you hear everything I see.
+
+- You keep it. Your videos go into a private YouTube playlist and your notes into a Google Doc, so you can rewatch them before the next match.
 
 [Book Your Team Lesson →](https://forms.gle/Dz98yAxHX2rUjHQx7)
 
 Most teams book through their captain. One person can pay for everyone, or each player can pay me directly.
 
-What You Get
+Why It’s Different
 
-### Every Lesson Starts With Your Real Game
+### What You Actually Get
 
-Most lessons work on a shot by itself. I film how you actually play and show you what to fix.
+Most lessons teach a skill. I’d rather show you what’s happening in your real games, then fix that.
 
 The Film
 
-#### Your Games, Filmed
+#### Your Games, Not a Drill List
 
-I film your real games and find the patterns that cost you points: where you stand, what you choose, and what you do under pressure.
+A drill can be the right skill for someone else’s game. I film how you actually play: where you stand, what you choose, and what happens when the score is close. Then we fix that.
 
-The Fix
+Every Pair
 
-#### Coached On Court
+#### Personal, Even in a Group of 8
 
-We spend the rest of the hour fixing the specific weak spots from your film, not working through a generic drill list.
+The film is yours. Each pair gets its own breakdown of its own games, so a team lesson is about you, not the middle of the group.
+
+To Keep
+
+#### Notes and Videos You Keep
+
+Your videos go into a private YouTube playlist and your notes into a Google Doc. You won’t forget the lesson by the time you drive home, and you can rewatch it the night before your next match.
 
 The Body
 
-#### The Chain Behind It
+#### A Doctor Who Plays at a 5.0 Level
 
-As a rehab chiropractor, I look at how your legs, hips, core, and arm work together. Most of the time the fix is sequencing. When there's a real physical limitation, I'll find that too.
+I’m a Doctor of Chiropractic, so I see the chain behind the shot: legs, hips, core, and arm. And I still compete at a 5.0 level, so what I coach is what I use.
+
+The time behind one team lesson. An hour on court with you, then about 45 minutes to an hour of film breakdown for every pair once I’m home. You’re getting about two hours of me, with notes and videos you keep.
+
+I’m not aware of another coach in the area who films your team’s games and sends every pair its own breakdown.
 
 What Players Say
 
@@ -116,37 +140,11 @@ Michael Caviness
 
 Google review
 
-Not A Team?
-
-### Private, Partner & Virtual
-
-These work too. Every in-person lesson is 60 minutes on court.
-
-1-on-1 $90 / hr
-
-Just you
-
-Every rep is about your game. Includes a short slow-motion clip of one specific shot with a quick breakdown, a movement check, and 2–3 focuses in your portal.
-
-Partner $60 / person
-
-2–3 players · bring a partner or friends
-
-Split the hour with a regular partner or friends. The same coaching, plus a short slow-motion clip of one specific shot.
-
-Virtual Plans & one-offs
-
-Not local, or between lessons
-
-Start with a free gameplay diagnosis, then pick a monthly plan or a single one-off review. You send the footage and get the same film breakdown from anywhere.
-
-[See plans & pricing →](https://pickleballchiro.co/virtual-coaching/)
-
 Investment
 
 ### Pricing
 
-All prices up front. Every session is 60 minutes, on court, in person.
+All prices up front. Every in-person session is 60 minutes, on court.
 
 Format
 
@@ -154,23 +152,43 @@ Price
 
 Includes
 
-Team Hybrid, 4–8 Players Most Popular
+Team Lesson, 4–8 Players Most Popular
 
 $70/player (4 players = $280)
 
-Your real games filmed, coaching on the weak spots I saw, and a game film review video for each pair
+An hour on court with your games filmed and the weak spots coached, then a timestamped video breakdown of each pair’s film and written notes, yours to keep
 
-1-on-1
+Virtual (Crestline)
 
-$90
+Free trial, then plans
 
-On-court coaching, a short slow-motion clip of one specific shot with a quick breakdown, movement check, and notes in your portal
+You send your match footage and get a video breakdown from anywhere. [Plans and one-off reviews](https://pickleballchiro.co/virtual-coaching/)
 
-Partner, 2–3 Players
+Looking for a private or small-group lesson?
 
-$60/person (2 players = $120)
+I still teach these. We pick one skill, go over the technique and drill it.
 
-The same coaching split between players, plus a short slow-motion clip of one specific shot
+Format
+
+Price
+
+Includes
+
+Private, 1-on-1
+
+$90/hour
+
+On-court coaching, a slow-motion clip with a biomechanical analysis of one shot (about 10 minutes of breakdown), and your focuses in your portal
+
+Small Group, 2–3 Players
+
+$60/player (2 players = $120)
+
+The same coaching split between you, plus a slow-motion clip with a biomechanical analysis of one shot
+
+The clip is a close look at one shot and the body mechanics behind it. It isn’t a breakdown of your games; that’s what the team lesson is for.
+
+[Book a private or small-group lesson →](https://forms.gle/Dz98yAxHX2rUjHQx7)
 
 Playing a full league season? [Message me](sms:+14079956966) about being your team’s coach for the season.
 
@@ -194,35 +212,63 @@ Before You Book
 
 Which option should I pick?
 
-If you play on a league team or with a regular group of 4 or more, pick the team lesson. It is the main thing I do. If it is just you, book a private. If you have a regular partner, a partner lesson splits the hour. If you are not local, or want film between lessons, go virtual. Still not sure? Text me and I will point you to the right one.
+If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. If you're not local, or you want your match film reviewed between lessons, try [virtual coaching](https://pickleballchiro.co/virtual-coaching/). If it's just you, or you and one or two friends, I also teach private and small-group lessons; open the private and small-group section under Pricing. Still not sure? Text me and I'll point you to the right one.
 
 How does a team lesson work?
 
-A team lesson is one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw in your play. Afterward each pair gets a video of me breaking down your game with timestamps, so you can rewatch it and keep working. It is $70 per player.
+It's one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw. Then I go home and record a breakdown of each pair's film: timestamped, and uploaded unedited so you hear everything I see. Each one takes me about 45 minutes to an hour. Your videos go into a private YouTube playlist and your notes into a Google Doc, both yours to keep. It's $70 per player.
+
+Isn't $70 a lot for a one-hour lesson?
+
+It's more than an hour. I coach you on court for an hour and film your games, then I go home and spend about 45 minutes to an hour breaking down each pair's film. You're getting about two hours of me, with notes and videos you keep. Players often tell me they got more personal attention from one team lesson than from small groups, or even privates, because the film is of their own games.
+
+My team has mixed levels. Is that OK?
+
+Yes. Most league teams do. The film is per pair, so each of you hears what to fix in your own game, not a lesson aimed at the middle of the group. On court I coach what I actually saw, so the strongest player and the newest player each leave with their own fix.
+
+I don't love being filmed. Do I have to be?
+
+Most people feel that way at first. I film from the side of the court while you play your normal game, and after a few points nobody notices the camera. Your videos go into a private YouTube playlist that only your team gets the link to. If you'd rather not be on camera, tell me before the lesson and we'll work it out.
+
+Is this a clinic?
+
+No. A clinic usually runs a group of players through the same drills. A team lesson is built around your team's own games: I film them, coach what I saw, and every pair gets its own video breakdown afterward.
+
+What if someone can't make it, or our roster changes?
+
+It happens on every team. A team lesson works for 4 to 8 players, so one person missing doesn't sink it, and subs are welcome: whoever plays gets filmed. If you end up with fewer than 4, tell me as early as you can and we'll sort it out together. I ask for at least 12 hours' notice to cancel or reschedule.
 
 Who books and pays for a team lesson?
 
 One person, usually your team captain, books the session. They can pay for everyone, or each player can pay me directly by Zelle or Venmo. However you split it is up to your team.
 
+How do I get my notes and videos?
+
+I send your team a private YouTube playlist with each pair's video and a Google Doc with your notes. Both open on your phone with one tap, nothing to download or sign up for, and they stay yours, so you can rewatch before your next match.
+
 Can you coach our team for the whole league season?
 
-Yes. If your team wants a coach for the season, message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match. We will set up whatever fits your team.
+Yes. If your team wants a coach for the season, message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match. We'll set up whatever fits your team.
 
-What makes you different from other coaches?
+What if I'm not on a team?
 
-I'm still competing at the 5.0 level, so what I teach is what I'm using on the court right now. I have 13+ years of racket sport experience. I film your real games, so you see what you're actually doing instead of guessing. And I'm a rehab chiropractor and movement specialist, so I can look at the chain behind your swing (legs, hips, core, and arm) and catch what's really driving or limiting your shot. More on that in [how I'm different from the average pickleball coach in Daytona Beach](https://pickleballchiro.co/pickleball-coaches-daytona-beach/).
+Get three to seven people you already play with together and that's a team for this. Or book a private or small-group lesson (open the private and small-group section under Pricing), or try [virtual coaching](https://pickleballchiro.co/virtual-coaching/) and send me your footage from home.
+
+How is this different from a lesson at a club?
+
+Most lessons teach a skill: you drill a third shot drop and hope it shows up in your next match. I start from your actual games instead. I film you playing, coach what I saw, and you leave with a breakdown of your own film to keep. I'm not aware of another coach in the area who films your team's games and sends every pair its own breakdown. I also still compete at a 5.0 level, and as a Doctor of Chiropractic I can see the chain behind your swing (legs, hips, core and arm). More on that in [how I coach differently from the average pickleball coach in Daytona Beach](https://pickleballchiro.co/pickleball-coaches-daytona-beach/).
+
+What do I get in a private or small-group lesson?
+
+We pick one skill, go over the technique and drill it. I feed most reps by hand, and I bring a ball machine when we want a different kind of rep work. You also get a short slow-motion clip with a biomechanical analysis of one shot, about 10 minutes of breakdown, and your 2 to 3 focuses for the week go in your portal. It's a close look at one shot, not a breakdown of your games. Private is $90 an hour; a small group of 2 to 3 players is $60 each.
 
 Can I take lessons if I'm dealing with pain or an injury?
 
 Usually, yes. That's where my chiropractic background helps most. I'll work around what hurts, and a lot of the time we find that a mechanical issue in your stroke is feeding the pain. If something needs real treatment first, I'll tell you.
 
-What does a typical lesson look like?
-
-In a team lesson we play real games while I film, then I coach the weak spots I saw. In a private or partner lesson we pick one skill, go over the technique, and drill it; I feed most reps by hand, and I have a ball machine when we want a different kind of rep work. You also get a short slow-motion clip of one shot with a quick breakdown, and your 2 to 3 main focuses for the week go up in your portal.
-
 What level of player do you work with?
 
-Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) play. That's the serious recreational player who plays consistently and wants to keep improving. Not sure where you fall? Just ask.
+Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) play, many of them on league teams. If you play consistently and want to keep improving, you're in the right place. Not sure where you fall? Just ask.
 
 Where do you teach?
 

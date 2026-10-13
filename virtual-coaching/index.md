@@ -6,13 +6,25 @@ Dr. Lane Odom · The Pickleball Chiro
 
 ## Virtual Pickleball Coaching, Wherever You Play
 
-Send footage of your games or drills and get expert feedback from a coach who's still competing at the 5.0 level and a Doctor of Chiropractic who knows how your body moves. No travel, no scheduling around a court.
+Film a match on your phone and send it in. I’ll show you what’s costing you points and what to fix first. From a coach who still competes at the 5.0 level and a Doctor of Chiropractic who knows how your body moves. No court to book, no schedule to work around.
 
 4.7 DUPR Doctor of Chiropractic PCI Certified Coach
 
 [See the Program on Crestline →](https://www.gocrestline.app/coaches/lane-odom)
 
-Questions before you sign up? DM me on Instagram or send an email, fastest ways to reach me.
+Start with a free gameplay diagnosis. Questions first? DM me on Instagram or send an email.
+
+Sound Familiar?
+
+### Is This You?
+
+- You play a league or a regular group, and you can tell something’s off but can’t name it.
+
+- Everyone gives you a different tip, and you want one person to watch you play and tell you what to fix first.
+
+- You don’t live near Volusia County, or you want your matches reviewed between in-person lessons.
+
+- You’d rather fit coaching around your week than around a court schedule.
 
 How It Works
 
@@ -172,15 +184,31 @@ Before You Sign Up
 
 How does virtual pickleball coaching work?
 
-It runs on the three-step loop above: you upload footage through Crestline, I break it down and send feedback in the format your plan includes, then you get a drill plan built around exactly what showed up in that footage. Most players send a game or drill session once or twice a week, so the review cycle actually keeps pace with how often you're playing.
+It runs on the three-step loop above: you upload footage through Crestline, I break it down and send feedback in the format your plan includes, then you get a drill plan built around exactly what showed up in that footage. Most players send a game or drill session once or twice a week, so the reviews keep pace with how often you play.
+
+I'm not great with technology. Is this hard?
+
+If you can take a video on your phone, you can do this. You film a game, open Crestline, and upload the video. My review comes back in the same place. If you get stuck on the first upload, message me and I'll walk you through it.
+
+I don't like watching myself on video. Do I have to?
+
+Almost nobody does at first. You don't have to study it: I watch the whole thing and tell you the one or two things that matter most. Seeing it once is usually when it clicks, because you can finally see what everyone's been telling you.
+
+Is a review worth paying for?
+
+Start with the free gameplay diagnosis and decide after. You get your own match broken down by someone who plays at a 5.0 level and knows the body, plus a plan for what to fix first. You can rewatch it as often as you like, which you can't do with a lesson you only hear once.
 
 Do I need to live near Florida to work with you?
 
-No, that's the whole point of this page. In-person lessons and mobile chiropractic care only run in Volusia County, FL, but this program has clients well outside Florida since footage review doesn't care where you're standing when you film it. If you do happen to live nearby, [in-person lessons](https://pickleballchiro.co/lessons/) are still worth a look too.
+No, that's the point of this page. In-person lessons and mobile chiropractic care only run in Volusia County, FL, but footage review doesn't care where you're standing when you film it. If you do live nearby, [in-person team lessons](https://pickleballchiro.co/lessons/) are still worth a look.
+
+I already take a team lesson with you. Does this help?
+
+Yes. It's the same breakdown I do after a team lesson, on a match you film yourself. Send a league match between sessions and you'll know whether the fix from the lesson is showing up when it counts.
 
 What's included in a Crestline coaching program?
 
-The plan and pricing table above breaks down exactly what each tier includes. The short version: every plan gets footage review and a custom drill plan, Pro and Premium add live voice-and-video feedback with same-day priority turnaround, and Premium adds strength and nutrition guidance on top of that. Most players start on Standard and move up once they know how much feedback they actually use.
+The pricing table above breaks down exactly what each plan includes. The short version: every plan gets footage review and a custom drill plan, the higher plans add voice-and-video feedback with priority turnaround, and Premium adds strength and nutrition guidance. Start with the free gameplay diagnosis, then pick the plan that fits how much feedback you want.
 
 What if I don't have game footage yet?
 
@@ -188,7 +216,7 @@ That's fine. Any video from your phone works to start, even a casual drill or pr
 
 Can I switch or cancel my plan later?
 
-Yes. Crestline virtual coaching is a monthly subscription you manage directly in your Crestline account, so you can change plans or cancel anytime before your next billing date to match how much feedback you want.
+Yes. Crestline virtual coaching is a monthly subscription you manage directly in your Crestline account, so you can change plans or cancel anytime before your next billing date.
 
 Ready?
 

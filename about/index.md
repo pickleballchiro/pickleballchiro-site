@@ -32,7 +32,7 @@ Who I Work With
 
 ### 3.0 to 4.0 Players Who Are Stuck
 
-The player I work with most is a 3.5 who has been a 3.5 for a while. Usually somewhere between 40 and 65, plays three or four times a week, has taken a lesson or two, and can't figure out why the rating won't move. In plain words: 3.5 is the intermediate rating, 4.0 and up is where people start calling you advanced, and I coach the intermediate player who is trying to get there. That plateau is a specific problem with a specific set of causes, and I've built my coaching around it. If that's you, start with the [free game diagnosis](https://pickleballchiro.co/quiz/) or read [why players get stuck at 3.5](https://pickleballchiro.co/why-youre-stuck-at-3-5/).
+The player I work with most is a 3.0 to 3.5 who plays on a league team or with a regular group. A few years in, holds their own at their level, has taken a lesson or two, and can't figure out why playing up feels a step too fast, or why the same team keeps beating them. A lot of my players come with their whole team, which is why the [team lesson](https://pickleballchiro.co/lessons/) is the main thing I do. In plain words: 3.5 is the intermediate rating, 4.0 and up is where people start calling you advanced, and I coach the intermediate player who is trying to get there. That plateau is a specific problem with a specific set of causes, and I've built my coaching around it. If that's you, start with the [free game diagnosis](https://pickleballchiro.co/quiz/) or read [why players get stuck at 3.5](https://pickleballchiro.co/why-youre-stuck-at-3-5/).
 
 On the chiropractic side, I see players and non-players across Volusia County who want hands-on care that includes rehab and corrective exercise, not just an adjustment. Pickleball knee pain, shoulders, and low backs make up most of it. If you're hurt, [mobile chiropractic](https://pickleballchiro.co/mobile-chiro/) is the place to start.
 
@@ -64,7 +64,7 @@ Work Together
 
 ### Ready to Train?
 
-In-person lessons and mobile chiropractic care in Volusia County, FL, or virtual coaching through Crestline from anywhere.
+In-person team lessons and mobile chiropractic care in Volusia County, FL, or virtual coaching through Crestline from anywhere.
 
 [See Pickleball Lessons →](https://pickleballchiro.co/lessons/) [See Virtual Coaching →](https://www.gocrestline.app/coaches/lane-odom)
 

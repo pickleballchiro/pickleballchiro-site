@@ -12,11 +12,11 @@ Canonical: https://pickleballchiro.co/links/
 
 ### 🤝 Work With Me
 
-[Virtual Coaching: Book on Crestline](https://www.gocrestline.app/coaches/lane-odom) [Watch Game Film Breakdowns](https://www.youtube.com/@pickleballchiro) [Apply for a Lesson](https://pickleballchiro.co/lessons/)
+[Virtual Coaching: Book on Crestline](https://www.gocrestline.app/coaches/lane-odom) [Team Lessons: Your Games Filmed](https://pickleballchiro.co/lessons/)
 
-Volusia County only
+League teams & groups of 4–8 · Volusia County only
 
-[Book Mobile Chiro](https://pickleballchiro.co/mobile-chiro/)
+[Watch Game Film Breakdowns](https://www.youtube.com/@pickleballchiro) [Book Mobile Chiro](https://pickleballchiro.co/mobile-chiro/)
 
 Volusia County only
 
