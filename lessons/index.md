@@ -60,6 +60,8 @@ Film your own match and send it in. I break it down on video the same way and te
 
 - You keep it. Your videos go into a private YouTube playlist and your notes into a Google Doc, so you can rewatch them before the next match.
 
+#### See What a Breakdown Looks LikeA real game I broke down on my YouTube channel. Your team’s videos look like this, on your own games.
+
 [Book Your Team Lesson →](https://forms.gle/Dz98yAxHX2rUjHQx7)
 
 Most teams book through their captain. One person can pay for everyone, or each player can pay me directly.
@@ -213,6 +215,10 @@ If you play on a league team or with a regular group of 4 or more, pick the team
 How does a team lesson work?
 
 It's one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw. Then I go home and record a breakdown of each pair's film: timestamped, and uploaded unedited so you hear everything I see. A video usually runs 20 to 40 minutes, sometimes 50, and each one takes me about an hour to put together. Your videos go into a private YouTube playlist and your notes into a Google Doc, both yours to keep. It's $70 per player.
+
+What does a video breakdown actually look like?
+
+There’s a full example above: a real 3.0 rec game I broke down on my YouTube channel. I watch the game and talk through it as it plays, pausing on the points that matter: where you’re standing, which shot you chose, and what to do instead. Your team’s videos work the same way, on your own games, with timestamps so you can jump to your points.
 
 Isn't $70 a lot for a one-hour group lesson?
 
