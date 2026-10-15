@@ -548,13 +548,49 @@
     }
     .js .reveal.visible { opacity: 1; transform: none; }
 
-    /* Thin orange divider between the major sections */
-    .section-divider {
-      width: 56px; height: 2px; border-radius: 2px;
-      background: var(--orange); opacity: 0.65;
-      margin: 34px auto 0;
+    /* Sections live in one flex column so the intent chooser can reorder them with
+       `order`. The thin orange divider is each section's own ::before (hidden on
+       whichever section is currently first). */
+    .links-sections { display: flex; flex-direction: column; }
+    .links-sections .links-section::before {
+      content: ''; display: block; width: 56px; height: 2px; border-radius: 2px;
+      background: var(--orange); opacity: 0.65; margin: 0 auto 20px;
     }
-    .section-divider + .links-section { margin-top: 20px; }
+    .links-sections .links-section.is-first::before { display: none; }
+
+    /* ---- INTENT CHOOSER: "What brings you here?" (JS only; hidden without it) ---- */
+    .intent { display: none; text-align: center; margin: 4px 0 0; }
+    .js .intent { display: block; }
+    .intent-q {
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.78rem;
+      color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.16em;
+      margin-bottom: 12px;
+    }
+    .intent-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .intent-chip {
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.9rem;
+      text-transform: uppercase; letter-spacing: 0.04em; color: var(--white);
+      background: linear-gradient(180deg, #24262A, #1B1C1F);
+      border: 1px solid var(--border-subtle); border-radius: var(--radius-card);
+      padding: 14px 8px; cursor: pointer; min-height: 48px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);
+      transition: transform 0.12s ease, border-color 0.2s ease;
+    }
+    .intent-chip:hover { border-color: rgba(240,90,40,0.55); }
+    .intent-chip:active { transform: scale(0.97); }
+    .intent-chip:focus-visible, .intent-change:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+    .intent-picked { font-size: 0.82rem; color: var(--gray-mid); }
+    .intent-picked strong { color: var(--white); font-weight: 600; }
+    .intent-change {
+      background: none; border: 0; padding: 4px 6px; cursor: pointer;
+      color: var(--orange); font: inherit; font-weight: 600; text-decoration: underline;
+    }
+    /* The section the visitor asked for */
+    .links-section.is-picked {
+      border-radius: var(--radius-card); box-shadow: 0 0 0 1px rgba(240,90,40,0.55), 0 0 22px rgba(240,90,40,0.22);
+      padding: 14px 12px 4px; margin-left: -12px; margin-right: -12px;
+    }
+    .links-section.is-picked::before { display: none; }
 
     /* Prominent glow pulse — priority button only */
     @keyframes glowPulse {
@@ -591,7 +627,7 @@
       #rotating-tagline { transition: none; }
       .court-bg .ball { animation: none; }
       .start-row:active, .gear-tile:active, .btn:active,
-      .links-footer a:active { transform: none; }
+      .links-footer a:active, .intent-chip:active { transform: none; }
     }
     /* Touch: no double-tap-zoom wait; reduced-motion drops the movement. */
     a, button { touch-action: manipulation; }
@@ -683,8 +719,24 @@
       <p class="links-subtitle"><span id="rotating-tagline">4.7 DUPR</span></p>
     </header>
 
+    <!-- ================= INTENT CHOOSER (JS shows it; remembers the choice) ================= -->
+    <div class="intent" id="intent" aria-live="polite">
+      <div id="intent-ask">
+        <p class="intent-q">What brings you here?</p>
+        <div class="intent-chips">
+          <button type="button" class="intent-chip" data-intent="guide" data-track="links_intent_guide">Free guide</button>
+          <button type="button" class="intent-chip" data-intent="coaching" data-track="links_intent_coaching">Coaching</button>
+          <button type="button" class="intent-chip" data-intent="gear" data-track="links_intent_gear">Gear codes</button>
+          <button type="button" class="intent-chip" data-intent="browse" data-track="links_intent_browse">Just looking</button>
+        </div>
+      </div>
+      <p class="intent-picked" id="intent-picked" hidden>Showing: <strong id="intent-label"></strong> &middot; <button type="button" class="intent-change" id="intent-change">Change</button></p>
+    </div>
+
+    <div class="links-sections" id="links-sections">
+
     <!-- ================= SECTION: START HERE ================= -->
-    <section class="links-section reveal">
+    <section class="links-section reveal is-first" id="sec-guide" data-sec="guide">
       <h2 class="links-section-title">👋 Start Here</h2>
 
       <a class="start-row" href="/why-youre-stuck-at-3-5/" data-track="links_article_35">
@@ -706,10 +758,8 @@
       </a>
     </section>
 
-    <div class="section-divider" aria-hidden="true"></div>
-
     <!-- ================= SECTION: WORK WITH ME ================= -->
-    <section class="links-section reveal">
+    <section class="links-section reveal" id="sec-work" data-sec="coaching">
       <h2 class="links-section-title">🤝 Work With Me</h2>
       <div class="work-btns">
 
@@ -738,10 +788,8 @@
       </div>
     </section>
 
-    <div class="section-divider" aria-hidden="true"></div>
-
     <!-- ================= SECTION: GEAR I USE ================= -->
-    <section class="links-section reveal">
+    <section class="links-section reveal" id="sec-gear" data-sec="gear">
       <h2 class="links-section-title">🏓 Gear I Use</h2>
       <p class="links-note" style="font-size:0.78rem;color:var(--gray-mid);margin:-6px 0 12px;">Affiliate links: I may earn a commission at no extra cost to you.</p>
       <div class="gear-grid">
@@ -781,6 +829,8 @@
       </div>
     </section>
 
+    </div><!-- /links-sections -->
+
     <!-- ================= FOOTER ================= -->
     <footer class="links-footer">
       <a href="https://instagram.com/dr.lane_o" target="_blank" rel="noopener noreferrer" data-track="links_ig">@dr.lane_o on Instagram</a>
@@ -805,6 +855,55 @@
         window.gtag('event', 'cta_click', { label: label });
       }
     });
+
+    // Intent chooser — floats the section the visitor wants to the top and remembers it.
+    // Storage is wrapped in try/catch: the page works fine without it.
+    (function () {
+      var wrap = document.getElementById('links-sections');
+      var ask = document.getElementById('intent-ask');
+      var picked = document.getElementById('intent-picked');
+      var label = document.getElementById('intent-label');
+      if (!wrap || !ask || !picked) return;
+      var KEY = 'pb_links_intent';
+      var labels = { guide: 'Free guides', coaching: 'Coaching', gear: 'Gear codes' };
+      var secs = Array.prototype.slice.call(wrap.querySelectorAll('.links-section'));
+
+      function apply(choice) {
+        secs.forEach(function (s, i) {
+          var hit = s.getAttribute('data-sec') === choice;
+          s.style.order = hit ? '-1' : String(i);
+          s.classList.toggle('is-picked', hit);
+          s.classList.remove('is-first');
+        });
+        var first = secs.filter(function (s) { return s.style.order === '-1'; })[0] || secs[0];
+        first.classList.add('is-first');
+        // 'Just looking' keeps the default order and only dismisses the question.
+        ask.hidden = true;
+        picked.hidden = false;
+        label.textContent = labels[choice] || 'Everything';
+      }
+      function reset() {
+        secs.forEach(function (s, i) {
+          s.style.order = ''; s.classList.remove('is-picked', 'is-first');
+        });
+        secs[0].classList.add('is-first');
+        ask.hidden = false; picked.hidden = true;
+        try { localStorage.removeItem(KEY); } catch (e) {}
+      }
+
+      document.querySelectorAll('.intent-chip').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var c = b.getAttribute('data-intent');
+          apply(c);
+          try { localStorage.setItem(KEY, c); } catch (e) {}
+        });
+      });
+      document.getElementById('intent-change').addEventListener('click', reset);
+
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      if (saved === 'guide' || saved === 'coaching' || saved === 'gear' || saved === 'browse') apply(saved);
+    })();
 
     // Reveal each section with a gentle fade + slide-up as it scrolls in.
     (function () {
