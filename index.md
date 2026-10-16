@@ -188,7 +188,7 @@ No. My in-person lessons and mobile chiropractic care are limited to Volusia Cou
 
 What's included in a Crestline coaching program?
 
-Crestline plans range from a free monthly game diagnosis up to $159/month for unlimited reviews. Every plan includes footage review and a custom drill plan; higher tiers add live voice-and-video feedback, faster turnaround, and strength/nutrition guidance. Pick the plan that matches how much feedback you want.
+Crestline starts with a free gameplay diagnosis. Monthly plans are $99 for 2 video reviews or $199 for 4, both with voice-and-video feedback and a custom drill plan; the $199 plan adds strength, rehab, and nutrition support.
 
 What level of player do you work with?
 

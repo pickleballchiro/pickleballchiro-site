@@ -1,6 +1,6 @@
 # Dr. Lane Odom — The Pickleball Chiro (full site text)
 
-> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-13. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
+> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-15. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
 
 ---
 
@@ -194,7 +194,7 @@ No. My in-person lessons and mobile chiropractic care are limited to Volusia Cou
 
 What's included in a Crestline coaching program?
 
-Crestline plans range from a free monthly game diagnosis up to $159/month for unlimited reviews. Every plan includes footage review and a custom drill plan; higher tiers add live voice-and-video feedback, faster turnaround, and strength/nutrition guidance. Pick the plan that matches how much feedback you want.
+Crestline starts with a free gameplay diagnosis. Monthly plans are $99 for 2 video reviews or $199 for 4, both with voice-and-video feedback and a custom drill plan; the $199 plan adds strength, rehab, and nutrition support.
 
 What level of player do you work with?
 
@@ -1576,39 +1576,29 @@ $0/mo
 
 1 total (one video, one time)
 
-Gameplay diagnosis: written, ~5 min clip, biggest limitation identified
+Gameplay diagnosis: written, up to a 4 min clip, biggest limitation identified
 
 N/A
-
-Standard
-
-$49/mo
-
-2
-
-Written feedback
-
-Within 48 hrs
 
 Pro
 
 $99/mo
 
-4
+2 video reviews
 
-Voice + video commentary, custom drill plan
+Voice + video feedback with live commentary, custom drill plan
 
-Priority, usually same day
+Within 48 hrs, usually same day
 
 Premium
 
-$159/mo
+$199/mo
 
-Unlimited
+4 video reviews
 
-Voice + video, strength & nutrition guidance
+Voice + video feedback with live commentary, custom drill and training plan, strength, rehab & nutrition support
 
-Priority, usually same day
+Within 24-48 hrs, usually same day
 
 One-Time Reviews — No Subscription Needed
 
@@ -1692,7 +1682,7 @@ Yes. It's the same breakdown I do after a team lesson, on a match you film yours
 
 What's included in a Crestline coaching program?
 
-The pricing table above breaks down exactly what each plan includes. The short version: every plan gets footage review and a custom drill plan, the higher plans add voice-and-video feedback with priority turnaround, and Premium adds strength and nutrition guidance. Start with the free gameplay diagnosis, then pick the plan that fits how much feedback you want.
+The pricing table above breaks down exactly what each plan includes. The short version: both monthly plans get voice-and-video footage review with a custom drill plan and priority replies. Pro covers 2 video reviews a month; Premium covers 4 and adds strength, rehab, and nutrition support. Start with the free gameplay diagnosis, then pick the plan that fits how much feedback you want.
 
 What if I don't have game footage yet?
 
@@ -1795,6 +1785,10 @@ URL: https://pickleballchiro.co/links/
 ## Dr. Lane Odom
 
 4.7 DUPR
+
+What brings you here?
+
+Showing: ·
 
 ### 👋 Start Here
 
