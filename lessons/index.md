@@ -160,7 +160,7 @@ Virtual (Crestline)
 
 Free trial, then plans
 
-You send your match footage and get a video breakdown from anywhere. [Plans and one-off reviews](https://pickleballchiro.co/virtual-coaching/)
+You send your match footage and get a video breakdown from anywhere. [Plans and pricing](https://pickleballchiro.co/virtual-coaching/)
 
 Looking for a private or small-group lesson?
 
