@@ -104,20 +104,6 @@ Voice + video feedback with live commentary, custom drill and training plan, str
 
 Within 24-48 hrs, usually same day
 
-One-Time Reviews — No Subscription Needed
-
-Review
-
-Price
-
-What You Get
-
-One-Off Review
-
-$39
-
-Full match watched live with voice commentary
-
 [See the Program on Crestline →](https://www.gocrestline.app/coaches/lane-odom)
 
 What Virtual Clients Say

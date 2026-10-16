@@ -48,11 +48,11 @@ We film two games, then spend whatever time is left drilling the weak spots I sa
 
 See details →
 
-Virtual Plans & one-offs
+Virtual Monthly plans
 
 Not local, or between lessons
 
-Start with a free gameplay diagnosis, then pick a monthly plan or a single one-off review. You get the same whole-chain breakdown plus a drill plan, from anywhere.
+Start with a free gameplay diagnosis, then pick a monthly plan. You get the same whole-chain breakdown plus a drill plan, from anywhere.
 
 [See plans & pricing →](https://pickleballchiro.co/virtual-coaching/)
 
