@@ -80,39 +80,29 @@ $0/mo
 
 1 total (one video, one time)
 
-Gameplay diagnosis: written, ~5 min clip, biggest limitation identified
+Gameplay diagnosis: written, up to a 4 min clip, biggest limitation identified
 
 N/A
-
-Standard
-
-$49/mo
-
-2
-
-Written feedback
-
-Within 48 hrs
 
 Pro
 
 $99/mo
 
-4
+2 video reviews
 
-Voice + video commentary, custom drill plan
+Voice + video feedback with live commentary, custom drill plan
 
-Priority, usually same day
+Within 48 hrs, usually same day
 
 Premium
 
-$159/mo
+$199/mo
 
-Unlimited
+4 video reviews
 
-Voice + video, strength & nutrition guidance
+Voice + video feedback with live commentary, custom drill and training plan, strength, rehab & nutrition support
 
-Priority, usually same day
+Within 24-48 hrs, usually same day
 
 One-Time Reviews — No Subscription Needed
 
@@ -180,7 +170,7 @@ No, that's the whole point of this page. In-person lessons and mobile chiropract
 
 What's included in a Crestline coaching program?
 
-The plan and pricing table above breaks down exactly what each tier includes. The short version: every plan gets footage review and a custom drill plan, Pro and Premium add live voice-and-video feedback with same-day priority turnaround, and Premium adds strength and nutrition guidance on top of that. Most players start on Standard and move up once they know how much feedback they actually use.
+The plan and pricing table above breaks down exactly what each tier includes. The short version: both monthly plans get voice-and-video footage review with a custom drill plan and priority replies. Pro covers 2 video reviews a month; Premium covers 4 and adds strength, rehab, and nutrition support.
 
 What if I don't have game footage yet?
 

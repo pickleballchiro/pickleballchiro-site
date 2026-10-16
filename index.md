@@ -186,7 +186,7 @@ No. My in-person lessons and mobile chiropractic care are limited to Volusia Cou
 
 What's included in a Crestline coaching program?
 
-Crestline plans range from a free monthly game diagnosis up to $159/month for unlimited reviews. Every plan includes footage review and a custom drill plan; higher tiers add live voice-and-video feedback, faster turnaround, and strength/nutrition guidance. Pick the plan that matches how much feedback you want.
+Crestline starts with a free gameplay diagnosis. Monthly plans are $99 for 2 video reviews or $199 for 4, both with voice-and-video feedback and a custom drill plan; the $199 plan adds strength, rehab, and nutrition support.
 
 What level of player do you work with?
 
@@ -194,7 +194,7 @@ Mostly serious recreational players in the 3.0 to 4.0 range who are ready to bre
 
 How much do lessons cost?
 
-In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4 or 6 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free and scales up to $159/month depending on how much feedback you want.
+In-person lessons in Volusia County are $80/hour for 1-on-1 coaching, with package discounts for 4 or 6 sessions, or $40-50/person for group sessions. Virtual coaching through Crestline starts free, then monthly plans are $99 (2 video reviews) or $199 (4 video reviews).
 
 What's your cancellation policy?
 
