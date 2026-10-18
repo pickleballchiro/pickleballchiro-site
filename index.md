@@ -12,7 +12,7 @@ A “leak” is the one shot or movement pattern that loses you the most points.
 
 4.7 DUPR Doctor of Chiropractic Performance Coach PCI Certified Coach
 
-[Get the Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Or take the free 2-minute game diagnosis](https://pickleballchiro.co/quiz/)
+[Get the Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Or take the free 3-minute game diagnosis](https://pickleballchiro.co/quiz/)
 
 4.7
 
@@ -180,7 +180,7 @@ Most coaches only see your technique. I look at the whole chain that produces th
 
 How does virtual pickleball coaching work?
 
-Through Crestline, you send me footage of your games or drills 1 to 2 times a week. I review it and send back detailed feedback, written or live voice and video depending on your plan, plus a custom drill plan built around exactly what I see. No travel, no scheduling around a court.
+Through Crestline, you send me footage of your games or drills: 2 video reviews a month on Pro, 4 on Premium. I review it and send back voice-and-video feedback with live commentary (the free trial is a written diagnosis), plus a custom drill plan built around exactly what I see. No travel, no scheduling around a court.
 
 Do I need to live near Florida to work with you?
 

@@ -40,7 +40,7 @@ Where to Find Me
 
 ### Daytona Beach, Volusia County, and Online
 
-I'm based in Daytona Beach, FL, on the Ormond Beach line. In-person lessons happen at [Chipshot](https://playchipshot.com) in Daytona Beach or at public courts across Volusia County, including New Smyrna Beach, Port Orange, Ormond Beach, and Edgewater. Mobile chiropractic visits come to you anywhere in that same area. Virtual coaching runs through [Crestline](https://www.gocrestline.app/coaches/lane-odom), where you send me game footage and get a full breakdown and drill plan back, from anywhere.
+I'm based in Daytona Beach, FL, on the Ormond Beach line. In-person lessons happen at [Chipshot](https://playchipshot.com) in Daytona Beach or at public courts across Volusia County, including New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Mobile chiropractic visits come to you anywhere in Volusia County, Edgewater included. Virtual coaching runs through [Crestline](https://www.gocrestline.app/coaches/lane-odom), where you send me game footage and get a full breakdown and drill plan back, from anywhere.
 
 There is more than one chiropractor coaching pickleball online. This one is Dr. Lane Odom, DC, in Daytona Beach, Florida. You can verify me on [LinkedIn](https://www.linkedin.com/in/drlaneodom/), see me listed as a coach at [Chipshot Daytona on OpenCourt](https://app.getopencourt.com/club/chipshotdaytona/coaches/lane-odom), watch game breakdowns on [YouTube](https://www.youtube.com/@pickleballchiro), or follow [@dr.lane_o](https://instagram.com/dr.lane_o) on Instagram, where most of my teaching goes out first. There is also a [Dr. Lane Odom Facebook page](https://www.facebook.com/profile.php?id=61578074523794).
 

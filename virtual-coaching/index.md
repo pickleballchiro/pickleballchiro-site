@@ -36,13 +36,13 @@ Step 1
 
 #### Send Footage
 
-Film a game or drill session on your phone, 1-2 times a week, and upload it through Crestline. No special equipment, no scheduling around a court.
+Film a game or drill session on your phone and upload it through Crestline: 2 a month on Pro, 4 a month (about one a week) on Premium. No special equipment, no scheduling around a court.
 
 Step 2
 
 #### Get Reviewed
 
-I break down the footage and send back feedback, written or live voice and video depending on your plan, on your technique and the chain of movement behind it.
+I break down the footage and send back feedback (a written diagnosis on the free trial, voice and video with live commentary on Pro and Premium) on your technique and the chain of movement behind it.
 
 Step 3
 
@@ -160,7 +160,7 @@ Before You Sign Up
 
 How does virtual pickleball coaching work?
 
-It runs on the three-step loop above: you upload footage through Crestline, I break it down and send feedback in the format your plan includes, then you get a drill plan built around exactly what showed up in that footage. Most players send a game or drill session once or twice a week, so the reviews keep pace with how often you play.
+It runs on the three-step loop above: you upload footage through Crestline, I break it down and send feedback in the format your plan includes, then you get a drill plan built around exactly what showed up in that footage. Pro covers 2 reviews a month and Premium covers 4, about one a week, so pick the plan that matches how often you want feedback.
 
 I'm not great with technology. Is this hard?
 

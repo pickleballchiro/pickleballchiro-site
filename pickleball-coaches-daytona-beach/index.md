@@ -42,7 +42,7 @@ I still compete: 4.7 DUPR, playing at a 5.0 level, with 20+ tournament medals at
 
 #### 5. The coaching continues between sessions
 
-In-person lessons are one piece. Between them, you can send footage through [Crestline](https://www.gocrestline.app/coaches/lane-odom) and get a written breakdown and a drill plan, from anywhere. Most of my players do a lesson, drill for two or three weeks, send a clip, and come back when the leak has moved. That’s faster and cheaper than a standing weekly lesson where you re-learn the same thing.
+In-person lessons are one piece. Between them, you can send footage through [Crestline](https://www.gocrestline.app/coaches/lane-odom) and get a voice-and-video breakdown and a drill plan, from anywhere. Most of my players do a lesson, drill for two or three weeks, send a clip, and come back when the leak has moved. That’s faster and cheaper than a standing weekly lesson where you re-learn the same thing.
 
 The short version: a standard lesson teaches you shots. I find the one pattern costing you points, fix the body mechanics behind it, and give you a drill that’s yours. If you already have the shots and you’re still stuck, that’s the difference you’re paying for.
 
