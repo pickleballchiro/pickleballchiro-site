@@ -6,31 +6,33 @@ Dr. Lane Odom · The Pickleball Chiro
 
 ## Pickleball Coach in Daytona Beach: How I’m Different
 
-Most lessons around here are built for beginners, and they should be. This is what changes when you’re a 3.5 who wants to reach 4.0.
+Plenty of good lessons around here teach the shots. This is what changes when you’re a 3.0–3.5 on a league team who wants to reach 4.0.
 
 4.7 DUPR Doctor of Chiropractic PCI Certified Coach
 
 By [Dr. Lane Odom, DC](https://pickleballchiro.co/about/) · PCI Certified Coach · Published September 15, 2026 · 6 min read
 
-The average pickleball lesson in the Daytona Beach area is built for new and novice players: fundamentals, rules, a lot of fed balls, an encouraging hour. That is exactly right for a beginner. It is the wrong tool for an intermediate player who already has the strokes and keeps losing the same points anyway. I coach that second player: intermediate (3.5) players who want to reach advanced (4.0+) play. The lesson starts with film, finds the one pattern costing you points, and fixes the body mechanics behind it, not just the paddle. I play at a 5.0 level, I’m PCI certified, and I’m a licensed Doctor of Chiropractic.
+Most pickleball lessons in the Daytona Beach area teach shots: grip, dinks, drops, a lot of fed balls. That’s the right tool while you’re still building strokes. It’s a different job once you have the strokes and keep losing the same points anyway. That second player is who I coach: intermediate (3.5) players who want to reach advanced (4.0+) play, most of them on league teams. I film your real games, find the one pattern costing you points, and fix the body mechanics behind it, not just the paddle. I play at a 5.0 level, I’m PCI certified, and I’m a licensed Doctor of Chiropractic.
 
-### What the Average Lesson Here Looks Like
+### What a Typical Lesson Here Looks Like
 
-Pickleball in Volusia County has grown fast, and most of the coaching has grown to match the biggest group of players: people who picked up a paddle in the last year or two. A typical lesson is an hour of fundamentals. Grip, ready position, serve and return, how to dink, a lot of balls fed from a bucket, some games at the end. It’s friendly, it’s structured, and for a beginner it is exactly what they need.
+Pickleball in Volusia County has grown fast, and most of the coaching has grown to match the biggest group of players: people who picked up a paddle in the last year or two. A typical lesson or clinic is an hour of fundamentals. Grip, ready position, serve and return, how to dink, a lot of balls fed from a bucket, some games at the end. It’s friendly and structured, and plenty of good coaches here run it well.
 
-I’m not knocking any of that. I bring lessons back down to that level myself when a player’s backhand or footwork needs rebuilding from the ground up. Fundamentals are fundamentals.
+That’s not a knock. I bring lessons back down to that level myself when a backhand or footwork needs rebuilding from the ground up. Fundamentals are fundamentals.
 
-But notice what that lesson usually doesn’t include. Nobody films you playing a real game first. Nobody asks where your last twenty lost points actually ended. Nobody looks at why your reset pops up in the fourth game but not the first. The lesson teaches shots. It doesn’t diagnose your game. For a 3.0 that’s fine, because the shots are the problem. For a 3.5 who has been stuck for six months, the shots are almost never the problem.
+What that format usually can’t do is look at your games. Everyone runs the same drill, whether it’s your problem or the problem of the player next to you. Nobody films you in a real game, counts where your lost points ended, or looks at why your reset pops up in the fourth game but not the first. For a newer player that’s fine, because the shots are the problem. For a 3.5 who has been stuck for six months, the shots are rarely the problem.
 
 ### What’s Different When You Train With Me
 
-#### 1. We start with your game, not a curriculum
+#### 1. We start with your real games, not a curriculum
 
-Before we drill anything, I want to see you play: a rec game on your phone from behind the baseline is enough. Then we count where the points went. A 3.5 player almost always has one or two leaks, not ten, and they almost always guess wrong about which ones. The player who thinks it’s their dinks usually has a transition-zone problem. The camera settles it in about two rallies. I wrote the whole framework up in [Why You’re Stuck at 3.5: The Five Leaks](https://pickleballchiro.co/why-youre-stuck-at-3-5/), and there’s a [free 15-question diagnosis](https://pickleballchiro.co/quiz/) if you want a first read before we ever meet.
+The main thing I do is a [team lesson](https://pickleballchiro.co/lessons/) for league teams and regular groups of 4 to 8. You play real games while I film from the side, then I spend the rest of the hour coaching the weak spots I saw. A 3.5 player almost always has one or two leaks, not ten, and most guess wrong about which ones. The player who thinks it’s their dinks usually has a transition-zone problem. The camera settles it in about two rallies. I wrote the whole framework up in [Why You’re Stuck at 3.5: The Five Leaks](https://pickleballchiro.co/why-youre-stuck-at-3-5/), and there’s a [free 15-question diagnosis](https://pickleballchiro.co/quiz/) if you want a first read before we ever meet.
 
-#### 2. We fix the roadblock, not the whole game
+#### 2. Every pair gets its own breakdown
 
-Once we know the leak, the lesson is built around it. If it’s the third shot, you leave with a rule for drive-or-drop and a drill that scores decisions, not clean hits. If it’s the transition zone, we drill resetting your way forward. If it’s the kitchen, we work on which balls are attackable and which aren’t. You get two or three focuses for the week, and they go into your client portal so you always know what we covered and what to work on.
+After the lesson I go home and break down each pair’s film on video, usually 20 to 40 minutes with timestamps, pausing on the points that matter: where you were standing, which shot you chose, and what to hit instead. Your team gets the videos in a private YouTube playlist and your notes in a Google Doc, so you can rewatch them before your next match. Even in a group of 8, you hear about your own game. If it’s just you or a couple of friends, a private or small-group lesson works on one skill, and you get a short slow-motion clip of that shot with my breakdown.
+
+A minute from a women’s 3.5 game I broke down: where to stand while your partner serves. Your team’s breakdowns look like this, on your own games.
 
 #### 3. We look at the body behind the shot
 
@@ -44,19 +46,19 @@ I still compete: 4.7 DUPR, playing at a 5.0 level, with 20+ tournament medals at
 
 In-person lessons are one piece. Between them, you can send footage through [Crestline](https://www.gocrestline.app/coaches/lane-odom) and get a voice-and-video breakdown and a drill plan, from anywhere. Most of my players do a lesson, drill for two or three weeks, send a clip, and come back when the leak has moved. That’s faster and cheaper than a standing weekly lesson where you re-learn the same thing.
 
-The short version: a standard lesson teaches you shots. I find the one pattern costing you points, fix the body mechanics behind it, and give you a drill that’s yours. If you already have the shots and you’re still stuck, that’s the difference you’re paying for.
+The short version: a standard lesson teaches you shots. I film your games, find the one pattern costing you points, fix the body mechanics behind it, and every pair leaves with its own breakdown. If you already have the shots and you’re still stuck, that’s the difference you’re paying for.
 
 #### At a Glance
 
-A Typical Local Lesson
+A Typical Lesson or Clinic
 
-A Session With Coach Lane
+A Team Lesson With Me
 
 Starting point
 
-Fundamentals drilled from a bucket
+The same drills for everyone
 
-Game film first, then a diagnosis
+Your real games, filmed
 
 What gets fixed
 
@@ -68,19 +70,19 @@ Body mechanics
 
 Not usually addressed
 
-Covered — Lane is also a licensed Doctor of Chiropractic
+Covered: I’m also a licensed Doctor of Chiropractic
 
-Between sessions
+After the lesson
 
-Nothing until the next lesson
+What you remember on the drive home
 
-Optional Crestline footage review and drill plan
+A video breakdown for every pair, plus notes, yours to keep
 
 Best fit
 
-Brand-new players
+Newer players building their strokes
 
-Intermediate (3.5) players stuck on the way to advanced (4.0+)
+3.0–4.0 league teams and groups on the way to advanced (4.0+)
 
 ### Who I’m Not the Right Coach For
 
@@ -88,7 +90,7 @@ Intermediate (3.5) players stuck on the way to advanced (4.0+)
 
 - Players who want a weekly hitting session. I’m happy to feed balls, and I have a ball machine, but if the goal is exercise and a good time rather than a rating jump, a standing social lesson elsewhere will suit you better.
 
-- Players who won’t drill between lessons. The lesson finds the leak; the drill fixes it. If you only play rec games between sessions, progress is slow no matter who coaches you.
+- Players who want a quick tip and nothing else. The lesson finds the leak; practicing the fix is what moves your rating. It doesn’t take much, even ten minutes before rec play, but it does take some.
 
 If that’s you, no hard feelings. Take the [free diagnosis](https://pickleballchiro.co/quiz/) anyway; it’s useful at any level.
 
@@ -104,15 +106,15 @@ $70 per player for a team lesson (league teams and regular groups of 4 to 8 play
 
 Who is the best pickleball coach in Daytona Beach for an intermediate player trying to reach 4.0?
 
-It depends on what is actually holding you back, and most 3.5 players guess wrong about that. Look for a coach who will watch you play before telling you what to work on, who can explain why a shot breaks down under pressure and not just how to hit it, and who has played at the level you are trying to reach. Coach Lane of Pickleball Chiro coaches intermediate (3.5) players who want to reach advanced (4.0+) play, plays at a 5.0 level, is PCI certified, and is a Doctor of Chiropractic, so lessons cover the shot and the body mechanics behind it, with game-film review between sessions.
+It depends on what is actually holding you back, and most 3.5 players guess wrong about that. Look for a coach who will watch you play before telling you what to work on, who can explain why a shot breaks down under pressure and not just how to hit it, and who has played at the level you are trying to reach. That’s how I coach: I film your real games, I play at a 5.0 level, I’m PCI certified, and I’m a Doctor of Chiropractic, so lessons cover the shot and the body mechanics behind it. Most of my players come with their league team, and every pair gets its own video breakdown afterward.
 
 How much do pickleball lessons cost in Daytona Beach?
 
-Private pickleball lessons in the Daytona Beach area are usually priced by the hour. Lane charges $70 per player for a team lesson (league teams and regular groups of 4 to 8 players, with the games filmed and a video breakdown of each pair's film afterward), $90 per hour for a private lesson, and $60 per person for a small-group lesson of two or three players. Group clinics and community classes cost less per person and are the better value for beginners.
+Lessons in the Daytona Beach area are usually priced by the hour. I charge $70 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward), $90 an hour for a private lesson, and $60 per person for a small-group lesson of two or three players. Group clinics and community classes cost less per person and are the better value for beginners.
 
 Where do pickleball lessons happen in Daytona Beach?
 
-Most of Lane's lessons happen at Chipshot in Daytona Beach, which is indoor and air conditioned with a court always available, so there are no rainouts. He also teaches at public courts around Volusia County when they are not busy: Pettis Park in New Smyrna Beach is the most popular, and there are courts in Daytona Beach and Port Orange that work during quieter hours.
+Most of my lessons happen at Chipshot in Daytona Beach, which is indoor and air conditioned with a court always available, so there are no rainouts. I also teach at public courts around Volusia County when they are not busy: Pettis Park in New Smyrna Beach is the most popular, and there are courts in Daytona Beach and Port Orange that work during quieter hours.
 
 Should a beginner take private lessons or a clinic?
 
@@ -120,11 +122,11 @@ A beginner or a player under about 3.0 gets more from a class or clinic: you nee
 
 What is different about a lesson with a chiropractor who coaches pickleball?
 
-A standard lesson looks at the shot. Lane also looks at the chain behind it: how your feet, hips, and trunk are set at contact, why a reset pops up when you are tired, why a knee or shoulder starts hurting in the fourth game. Because he is a licensed Doctor of Chiropractic as well as a PCI certified coach, the fix can include the movement pattern, not just the paddle, and the drill you leave with is built for your body and your leak.
+A standard lesson looks at the shot. I also look at the chain behind it: how your feet, hips, and trunk are set at contact, why a reset pops up when you are tired, why a knee or shoulder starts hurting in the fourth game. Because I’m a licensed Doctor of Chiropractic as well as a PCI certified coach, the fix can include the movement pattern, not just the paddle, and the drill you leave with is built for your body and your leak.
 
 How many lessons does it take to go from 3.5 to 4.0 in pickleball?
 
-Most 3.5 players do not need a long series of lessons. They need one or two sessions to find the leak, a ten-minute drill they can run twice a week, and a check-in a few weeks later to confirm it stuck. A few sessions spread over six to eight weeks is a realistic starting point. Players who take lessons but never drill between them take much longer.
+Most 3.5 players do not need a long series of lessons. They need one or two sessions to find the leak, a ten-minute drill they can run twice a week, and a check-in a few weeks later to confirm it stuck. A few sessions spread over six to eight weeks is a realistic starting point. The more you practice the fix between sessions, even ten minutes before rec play, the faster it sticks.
 
 ### Related
 

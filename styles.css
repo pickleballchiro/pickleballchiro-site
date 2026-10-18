@@ -1071,6 +1071,9 @@ a.card:active,
   display: block;
 }
 
+/* Vertical YouTube Short */
+.video-frame--short { aspect-ratio: 9 / 16; max-width: 320px; margin: 24px auto 0; }
+
 .video-caption {
   font-size: 0.82rem;
   color: var(--gray-mid);

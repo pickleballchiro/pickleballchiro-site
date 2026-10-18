@@ -42,6 +42,8 @@ Players learn the serve and return first, so they stop thinking about them. But 
 
 Self-check: in your next rec game, count how many points end within the first four shots. If it’s more than half, this is your leak.
 
+The first four shots start before anyone hits: a minute from a women’s 3.5 game I broke down, on where to stand while your partner serves.
+
 ### Leak 2: You’re Guessing Instead of Deciding
 
 Every ball in pickleball is one decision: attack or reset. A 3.5 player doesn’t have a rule for that call, so they make it in real time under pressure, and guessing under pressure goes wrong. This isn’t athleticism or hand speed. It’s a missing framework.

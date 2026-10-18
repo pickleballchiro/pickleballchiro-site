@@ -6,23 +6,23 @@ Canonical: https://pickleballchiro.co/links/
 
 4.7 DUPR
 
-What brings you here?
-
-Showing: ·
-
-### 👋 Start Here
-
-[The Five Leaks: Full Article](https://pickleballchiro.co/why-youre-stuck-at-3-5/) [Why You’re Stuck at 3.5: Free Guide](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Free Knee Pain Guide](https://pickleballchiro.gumroad.com/l/kneepainguide)
-
 ### 🤝 Work With Me
 
 [Virtual Coaching: Book on Crestline](https://www.gocrestline.app/coaches/lane-odom) [Team Lessons: Your Games Filmed](https://pickleballchiro.co/lessons/)
 
 League teams & groups of 4–8 · Volusia County only
 
+[Book a Lesson](https://forms.gle/Dz98yAxHX2rUjHQx7)
+
+Team, private, or small group · I text back within 12–24 hrs
+
 [Watch Game Film Breakdowns](https://www.youtube.com/@pickleballchiro) [Book Mobile Chiro](https://pickleballchiro.co/mobile-chiro/)
 
 Volusia County only
+
+### 📘 Free Guides
+
+[The Five Leaks: Full Article](https://pickleballchiro.co/why-youre-stuck-at-3-5/) [Why You’re Stuck at 3.5: Free Guide](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Free Knee Pain Guide](https://pickleballchiro.gumroad.com/l/kneepainguide)
 
 ### 🏓 Gear I Use
 

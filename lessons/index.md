@@ -64,9 +64,13 @@ Right after the games: what I saw, while it’s still fresh.
 
 #### See What a Breakdown Looks LikeA real game I broke down on my YouTube channel. Your team’s videos look like this, on your own games.
 
+A minute from a women’s 3.5 game I broke down: where to stand while your partner serves.
+
 [Book Your Team Lesson →](https://forms.gle/Dz98yAxHX2rUjHQx7)
 
 Most teams book through their captain. One person can pay for everyone, or each player can pay me directly by Zelle, Venmo, or cash.
+
+Captain?
 
 Why It’s Different
 
@@ -204,7 +208,7 @@ Air conditioned, and a court is always open. No waiting, no rainouts.
 
 #### Public Courts · Volusia County
 
-Prefer somewhere closer to home? I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some courts are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open.
+Prefer somewhere closer to home? I also teach at public courts in New Smyrna Beach (Pettis Park is the most popular), Port Orange, Daytona Beach, and Ormond Beach. Some courts are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open.
 
 Before You Book
 
@@ -256,7 +260,7 @@ Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) 
 
 Where do you teach, and what should I bring?
 
-Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it.
+Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach (Pettis Park is the most popular), Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it.
 
 Ready?
 

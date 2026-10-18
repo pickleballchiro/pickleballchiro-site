@@ -56,7 +56,11 @@ Watch a Real Breakdown
 
 ### This Is What a Review Looks Like
 
-Three full match analyses from my [YouTube channel](https://www.youtube.com/@pickleballchiro). A Crestline review is the same read, on your footage, with a drill plan attached.
+A minute from a women’s 3.5 game, then three full match analyses from my [YouTube channel](https://www.youtube.com/@pickleballchiro). A Crestline review is the same read, on your footage, with a drill plan attached.
+
+#### Women’s 3.5 Game: Where to Stand on Your Partner’s Serve
+
+A clip from a breakdown of a women’s 3.5 game, the same kind of read you get on your own footage.
 
 #### 3.0 Rec Game Match Analysis
 

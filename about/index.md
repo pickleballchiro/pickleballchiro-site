@@ -10,6 +10,14 @@ The coach who understands bodies, still competing at the 5.0 level.
 
 4.7 DUPR Doctor of Chiropractic PCI Certified Coach
 
+A Bit About Me
+
+### Tennis First, Then Pickleball
+
+I grew up on a tennis court. I played competitive tennis for years, and racket sports have been part of my life for more than 13 of them. I picked up pickleball in 2023, right in the middle of chiropractic school at Palmer in Port Orange, and it took over fast. I still play tournaments around Florida, and I’ve brought home 20+ medals at 4.5 and up since I started.
+
+What I like most about coaching is the moment a player sees on film what everyone has been trying to tell them. That’s why every team lesson I teach starts with your real games, and why so many of the players I coach come with the friends they play with every week.
+
 Why I Do This
 
 ### Two Problems, One Coach
@@ -42,7 +50,7 @@ Where to Find Me
 
 I'm based in Daytona Beach, FL, on the Ormond Beach line. In-person lessons happen at [Chipshot](https://playchipshot.com) in Daytona Beach or at public courts across Volusia County, including New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Mobile chiropractic visits come to you anywhere in Volusia County, Edgewater included. Virtual coaching runs through [Crestline](https://www.gocrestline.app/coaches/lane-odom), where you send me game footage and get a full breakdown and drill plan back, from anywhere.
 
-There is more than one chiropractor coaching pickleball online. This one is Dr. Lane Odom, DC, in Daytona Beach, Florida. You can verify me on [LinkedIn](https://www.linkedin.com/in/drlaneodom/), see me listed as a coach at [Chipshot Daytona on OpenCourt](https://app.getopencourt.com/club/chipshotdaytona/coaches/lane-odom), watch game breakdowns on [YouTube](https://www.youtube.com/@pickleballchiro), or follow [@dr.lane_o](https://instagram.com/dr.lane_o) on Instagram, where most of my teaching goes out first. There is also a [Dr. Lane Odom Facebook page](https://www.facebook.com/profile.php?id=61578074523794).
+You can also find me on [LinkedIn](https://www.linkedin.com/in/drlaneodom/), see me listed as a coach at [Chipshot Daytona on OpenCourt](https://app.getopencourt.com/club/chipshotdaytona/coaches/lane-odom), watch game breakdowns on [YouTube](https://www.youtube.com/@pickleballchiro), or follow [@dr.lane_o](https://instagram.com/dr.lane_o) on Instagram, where most of my teaching goes out first. There is also a [Dr. Lane Odom Facebook page](https://www.facebook.com/profile.php?id=61578074523794).
 
 Credentials
 

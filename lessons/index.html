@@ -130,6 +130,12 @@
     .team-photo figcaption { margin-top: 8px; font-size: 0.82rem; color: var(--gray-mid); text-align: center; }
 
 
+    /* ---- one-line "send this to your team" (share sheet, falls back to copy) ---- */
+    .share-line { margin: 10px 0 0; text-align: center; font-size: 0.9rem; color: var(--off-white); }
+    .share-link { background: none; border: 0; padding: 4px 2px; font: inherit; font-weight: 600; color: var(--orange); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .share-status { min-height: 1.2em; margin: 4px 0 0; font-size: 0.8rem; color: var(--orange); text-align: center; }
+    .sample-short { margin-top: 18px; }
+
     /* ---- brighter fine print on this page (gray-mid was hard to read outdoors) ---- */
     body { --gray-mid: #C9C9C9; }
   </style>
@@ -681,7 +687,7 @@
         "name": "Where do you teach, and what should I bring?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it."
+          "text": "Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach (Pettis Park is the most popular), Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it."
         }
       }
     ]
@@ -834,10 +840,38 @@
       <div class="video-frame sample-breakdown">
         <iframe src="https://www.youtube-nocookie.com/embed/xMtTSqcm0SU" title="3.0 Rec Game Match Analysis by Dr. Lane Odom" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
+      <div class="video-frame video-frame--short sample-short">
+        <iframe src="https://www.youtube-nocookie.com/embed/DZxSskANi24" title="Never stand here when your partner is serving, from a women's 3.5 game breakdown by Dr. Lane Odom" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p class="video-caption">A minute from a women&rsquo;s 3.5 game I broke down: where to stand while your partner serves.</p>
       <div class="hero-cta-wrap">
         <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_team_cta">Book Your Team Lesson <span class="arrow">&rarr;</span></a>
       </div>
       <p class="section-subtext" style="margin-top: 14px;">Most teams book through their captain. One person can pay for everyone, or each player can pay me directly by Zelle, Venmo, or cash.</p>
+      <p class="share-line">Captain? <button type="button" class="share-link" id="share-send" data-track="lessons_share_send">Send this to your team &rarr;</button></p>
+      <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
+      <script>
+        (function () {
+          var msg = 'Found a lesson for our team: Dr. Lane Odom films our real games, coaches what we need on court, then sends each pair its own video breakdown to keep. $70 each for 4 to 8 of us, one hour, at Chipshot or a court near us. Take a look: https://pickleballchiro.co/lessons/';
+          var status = document.getElementById('share-status');
+          function copied(ok) { status.textContent = ok ? 'Copied. Paste it into your team group chat.' : 'Send your team this link: pickleballchiro.co/lessons/'; }
+          function legacyCopy() {
+            var t = document.createElement('textarea');
+            t.value = msg; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+            document.body.appendChild(t); t.select();
+            var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(t); copied(ok);
+          }
+          function copy() {
+            if (navigator.clipboard && window.isSecureContext) {
+              navigator.clipboard.writeText(msg).then(function () { copied(true); }, legacyCopy);
+            } else { legacyCopy(); }
+          }
+          document.getElementById('share-send').addEventListener('click', function () {
+            if (navigator.share) { navigator.share({ text: msg }).catch(function () {}); } else { copy(); }
+          });
+        })();
+      </script>
     </div>
   </section>
 
@@ -999,7 +1033,7 @@
         </div>
         <div class="pricing-card card">
           <h3 class="stage-title">Public Courts &middot; Volusia County</h3>
-          <p class="offer-fine-print">Prefer somewhere closer to home? I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some courts are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open.</p>
+          <p class="offer-fine-print">Prefer somewhere closer to home? I also teach at public courts in New Smyrna Beach (Pettis Park is the most popular), Port Orange, Daytona Beach, and Ormond Beach. Some courts are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open.</p>
         </div>
       </div>
     </div>
@@ -1072,7 +1106,7 @@
 
         <details class="faq-item">
           <summary>Where do you teach, and what should I bring?</summary>
-          <p class="faq-answer">Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it.</p>
+          <p class="faq-answer">Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach (Pettis Park is the most popular), Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it.</p>
         </details>
 
 

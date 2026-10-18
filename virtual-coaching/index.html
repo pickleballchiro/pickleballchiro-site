@@ -48,8 +48,10 @@
     }
   
     .video-grid { display: grid; gap: 22px; }
+    .video-card--short { max-width: 360px; margin: 0 auto 22px; }
     .video-card { background: var(--card, #202226); border-radius: 12px; padding: 14px 14px 18px; border: 1px solid rgba(255,255,255,0.08); }
     .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; background: #000; margin-bottom: 12px; }
+    .video-frame--short { aspect-ratio: 9 / 16; }
     .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   </style>
 
@@ -676,7 +678,14 @@
     <div class="container">
       <span class="eyebrow">Watch a Real Breakdown</span>
       <h2 class="section-title">This Is What a Review Looks Like</h2>
-      <p class="section-subtext">Three full match analyses from my <a href="https://www.youtube.com/@pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="vc_youtube_channel">YouTube channel</a>. A Crestline review is the same read, on your footage, with a drill plan attached.</p>
+      <p class="section-subtext">A minute from a women&rsquo;s 3.5 game, then three full match analyses from my <a href="https://www.youtube.com/@pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="vc_youtube_channel">YouTube channel</a>. A Crestline review is the same read, on your footage, with a drill plan attached.</p>
+      <div class="video-card video-card--short">
+        <div class="video-frame video-frame--short">
+          <iframe src="https://www.youtube-nocookie.com/embed/DZxSskANi24" title="Never stand here when your partner is serving, from a women's 3.5 game breakdown by Dr. Lane Odom" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3 class="stage-title">Women&rsquo;s 3.5 Game: Where to Stand on Your Partner&rsquo;s Serve</h3>
+        <p class="stage-body">A clip from a breakdown of a women&rsquo;s 3.5 game, the same kind of read you get on your own footage.</p>
+      </div>
       <div class="video-grid stagger">
         <div class="video-card">
           <div class="video-frame">

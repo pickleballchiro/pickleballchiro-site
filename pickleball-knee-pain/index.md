@@ -48,6 +48,8 @@ Focus on four things: reduce match play volume without eliminating it, avoid exp
 
 Don’t start this program on your own if: the knee swelled up suddenly, it locks or gives way, the pain started with a fall or a collision, it wakes you up at night, or you can’t put weight on it. Those need to be evaluated in person first. This program is for the nagging, load-related knee that’s been building for weeks.
 
+Not sure what an exercise looks like? Pictures and step-by-step instructions for every exercise on this page are in the [free Knee Pain Guide](https://pickleballchiro.gumroad.com/l/kneepainguide).
+
 #### Stage 1 Exercises — start here, 3–4x per week
 
 - Modified Side Plank — activates the lateral hip, reduces the load the knee takes on every lateral cut and shuffle.

@@ -12,7 +12,7 @@ A “leak” is the one shot or movement pattern that loses you the most points.
 
 4.7 DUPR Doctor of Chiropractic Performance Coach PCI Certified Coach
 
-[Get the Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Or take the free 3-minute game diagnosis](https://pickleballchiro.co/quiz/)
+[Get the Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Or take the free 3-minute game diagnosis](https://pickleballchiro.co/quiz/) [On a league team or regular group? See team lessons →](https://pickleballchiro.co/lessons/)
 
 4.7
 
@@ -49,6 +49,44 @@ Stage 3
 #### Make It Stick
 
 Take it into real play. Build the habits that hold under pressure, show up in your DUPR, and last more than one good practice session.
+
+Work With Me
+
+### Ways to Train Together
+
+📍 Based in Daytona Beach on the Ormond Beach line, serving all of Volusia County, FL · Virtual coaching available anywhere
+
+🏓
+
+#### Team Lessons
+
+Most Popular
+
+Your league team’s real games, filmed and fixed. I coach the weak spots on court, then go home and break down each pair’s film on video. You keep the videos and notes. $70 per player for teams of 4 to 8, with a 4.7 DUPR player and Doctor of Chiropractic.
+
+[See What’s Included →](https://pickleballchiro.co/lessons/) [Book a Team Lesson →](https://forms.gle/6MXZ4vofGd27bbDP6)
+
+📈
+
+#### Virtual Coaching: Book on Crestline
+
+Anywhere
+
+Game film review, custom drill programming, and weekly accountability, built to move your rating no matter where you live.
+
+[See the Program →](https://www.gocrestline.app/coaches/lane-odom) [Pricing & FAQ →](https://pickleballchiro.co/virtual-coaching/)
+
+🚗
+
+#### Mobile Chiropractic
+
+Chiropractic and rehab care that comes to you: assessment, treatment, and a movement plan in your own home.
+
+Serving Volusia County
+
+[See What’s Included →](https://pickleballchiro.co/mobile-chiro/)
+
+[@pickleballchiro Full game film breakdowns on YouTube](https://www.youtube.com/@pickleballchiro)
 
 Free Downloads
 
@@ -117,44 +155,6 @@ The complete pickleball-specific rehab course. Three stages, movement by movemen
 [Get the Course →](https://pickleballchiro.gumroad.com/l/thepickleballkneefix)
 
 Educational content, not medical advice. See the full disclaimer in our [Terms](https://pickleballchiro.co/terms/).
-
-Work With Me
-
-### Ways to Train Together
-
-📍 Based in Daytona Beach on the Ormond Beach line, serving all of Volusia County, FL · Virtual coaching available anywhere
-
-🏓
-
-#### Team Lessons
-
-Most Popular
-
-Your league team’s real games, filmed and fixed. I coach the weak spots on court, then go home and break down each pair’s film on video. You keep the videos and notes. $70 per player for teams of 4 to 8, with a 4.7 DUPR player and Doctor of Chiropractic.
-
-[See What’s Included →](https://pickleballchiro.co/lessons/) [Book a Team Lesson →](https://forms.gle/6MXZ4vofGd27bbDP6)
-
-📈
-
-#### Virtual Coaching: Book on Crestline
-
-Anywhere
-
-Game film review, custom drill programming, and weekly accountability, built to move your rating no matter where you live.
-
-[See the Program →](https://www.gocrestline.app/coaches/lane-odom) [Pricing & FAQ →](https://pickleballchiro.co/virtual-coaching/)
-
-🚗
-
-#### Mobile Chiropractic
-
-Chiropractic and rehab care that comes to you: assessment, treatment, and a movement plan in your own home.
-
-Serving Volusia County
-
-[See What’s Included →](https://pickleballchiro.co/mobile-chiro/)
-
-[@pickleballchiro Full game film breakdowns on YouTube](https://www.youtube.com/@pickleballchiro)
 
 On the Court
 
