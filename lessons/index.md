@@ -224,7 +224,7 @@ For a private lesson, $70 wouldn't raise an eyebrow. For a group of 4 to 8, I ge
 
 How is this different from a clinic or a club lesson?
 
-A clinic or club lesson usually runs everyone through the same drills, and you hope it shows up in your next match. I start from your actual games: I film you playing, coach what I saw, and every pair leaves with a breakdown of its own film. I'm not aware of another coach in the area who films your team's games and sends every pair its own breakdown. More on that in [how I coach differently from the average pickleball coach in Daytona Beach](https://pickleballchiro.co/pickleball-coaches-daytona-beach/).
+A clinic or club lesson usually runs everyone through the same drills, and you hope it shows up in your next match. I start from your actual games: I film you playing, coach what I saw, and every pair leaves with a breakdown of its own film. More on that in [how I coach differently from the average pickleball coach in Daytona Beach](https://pickleballchiro.co/pickleball-coaches-daytona-beach/).
 
 What do I get after the lesson?
 

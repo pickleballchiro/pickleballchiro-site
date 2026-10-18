@@ -84,6 +84,8 @@ Self-check: in your next rec game, say the three reads out loud (or in your head
 
 ### Drive, Then Drop: The Fifth Shot
 
+Quick count first: the serve is shot one, the return is shot two, your third shot is three, their reply is four, and the next ball your team hits is the fifth shot. So the “fifth shot” is just your second chance to get to the kitchen line.
+
 A drive doesn’t have to win the point. Its job is to pull a weak ball out of your opponents so the fifth shot is an easy drop. Drive the third, read the block, drop the fifth, get to the line. This drive-and-drop sequence is how 4.0 players use the drive, and it’s why their drives look more effective than yours even when they aren’t hit harder.
 
 #### How it works

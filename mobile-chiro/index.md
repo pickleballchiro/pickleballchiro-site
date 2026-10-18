@@ -20,6 +20,12 @@ Read This First
 
 - You've tried chiro or PT before, it helped short-term, but nothing actually stuck.
 
+- You'd rather not drive to a clinic, especially when getting in the car is part of what hurts.
+
+- You play pickleball, or want to get back to it, and want care that looks at how you move on court, not just the spot that hurts.
+
+- You want to leave every visit knowing exactly what to do at home, not just booked for the next one.
+
 - Not the right fit if you're looking for a quick fix or the cheapest option. This is intentionally small and high-quality.
 
 What You Get
