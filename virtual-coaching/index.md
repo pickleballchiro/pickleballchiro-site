@@ -104,7 +104,7 @@ $99/mo
 
 Voice + video feedback with live commentary, custom drill plan
 
-Within 48 hrs, usually same day
+Within 3 days, usually sooner
 
 Premium
 
@@ -114,7 +114,7 @@ $199/mo
 
 Voice + video feedback with live commentary, custom drill and training plan, strength, rehab & nutrition support
 
-Within 24-48 hrs, usually same day
+Within 3 days, usually sooner
 
 [See the Program on Crestline →](https://www.gocrestline.app/coaches/lane-odom)
 
