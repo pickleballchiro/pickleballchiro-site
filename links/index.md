@@ -6,6 +6,10 @@ Canonical: https://pickleballchiro.co/links/
 
 4.7 DUPR
 
+What brings you here?
+
+Showing: ·
+
 ### 👋 Start Here
 
 [The Five Leaks: Full Article](https://pickleballchiro.co/why-youre-stuck-at-3-5/) [Why You’re Stuck at 3.5: Free Guide](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Free Knee Pain Guide](https://pickleballchiro.gumroad.com/l/kneepainguide)
