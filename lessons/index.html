@@ -129,13 +129,6 @@
     .team-photo img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-subtle); }
     .team-photo figcaption { margin-top: 8px; font-size: 0.82rem; color: var(--gray-mid); text-align: center; }
 
-    /* ---- send this to your team ---- */
-    .share-team { max-width: 560px; margin: 26px auto 0; padding: 20px; text-align: left; }
-    .share-team h3 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); margin: 0 0 4px; }
-    .share-team > p { font-size: 0.87rem; color: var(--off-white); line-height: 1.55; margin: 0 0 12px; }
-    .share-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .share-buttons .btn { padding: 12px 6px; font-size: 0.85rem; }
-    .share-status { min-height: 1.2em; margin: 8px 0 0; font-size: 0.8rem; color: var(--orange); text-align: center; }
 
     /* ---- brighter fine print on this page (gray-mid was hard to read outdoors) ---- */
     body { --gray-mid: #C9C9C9; }
@@ -845,41 +838,6 @@
         <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_team_cta">Book Your Team Lesson <span class="arrow">&rarr;</span></a>
       </div>
       <p class="section-subtext" style="margin-top: 14px;">Most teams book through their captain. One person can pay for everyone, or each player can pay me directly by Zelle, Venmo, or cash.</p>
-
-      <div class="share-team card" id="share-team">
-        <h3>Send This to Your Team</h3>
-        <p>Captain, send your team a quick message about this lesson, ready to drop into your group chat.</p>
-        <div class="share-buttons">
-          <button type="button" class="btn btn-primary" id="share-send" data-track="lessons_share_send">Share It</button>
-          <button type="button" class="btn btn-outline" id="share-copy" data-track="lessons_share_copy">Copy Message</button>
-        </div>
-        <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
-      </div>
-      <script>
-        (function () {
-          var msg = 'Found a lesson for our team: Dr. Lane Odom films our real games, coaches what he sees on court, then sends each pair its own video breakdown to keep. It\u2019s $70 each for 4 to 8 of us, one hour, at Chipshot or a court near us. Take a look: https://pickleballchiro.co/lessons/';
-          var status = document.getElementById('share-status');
-          function copied(ok) { status.textContent = ok ? 'Copied. Paste it into your group chat.' : 'Couldn\u2019t copy here. Send your team this link: pickleballchiro.co/lessons/'; }
-          function legacyCopy() {
-            var t = document.createElement('textarea');
-            t.value = msg; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
-            document.body.appendChild(t); t.select();
-            var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
-            document.body.removeChild(t); copied(ok);
-          }
-          function copy() {
-            if (navigator.clipboard && window.isSecureContext) {
-              navigator.clipboard.writeText(msg).then(function () { copied(true); }, legacyCopy);
-            } else { legacyCopy(); }
-          }
-          document.getElementById('share-copy').addEventListener('click', copy);
-          document.getElementById('share-send').addEventListener('click', function () {
-            if (navigator.share) {
-              navigator.share({ text: msg }).catch(function () {});
-            } else { copy(); }
-          });
-        })();
-      </script>
     </div>
   </section>
 

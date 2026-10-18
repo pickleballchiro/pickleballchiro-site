@@ -68,10 +68,6 @@ Right after the games: what I saw, while it’s still fresh.
 
 Most teams book through their captain. One person can pay for everyone, or each player can pay me directly by Zelle, Venmo, or cash.
 
-#### Send This to Your Team
-
-Captain, send your team a quick message about this lesson, ready to drop into your group chat.
-
 Why It’s Different
 
 ### What You Actually Get
