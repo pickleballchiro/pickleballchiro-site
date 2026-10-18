@@ -44,7 +44,9 @@
       font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--orange); margin-bottom: 8px;
     }
-    .hero-headline--lessons { font-size: clamp(1.9rem, 8.4vw, 3rem); }
+    .hero-headline--lessons { font-size: clamp(1.9rem, 8.4vw, 3rem); text-wrap: balance; }
+    /* Orange half always starts its own line, so "Off." never strands alone in white */
+    .hero-headline--lessons .highlight { display: block; }
     .hero-proof {
       max-width: 520px; margin: 18px auto 0; text-align: center;
       font-size: 0.85rem; color: var(--off-white); line-height: 1.55;
@@ -121,6 +123,23 @@
       #pricing .pricing-table td { display: block; border: none; padding: 3px 16px; white-space: normal; }
     }
     .sample-breakdown { max-width: 720px; margin: 14px auto 22px; }
+
+    /* ---- group-feedback photo ---- */
+    .team-photo { max-width: 720px; margin: 14px auto 0; }
+    .team-photo img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-subtle); }
+    .team-photo figcaption { margin-top: 8px; font-size: 0.82rem; color: var(--gray-mid); text-align: center; }
+
+    /* ---- send this to your team ---- */
+    .share-team { max-width: 560px; margin: 26px auto 0; padding: 20px; text-align: left; }
+    .share-team h3 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); margin: 0 0 4px; }
+    .share-team > p { font-size: 0.87rem; color: var(--off-white); line-height: 1.55; margin: 0 0 12px; }
+    .share-msg { font-size: 0.9rem; line-height: 1.6; color: var(--white); background: rgba(255, 255, 255, 0.05); border-left: 3px solid var(--orange); border-radius: 6px; padding: 12px 14px; margin: 0 0 14px; }
+    .share-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .share-buttons .btn { padding: 12px 6px; font-size: 0.85rem; }
+    .share-status { min-height: 1.2em; margin: 8px 0 0; font-size: 0.8rem; color: var(--orange); text-align: center; }
+
+    /* ---- brighter fine print on this page (gray-mid was hard to read outdoors) ---- */
+    body { --gray-mid: #C9C9C9; }
   </style>
 
   <!-- Google Analytics -->
@@ -582,23 +601,7 @@
         "name": "Which option should I pick?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. If you're not local, or you want your match film reviewed between lessons, try virtual coaching. If it's just you, or you and one or two friends, I also teach private and small-group lessons; open the private and small-group section under Pricing. Still not sure? Text me and I'll point you to the right one."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does a team lesson work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It's one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw. Then I go home and record a breakdown of each pair's film: timestamped, and uploaded unedited so you hear everything I see. A video usually runs 20 to 40 minutes, sometimes 50, and each one takes me about an hour to put together. Your videos go into a private YouTube playlist and your notes into a Google Doc, both yours to keep. It's $70 per player."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does a video breakdown actually look like?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "There’s a full example above: a real 3.0 rec game I broke down on my YouTube channel. I watch the game and talk through it as it plays, pausing on the points that matter: where you’re standing, which shot you chose, and what to do instead. Your team’s videos work the same way, on your own games, with timestamps so you can jump to your points."
+          "text": "If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. Not on a team? Get three to seven people you already play with and that's a team for this. If it's just you, or you and one or two friends, open the private and small-group section under Pricing. If you're not local, or want match film reviewed between lessons, try virtual coaching. Still not sure? Text me."
         }
       },
       {
@@ -606,15 +609,23 @@
         "name": "Isn't $70 a lot for a one-hour group lesson?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For a private lesson, $70 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Here's the difference: most big group lessons work on one skill or shot for everyone. That might be your bottleneck, or it might be somebody else's, so you never get the personal attention you'd get one-on-one. In a team lesson I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: I coach you on court for an hour, then spend about an hour putting together each pair's video (they usually run 20 to 40 minutes). You're getting about two hours of me, with notes and videos you keep."
+          "text": "For a private lesson, $70 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep."
         }
       },
       {
         "@type": "Question",
-        "name": "My team has mixed levels. Is that OK?",
+        "name": "How is this different from a clinic or a club lesson?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Most league teams do. The film is per pair, so each of you hears what to fix in your own game. On court I coach what I actually saw, so the strongest player and the newest player each leave with their own fix."
+          "text": "A clinic or club lesson usually runs everyone through the same drills, and you hope it shows up in your next match. I start from your actual games: I film you playing, coach what I saw, and every pair leaves with a breakdown of its own film. I'm not aware of another coach in the area who films your team's games and sends every pair its own breakdown. More on that in how I coach differently from the average pickleball coach in Daytona Beach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do I get after the lesson?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your team gets a private YouTube playlist with each pair's video and a Google Doc with your notes. In each video I watch your game and talk through it as it plays, pausing on the points that matter: where you're standing, which shot you chose, and what to do instead. They usually run 20 to 40 minutes, with timestamps so you can jump to your points. Everything opens on your phone with one tap, nothing to sign up for. There's a full example above."
         }
       },
       {
@@ -622,39 +633,23 @@
         "name": "I don't love being filmed. Who sees the videos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most people feel that way at first. I film from the side of the court while you play your normal game, and after a few points nobody notices the camera. The film is how I can give each of you personal feedback, so everyone plays on camera. Everything we film stays private: your videos go into a private YouTube playlist that only your team gets, and I never post anyone on social media unless they tell me I can."
+          "text": "Most people feel that way at first. I film from the side while you play your normal game, and after a few points nobody notices the camera. The film is how I give each of you personal feedback, so everyone plays on camera. It all stays private: only your team gets the playlist, and I never post anyone on social media unless they tell me I can."
         }
       },
       {
         "@type": "Question",
-        "name": "Is this a clinic?",
+        "name": "My team has mixed levels. Is that OK?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. A clinic usually runs a group of players through the same drills. A team lesson is built around your team's own games: I film them, coach what I saw, and every pair gets its own video breakdown afterward."
+          "text": "Yes. Most league teams do. The film is per pair and I coach what I actually saw, so the strongest player and the newest player each leave with their own fix."
         }
       },
       {
         "@type": "Question",
-        "name": "What if someone can't make it, or our roster changes?",
+        "name": "Who books and pays, and what if our roster changes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It happens on every team. A team lesson works for 4 to 8 players, so one person missing doesn't sink it, and subs are welcome: whoever plays gets filmed. If you end up with fewer than 4, tell me as early as you can and we'll sort it out together. I ask for at least 12 hours' notice to cancel or reschedule."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who books and pays for a team lesson?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "One person, usually your team captain, books the session. They can pay for everyone, or each player can pay me directly by Zelle or Venmo. However you split it is up to your team."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I get my notes and videos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "I send your team a private YouTube playlist with each pair's video and a Google Doc with your notes. Both open on your phone with one tap, nothing to download or sign up for, and they stay yours, so you can rewatch before your next match."
+          "text": "One person, usually your captain, books the session. They can pay for everyone, or each player can pay me directly by Zelle, Venmo, or cash. Subs are welcome (whoever plays gets filmed), and one person missing doesn't sink it. If you'll have fewer than 4, tell me as early as you can and we'll sort it out. I ask for at least 12 hours' notice to cancel or reschedule."
         }
       },
       {
@@ -662,23 +657,7 @@
         "name": "Can you coach our team for the whole league season?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. If your team wants a coach for the season, message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match. We'll set up whatever fits your team."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I'm not on a team?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Get three to seven people you already play with together and that's a team for this. Or book a private or small-group lesson (open the private and small-group section under Pricing), or try virtual coaching and send me your footage from home."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is this different from a lesson at a club?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most lessons teach a skill: you drill a third shot drop and hope it shows up in your next match. I start from your actual games instead. I film you playing, coach what I saw, and you leave with a breakdown of your own film to keep. I'm not aware of another coach in the area who films your team's games and sends every pair its own breakdown. I also still compete at a 5.0 level, and as a Doctor of Chiropractic I can see the chain behind your swing (legs, hips, core and arm). More on that in how I coach differently from the average pickleball coach in Daytona Beach."
+          "text": "Yes. Message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match."
         }
       },
       {
@@ -686,7 +665,7 @@
         "name": "What do I get in a private or small-group lesson?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We pick one skill, go over the technique and drill it. I feed most reps by hand, and I bring a ball machine when we want a different kind of rep work. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown of what it looks like, and your 2 to 3 focuses for the week go in your portal. It's a close look at one shot; your games get broken down in the team lesson. Private is $90 an hour; a small group of 2 to 3 players is $60 each."
+          "text": "We pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. Private is $90 an hour; a small group of 2 to 3 players is $60 each."
         }
       },
       {
@@ -694,7 +673,7 @@
         "name": "Can I take lessons if I'm dealing with pain or an injury?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Usually, yes. That's where my chiropractic background helps most. I'll work around what hurts, and a lot of the time we find that a mechanical issue in your stroke is feeding the pain. If something needs real treatment first, I'll tell you."
+          "text": "Usually, yes. That's where my chiropractic background helps most. I'll work around what hurts, and a lot of the time a mechanical issue in your stroke is feeding the pain. If something needs real treatment first, I'll tell you."
         }
       },
       {
@@ -702,31 +681,15 @@
         "name": "What level of player do you work with?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) play, many of them on league teams. If you play consistently and want to keep improving, you're in the right place. Not sure where you fall? Just ask."
+          "text": "Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) play, many of them on league teams. Not sure where you fall? Just ask."
         }
       },
       {
         "@type": "Question",
-        "name": "Where do you teach?",
+        "name": "Where do you teach, and what should I bring?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most lessons happen at Chipshot in Daytona Beach. It's indoor and air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach during quieter hours. Tell me where you are and we'll pick the spot."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you bring the equipment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Balls and a ball tube for pickup, always, plus the cameras and a ball machine when we need it. You just show up with your paddle."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's your cancellation policy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "I ask for at least 12 hours' notice if you need to cancel or reschedule. Life happens, I get it. A heads-up goes a long way."
+          "text": "Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it."
         }
       }
     ]
@@ -800,7 +763,7 @@
       <div class="chip-row">
         <span class="chip">4.7 DUPR</span>
         <span class="chip">Doctor of Chiropractic</span>
-        <span class="chip">PCI Certified</span>
+        <span class="chip">PCI Coaching Certified</span>
       </div>
       <div class="hero-cta-wrap">
         <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_hero_cta">Book Your Team Lesson <span class="arrow">&rarr;</span></a>
@@ -865,6 +828,10 @@
       </div>
 
       <h3 class="table-label">How a Team Lesson Works</h3>
+      <figure class="team-photo">
+        <img src="/images/team-feedback-720.jpg" srcset="/images/team-feedback-720.jpg 720w, /images/team-feedback.jpg 1400w" sizes="(max-width: 760px) 100vw, 720px" width="1400" height="787" loading="lazy" alt="Dr. Lane Odom on an indoor court giving a group of four players feedback after filming their games" />
+        <figcaption>Right after the games: what I saw, while it&rsquo;s still fresh.</figcaption>
+      </figure>
       <ol class="steps" style="margin-top: 14px;">
         <li><span><strong>We play.</strong> Bring your team (4 to 8 players). We play real games while I film from the side.</span></li>
         <li><span><strong>We fix it.</strong> For the rest of the hour I coach the weak spots I saw, on court, while it&rsquo;s fresh.</span></li>
@@ -878,7 +845,43 @@
       <div class="hero-cta-wrap">
         <a href="https://forms.gle/Dz98yAxHX2rUjHQx7" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track="lessons_team_cta">Book Your Team Lesson <span class="arrow">&rarr;</span></a>
       </div>
-      <p class="section-subtext" style="margin-top: 14px;">Most teams book through their captain. One person can pay for everyone, or each player can pay me directly.</p>
+      <p class="section-subtext" style="margin-top: 14px;">Most teams book through their captain. One person can pay for everyone, or each player can pay me directly by Zelle, Venmo, or cash.</p>
+
+      <div class="share-team card" id="share-team">
+        <h3>Send This to Your Team</h3>
+        <p>Captain, here&rsquo;s a message you can drop straight into your team&rsquo;s group chat.</p>
+        <p class="share-msg" id="share-msg">Found a lesson for our team: Dr. Lane Odom films our real games, coaches what he sees on court, then sends each pair its own video breakdown to keep. It&rsquo;s $70 each for 4 to 8 of us, one hour, at Chipshot or a court near us. Take a look: https://pickleballchiro.co/lessons/</p>
+        <div class="share-buttons">
+          <button type="button" class="btn btn-primary" id="share-send" data-track="lessons_share_send">Share It</button>
+          <button type="button" class="btn btn-outline" id="share-copy" data-track="lessons_share_copy">Copy Message</button>
+        </div>
+        <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
+      </div>
+      <script>
+        (function () {
+          var msg = document.getElementById('share-msg').textContent.trim();
+          var status = document.getElementById('share-status');
+          function copied(ok) { status.textContent = ok ? 'Copied. Paste it into your group chat.' : 'Press and hold the message above to copy it.'; }
+          function legacyCopy() {
+            var t = document.createElement('textarea');
+            t.value = msg; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+            document.body.appendChild(t); t.select();
+            var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(t); copied(ok);
+          }
+          function copy() {
+            if (navigator.clipboard && window.isSecureContext) {
+              navigator.clipboard.writeText(msg).then(function () { copied(true); }, legacyCopy);
+            } else { legacyCopy(); }
+          }
+          document.getElementById('share-copy').addEventListener('click', copy);
+          document.getElementById('share-send').addEventListener('click', function () {
+            if (navigator.share) {
+              navigator.share({ text: msg }).catch(function () {});
+            } else { copy(); }
+          });
+        })();
+      </script>
     </div>
   </section>
 
@@ -1040,7 +1043,7 @@
         </div>
         <div class="pricing-card card">
           <h3 class="stage-title">Public Courts &middot; Volusia County</h3>
-          <p class="offer-fine-print">Prefer somewhere closer to home? I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach during quieter hours (not early morning or evening peak). Tell me where you are and we'll pick the spot.</p>
+          <p class="offer-fine-print">Prefer somewhere closer to home? I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some courts are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open.</p>
         </div>
       </div>
     </div>
@@ -1058,98 +1061,64 @@
 
         <details class="faq-item">
           <summary>Which option should I pick?</summary>
-          <p class="faq-answer">If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. If you're not local, or you want your match film reviewed between lessons, try <a href="/virtual-coaching/" data-track="lessons_faq_virtual">virtual coaching</a>. If it's just you, or you and one or two friends, I also teach private and small-group lessons; open the <a href="#private" data-track="lessons_faq_private">private and small-group section</a> under Pricing. Still not sure? Text me and I'll point you to the right one.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>How does a team lesson work?</summary>
-          <p class="faq-answer">It's one hour on court for a league team or regular group of 4 to 8 players. We play real games while I film. For the rest of the hour I coach the weak spots I saw. Then I go home and record a breakdown of each pair's film: timestamped, and uploaded unedited so you hear everything I see. A video usually runs 20 to 40 minutes, sometimes 50, and each one takes me about an hour to put together. Your videos go into a private YouTube playlist and your notes into a Google Doc, both yours to keep. It's $70 per player.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>What does a video breakdown actually look like?</summary>
-          <p class="faq-answer">There&rsquo;s a full example above: <a href="#sample-breakdown" data-track="lessons_faq_sample">a real 3.0 rec game I broke down</a> on my YouTube channel. I watch the game and talk through it as it plays, pausing on the points that matter: where you&rsquo;re standing, which shot you chose, and what to do instead. Your team&rsquo;s videos work the same way, on your own games, with timestamps so you can jump to your points.</p>
+          <p class="faq-answer">If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. Not on a team? Get three to seven people you already play with and that's a team for this. If it's just you, or you and one or two friends, open the <a href="#private" data-track="lessons_faq_private">private and small-group section</a> under Pricing. If you're not local, or want match film reviewed between lessons, try <a href="/virtual-coaching/" data-track="lessons_faq_virtual">virtual coaching</a>. Still not sure? Text me.</p>
         </details>
 
         <details class="faq-item">
           <summary>Isn't $70 a lot for a one-hour group lesson?</summary>
-          <p class="faq-answer">For a private lesson, $70 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Here's the difference: most big group lessons work on one skill or shot for everyone. That might be your bottleneck, or it might be somebody else's, so you never get the personal attention you'd get one-on-one. In a team lesson I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: I coach you on court for an hour, then spend about an hour putting together each pair's video (they usually run 20 to 40 minutes). You're getting about two hours of me, with notes and videos you keep.</p>
+          <p class="faq-answer">For a private lesson, $70 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep.</p>
         </details>
 
         <details class="faq-item">
-          <summary>My team has mixed levels. Is that OK?</summary>
-          <p class="faq-answer">Yes. Most league teams do. The film is per pair, so each of you hears what to fix in your own game. On court I coach what I actually saw, so the strongest player and the newest player each leave with their own fix.</p>
+          <summary>How is this different from a clinic or a club lesson?</summary>
+          <p class="faq-answer">A clinic or club lesson usually runs everyone through the same drills, and you hope it shows up in your next match. I start from your actual games: I film you playing, coach what I saw, and every pair leaves with a breakdown of its own film. I'm not aware of another coach in the area who films your team's games and sends every pair its own breakdown. More on that in <a href="/pickleball-coaches-daytona-beach/" data-track="lessons_coaches_guide">how I coach differently from the average pickleball coach in Daytona Beach</a>.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What do I get after the lesson?</summary>
+          <p class="faq-answer">Your team gets a private YouTube playlist with each pair's video and a Google Doc with your notes. In each video I watch your game and talk through it as it plays, pausing on the points that matter: where you're standing, which shot you chose, and what to do instead. They usually run 20 to 40 minutes, with timestamps so you can jump to your points. Everything opens on your phone with one tap, nothing to sign up for. There's <a href="#sample-breakdown" data-track="lessons_faq_sample">a full example above</a>.</p>
         </details>
 
         <details class="faq-item">
           <summary>I don't love being filmed. Who sees the videos?</summary>
-          <p class="faq-answer">Most people feel that way at first. I film from the side of the court while you play your normal game, and after a few points nobody notices the camera. The film is how I can give each of you personal feedback, so everyone plays on camera. Everything we film stays private: your videos go into a private YouTube playlist that only your team gets, and I never post anyone on social media unless they tell me I can.</p>
+          <p class="faq-answer">Most people feel that way at first. I film from the side while you play your normal game, and after a few points nobody notices the camera. The film is how I give each of you personal feedback, so everyone plays on camera. It all stays private: only your team gets the playlist, and I never post anyone on social media unless they tell me I can.</p>
         </details>
 
         <details class="faq-item">
-          <summary>Is this a clinic?</summary>
-          <p class="faq-answer">No. A clinic usually runs a group of players through the same drills. A team lesson is built around your team's own games: I film them, coach what I saw, and every pair gets its own video breakdown afterward.</p>
+          <summary>My team has mixed levels. Is that OK?</summary>
+          <p class="faq-answer">Yes. Most league teams do. The film is per pair and I coach what I actually saw, so the strongest player and the newest player each leave with their own fix.</p>
         </details>
 
         <details class="faq-item">
-          <summary>What if someone can't make it, or our roster changes?</summary>
-          <p class="faq-answer">It happens on every team. A team lesson works for 4 to 8 players, so one person missing doesn't sink it, and subs are welcome: whoever plays gets filmed. If you end up with fewer than 4, tell me as early as you can and we'll sort it out together. I ask for at least 12 hours' notice to cancel or reschedule.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Who books and pays for a team lesson?</summary>
-          <p class="faq-answer">One person, usually your team captain, books the session. They can pay for everyone, or each player can pay me directly by Zelle or Venmo. However you split it is up to your team.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>How do I get my notes and videos?</summary>
-          <p class="faq-answer">I send your team a private YouTube playlist with each pair's video and a Google Doc with your notes. Both open on your phone with one tap, nothing to download or sign up for, and they stay yours, so you can rewatch before your next match.</p>
+          <summary>Who books and pays, and what if our roster changes?</summary>
+          <p class="faq-answer">One person, usually your captain, books the session. They can pay for everyone, or each player can pay me directly by Zelle, Venmo, or cash. Subs are welcome (whoever plays gets filmed), and one person missing doesn't sink it. If you'll have fewer than 4, tell me as early as you can and we'll sort it out. I ask for at least 12 hours' notice to cancel or reschedule.</p>
         </details>
 
         <details class="faq-item">
           <summary>Can you coach our team for the whole league season?</summary>
-          <p class="faq-answer">Yes. If your team wants a coach for the season, message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match. We'll set up whatever fits your team.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>What if I'm not on a team?</summary>
-          <p class="faq-answer">Get three to seven people you already play with together and that's a team for this. Or book a private or small-group lesson (open the <a href="#private" data-track="lessons_faq_private">private and small-group section</a> under Pricing), or try <a href="/virtual-coaching/" data-track="lessons_faq_virtual">virtual coaching</a> and send me your footage from home.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>How is this different from a lesson at a club?</summary>
-          <p class="faq-answer">Most lessons teach a skill: you drill a third shot drop and hope it shows up in your next match. I start from your actual games instead. I film you playing, coach what I saw, and you leave with a breakdown of your own film to keep. I'm not aware of another coach in the area who films your team's games and sends every pair its own breakdown. I also still compete at a 5.0 level, and as a Doctor of Chiropractic I can see the chain behind your swing (legs, hips, core and arm). More on that in <a href="/pickleball-coaches-daytona-beach/" data-track="lessons_coaches_guide">how I coach differently from the average pickleball coach in Daytona Beach</a>.</p>
+          <p class="faq-answer">Yes. Message me with your league and schedule. We can do team lessons as often as you like, you can send me match footage for a game film review, or I can come film a match.</p>
         </details>
 
         <details class="faq-item">
           <summary>What do I get in a private or small-group lesson?</summary>
-          <p class="faq-answer">We pick one skill, go over the technique and drill it. I feed most reps by hand, and I bring a ball machine when we want a different kind of rep work. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown of what it looks like, and your 2 to 3 focuses for the week go in your portal. It's a close look at one shot; your games get broken down in the team lesson. Private is $90 an hour; a small group of 2 to 3 players is $60 each.</p>
+          <p class="faq-answer">We pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. Private is $90 an hour; a small group of 2 to 3 players is $60 each.</p>
         </details>
 
         <details class="faq-item">
           <summary>Can I take lessons if I'm dealing with pain or an injury?</summary>
-          <p class="faq-answer">Usually, yes. That's where my chiropractic background helps most. I'll work around what hurts, and a lot of the time we find that a mechanical issue in your stroke is feeding the pain. If something needs real treatment first, I'll tell you.</p>
+          <p class="faq-answer">Usually, yes. That's where my chiropractic background helps most. I'll work around what hurts, and a lot of the time a mechanical issue in your stroke is feeding the pain. If something needs real treatment first, I'll tell you.</p>
         </details>
 
         <details class="faq-item">
           <summary>What level of player do you work with?</summary>
-          <p class="faq-answer">Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) play, many of them on league teams. If you play consistently and want to keep improving, you're in the right place. Not sure where you fall? Just ask.</p>
+          <p class="faq-answer">Mostly 3.0 to 4.0: intermediate (3.5) players who want to reach advanced (4.0+) play, many of them on league teams. Not sure where you fall? Just ask.</p>
         </details>
 
         <details class="faq-item">
-          <summary>Where do you teach?</summary>
-          <p class="faq-answer">Most lessons happen at Chipshot in Daytona Beach. It's indoor and air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach during quieter hours. Tell me where you are and we'll pick the spot.</p>
+          <summary>Where do you teach, and what should I bring?</summary>
+          <p class="faq-answer">Most lessons happen at Chipshot in Daytona Beach: indoor, air conditioned, and a court is always open. I also teach at public courts in New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Some are packed in the mornings and some aren't, so tell me where and when your team plays and I'll match you with a court that's open. Just bring your paddle; I bring the balls, cameras, and a ball machine when we need it.</p>
         </details>
 
-        <details class="faq-item">
-          <summary>Do you bring the equipment?</summary>
-          <p class="faq-answer">Balls and a ball tube for pickup, always, plus the cameras and a ball machine when we need it. You just show up with your paddle.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>What's your cancellation policy?</summary>
-          <p class="faq-answer">I ask for at least 12 hours' notice if you need to cancel or reschedule. Life happens, I get it. A heads-up goes a long way.</p>
-        </details>
 
       </div>
     </div>
