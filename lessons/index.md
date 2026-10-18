@@ -70,9 +70,7 @@ Most teams book through their captain. One person can pay for everyone, or each 
 
 #### Send This to Your Team
 
-Captain, here’s a message you can drop straight into your team’s group chat.
-
-Found a lesson for our team: Dr. Lane Odom films our real games, coaches what he sees on court, then sends each pair its own video breakdown to keep. It’s $70 each for 4 to 8 of us, one hour, at Chipshot or a court near us. Take a look: https://pickleballchiro.co/lessons/
+Captain, send your team a quick message about this lesson, ready to drop into your group chat.
 
 Why It’s Different
 

@@ -133,7 +133,6 @@
     .share-team { max-width: 560px; margin: 26px auto 0; padding: 20px; text-align: left; }
     .share-team h3 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); margin: 0 0 4px; }
     .share-team > p { font-size: 0.87rem; color: var(--off-white); line-height: 1.55; margin: 0 0 12px; }
-    .share-msg { font-size: 0.9rem; line-height: 1.6; color: var(--white); background: rgba(255, 255, 255, 0.05); border-left: 3px solid var(--orange); border-radius: 6px; padding: 12px 14px; margin: 0 0 14px; }
     .share-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .share-buttons .btn { padding: 12px 6px; font-size: 0.85rem; }
     .share-status { min-height: 1.2em; margin: 8px 0 0; font-size: 0.8rem; color: var(--orange); text-align: center; }
@@ -849,8 +848,7 @@
 
       <div class="share-team card" id="share-team">
         <h3>Send This to Your Team</h3>
-        <p>Captain, here&rsquo;s a message you can drop straight into your team&rsquo;s group chat.</p>
-        <p class="share-msg" id="share-msg">Found a lesson for our team: Dr. Lane Odom films our real games, coaches what he sees on court, then sends each pair its own video breakdown to keep. It&rsquo;s $70 each for 4 to 8 of us, one hour, at Chipshot or a court near us. Take a look: https://pickleballchiro.co/lessons/</p>
+        <p>Captain, send your team a quick message about this lesson, ready to drop into your group chat.</p>
         <div class="share-buttons">
           <button type="button" class="btn btn-primary" id="share-send" data-track="lessons_share_send">Share It</button>
           <button type="button" class="btn btn-outline" id="share-copy" data-track="lessons_share_copy">Copy Message</button>
@@ -859,9 +857,9 @@
       </div>
       <script>
         (function () {
-          var msg = document.getElementById('share-msg').textContent.trim();
+          var msg = 'Found a lesson for our team: Dr. Lane Odom films our real games, coaches what he sees on court, then sends each pair its own video breakdown to keep. It\u2019s $70 each for 4 to 8 of us, one hour, at Chipshot or a court near us. Take a look: https://pickleballchiro.co/lessons/';
           var status = document.getElementById('share-status');
-          function copied(ok) { status.textContent = ok ? 'Copied. Paste it into your group chat.' : 'Press and hold the message above to copy it.'; }
+          function copied(ok) { status.textContent = ok ? 'Copied. Paste it into your group chat.' : 'Couldn\u2019t copy here. Send your team this link: pickleballchiro.co/lessons/'; }
           function legacyCopy() {
             var t = document.createElement('textarea');
             t.value = msg; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
