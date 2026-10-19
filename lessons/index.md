@@ -170,7 +170,7 @@ You send your match footage and get a video breakdown from anywhere. [Plans and 
 
 Looking for a private or small-group lesson?
 
-I still teach these. We pick one skill, go over the technique and drill it.
+I still teach these. With one or two players we pick one skill, go over the technique and drill it. With three, I fill in as your fourth and we play.
 
 Format
 
@@ -184,13 +184,19 @@ $90/hour
 
 On-court coaching, a short slow-motion video (usually 2 to 3 minutes) of a few reps of one shot with my biomechanical breakdown, and your focuses in your portal
 
-Small Group, 2–3 Players
+Small Group, 2 Players
 
-$60/player for 2 ($120) $50/player for 3 ($150)
+$60/player ($120)
 
-The same coaching split between you, plus a slow-motion clip with a biomechanical analysis of one shot
+The same coaching split between you two, plus a slow-motion clip with a biomechanical analysis of one shot
 
-The clip is a close look at one shot and the body mechanics behind it. If you want your actual games broken down, that’s the team lesson.
+Small Group, 3 Players
+
+$50/player ($150)
+
+I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you
+
+The private and 2-player clip is a close look at one shot and the body mechanics behind it. If you want every pair’s games broken down, that’s the team lesson.
 
 [Book a private or small-group lesson →](https://forms.gle/Dz98yAxHX2rUjHQx7)
 
@@ -248,7 +254,7 @@ Yes. Message me with your league and schedule. We can do team lessons as often a
 
 What do I get in a private or small-group lesson?
 
-We pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. Private is $90 an hour; a small group is $60 each for 2 players or $50 each for 3.
+In a private lesson we pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. A small group of 2 works the same way, split between you. With 3 players, I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you. Private is $90 an hour; a small group is $60 each for 2 players or $50 each for 3.
 
 Can I take lessons if I'm dealing with pain or an injury?
 

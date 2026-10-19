@@ -30,7 +30,7 @@ The main thing I do is a [team lesson](https://pickleballchiro.co/lessons/) for 
 
 #### 2. Every pair gets its own breakdown
 
-After the lesson I go home and break down each pair’s film on video, usually 20 to 40 minutes with timestamps, pausing on the points that matter: where you were standing, which shot you chose, and what to hit instead. Your team gets the videos in a private YouTube playlist and your notes in a Google Doc, so you can rewatch them before your next match. Even in a group of 8, you hear about your own game. If it’s just you or a couple of friends, a private or small-group lesson works on one skill, and you get a short slow-motion clip of that shot with my breakdown.
+After the lesson I go home and break down each pair’s film on video, usually 20 to 40 minutes with timestamps, pausing on the points that matter: where you were standing, which shot you chose, and what to hit instead. Your team gets the videos in a private YouTube playlist and your notes in a Google Doc, so you can rewatch them before your next match. Even in a group of 8, you hear about your own game. If it’s just you or one friend, a private or two-player lesson works on one skill, and you get a short slow-motion clip of that shot with my breakdown. With three of you, I fill in as your fourth, we play a real game, and I send one video review of it afterward for all three.
 
 A minute from a women’s 3.5 game I broke down: where to stand while your partner serves. Your team’s breakdowns look like this, on your own games.
 
