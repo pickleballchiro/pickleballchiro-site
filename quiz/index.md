@@ -10,11 +10,11 @@ Free Self-Diagnosis
 
 Your rating is an average. This takes about 3 minutes and shows you exactly which part of your game is dragging it down.
 
-15 questions · No email required
+17 questions · No email required
 
 ### What This Diagnosis Covers
 
-Fifteen questions across the five areas where 3.0–4.0 players leak the most points. Your answers are scored by category; the lowest-scoring one is the specific leak capping your rating right now.
+Fifteen scored questions across the five areas where 3.0–4.0 players leak the most points, plus two quick ones about where you play and who you’d train with, so your result points you to the right kind of coaching. Your answers are scored by category; the lowest-scoring one is the specific leak capping your rating right now.
 
 #### First Four Shots
 

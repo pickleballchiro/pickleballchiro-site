@@ -112,7 +112,7 @@ Self-check: film ten of your third shots in a real game. For each one, pause bef
 
 ### What to Do Next
 
-The third shot is one decision inside the first four shots, which is Leak 1 of five. If you’re not sure the third shot is your leak, the [five-leaks article](https://pickleballchiro.co/why-youre-stuck-at-3-5/) walks through all of them, and the [free 15-question diagnosis](https://pickleballchiro.co/quiz/) scores you across all five and tells you which one is costing you the most points.
+The third shot is one decision inside the first four shots, which is Leak 1 of five. If you’re not sure the third shot is your leak, the [five-leaks article](https://pickleballchiro.co/why-youre-stuck-at-3-5/) walks through all of them, and the [free 17-question diagnosis](https://pickleballchiro.co/quiz/) scores you across all five and tells you which one is costing you the most points.
 
 If you want my read on your specific third shot, that happens on [Crestline](https://www.gocrestline.app/coaches/lane-odom): send footage, and I’ll tell you whether it’s the reads, the shot, or the feet, and what to drill first.
 

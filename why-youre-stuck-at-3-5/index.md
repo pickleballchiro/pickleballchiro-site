@@ -16,7 +16,7 @@ A 3.5 player isn’t missing a shot. A 3.5 player has a leak: one shot or moveme
 
 I coach players between 3.0 and 4.0 in person across Volusia County, Florida, and virtually anywhere through game film. I’m also a Doctor of Chiropractic, so I watch the body as closely as the paddle. After a few hundred hours of lessons and film reviews, the same five leaks keep showing up. Every player I’ve seen stuck at 3.5 has at least one of them. Most have exactly one.
 
-This article walks through all five: how each one shows up in a rec game, why it happens, and what actually fixes it. Read the whole thing, then use the self-checks to find yours. If you want it scored for you, the [free 15-question diagnosis](https://pickleballchiro.co/quiz/) does exactly that.
+This article walks through all five: how each one shows up in a rec game, why it happens, and what actually fixes it. Read the whole thing, then use the self-checks to find yours. If you want it scored for you, the [free 17-question diagnosis](https://pickleballchiro.co/quiz/) does exactly that.
 
 ### Leak 1: Your Game Is Capped Before the Rally Even Starts
 
@@ -146,7 +146,7 @@ The physical section is educational, not medical advice. If something hurts, see
 
 ### How to Find Which Leak Is Yours
 
-Two ways. The fast one: take the [free 15-question diagnosis](https://pickleballchiro.co/quiz/), which scores you across all five areas and tells you the lowest one. The honest one: film one rec game from behind your own baseline, watch where each lost point ended, and count. Your leak shows up inside the first ten points.
+Two ways. The fast one: take the [free 17-question diagnosis](https://pickleballchiro.co/quiz/), which scores you across all five areas and tells you the lowest one. The honest one: film one rec game from behind your own baseline, watch where each lost point ended, and count. Your leak shows up inside the first ten points.
 
 One warning. Players almost always guess wrong about their own leak. The player who thinks it’s their dinks usually has a transition-zone problem. The player who thinks they need a better drive usually needs a return they follow to the line. That’s the whole reason I coach from film: what you feel and what the camera shows are different things.
 
@@ -194,7 +194,7 @@ The first four shots (serve, return, third, fourth), shot selection (attack vs r
 
 How do I find out which leak is mine?
 
-Take the free 15-question quiz at pickleballchiro.co/quiz, which scores you across all five areas, or film one rec game from behind the baseline and count where your points end. Most players’ leak shows up within the first ten points.
+Take the free 17-question quiz at pickleballchiro.co/quiz, which scores you across all five areas, or film one rec game from behind the baseline and count where your points end. Most players’ leak shows up within the first ten points.
 
 How long does it take to go from 3.5 to 4.0 in pickleball?
 

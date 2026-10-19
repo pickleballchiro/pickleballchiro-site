@@ -26,7 +26,7 @@ What that format usually can’t do is look at your games. Everyone runs the sam
 
 #### 1. We start with your real games, not a curriculum
 
-The main thing I do is a [team lesson](https://pickleballchiro.co/lessons/) for league teams and regular groups of 4 to 8. You play real games while I film from the side, then I spend the rest of the hour coaching the weak spots I saw. A 3.5 player almost always has one or two leaks, not ten, and most guess wrong about which ones. The player who thinks it’s their dinks usually has a transition-zone problem. The camera settles it in about two rallies. I wrote the whole framework up in [Why You’re Stuck at 3.5: The Five Leaks](https://pickleballchiro.co/why-youre-stuck-at-3-5/), and there’s a [free 15-question diagnosis](https://pickleballchiro.co/quiz/) if you want a first read before we ever meet.
+The main thing I do is a [team lesson](https://pickleballchiro.co/lessons/) for league teams and regular groups of 4 to 8. You play real games while I film from the side, then I spend the rest of the hour coaching the weak spots I saw. A 3.5 player almost always has one or two leaks, not ten, and most guess wrong about which ones. The player who thinks it’s their dinks usually has a transition-zone problem. The camera settles it in about two rallies. I wrote the whole framework up in [Why You’re Stuck at 3.5: The Five Leaks](https://pickleballchiro.co/why-youre-stuck-at-3-5/), and there’s a [free 17-question diagnosis](https://pickleballchiro.co/quiz/) if you want a first read before we ever meet.
 
 #### 2. Every pair gets its own breakdown
 

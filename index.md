@@ -102,7 +102,7 @@ Free Self-Diagnosis
 
 ### Why You’re Stuck at 3.5
 
-15 quick questions. Instant breakdown of the #1 leak in your game: first four shots, shot selection, transition zone, kitchen game, or the physical side.
+17 quick questions. Instant breakdown of the #1 leak in your game: first four shots, shot selection, transition zone, kitchen game, or the physical side.
 
 [Start the Quiz →](https://pickleballchiro.co/quiz/)
 

@@ -37,7 +37,7 @@
   <!-- Enforced CSP (frame-ancestors lives in the X-Frame-Options header set at Cloudflare; meta CSP cannot carry it). Keep in sync with the Cloudflare report-only header. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; object-src 'none'" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free 15-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro. Find out exactly which part of your game is holding you back from breaking through to 4.0.">
+  <meta name="description" content="Free 17-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro. Find out exactly which part of your game is holding you back from breaking through to 4.0.">
   <title>Why You're Stuck at 3.5 · Free Self-Diagnosis · The Pickleball Chiro</title>
   <link rel="canonical" href="https://pickleballchiro.co/quiz/">
 
@@ -50,12 +50,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pickleballchiro.co/quiz/" />
   <meta property="og:title" content="Why You're Stuck at 3.5: Free Self-Diagnosis" />
-  <meta property="og:description" content="15 questions. Instant breakdown of the #1 leak in your pickleball game. By Dr. Lane Odom, The Pickleball Chiro." />
+  <meta property="og:description" content="17 questions. Instant breakdown of the #1 leak in your pickleball game. By Dr. Lane Odom, The Pickleball Chiro." />
   <meta property="og:image" content="https://pickleballchiro.co/images/profile.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://pickleballchiro.co/images/profile.jpg" />
   <meta name="twitter:title" content="Why You're Stuck at 3.5: Free Self-Diagnosis" />
-  <meta name="twitter:description" content="15 questions. Instant breakdown of the #1 leak in your pickleball game." />
+  <meta name="twitter:description" content="17 questions. Instant breakdown of the #1 leak in your pickleball game." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -484,6 +484,11 @@
       margin-bottom: 18px;
     }
 
+    .cta-alts { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; text-align: center; }
+    .cta-alt { font-size: 0.82rem; color: var(--gray-mid); text-decoration: underline; text-underline-offset: 3px; line-height: 1.5; }
+    .cta-alt:hover { color: var(--white); }
+    .footage-note a { color: inherit; }
+
     .footage-note {
       font-size: 0.73rem;
       color: var(--gray-mid);
@@ -561,7 +566,7 @@
   "@id": "https://pickleballchiro.co/quiz/#webpage",
   "name": "Why You're Stuck at 3.5 · Free Self-Diagnosis",
   "url": "https://pickleballchiro.co/quiz/",
-  "description": "Free 15-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro: which of the five areas of your game (first four shots, shot selection, transition zone, kitchen game, physical) is capping your rating at 3.5.",
+  "description": "Free 17-question self-diagnosis from Dr. Lane Odom, The Pickleball Chiro: which of the five areas of your game (first four shots, shot selection, transition zone, kitchen game, physical) is capping your rating at 3.5.",
   "inLanguage": "en-US",
   "isPartOf": {
     "@id": "https://pickleballchiro.co/#website"
@@ -967,7 +972,7 @@
         <p class="intro-sub">Your rating is an average. This takes about 3 minutes and shows you exactly which part of your game is dragging it&nbsp;down.</p>
         <div class="intro-footer">
           <button class="btn-primary" onclick="startQuiz()" data-track="quiz_start">Start My Diagnosis</button>
-          <p class="intro-meta">15 questions &nbsp;·&nbsp; No email required</p>
+          <p class="intro-meta">17 questions &nbsp;·&nbsp; No email required</p>
         </div>
       </div>
     </div>
@@ -996,7 +1001,7 @@
        systems can read the actual diagnostic content. The interactive quiz above is JS-rendered. -->
   <section class="covers" id="what-this-covers" aria-labelledby="covers-title">
     <h2 class="covers-title" id="covers-title">What This Diagnosis Covers</h2>
-    <p class="covers-intro">Fifteen questions across the five areas where 3.0&ndash;4.0 players leak the most points. Your answers are scored by category; the lowest-scoring one is the specific leak capping your rating right now.</p>
+    <p class="covers-intro">Fifteen scored questions across the five areas where 3.0&ndash;4.0 players leak the most points, plus two quick ones about where you play and who you&rsquo;d train with, so your result points you to the right kind of coaching. Your answers are scored by category; the lowest-scoring one is the specific leak capping your rating right now.</p>
 
     <h3>First Four Shots</h3>
     <p class="covers-def">The serve, the return, the third shot, and the fourth. These four shots decide who reaches the kitchen line first, and most points between 3.0 and 4.0 players are effectively over before anyone gets there.</p>
@@ -1050,6 +1055,7 @@
 //  COACHING LINK — change this one line to update all buttons
 // ============================================================
 const COACHING_LINK = "https://www.gocrestline.app/coaches/lane-odom";
+const BOOKING_LINK  = "https://forms.gle/Dz98yAxHX2rUjHQx7";   // in-person lesson request form
 
 // ============================================================
 //  QUESTIONS
@@ -1226,8 +1232,26 @@ const questions = [
       { text: "A little, but it doesn't really limit me",          points: 2 },
       { text: "No",                                                points: 3 }
     ]
-  }
+  },
 
+  // ── Screening (not scored): picks which coaching option the result points to ──
+  {
+    category: "screen_location",
+    text: "Last two, and these aren't scored. Where do you usually play?",
+    answers: [
+      { text: "In or near Volusia County, FL", value: "local" },
+      { text: "Somewhere else",                value: "remote" }
+    ]
+  },
+  {
+    category: "screen_group",
+    text: "Who would you train with?",
+    answers: [
+      { text: "My league team or a regular group (4+ players)", value: "team" },
+      { text: "Just me",                                       value: "solo" },
+      { text: "Me and 1 or 2 friends",                         value: "small" }
+    ]
+  }
 ];
 
 // ============================================================
@@ -1322,9 +1346,10 @@ function renderQuestion(index) {
     btn.setAttribute("role", "listitem");
     btn.style.animationDelay = (i * 0.06) + "s";  // staggered entrance
     btn.textContent = a.text;
-    if (answers[index] === a.points) btn.classList.add("selected");
+    const val = a.value !== undefined ? a.value : a.points;
+    if (answers[index] === val) btn.classList.add("selected");
 
-    btn.addEventListener("click", () => pickAnswer(index, a.points, btn));
+    btn.addEventListener("click", () => pickAnswer(index, val, btn));
     container.appendChild(btn);
   });
 
@@ -1381,16 +1406,70 @@ function goBack() {
 }
 
 // ============================================================
+//  ROUTING — the two screening answers pick the main coaching option.
+//  Every route still offers Crestline (Lane, Oct 18 2026).
+// ============================================================
+const CRESTLINE_ALT = "Rather film your own games? Start a free virtual review on Crestline";
+const ROUTES = {
+  team: {
+    body: "Bring your team to a team lesson. I film your real games, coach the weak spots on court, then send every pair its own video breakdown of its own games. $70 per player for 4 to 8 players, at Chipshot in Daytona Beach or a court near you.",
+    button: "Book a Team Lesson", track: "quiz_cta_team",
+    links: [
+      { text: "See what's included", href: "/lessons/", track: "quiz_cta_team_info" },
+      { text: CRESTLINE_ALT, href: COACHING_LINK, track: "quiz_cta_team_crestline", ext: true }
+    ]
+  },
+  solo: {
+    body: "Book a private lesson. We pick the one skill your result points to, go over the technique and drill it, and you get a short slow-motion clip of that shot with my breakdown. $90 an hour, at Chipshot in Daytona Beach or a court near you.",
+    button: "Book a Private Lesson", track: "quiz_cta_private",
+    links: [ { text: CRESTLINE_ALT, href: COACHING_LINK, track: "quiz_cta_private_crestline", ext: true } ]
+  },
+  small: {
+    body: "Book a small-group lesson for you and your friends. Same coaching split between you, plus a slow-motion clip with my breakdown of one shot. $60 per person for 2 to 3 players, at Chipshot in Daytona Beach or a court near you.",
+    button: "Book a Small-Group Lesson", track: "quiz_cta_small",
+    links: [ { text: CRESTLINE_ALT, href: COACHING_LINK, track: "quiz_cta_small_crestline", ext: true } ]
+  }
+};
+
+function routeFor() {
+  const where = answers[questions.findIndex(q => q.category === "screen_location")];
+  const who   = answers[questions.findIndex(q => q.category === "screen_group")];
+  return where === "local" && ROUTES[who] ? who : "remote";
+}
+
+function ctaHTML(r, route) {
+  if (route === "remote") {
+    return `<div class="cta-card">
+      <p class="cta-card-header">${r.ctaHeader}</p>
+      <p class="cta-card-body">${r.ctaBody}</p>
+      <a href="${COACHING_LINK}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-track="quiz_crestline_cta">Start Virtual Coaching on Crestline</a>
+    </div>
+    <p class="footage-note">Virtual coaching is built around real footage of your game. You'll get simple instructions on what to send once you're set up on Crestline.</p>`;
+  }
+  const c = ROUTES[route];
+  const links = c.links.map(l =>
+    `<a href="${l.href}" class="cta-alt"${l.ext ? ' target="_blank" rel="noopener noreferrer"' : ""} data-track="${l.track}">${l.text} &rarr;</a>`).join("");
+  return `<div class="cta-card">
+      <p class="cta-card-header">${r.ctaHeader}</p>
+      <p class="cta-card-body">${c.body}</p>
+      <a href="${BOOKING_LINK}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-track="${c.track}">${c.button}</a>
+      <div class="cta-alts">${links}</div>
+    </div>
+    <p class="footage-note">The booking form takes about a minute, and I text back within 12 to 24 hours. Not sure which lesson fits? <a href="sms:+14079956966" data-track="quiz_cta_text">Text me</a>.</p>`;
+}
+
+// ============================================================
 //  COMPUTE & SHOW RESULTS
 // ============================================================
 function showResults() {
   const scores = { first_four_shots: 0, shot_selection: 0, transition_zone: 0, kitchen_game: 0, physical: 0 };
-  questions.forEach((q, i) => { if (answers[i] !== undefined) scores[q.category] += answers[i]; });
+  questions.forEach((q, i) => { if (q.category in scores && answers[i] !== undefined) scores[q.category] += answers[i]; });
 
   const min        = Math.min(...Object.values(scores));
   const lowestCats = Object.keys(scores).filter(k => scores[k] === min);
   const key        = lowestCats.length > 1 ? "tie" : lowestCats[0];
   const r          = results[key];
+  const route      = routeFor();
 
   // Build score bars HTML
   const barsHTML = Object.entries(scores).map(([cat, score]) => {
@@ -1416,17 +1495,12 @@ function showResults() {
       <p class="score-section-label">Your score breakdown</p>
       ${barsHTML}
     </div>
-    <div class="cta-card">
-      <p class="cta-card-header">${r.ctaHeader}</p>
-      <p class="cta-card-body">${r.ctaBody}</p>
-      <a href="${COACHING_LINK}" class="btn-primary" target="_blank" rel="noopener noreferrer" data-track="quiz_crestline_cta">Start Virtual Coaching on Crestline</a>
-    </div>
-    <p class="footage-note">Virtual coaching is built around real footage of your game. You'll get simple instructions on what to send once you're set up on Crestline.</p>
+    ${ctaHTML(r, route)}
   `;
 
   // Log completion to GA4 with the diagnosed category
   if (typeof window.gtag === "function") {
-    window.gtag("event", "quiz_complete", { result: key });
+    window.gtag("event", "quiz_complete", { result: key, route: route });
   }
 
   showProgress(false);
