@@ -288,6 +288,8 @@ section { padding: var(--space-4) 0; }
   text-underline-offset: 3px;
 }
 .hero-secondary-link:hover { color: var(--off-white); }
+.hero-links { margin: 0; }
+.hero-links-dot { color: var(--gray-mid); margin: 0 6px; }
 
 /* ============================================================
    STAT STRIP (authority)

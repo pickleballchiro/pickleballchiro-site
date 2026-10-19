@@ -6,13 +6,11 @@ Dr. Lane Odom · The Pickleball Chiro
 
 ## What’s Keeping You Stuck at 3.5
 
-Most players drill harder at the wrong thing. I help you find the real leak in your game and fix it.
+Most 3.0–4.0 players have one leak: the shot or movement pattern that loses them the most points. I find yours and fix it.
 
-A “leak” is the one shot or movement pattern that loses you the most points. Most 3.0–4.0 players have one, and it’s usually in the first four shots or the transition zone.
+[Get the Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35)
 
-4.7 DUPR Doctor of Chiropractic Performance Coach PCI Certified Coach
-
-[Get the Free “Stuck at 3.5” Guide →](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Or take the free 3-minute game diagnosis](https://pickleballchiro.co/quiz/) [On a league team or regular group? See team lessons →](https://pickleballchiro.co/lessons/)
+[Take the free 3-minute quiz](https://pickleballchiro.co/quiz/) [Team lessons →](https://pickleballchiro.co/lessons/)
 
 4.7
 
