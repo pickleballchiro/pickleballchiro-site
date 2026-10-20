@@ -1,6 +1,6 @@
-# Mobile Chiropractic & Rehab Care
+# Chiropractic Rehab Plan
 
-Canonical: https://pickleballchiro.co/mobile-chiro/
+Canonical: https://pickleballchiro.co/rehab-plan/
 
 Dr. Lane Odom · The Pickleball Chiro
 

@@ -49,6 +49,7 @@ def pages_list():
 PAGE_FILES = ["index.html"] + sorted(
     f for f in (os.path.relpath(p, ROOT) for p in glob.glob(os.path.join(ROOT, "*/index.html")))
     if not f.startswith(("dashboard/", "_"))
+    and 'http-equiv="refresh"' not in read(f)   # moved-page stubs (e.g. /mobile-chiro/ -> /rehab-plan/)
 )
 
 

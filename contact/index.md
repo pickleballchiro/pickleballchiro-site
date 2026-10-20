@@ -26,7 +26,7 @@ Fastest Route
 
 - Virtual coaching from anywhere: start on my [Crestline coach profile](https://www.gocrestline.app/coaches/lane-odom). Plans and how it works are on the [virtual coaching page](https://pickleballchiro.co/virtual-coaching/).
 
-- Chiropractic rehab plan, local in Volusia County or fully remote: email or Instagram DM me to book your evaluation. Details are on the [rehab plan page](https://pickleballchiro.co/mobile-chiro/).
+- Chiropractic rehab plan, local in Volusia County or fully remote: email or Instagram DM me to book your evaluation. Details are on the [rehab plan page](https://pickleballchiro.co/rehab-plan/).
 
 - Not sure where your game is leaking? Take the free [Stuck at 3.5 quiz](https://pickleballchiro.co/quiz/). It takes a few minutes and tells you which area to work on first.
 

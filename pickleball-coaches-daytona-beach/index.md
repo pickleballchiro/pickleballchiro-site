@@ -36,7 +36,7 @@ A minute from a women’s 3.5 game I broke down: where to stand while your partn
 
 #### 3. We look at the body behind the shot
 
-This is the part no standard lesson can offer. I’m a licensed Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025) as well as a PCI Level 1 certified coach, so when a shot breaks down I can see whether it’s the technique, the feet, the hips, or the fact that your legs are gone by game four. A lot of “bad hands” at the kitchen is actually a trunk that isn’t set. A lot of popped-up resets are a knee that won’t bend under fatigue. When that’s the case, the fix is a movement pattern or a strength piece, and I can give you that too. If something hurts, there’s my [chiropractic rehab plan](https://pickleballchiro.co/mobile-chiro/), and a full guide to [pickleball knee pain](https://pickleballchiro.co/pickleball-knee-pain/).
+This is the part no standard lesson can offer. I’m a licensed Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025) as well as a PCI Level 1 certified coach, so when a shot breaks down I can see whether it’s the technique, the feet, the hips, or the fact that your legs are gone by game four. A lot of “bad hands” at the kitchen is actually a trunk that isn’t set. A lot of popped-up resets are a knee that won’t bend under fatigue. When that’s the case, the fix is a movement pattern or a strength piece, and I can give you that too. If something hurts, there’s my [chiropractic rehab plan](https://pickleballchiro.co/rehab-plan/), and a full guide to [pickleball knee pain](https://pickleballchiro.co/pickleball-knee-pain/).
 
 #### 4. What I teach is what I’m using right now
 

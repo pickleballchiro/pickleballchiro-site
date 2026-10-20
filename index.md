@@ -82,7 +82,7 @@ One evaluation, a rehab plan built around where you want to get back to, and wee
 
 Local in Volusia County or fully remote
 
-[See How It Works →](https://pickleballchiro.co/mobile-chiro/)
+[See How It Works →](https://pickleballchiro.co/rehab-plan/)
 
 [@pickleballchiro Full game film breakdowns on YouTube](https://www.youtube.com/@pickleballchiro)
 

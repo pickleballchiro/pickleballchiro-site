@@ -172,9 +172,9 @@ If you want the complete system, filmed in clinic, step by step: [Play More, Hur
 
 [Get The Pickleball Knee Fix — $97 →](https://pickleballchiro.gumroad.com/l/thepickleballkneefix)
 
-Want me to build and run the plan for you? My [chiropractic rehab plan](https://pickleballchiro.co/mobile-chiro/) starts with one evaluation of your knee, in person if you’re in Volusia County or by video call if you’re not, then I manage your plan with you online every week.
+Want me to build and run the plan for you? My [chiropractic rehab plan](https://pickleballchiro.co/rehab-plan/) starts with one evaluation of your knee, in person if you’re in Volusia County or by video call if you’re not, then I manage your plan with you online every week.
 
-[See the Rehab Plan →](https://pickleballchiro.co/mobile-chiro/)
+[See the Rehab Plan →](https://pickleballchiro.co/rehab-plan/)
 
 ### Questions
 
@@ -206,7 +206,7 @@ Footwear can be a small piece of the puzzle, but it’s rarely the actual cause.
 
 - Weiss H, Dougherty J, DiMaggio C. Non-fatal senior pickleball and tennis-related injuries treated in United States emergency departments, 2010–2019. Inj Epidemiol. 2021;8:34. [doi:10.1186/s40621-021-00327-9](https://doi.org/10.1186/s40621-021-00327-9)
 
-Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He treats pickleball players across Volusia County, FL through [mobile chiropractic care](https://pickleballchiro.co/mobile-chiro/). [More about Lane](https://pickleballchiro.co/about/).
+Dr. Lane Odom, DC is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach, and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He works with injured players through his [chiropractic rehab plan](https://pickleballchiro.co/rehab-plan/), locally in Volusia County, FL or fully online. [More about Lane](https://pickleballchiro.co/about/).
 
 ---
 

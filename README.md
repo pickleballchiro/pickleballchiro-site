@@ -16,7 +16,7 @@ no build steps. Push to `main` and the live site updates in a minute or two.
 | `pickleballchiro.co/why-youre-stuck-at-3-5/` | `why-youre-stuck-at-3-5/index.html` | The pillar article (hub): the five leaks, full teach, Article + FAQ schema |
 | `pickleballchiro.co/third-shot-drive-or-drop/` | `third-shot-drive-or-drop/index.html` | Spoke article #1: the three-read third-shot checklist (Leak 1). Copy this file's pattern for the next spokes |
 | `pickleballchiro.co/pickleball-knee-pain/` | `pickleball-knee-pain/index.html` | Knee-pain article: 3-stage fix, cited references, Course schema for The Pickleball Knee Fix |
-| `pickleballchiro.co/mobile-chiro/` | `mobile-chiro/index.html` | Chiropractic Hybrid Rehab Plan page (URL kept from the old mobile-chiro page): outcome, how it works, monthly plans, FAQ |
+| `pickleballchiro.co/rehab-plan/` | `rehab-plan/index.html` | Chiropractic Hybrid Rehab Plan page (URL kept from the old mobile-chiro page): outcome, how it works, monthly plans, FAQ |
 | `pickleballchiro.co/lessons/` | `lessons/index.html` | In-person lessons: pricing, courts, FAQ, Google Form booking |
 | `pickleballchiro.co/pickleball-coaches-daytona-beach/` | `pickleball-coaches-daytona-beach/index.html` | "How I'm different from the average lesson" page targeting *pickleball coach Daytona Beach* queries (ChatGPT/Bing). **Names no other coach or facility** (Lane's rule, Sep 15 2026). Article + FAQ schema |
 | `pickleballchiro.co/virtual-coaching/` | `virtual-coaching/index.html` | Virtual coaching via Crestline: plans, how it works, FAQ |

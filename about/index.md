@@ -42,13 +42,13 @@ Who I Work With
 
 The player I work with most is a 3.0 to 4.0 who plays on a league team or with a regular group. A few years in, holds their own at their level, has taken a lesson or two, and can't figure out why playing up feels a step too fast, or why the same team keeps beating them. A lot of my players come with their whole team, which is why the [team lesson](https://pickleballchiro.co/lessons/) is the main thing I do. In plain words: 3.5 is the intermediate rating, 4.0 and up is where people start calling you advanced, and I coach the intermediate player who is trying to get there. That plateau is a specific problem with a specific set of causes, and I've built my coaching around it. If that's you, start with the [free game diagnosis](https://pickleballchiro.co/quiz/) or read [why players get stuck at 3.5](https://pickleballchiro.co/why-youre-stuck-at-3-5/).
 
-On the chiropractic side, I work with players and non-players who want a real rehab plan, not just an adjustment. Pickleball knee pain, shoulders, and low backs make up most of it. It starts with one evaluation, then I manage your plan with you online, locally in Volusia County or fully remote. If you're hurt, [the rehab plan](https://pickleballchiro.co/mobile-chiro/) is the place to start.
+On the chiropractic side, I work with players and non-players who want a real rehab plan, not just an adjustment. Pickleball knee pain, shoulders, and low backs make up most of it. It starts with one evaluation, then I manage your plan with you online, locally in Volusia County or fully remote. If you're hurt, [the rehab plan](https://pickleballchiro.co/rehab-plan/) is the place to start.
 
 Where to Find Me
 
 ### Daytona Beach, Volusia County, and Online
 
-I'm based in Daytona Beach, FL, on the Ormond Beach line. In-person lessons happen at [Chipshot](https://playchipshot.com) in Daytona Beach or at public courts across Volusia County, including New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Mobile chiropractic visits come to you anywhere in Volusia County, Edgewater included. Virtual coaching runs through [Crestline](https://www.gocrestline.app/coaches/lane-odom), where you send me game footage and get a full breakdown and drill plan back, from anywhere.
+I'm based in Daytona Beach, FL, on the Ormond Beach line. In-person lessons happen at [Chipshot](https://playchipshot.com) in Daytona Beach or at public courts across Volusia County, including New Smyrna Beach, Port Orange, Daytona Beach, and Ormond Beach. Chiropractic rehab plan evaluations happen at your home anywhere in Volusia County, Edgewater included, or by video call. Virtual coaching runs through [Crestline](https://www.gocrestline.app/coaches/lane-odom), where you send me game footage and get a full breakdown and drill plan back, from anywhere.
 
 You can also find me on [LinkedIn](https://www.linkedin.com/in/drlaneodom/), see me listed as a coach at [Chipshot Daytona on OpenCourt](https://app.getopencourt.com/club/chipshotdaytona/coaches/lane-odom), watch game breakdowns on [YouTube](https://www.youtube.com/@pickleballchiro), or follow [@dr.lane_o](https://instagram.com/dr.lane_o) on Instagram, where most of my teaching goes out first. There is also a [Dr. Lane Odom Facebook page](https://www.facebook.com/profile.php?id=61578074523794).
 
@@ -56,7 +56,7 @@ Credentials
 
 ### Background & Training
 
-Dr. Lane Odom, DC, is the founder of Pickleball Chiro, a pickleball performance coaching and mobile chiropractic practice based in Daytona Beach, FL, on the Ormond Beach line. He is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach (2026), and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He coaches in person across Volusia County and virtually anywhere through Crestline.
+Dr. Lane Odom, DC, is the founder of Pickleball Chiro, a pickleball performance coaching and chiropractic rehab practice based in Daytona Beach, FL, on the Ormond Beach line. He is a Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), a PCI Level 1 certified pickleball coach (2026), and a 4.7 DUPR player who plays at a 5.0 level, with 20+ tournament medals at 4.5+ since 2023 and 13+ years of racket sports experience. He coaches in person across Volusia County and virtually anywhere through Crestline.
 
 - Doctor of Chiropractic, Palmer College of Chiropractic (Port Orange, FL), graduated March 2025
 

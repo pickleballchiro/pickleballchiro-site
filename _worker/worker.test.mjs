@@ -1,7 +1,7 @@
 // Run: node --test _worker/
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import worker, { handle, acceptQ, wantsMarkdown, isPagePath, markdownPath, NOT_FOUND_MARKDOWN } from "./worker.js";
+import worker, { handle, acceptQ, wantsMarkdown, isPagePath, markdownPath, NOT_FOUND_MARKDOWN, movedTarget } from "./worker.js";
 
 const SITE = "https://pickleballchiro.co";
 
@@ -147,4 +147,16 @@ test("default export fails open to origin when handling throws", async () => {
   } finally {
     globalThis.fetch = realFetch;
   }
+});
+
+test("old /mobile-chiro/ links 301 to /rehab-plan/, keeping the query string", async () => {
+  let called = false;
+  const res = await handle(new Request("https://pickleballchiro.co/mobile-chiro/?utm_source=text"), async () => { called = true; return new Response("x"); });
+  assert.equal(res.status, 301);
+  assert.equal(res.headers.get("Location"), "https://pickleballchiro.co/rehab-plan/?utm_source=text");
+  assert.equal(called, false);
+  assert.equal(movedTarget("/mobile-chiro"), "/rehab-plan/");
+  assert.equal(movedTarget("/mobile-chiro/index.md"), "/rehab-plan/index.md");
+  assert.equal(movedTarget("/mobile-chiropractic/"), null);
+  assert.equal(movedTarget("/rehab-plan/"), null);
 });

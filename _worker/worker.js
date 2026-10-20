@@ -77,8 +77,30 @@ function markdownResponse(body, status, extra = {}) {
   });
 }
 
+// Pages that moved. Old path (with or without trailing slash, or its index.md/index.html) -> new path.
+// Oct 20 2026: the chiro page left "mobile chiro" behind; links already texted to people still work.
+export const MOVED = { "/mobile-chiro/": "/rehab-plan/" };
+
+export function movedTarget(pathname) {
+  for (const [from, to] of Object.entries(MOVED)) {
+    const bare = from.slice(0, -1);
+    if (pathname === bare || pathname.startsWith(from)) {
+      const rest = pathname === bare ? "" : pathname.slice(from.length);
+      return to + rest;
+    }
+  }
+  return null;
+}
+
 export async function handle(request, fetchImpl = fetch) {
   const url = new URL(request.url);
+  const moved = movedTarget(url.pathname);
+  if (moved) {
+    return new Response(null, {
+      status: 301,
+      headers: { Location: new URL(moved + url.search, url).href, "Cache-Control": "public, max-age=3600" },
+    });
+  }
   if (!["GET", "HEAD"].includes(request.method) || !isPagePath(url.pathname)) {
     return fetchImpl(request);
   }
