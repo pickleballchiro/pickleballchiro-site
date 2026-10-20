@@ -76,13 +76,13 @@ Game film review, custom drill programming, and weekly accountability, built to 
 
 🚗
 
-#### Mobile Chiropractic
+#### Chiropractic Rehab Plan
 
-Chiropractic and rehab care that comes to you: assessment, treatment, and a movement plan in your own home.
+One evaluation, a rehab plan built around where you want to get back to, and weekly check-ins with me online.
 
-Serving Volusia County
+Local in Volusia County or fully remote
 
-[See What’s Included →](https://pickleballchiro.co/mobile-chiro/)
+[See How It Works →](https://pickleballchiro.co/mobile-chiro/)
 
 [@pickleballchiro Full game film breakdowns on YouTube](https://www.youtube.com/@pickleballchiro)
 
@@ -182,7 +182,7 @@ Through Crestline, you send me footage of your games or drills: 2 video reviews 
 
 Do I need to live near Florida to work with you?
 
-No. My in-person lessons and mobile chiropractic care are limited to Volusia County, FL, but virtual coaching through Crestline works with players anywhere in the world. All I need is footage of your games or drills. The coaching works the same no matter where you play.
+No. My in-person lessons are limited to Volusia County, FL (my chiropractic rehab plan has a fully online option), but virtual coaching through Crestline works with players anywhere in the world. All I need is footage of your games or drills. The coaching works the same no matter where you play.
 
 What's included in a Crestline coaching program?
 

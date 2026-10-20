@@ -6,7 +6,7 @@ Dr. Lane Odom · The Pickleball Chiro
 
 ## Get in Touch
 
-Questions about lessons, virtual coaching, or mobile chiropractic care? Reach me directly. I read and answer every message myself.
+Questions about lessons, virtual coaching, or the chiropractic rehab plan? Reach me directly. I read and answer every message myself.
 
 [(407) 995-6966](tel:+14079956966) [drlanepickleballchiro@gmail.com](mailto:drlanepickleballchiro@gmail.com) [@dr.lane_o on Instagram](https://instagram.com/dr.lane_o)
 
@@ -26,7 +26,7 @@ Fastest Route
 
 - Virtual coaching from anywhere: start on my [Crestline coach profile](https://www.gocrestline.app/coaches/lane-odom). Plans and how it works are on the [virtual coaching page](https://pickleballchiro.co/virtual-coaching/).
 
-- Mobile chiropractic care at your home in Volusia County: email or Instagram DM me to set up a first visit. Details are on the [mobile chiro page](https://pickleballchiro.co/mobile-chiro/).
+- Chiropractic rehab plan, local in Volusia County or fully remote: email or Instagram DM me to book your evaluation. Details are on the [rehab plan page](https://pickleballchiro.co/mobile-chiro/).
 
 - Not sure where your game is leaking? Take the free [Stuck at 3.5 quiz](https://pickleballchiro.co/quiz/). It takes a few minutes and tells you which area to work on first.
 

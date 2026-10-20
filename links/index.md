@@ -16,9 +16,9 @@ League teams & groups of 4–8 · Volusia County only
 
 Team, private, or small group · I text back within 12–24 hrs
 
-[Watch Game Film Breakdowns](https://www.youtube.com/@pickleballchiro) [Book Mobile Chiro](https://pickleballchiro.co/mobile-chiro/)
+[Watch Game Film Breakdowns](https://www.youtube.com/@pickleballchiro) [Chiropractic Rehab Plan](https://pickleballchiro.co/mobile-chiro/)
 
-Volusia County only
+Local or fully online
 
 ### 📘 Free Guides
 

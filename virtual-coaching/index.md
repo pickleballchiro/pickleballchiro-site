@@ -180,7 +180,7 @@ Start with the free gameplay diagnosis and decide after. You get your own match 
 
 Do I need to live near Florida to work with you?
 
-No, that's the point of this page. In-person lessons and mobile chiropractic care only run in Volusia County, FL, but footage review doesn't care where you're standing when you film it. If you do live nearby, [in-person team lessons](https://pickleballchiro.co/lessons/) are still worth a look.
+No, that's the point of this page. In-person lessons only run in Volusia County, FL, but footage review doesn't care where you're standing when you film it. If you do live nearby, [in-person team lessons](https://pickleballchiro.co/lessons/) are still worth a look.
 
 I already take a team lesson with you. Does this help?
 

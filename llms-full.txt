@@ -1,6 +1,6 @@
 # Dr. Lane Odom — The Pickleball Chiro (full site text)
 
-> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-18. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
+> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-20. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
 
 ---
 
@@ -82,13 +82,13 @@ See the Program → Pricing & FAQ →
 
 🚗
 
-#### Mobile Chiropractic
+#### Chiropractic Rehab Plan
 
-Chiropractic and rehab care that comes to you: assessment, treatment, and a movement plan in your own home.
+One evaluation, a rehab plan built around where you want to get back to, and weekly check-ins with me online.
 
-Serving Volusia County
+Local in Volusia County or fully remote
 
-See What’s Included →
+See How It Works →
 
 @pickleballchiro Full game film breakdowns on YouTube
 
@@ -188,7 +188,7 @@ Through Crestline, you send me footage of your games or drills: 2 video reviews 
 
 Do I need to live near Florida to work with you?
 
-No. My in-person lessons and mobile chiropractic care are limited to Volusia County, FL, but virtual coaching through Crestline works with players anywhere in the world. All I need is footage of your games or drills. The coaching works the same no matter where you play.
+No. My in-person lessons are limited to Volusia County, FL (my chiropractic rehab plan has a fully online option), but virtual coaching through Crestline works with players anywhere in the world. All I need is footage of your games or drills. The coaching works the same no matter where you play.
 
 What's included in a Crestline coaching program?
 
@@ -352,7 +352,7 @@ This is the leak I see most as a chiropractor, and the one players least want to
 
 Self-check: compare your first game and your third game of the same session. If the third one has more pop-ups and late contacts, this is your leak. It can also be stacked on top of another one.
 
-Knee pain specifically is common enough that I wrote a full breakdown of it: Pickleball Knee Pain: The 3-Stage Fix. If you're in Volusia County and want hands-on care alongside the physical work, mobile chiropractic care comes to you.
+Knee pain specifically is common enough that I wrote a full breakdown of it: Pickleball Knee Pain: The 3-Stage Fix. If you want me to build and manage that work for you, that's my chiropractic rehab plan, local in Volusia County or fully remote.
 
 The physical section is educational, not medical advice. If something hurts, see a licensed provider. Full disclaimer in our Terms.
 
@@ -750,9 +750,9 @@ If you want the complete system, filmed in clinic, step by step: Play More, Hurt
 
 Get The Pickleball Knee Fix — $97 →
 
-If you’re in Volusia County and want hands-on care, not just a program, mobile chiropractic care comes to you: adjustment, soft tissue work, and a corrective exercise plan built around what’s actually going on in your knee.
+Want me to build and run the plan for you? My chiropractic rehab plan starts with one evaluation of your knee, in person if you’re in Volusia County or by video call if you’re not, then I manage your plan with you online every week.
 
-See Mobile Chiro Care →
+See the Rehab Plan →
 
 ### Questions
 
@@ -832,7 +832,7 @@ Who I Work With
 
 The player I work with most is a 3.0 to 4.0 who plays on a league team or with a regular group. A few years in, holds their own at their level, has taken a lesson or two, and can't figure out why playing up feels a step too fast, or why the same team keeps beating them. A lot of my players come with their whole team, which is why the team lesson is the main thing I do. In plain words: 3.5 is the intermediate rating, 4.0 and up is where people start calling you advanced, and I coach the intermediate player who is trying to get there. That plateau is a specific problem with a specific set of causes, and I've built my coaching around it. If that's you, start with the free game diagnosis or read why players get stuck at 3.5.
 
-On the chiropractic side, I see players and non-players across Volusia County who want hands-on care that includes rehab and corrective exercise, not just an adjustment. Pickleball knee pain, shoulders, and low backs make up most of it. If you're hurt, mobile chiropractic is the place to start.
+On the chiropractic side, I work with players and non-players who want a real rehab plan, not just an adjustment. Pickleball knee pain, shoulders, and low backs make up most of it. It starts with one evaluation, then I manage your plan with you online, locally in Volusia County or fully remote. If you're hurt, the rehab plan is the place to start.
 
 Where to Find Me
 
@@ -862,7 +862,7 @@ Work Together
 
 ### Ready to Train?
 
-In-person team lessons and mobile chiropractic care in Volusia County, FL, or virtual coaching through Crestline from anywhere.
+In-person team lessons in Volusia County, FL, virtual coaching through Crestline from anywhere, and a chiropractic rehab plan, local or fully online.
 
 See Pickleball Lessons → See Virtual Coaching →
 
@@ -878,7 +878,7 @@ Dr. Lane Odom · The Pickleball Chiro
 
 ## Get in Touch
 
-Questions about lessons, virtual coaching, or mobile chiropractic care? Reach me directly. I read and answer every message myself.
+Questions about lessons, virtual coaching, or the chiropractic rehab plan? Reach me directly. I read and answer every message myself.
 
 (407) 995-6966 drlanepickleballchiro@gmail.com @dr.lane_o on Instagram
 
@@ -898,7 +898,7 @@ Fastest Route
 
 - Virtual coaching from anywhere: start on my Crestline coach profile. Plans and how it works are on the virtual coaching page.
 
-- Mobile chiropractic care at your home in Volusia County: email or Instagram DM me to set up a first visit. Details are on the mobile chiro page.
+- Chiropractic rehab plan, local in Volusia County or fully remote: email or Instagram DM me to book your evaluation. Details are on the rehab plan page.
 
 - Not sure where your game is leaking? Take the free Stuck at 3.5 quiz. It takes a few minutes and tells you which area to work on first.
 
@@ -1230,7 +1230,7 @@ A minute from a women’s 3.5 game I broke down: where to stand while your partn
 
 #### 3. We look at the body behind the shot
 
-This is the part no standard lesson can offer. I’m a licensed Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025) as well as a PCI Level 1 certified coach, so when a shot breaks down I can see whether it’s the technique, the feet, the hips, or the fact that your legs are gone by game four. A lot of “bad hands” at the kitchen is actually a trunk that isn’t set. A lot of popped-up resets are a knee that won’t bend under fatigue. When that’s the case, the fix is a movement pattern or a strength piece, and I can give you that too. If something hurts, there’s mobile chiropractic care that comes to you, and a full guide to pickleball knee pain.
+This is the part no standard lesson can offer. I’m a licensed Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025) as well as a PCI Level 1 certified coach, so when a shot breaks down I can see whether it’s the technique, the feet, the hips, or the fact that your legs are gone by game four. A lot of “bad hands” at the kitchen is actually a trunk that isn’t set. A lot of popped-up resets are a knee that won’t bend under fatigue. When that’s the case, the fix is a movement pattern or a strength piece, and I can give you that too. If something hurts, there’s my chiropractic rehab plan, and a full guide to pickleball knee pain.
 
 #### 4. What I teach is what I’m using right now
 
@@ -1340,149 +1340,231 @@ URL: https://pickleballchiro.co/mobile-chiro/
 
 Dr. Lane Odom · The Pickleball Chiro
 
-## Mobile Chiropractic & Rehab Care in Volusia County, FL
+## Get Back on the Court With a Real Plan
 
-Hands-on chiropractic and rehab care that comes to you: your home, your driveway, your backyard. Built around your body and your goals, not a script.
+I don’t sell sessions. You get one evaluation, a rehab plan built around the level you want to get back to, and me managing it with you every week. Local in Volusia County, or fully online.
 
 Doctor of Chiropractic 4.7 DUPR Player FL Licensed & Insured
 
-Email Me → DM on Instagram →
+Book Your Evaluation → DM on Instagram →
 
 Prefer to call or text? (407) 995-6966 works too.
 
+The Outcome
+
+### Where Do You Want to Get Back To?
+
+Everyone starts somewhere different. The plan is built toward your goal, not a set number of visits.
+
+Goal
+
+#### Back on the Court
+
+You’ve stopped playing, or you’re close to it. My goal is to get you playing again without bracing for the next flare-up.
+
+Goal
+
+#### Play Without Modifying
+
+You’re still out there, but you’re skipping overheads, avoiding lunges, or taping everything. We build toward playing your full game again.
+
+Goal
+
+#### Compete Again
+
+You want to train and play hard. We build the strength and capacity to handle a tournament weekend, not just one rec game.
+
 Read This First
+
+### Why Most of This Happens Online
+
+Fair question: I’m a chiropractor, so why isn’t this a stack of table visits?
+
+- Table work is the smallest part of getting better. An adjustment can make you feel better for a few days. The plan is what changes how your body handles the court.
+
+- The right exercises, progressed at the right time, done consistently. That’s what does the work. It takes programming and accountability, and neither one needs a table.
+
+- Online, I’m with you every week. Not one visit and a printed sheet you lose by Thursday. Check-ins, form review, and a plan that changes as you do.
+
+- It fits your life and your budget. Seeing someone in person two or three times a week for months adds up fast, in money and in drive time. This gives you the planning and oversight on your schedule, for a lot less.
+
+Want regular hands-on work on top of the plan? That’s fine. I’ll point you to someone good and local, and your plan keeps running.
+
+How It Works
+
+### One Evaluation. Then I Manage It With You.
+
+- 1Evaluation. In person if you’re local, by live video call if you’re remote. I test how you move, how strong you are, and how your body responds, and figure out what you’ll respond to best.
+
+- 2Your rehab plan. Built from the evaluation and delivered online, so it’s on your phone when you need it.
+
+- 3Ongoing management. Weekly check-ins, video form review (you film a set, I tell you what to fix), and program progressions every 2 to 3 weeks.
+
+- 4In person when it helps. Local clients can get one in-person session a month when it’s useful. Most months, a quick call covers it. Remote clients do everything online.
+
+Who This Is For
 
 ### Is This For You?
 
-- You've tried chiro or PT before, it helped short-term, but nothing actually stuck.
+- You’re an athlete or an active person, pickleball player or not, and you want to keep doing what you love.
 
-- You'd rather not drive to a clinic, especially when getting in the car is part of what hurts.
+- You’re tired of paying for passive treatment that feels good for a day and then fades.
 
-- You play pickleball, or want to get back to it, and want care that looks at how you move on court, not just the spot that hurts.
+- You’ll do the work if someone gives you a real plan and holds you to it.
 
-- You want to leave every visit knowing exactly what to do at home, not just booked for the next one.
+- You want to understand what’s going on with your body, not just get “fixed.”
 
-- Not the right fit if you're looking for a quick fix or the cheapest option. This is intentionally small and high-quality.
-
-What You Get
-
-### What a Visit Looks Like
-
-Every visit is hands-on. Nothing generic, nothing rushed.
-
-Every Visit
-
-#### Chiropractic Adjustment
-
-We start with a focused intake covering your history and goals on visit one, then go straight into hands-on work. Every session includes a chiropractic adjustment to get the joints moving the way they should.
-
-As Needed
-
-#### Soft Tissue, Cupping & IASTM
-
-Soft tissue work is part of every visit. Cupping and IASTM (instrument-assisted soft tissue work) get added in when the tissue calls for it, not on a fixed schedule.
-
-Every Visit
-
-#### Corrective Exercise
-
-You leave with movement work built around what I actually found in your body that day, not a generic sheet. First visits typically run 60 to 90 minutes. Wear something you can move in.
+- Not the right fit if you want someone to fix you while you lie on a table, or you’re not willing to do the exercises.
 
 Investment
 
-### Pricing
+### Plans & Pricing
 
-Pricing listed upfront, no surprises. Sessions come to your location.
+Both plans include your evaluation in the first month.
 
-Visit
+#### Local Hybrid
 
-Price
+$375
 
-Duration
+per month
 
-Includes
+Volusia County, FL
 
-Payment
+EvaluationIn person, at your home
 
-Standard Visit
+Rehab planDelivered online
 
-$195
+Check-insWeekly + form review
 
-60 min
+ProgressionsEvery 2–3 weeks
 
-Adjustment, soft tissue work, and corrective exercise
+In personMonthly, when it helps
 
-Stripe, Zelle, or cash
+#### Remote
 
-Extended Visit
+$325
 
-$250
+per month
 
-90 min
+Fully online
 
-Same as Standard, plus more time for cupping/IASTM and deeper soft tissue work
+EvaluationLive video call
 
-Stripe, Zelle, or cash
+Rehab planDelivered online
 
-Need more than one visit? After we see what's actually going on, I'll give you an honest read on the timeline and we'll build a plan around it together, based on what's clinically appropriate and how long I think it'll take to resolve. That's arranged individually, not sold as a flat monthly plan.
+Check-insWeekly + form review
 
-Service Area
+ProgressionsEvery 2–3 weeks
 
-### Volusia County, FL
+In personNone needed
 
-I come to you: inside, driveway, garage, or backyard. I bring everything, including a portable table.
+Commit to 3 months, or 6 for bigger problems. We decide that together at your evaluation.
+
+Two ways to pay. Monthly, charged automatically to your card through Stripe for the length of your plan, or pay in full and take 10% off:
+
+Local Hybrid, 3 months$1,012.50
+
+Local Hybrid, 6 months$2,025
+
+Remote, 3 months$877.50
+
+Remote, 6 months$1,755
+
+Either way, you’re committing to the full plan. No insurance billing. Some HSA and FSA plans cover chiropractic care, so it’s worth checking with yours.
+
+From a Client
+
+### In a Client’s Words
+
+★★★★★
+
+“The results have been incredible. My knee and shoulder feel stronger and more stable, I’m moving better on the court, and I have more confidence in my game than I’ve had in a long time. Working with him has been one of the best investments I’ve made in my health, mobility, and athletic performance.”
+
+Laura Cadigan
+
+Google review
+
+Where I Work
+
+### Local or Remote
+
+Local Hybrid clients are in Volusia County, FL. I come to you for the evaluation: inside, driveway, garage, or backyard. Remote clients do everything online.
 
 Daytona Beach Ormond Beach New Smyrna Beach Port Orange Edgewater
 
-Not sure if you're in range? Just ask.
+Not sure which plan fits? Just ask.
 
-Dealing with a nagging knee specifically? Read the 3-stage pickleball knee pain fix first, then book a visit here if you want hands-on care added to the plan.
+Dealing with a nagging knee specifically? Read the 3-stage pickleball knee pain fix. It’s the same thinking this plan is built on.
 
 Before You Book
 
 ### Questions
 
-What does a mobile chiropractic visit look like?
+How does the Hybrid Rehab Plan work?
 
-First visit starts with a focused intake covering your history and goals, then we get to work the same visit. Every session includes a chiropractic adjustment, soft tissue work, and corrective exercise. Cupping and IASTM get added in as needed. First visits typically run 60 to 90 minutes. Wear comfortable clothes you can move in.
+It starts with one evaluation: in person if you’re local, by live video call if you’re remote. I test how you move, how strong you are, and how your body responds, then build your rehab plan from what I find and deliver it online. From there I manage it with you: weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can also get one in-person session a month when it helps.
 
-Do you offer multi-visit packages or an ongoing care plan?
+You’re a chiropractor. Why is most of this online?
 
-Yes, but not as a fixed subscription. After your first visit I'll give you an honest read on what's going on clinically and how long I think it'll realistically take to resolve, then we build a plan around that together. Some people need one visit, some need several over a few months. It's arranged around your situation, not a flat monthly plan.
+Because the table work is the smallest part of getting better. An adjustment or soft tissue work can help you feel better for a few days. The plan, the progressions, and someone holding you to it are what change how your body holds up on court. None of that needs a table. Doing it online means I’m in touch with you every week, on your schedule, for a lot less than seeing someone in person several times a week.
 
-Do you come to my home, and do you take insurance?
+Will I still get adjusted?
 
-Yes, I come to you: inside your home, the driveway, the garage, or the backyard. I bring everything, including a portable table. This is cash-pay care with no insurance billing, though some HSA and FSA plans cover chiropractic care, which is worth checking with your provider.
+If you’re local and it’s useful, I can adjust you at your evaluation or a monthly in-person session. It isn’t the centerpiece of the plan. If you want regular hands-on work on top of the plan, I’ll point you to someone good and local, and your plan keeps running.
 
-Do I need a referral for mobile chiropractic care?
+How long does it take?
 
-No referral needed. Chiropractors are primary care providers in Florida, so you can book directly. I currently serve Daytona Beach, Ormond Beach, New Smyrna Beach, Port Orange, and Edgewater. Not sure if you're in range? Just ask.
+The minimum is 3 months. Bigger or longer-standing problems usually need 6, and we decide that together at your evaluation. My goal is to get you to the outcome we set and able to keep it there on your own, not to keep you on a plan forever.
 
-How often will I need mobile chiropractic visits?
+What does the first visit look like?
 
-It depends on what's going on. I'll give you an honest clinical recommendation after the first visit, and we work within your schedule from there. Nobody gets a generic frequency without me actually looking at your case first.
+Your first visit is the evaluation. If you’re local, I come to your home with everything I need. If you’re remote, we do it on a live video call. We go through your history and what you want to get back to, then I test your movement, your strength, and how your body responds to different positions and loads. Plan on 60 to 90 minutes and wear something you can move in. Your plan follows, delivered online.
 
-What conditions does mobile chiropractic care treat?
+What’s included?
 
-Mostly musculoskeletal: back pain, neck pain, shoulder and hip issues, disc problems, sciatica, sports injuries, and headaches. If you're a pickleball player, I'm also looking at the movement chain behind whatever's bothering you, not just the spot that hurts.
+Your evaluation, a personalized rehab plan delivered online, weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients also get one in-person session a month when it helps. Most months, a quick call covers it.
 
-What's the cancellation policy for mobile visits?
+What if I need more than one in-person session a month?
 
-I ask for at least 12 hours notice to cancel or reschedule. If I'm already in transit or arrive and you're not available, the session is forfeited or a cancellation fee applies. Life happens, but a heads-up protects both of our time.
+Most people don’t. They need a plan and someone holding them to it. If your case calls for more hands-on time, I’ll tell you, and we’ll work out what that looks like together.
 
-This page describes the services offered and is not a diagnosis of your condition. Care plans are individualized after an in-person evaluation. See the full disclaimer in our Terms.
+How do I pay? Can I go month to month?
 
-Ready?
+You have two options. Pay monthly, charged automatically to your card through Stripe each month for the length of your plan, or pay in full up front and take 10% off. Either way you’re committing to the full 3 or 6 months, because that’s the time it takes to build and progress a plan properly.
 
-### Book a Visit
+What does "done" look like?
 
-Email or DM me on Instagram, whatever's easiest, and we'll find a time that works.
+You’re back to the goal we set at your evaluation, whether that’s playing again, playing without modifying everything, or competing, and you know how to keep it there yourself. My goal is to make you independent, not dependent on me.
 
-Email Me → DM on Instagram →
+What problems is this for?
+
+Mostly musculoskeletal: back, neck, shoulder, hip, and knee problems, disc issues, sciatica, and sports injuries. If you play pickleball, I’m also looking at the movement chain behind whatever’s bothering you, not just the spot that hurts.
+
+Do you take insurance, and do I need a referral?
+
+There’s no insurance billing. This is cash-pay, though some HSA and FSA plans cover chiropractic care, so it’s worth checking with yours. No referral needed: chiropractors are primary care providers in Florida, so you can book directly.
+
+What’s the cancellation policy for in-person visits?
+
+I ask for at least 12 hours notice to cancel or reschedule. If I’m already on the way, or you’re not available when I arrive, the visit is forfeited or a cancellation fee applies. Life happens, but a heads-up protects both of our time.
+
+How do I get started?
+
+Tap Book Your Evaluation and tell me a little about what’s going on and where you want to get back to. I’ll reach out personally to answer your questions and set up your evaluation. Prefer to talk first? Email, DM me on Instagram, or call or text (407) 995-6966.
+
+This page describes the services offered and is not a diagnosis of your condition. Care plans are individualized after an evaluation, and results vary from person to person. See the full disclaimer in our Terms.
+
+Next Step
+
+### Book Your Evaluation
+
+Tell me what’s going on and where you want to get back to. I’ll reach out personally to answer your questions and set up your evaluation.
+
+Book Your Evaluation → DM on Instagram →
 
 drlanepickleballchiro@gmail.com @dr.lane_o on Instagram (407) 995-6966
 
-Email Me →
+Book an Evaluation →
 
 ---
 
@@ -1668,7 +1750,7 @@ Start with the free gameplay diagnosis and decide after. You get your own match 
 
 Do I need to live near Florida to work with you?
 
-No, that's the point of this page. In-person lessons and mobile chiropractic care only run in Volusia County, FL, but footage review doesn't care where you're standing when you film it. If you do live nearby, in-person team lessons are still worth a look.
+No, that's the point of this page. In-person lessons only run in Volusia County, FL, but footage review doesn't care where you're standing when you film it. If you do live nearby, in-person team lessons are still worth a look.
 
 I already take a team lesson with you. Does this help?
 
@@ -1790,9 +1872,9 @@ Book a Lesson
 
 Team, private, or small group · I text back within 12–24 hrs
 
-Watch Game Film Breakdowns Book Mobile Chiro
+Watch Game Film Breakdowns Chiropractic Rehab Plan
 
-Volusia County only
+Local or fully online
 
 ### 📘 Free Guides
 

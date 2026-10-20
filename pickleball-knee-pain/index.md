@@ -172,9 +172,9 @@ If you want the complete system, filmed in clinic, step by step: [Play More, Hur
 
 [Get The Pickleball Knee Fix — $97 →](https://pickleballchiro.gumroad.com/l/thepickleballkneefix)
 
-If you’re in Volusia County and want hands-on care, not just a program, [mobile chiropractic care](https://pickleballchiro.co/mobile-chiro/) comes to you: adjustment, soft tissue work, and a corrective exercise plan built around what’s actually going on in your knee.
+Want me to build and run the plan for you? My [chiropractic rehab plan](https://pickleballchiro.co/mobile-chiro/) starts with one evaluation of your knee, in person if you’re in Volusia County or by video call if you’re not, then I manage your plan with you online every week.
 
-[See Mobile Chiro Care →](https://pickleballchiro.co/mobile-chiro/)
+[See the Rehab Plan →](https://pickleballchiro.co/mobile-chiro/)
 
 ### Questions
 

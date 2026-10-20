@@ -140,7 +140,7 @@ This is the leak I see most as a chiropractor, and the one players least want to
 
 Self-check: compare your first game and your third game of the same session. If the third one has more pop-ups and late contacts, this is your leak. It can also be stacked on top of another one.
 
-Knee pain specifically is common enough that I wrote a full breakdown of it: [Pickleball Knee Pain: The 3-Stage Fix](https://pickleballchiro.co/pickleball-knee-pain/). If you're in Volusia County and want hands-on care alongside the physical work, [mobile chiropractic care](https://pickleballchiro.co/mobile-chiro/) comes to you.
+Knee pain specifically is common enough that I wrote a full breakdown of it: [Pickleball Knee Pain: The 3-Stage Fix](https://pickleballchiro.co/pickleball-knee-pain/). If you want me to build and manage that work for you, that's my [chiropractic rehab plan](https://pickleballchiro.co/mobile-chiro/), local in Volusia County or fully remote.
 
 The physical section is educational, not medical advice. If something hurts, see a licensed provider. Full disclaimer in our [Terms](https://pickleballchiro.co/terms/).
 
