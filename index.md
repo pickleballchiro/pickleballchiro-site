@@ -78,7 +78,7 @@ Game film review, custom drill programming, and weekly accountability, built to 
 
 #### Chiropractic Rehab Plan
 
-One evaluation, a rehab plan built around where you want to get back to, and weekly check-ins with me online.
+For pickleball players dealing with an injury: one evaluation, a rehab plan built around where you want to get back to, and weekly check-ins with me online.
 
 Local in Volusia County or fully remote
 

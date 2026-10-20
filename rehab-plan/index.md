@@ -6,7 +6,7 @@ Dr. Lane Odom · The Pickleball Chiro
 
 ## Get Back on the Court With a Real Plan
 
-I don’t sell sessions. You get one evaluation, a rehab plan built around the level you want to get back to, and me managing it with you every week. Local in Volusia County, or fully online.
+A rehab plan for pickleball players. I don’t sell sessions: you get one evaluation, a rehab plan built around the level you want to get back to, and me managing it with you every week. Local in Volusia County, or fully online.
 
 Doctor of Chiropractic 4.7 DUPR Player FL Licensed & Insured
 
@@ -68,17 +68,29 @@ How It Works
 
 Who This Is For
 
-### Is This For You?
+### Built for Pickleball Players
 
-- You’re an athlete or an active person, pickleball player or not, and you want to keep doing what you love.
+This plan is only for pickleball players. It’s for you if:
 
-- You’re tired of paying for passive treatment that feels good for a day and then fades.
+- You play pickleball and you’re dealing with an injury. Maybe it’s been a couple of months, maybe a couple of years, and now it’s seriously affecting your game.
 
-- You’ll do the work if someone gives you a real plan and holds you to it.
+- You’re pushing through it every time you play, or it’s taken you off the court completely.
 
-- You want to understand what’s going on with your body, not just get “fixed.”
+- You’ve tried chiropractic, physical therapy, ice, rest, or other passive treatment, and nothing has stuck.
 
-- Not the right fit if you want someone to fix you while you lie on a table, or you’re not willing to do the exercises.
+- You’re tired of dealing with it and want clarity on what’s driving it and what’s actually going on.
+
+- You’re willing to put in the work once you have a real plan.
+
+It’s not the right fit if:
+
+- You don’t play pickleball. This plan is built around the demands of the game, so it’s only for players.
+
+- You just want an adjustment or standard chiropractic care, and you’re not ready for a full rehab plan that goes after the root cause of your pain.
+
+- You’re not ready to invest time, effort, and money in your own body.
+
+- You want someone to fix you while you lie on a table, or you’re not willing to do the exercises.
 
 Investment
 
@@ -206,9 +218,9 @@ What does "done" look like?
 
 You’re back to the goal we set at your evaluation, whether that’s playing again, playing without modifying everything, or competing, and you know how to keep it there yourself. My goal is to make you independent, not dependent on me.
 
-What problems is this for?
+Who is this for? Do I have to play pickleball?
 
-Mostly musculoskeletal: back, neck, shoulder, hip, and knee problems, disc issues, sciatica, and sports injuries. If you play pickleball, I’m also looking at the movement chain behind whatever’s bothering you, not just the spot that hurts.
+Yes. The plan is only for pickleball players dealing with an injury that’s affecting their game: knee, shoulder, elbow, hip, and back problems, disc issues, sciatica, and other sports injuries. Whether it’s been a couple of months or a couple of years, I’m looking at the movement chain behind whatever’s bothering you on court, not just the spot that hurts. If you don’t play pickleball, or you’re just looking for an adjustment, this isn’t the right fit.
 
 Do you take insurance, and do I need a referral?
 

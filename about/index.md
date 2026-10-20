@@ -42,7 +42,7 @@ Who I Work With
 
 The player I work with most is a 3.0 to 4.0 who plays on a league team or with a regular group. A few years in, holds their own at their level, has taken a lesson or two, and can't figure out why playing up feels a step too fast, or why the same team keeps beating them. A lot of my players come with their whole team, which is why the [team lesson](https://pickleballchiro.co/lessons/) is the main thing I do. In plain words: 3.5 is the intermediate rating, 4.0 and up is where people start calling you advanced, and I coach the intermediate player who is trying to get there. That plateau is a specific problem with a specific set of causes, and I've built my coaching around it. If that's you, start with the [free game diagnosis](https://pickleballchiro.co/quiz/) or read [why players get stuck at 3.5](https://pickleballchiro.co/why-youre-stuck-at-3-5/).
 
-On the chiropractic side, I work with players and non-players who want a real rehab plan, not just an adjustment. Pickleball knee pain, shoulders, and low backs make up most of it. It starts with one evaluation, then I manage your plan with you online, locally in Volusia County or fully remote. If you're hurt, [the rehab plan](https://pickleballchiro.co/rehab-plan/) is the place to start.
+On the chiropractic side, I work only with pickleball players who want a real rehab plan, not just an adjustment. Pickleball knee pain, shoulders, and low backs make up most of it. It starts with one evaluation, then I manage your plan with you online, locally in Volusia County or fully remote. If you're hurt, [the rehab plan](https://pickleballchiro.co/rehab-plan/) is the place to start.
 
 Where to Find Me
 
