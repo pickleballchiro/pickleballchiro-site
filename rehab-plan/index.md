@@ -70,27 +70,21 @@ Who This Is For
 
 ### Built for Pickleball Players
 
-This plan is only for pickleball players. It’s for you if:
+This is for you if:
 
-- You play pickleball and you’re dealing with an injury. Maybe it’s been a couple of months, maybe a couple of years, and now it’s seriously affecting your game.
+- You play pickleball, and an injury is hurting your game. Months or years, doesn’t matter.
 
-- You’re pushing through it every time you play, or it’s taken you off the court completely.
+- You’re pushing through it, or it’s taken you off the court.
 
-- You’ve tried chiropractic, physical therapy, ice, rest, or other passive treatment, and nothing has stuck.
+- You’ve tried chiro, PT, rest, or ice, and nothing has stuck.
 
-- You’re tired of dealing with it and want clarity on what’s driving it and what’s actually going on.
+- You want to know what’s driving it, and you’ll put in the work.
 
-- You’re willing to put in the work once you have a real plan.
+Not the right fit if:
 
-It’s not the right fit if:
+- You don’t play pickleball.
 
-- You don’t play pickleball. This plan is built around the demands of the game, so it’s only for players.
-
-- You just want an adjustment or standard chiropractic care, and you’re not ready for a full rehab plan that goes after the root cause of your pain.
-
-- You’re not ready to invest time, effort, and money in your own body.
-
-- You want someone to fix you while you lie on a table, or you’re not willing to do the exercises.
+- You just want an adjustment, or you’re not ready to invest in a full plan.
 
 Investment
 
