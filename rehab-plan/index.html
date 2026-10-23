@@ -152,7 +152,7 @@
       "logo": "https://pickleballchiro.co/images/profile.jpg",
       "description": "Pickleball performance coaching and chiropractic rehab plans from Dr. Lane Odom, based in Daytona Beach, FL and serving Volusia County: Ormond Beach, New Smyrna Beach, Port Orange, and Edgewater. Coaching for intermediate (3.5) pickleball players who want to reach advanced (4.0+) play. Virtual pickleball coaching available anywhere via Crestline.",
       "disambiguatingDescription": "Pickleball Chiro LLC, the Daytona Beach, Florida practice of Dr. Lane Odom, DC (website pickleballchiro.co, Instagram @dr.lane_o). Not affiliated with other businesses or personalities using a similar 'pickleball chiropractor' name.",
-      "priceRange": "$45-$375",
+      "priceRange": "$45-$1,995",
       "telephone": "+14079956966",
       "email": "drlanepickleballchiro@gmail.com",
       "contactPoint": [
@@ -430,8 +430,8 @@
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Hybrid Rehab Plan",
-  "serviceType": "Chiropractic rehab plan (in-person evaluation plus online management)",
-  "description": "A chiropractic rehab plan for pickleball players only, from Dr. Lane Odom, DC, sold as an outcome rather than per visit: one evaluation (in person for local clients, live video for remote clients), a personalized rehab plan delivered online, weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can also get one in-person session a month. 3-month minimum, 6 months for bigger problems. Pay monthly by card or pay in full for 10% off. Cash-pay, no insurance billing.",
+  "serviceType": "Chiropractic rehab plan (online management, with optional in-person visits for local clients)",
+  "description": "A chiropractic rehab plan for pickleball players only, from Dr. Lane Odom, DC, sold as an outcome rather than per visit: one evaluation (in person for local clients, live video for remote clients), a personalized rehab plan delivered online, weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can add an in-person evaluation and a monthly in-person session for $75 each. 3-month plan $999, 6-month plan $1,995. Pay monthly by card at the full price or pay in full for 10% off. Cash-pay, no insurance billing.",
   "url": "https://pickleballchiro.co/rehab-plan/",
   "provider": {
     "@id": "https://pickleballchiro.co/#business"
@@ -439,52 +439,33 @@
   "offers": [
     {
       "@type": "Offer",
-      "name": "Local Hybrid",
-      "description": "In-person evaluation at your home in Volusia County, FL, then online management, plus one in-person session a month when it helps. Evaluation included in the first month.",
-      "price": "375",
+      "name": "3-Month Plan",
+      "description": "Evaluation by live video call, then fully online management for 3 months. Pay in full for 10% off ($899.10) or pay $333 a month by automatic card payments. For clients outside Florida this is movement coaching (a movement assessment and training plan), not chiropractic care, diagnosis, or treatment.",
+      "price": "999",
       "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": "375",
-        "priceCurrency": "USD",
-        "unitText": "month"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Daytona Beach, FL"
-        },
-        {
-          "@type": "City",
-          "name": "Ormond Beach, FL"
-        },
-        {
-          "@type": "City",
-          "name": "New Smyrna Beach, FL"
-        },
-        {
-          "@type": "City",
-          "name": "Port Orange, FL"
-        },
-        {
-          "@type": "City",
-          "name": "Edgewater, FL"
-        }
-      ],
       "availability": "https://schema.org/InStock"
     },
     {
       "@type": "Offer",
-      "name": "Remote",
-      "description": "Evaluation by live video call, then fully online management. Evaluation included in the first month. For clients outside Florida this is movement coaching (a movement assessment and training plan), not chiropractic care, diagnosis, or treatment.",
-      "price": "325",
+      "name": "6-Month Plan",
+      "description": "The same plan over 6 months, for bigger problems. Pay in full for 10% off ($1,795.50) or pay $332.50 a month by automatic card payments.",
+      "price": "1995",
       "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": "325",
-        "priceCurrency": "USD",
-        "unitText": "month"
-      },
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "In-person session (local add-on)",
+      "description": "For clients on a plan in Volusia County, FL: an in-person evaluation at your home and optional one-hour in-person sessions, $75 each, at most one a month. Not sold as single visits.",
+      "price": "75",
+      "priceCurrency": "USD",
+      "areaServed": [
+        { "@type": "City", "name": "Daytona Beach, FL" },
+        { "@type": "City", "name": "Ormond Beach, FL" },
+        { "@type": "City", "name": "New Smyrna Beach, FL" },
+        { "@type": "City", "name": "Port Orange, FL" },
+        { "@type": "City", "name": "Edgewater, FL" }
+      ],
       "availability": "https://schema.org/InStock"
     }
   ]
@@ -502,7 +483,7 @@
       "name": "How does the Hybrid Rehab Plan work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It starts with one evaluation: in person if you're local, by live video call if you're remote. I test how you move, how strong you are, and how your body responds, then build your rehab plan from what I find and deliver it online. From there I manage it with you: weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can also get one in-person session a month when it helps."
+        "text": "It starts with one evaluation: by live video call, or in person if you're local ($75 added to your plan). I test how you move, how strong you are, and how your body responds, then build your rehab plan from what I find and deliver it online. From there I manage it with you: weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can add an in-person session for $75, at most one a month."
       }
     },
     {
@@ -526,7 +507,7 @@
       "name": "Will I still get adjusted?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "If you're local and it's useful, I can adjust you at your evaluation or a monthly in-person session. It isn't the centerpiece of the plan. If you want regular hands-on work on top of the plan, I'll point you to someone good and local, and your plan keeps running."
+        "text": "If you're local and it's useful, I can adjust you at an in-person evaluation or a monthly in-person session, $75 each, for clients on a plan. It isn't the centerpiece of the plan. If you want regular hands-on work on top of the plan, I'll point you to someone good and local, and your plan keeps running."
       }
     },
     {
@@ -542,7 +523,7 @@
       "name": "What does the first visit look like?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your first visit is the evaluation. If you're local, I come to your home with everything I need. If you're remote, we do it on a live video call. We go through your history and what you want to get back to, then I test your movement, your strength, and how your body responds to different positions and loads. Plan on 60 to 90 minutes and wear something you can move in. Your plan follows, delivered online."
+        "text": "Your first visit is the evaluation. If you're remote, we do it on a live video call. If you're local, you can add an in-person evaluation for $75 and I come to your home with everything I need. We go through your history and what you want to get back to, then I test your movement, your strength, and how your body responds to different positions and loads. Plan on 60 to 90 minutes and wear something you can move in. Your plan follows, delivered online."
       }
     },
     {
@@ -550,7 +531,7 @@
       "name": "What's included?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your evaluation, a personalized rehab plan delivered online, weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients also get one in-person session a month when it helps. Most months, a quick call covers it."
+        "text": "Your evaluation, a personalized rehab plan delivered online, weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can add an in-person session for $75, at most one a month. Most months, a quick call covers it."
       }
     },
     {
@@ -558,7 +539,7 @@
       "name": "What if I need more than one in-person session a month?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most people don't. They need a plan and someone holding them to it. If your case calls for more hands-on time, I'll tell you, and we'll work out what that looks like together."
+        "text": "Most people don't. They need a plan and someone holding them to it. In-person sessions are $75 each, limited to one a month. If your case calls for more hands-on time, I'll tell you, and we'll work out what that looks like together."
       }
     },
     {
@@ -566,7 +547,7 @@
       "name": "How do I pay? Can I go month to month?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You have two options. Pay monthly, charged automatically to your card through Stripe each month for the length of your plan, or pay in full up front and take 10% off. Either way you're committing to the full 3 or 6 months, because that's the time it takes to build and progress a plan properly."
+        "text": "You have two options. Pay monthly at the full price ($333 a month for 3 months, $332.50 a month for 6), charged automatically to your card through Stripe each month for the length of your plan, or pay in full up front and take 10% off ($899.10 or $1,795.50). Either way you're committing to the full 3 or 6 months, because that's the time it takes to build and progress a plan properly."
       }
     },
     {
@@ -620,7 +601,7 @@
   "@type": "WebPage",
   "name": "Hybrid Rehab Plan · Dr. Lane Odom",
   "url": "https://pickleballchiro.co/rehab-plan/",
-  "dateModified": "2026-10-20",
+  "dateModified": "2026-10-22",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [
@@ -733,7 +714,7 @@
         <li class="step-item"><span class="step-num">1</span><span><strong>Evaluation.</strong> In person if you&rsquo;re local, by live video call if you&rsquo;re remote. I test how you move, how strong you are, and how your body responds, and figure out what you&rsquo;ll respond to best.</span></li>
         <li class="step-item"><span class="step-num">2</span><span><strong>Your rehab plan.</strong> Built from the evaluation and delivered online, so it&rsquo;s on your phone when you need it.</span></li>
         <li class="step-item"><span class="step-num">3</span><span><strong>Ongoing management.</strong> Weekly check-ins, video form review (you film a set, I tell you what to fix), and program progressions every 2 to 3 weeks.</span></li>
-        <li class="step-item"><span class="step-num">4</span><span><strong>In person when it helps.</strong> Local clients can get one in-person session a month when it&rsquo;s useful. Most months, a quick call covers it. Remote clients do everything online.</span></li>
+        <li class="step-item"><span class="step-num">4</span><span><strong>In person when it helps.</strong> Local clients can add an in-person session for $75, at most one a month. Most months, a quick call covers it. Remote clients do everything online.</span></li>
       </ol>
     </div>
   </section>
@@ -787,36 +768,34 @@
     <div class="container">
       <span class="eyebrow">Investment</span>
       <h2 class="section-title">Plans &amp; Pricing</h2>
-      <p class="section-subtext">Both plans include your evaluation in the first month.</p>
+      <p class="section-subtext">Your evaluation is included in the first month: by live video call, or in person if you&rsquo;re local (add $75).</p>
 
       <div class="offer-grid stagger">
         <div class="pricing-card card">
-          <h3 class="stage-title">Local Hybrid</h3>
-          <p class="pricing-headline">$375</p>
-          <p class="pricing-per">per month</p>
-          <p class="pricing-total">Volusia County, FL</p>
-          <div class="pricing-list">
-            <div class="pricing-row"><span>Evaluation</span><span>In person, at your home</span></div>
-            <div class="pricing-row"><span>Rehab plan</span><span>Delivered online</span></div>
-            <div class="pricing-row"><span>Check-ins</span><span>Weekly + form review</span></div>
-            <div class="pricing-row"><span>Progressions</span><span>Every 2&ndash;3 weeks</span></div>
-            <div class="pricing-row"><span>In person</span><span>Monthly, when it helps</span></div>
-          </div>
-        </div>
-
-        <div class="pricing-card card">
-          <h3 class="stage-title">Remote</h3>
-          <p class="pricing-headline">$325</p>
-          <p class="pricing-per">per month</p>
-          <p class="pricing-total">Fully online</p>
+          <h3 class="stage-title">3-Month Plan</h3>
+          <p class="pricing-headline">$999</p>
+          <p class="pricing-per">$333 a month, or $899.10 paid in full</p>
+          <p class="pricing-total">The standard plan</p>
           <div class="pricing-list">
             <div class="pricing-row"><span>Evaluation</span><span>Live video call</span></div>
             <div class="pricing-row"><span>Rehab plan</span><span>Delivered online</span></div>
             <div class="pricing-row"><span>Check-ins</span><span>Weekly + form review</span></div>
             <div class="pricing-row"><span>Progressions</span><span>Every 2&ndash;3 weeks</span></div>
-            <div class="pricing-row"><span>In person</span><span>None needed</span></div>
           </div>
-          <p class="offer-fine-print">Outside Florida, Remote is movement coaching: a movement assessment and a training plan, not chiropractic care. <a href="#faq" data-track="mobilechiro_outside_fl">How that works &rarr;</a></p>
+        </div>
+
+        <div class="pricing-card card">
+          <h3 class="stage-title">6-Month Plan</h3>
+          <p class="pricing-headline">$1,995</p>
+          <p class="pricing-per">$332.50 a month, or $1,795.50 paid in full</p>
+          <p class="pricing-total">For bigger problems</p>
+          <div class="pricing-list">
+            <div class="pricing-row"><span>Evaluation</span><span>Live video call</span></div>
+            <div class="pricing-row"><span>Rehab plan</span><span>Delivered online</span></div>
+            <div class="pricing-row"><span>Check-ins</span><span>Weekly + form review</span></div>
+            <div class="pricing-row"><span>Progressions</span><span>Every 2&ndash;3 weeks</span></div>
+          </div>
+          <p class="offer-fine-print">Outside Florida, this is movement coaching: a movement assessment and a training plan, not chiropractic care. <a href="#faq" data-track="mobilechiro_outside_fl">How that works &rarr;</a></p>
         </div>
       </div>
 
@@ -824,12 +803,13 @@
         <div class="callout">
           <p><strong>Commit to 3 months</strong>, or 6 for bigger problems. We decide that together at your evaluation.</p>
         </div>
-        <p class="body-text"><strong>Two ways to pay.</strong> Monthly, charged automatically to your card through Stripe for the length of your plan, or pay in full and take 10% off:</p>
+        <p class="body-text"><strong>Two ways to pay.</strong> Monthly at the full price, charged automatically to your card through Stripe every month for the length of your plan, or pay in full up front and take 10% off:</p>
         <div class="pricing-list">
-          <div class="pricing-row"><span>Local Hybrid, 3 months</span><span>$1,012.50</span></div>
-          <div class="pricing-row"><span>Local Hybrid, 6 months</span><span>$2,025</span></div>
-          <div class="pricing-row"><span>Remote, 3 months</span><span>$877.50</span></div>
-          <div class="pricing-row"><span>Remote, 6 months</span><span>$1,755</span></div>
+          <div class="pricing-row"><span>3 months, paid in full</span><span>$899.10</span></div>
+          <div class="pricing-row"><span>6 months, paid in full</span><span>$1,795.50</span></div>
+        </div>
+        <div class="callout" style="margin-top:20px;">
+          <p><strong>Local in Volusia County? Add in-person for $75.</strong> Your evaluation at your home is $75, and if a hands-on visit helps later, each one-hour session is $75, at most one a month. In-person visits are for clients on a plan. I don&rsquo;t sell single visits.</p>
         </div>
         <p class="offer-fine-print" style="margin-top:12px;">Either way, you&rsquo;re committing to the full plan. No insurance billing. Some HSA and FSA plans cover chiropractic care, so it&rsquo;s worth checking with yours.</p>
       </div>
@@ -870,7 +850,7 @@
     <div class="container">
       <span class="eyebrow">Where I Work</span>
       <h2 class="section-title">Local or Remote</h2>
-      <p class="section-subtext">Local Hybrid clients are in Volusia County, FL. I come to you for the evaluation: inside, driveway, garage, or backyard. Remote clients do everything online. Outside Florida, the remote plan is movement coaching rather than chiropractic care.</p>
+      <p class="section-subtext">Local clients are in Volusia County, FL. For $75 I come to you for an in-person evaluation: inside, driveway, garage, or backyard. Remote clients do everything online. Outside Florida, the remote plan is movement coaching rather than chiropractic care.</p>
       <div class="chip-row">
         <span class="chip">Daytona Beach</span>
         <span class="chip">Ormond Beach</span>
@@ -906,7 +886,7 @@
 
         <details class="faq-item">
           <summary>How does the Hybrid Rehab Plan work?</summary>
-          <p class="faq-answer">It starts with one evaluation: in person if you&rsquo;re local, by live video call if you&rsquo;re remote. I test how you move, how strong you are, and how your body responds, then build your rehab plan from what I find and deliver it online. From there I manage it with you: weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can also get one in-person session a month when it helps.</p>
+          <p class="faq-answer">It starts with one evaluation: by live video call, or in person if you&rsquo;re local ($75 added to your plan). I test how you move, how strong you are, and how your body responds, then build your rehab plan from what I find and deliver it online. From there I manage it with you: weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can add an in-person session for $75, at most one a month.</p>
         </details>
 
         <details class="faq-item">
@@ -921,7 +901,7 @@
 
         <details class="faq-item">
           <summary>Will I still get adjusted?</summary>
-          <p class="faq-answer">If you&rsquo;re local and it&rsquo;s useful, I can adjust you at your evaluation or a monthly in-person session. It isn&rsquo;t the centerpiece of the plan. If you want regular hands-on work on top of the plan, I&rsquo;ll point you to someone good and local, and your plan keeps running.</p>
+          <p class="faq-answer">If you&rsquo;re local and it&rsquo;s useful, I can adjust you at an in-person evaluation or a monthly in-person session, $75 each, for clients on a plan. It isn&rsquo;t the centerpiece of the plan. If you want regular hands-on work on top of the plan, I&rsquo;ll point you to someone good and local, and your plan keeps running.</p>
         </details>
 
         <details class="faq-item">
@@ -931,22 +911,22 @@
 
         <details class="faq-item">
           <summary>What does the first visit look like?</summary>
-          <p class="faq-answer">Your first visit is the evaluation. If you&rsquo;re local, I come to your home with everything I need. If you&rsquo;re remote, we do it on a live video call. We go through your history and what you want to get back to, then I test your movement, your strength, and how your body responds to different positions and loads. Plan on 60 to 90 minutes and wear something you can move in. Your plan follows, delivered online.</p>
+          <p class="faq-answer">Your first visit is the evaluation. If you&rsquo;re remote, we do it on a live video call. If you&rsquo;re local, you can add an in-person evaluation for $75 and I come to your home with everything I need. We go through your history and what you want to get back to, then I test your movement, your strength, and how your body responds to different positions and loads. Plan on 60 to 90 minutes and wear something you can move in. Your plan follows, delivered online.</p>
         </details>
 
         <details class="faq-item">
           <summary>What&rsquo;s included?</summary>
-          <p class="faq-answer">Your evaluation, a personalized rehab plan delivered online, weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients also get one in-person session a month when it helps. Most months, a quick call covers it.</p>
+          <p class="faq-answer">Your evaluation, a personalized rehab plan delivered online, weekly check-ins, video form review, and program progressions every 2 to 3 weeks. Local clients can add an in-person session for $75, at most one a month. Most months, a quick call covers it.</p>
         </details>
 
         <details class="faq-item">
           <summary>What if I need more than one in-person session a month?</summary>
-          <p class="faq-answer">Most people don&rsquo;t. They need a plan and someone holding them to it. If your case calls for more hands-on time, I&rsquo;ll tell you, and we&rsquo;ll work out what that looks like together.</p>
+          <p class="faq-answer">Most people don&rsquo;t. They need a plan and someone holding them to it. In-person sessions are $75 each, limited to one a month. If your case calls for more hands-on time, I&rsquo;ll tell you, and we&rsquo;ll work out what that looks like together.</p>
         </details>
 
         <details class="faq-item">
           <summary>How do I pay? Can I go month to month?</summary>
-          <p class="faq-answer">You have two options. Pay monthly, charged automatically to your card through Stripe each month for the length of your plan, or pay in full up front and take 10% off. Either way you&rsquo;re committing to the full 3 or 6 months, because that&rsquo;s the time it takes to build and progress a plan properly.</p>
+          <p class="faq-answer">You have two options. Pay monthly at the full price ($333 a month for 3 months, $332.50 a month for 6), charged automatically to your card through Stripe each month for the length of your plan, or pay in full up front and take 10% off ($899.10 or $1,795.50). Either way you&rsquo;re committing to the full 3 or 6 months, because that&rsquo;s the time it takes to build and progress a plan properly.</p>
         </details>
 
         <details class="faq-item">
