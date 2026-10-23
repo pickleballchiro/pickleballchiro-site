@@ -194,7 +194,7 @@ Mostly serious recreational players in the 3.0 to 4.0 range who are ready to bre
 
 How much do lessons cost?
 
-Team lessons for league teams and regular groups of 4 to 8 players are $60 per player: an hour on court with your games filmed and coached, then a video breakdown of each pair's film afterward, shared with your notes in a private YouTube playlist and a Google Doc you keep. Private lessons ($85 an hour) and small-group lessons ($55 per person for 2 players, $45 per person for 3) are also available. Virtual coaching through Crestline starts with a free gameplay diagnosis, with monthly plans after that.
+Team lessons for league teams and regular groups of 4 to 8 players are $60 per player: an hour on court with your games filmed and coached, then a video breakdown of each pair's film afterward, shared with your notes in a private YouTube playlist and a Google Doc you keep. Private lessons ($85 an hour) and small-group lessons ($50 per person for 2 players, $40 per person for 3) are also available. Virtual coaching through Crestline starts with a free gameplay diagnosis, with monthly plans after that.
 
 What's your cancellation policy?
 

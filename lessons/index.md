@@ -186,13 +186,13 @@ On-court coaching, a short slow-motion video (usually 2 to 3 minutes) of a few r
 
 Small Group, 2 Players
 
-$55/player ($110)
+$50/player ($100)
 
 The same coaching split between you two, plus a slow-motion clip with a biomechanical analysis of one shot
 
 Small Group, 3 Players
 
-$45/player ($135)
+$40/player ($120)
 
 I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you
 
@@ -254,7 +254,7 @@ Yes. Message me with your league and schedule. We can do team lessons as often a
 
 What do I get in a private or small-group lesson?
 
-In a private lesson we pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. A small group of 2 works the same way, split between you. With 3 players, I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you. Private is $85 an hour; a small group is $55 each for 2 players or $45 each for 3.
+In a private lesson we pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. A small group of 2 works the same way, split between you. With 3 players, I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you. Private is $85 an hour; a small group is $50 each for 2 players or $40 each for 3.
 
 Can I take lessons if I'm dealing with pain or an injury?
 
