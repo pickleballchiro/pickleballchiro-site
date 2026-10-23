@@ -98,7 +98,7 @@ If that’s you, no hard feelings. Take the [free diagnosis](https://pickleballc
 
 Chipshot in Daytona Beach is where most lessons happen. It’s indoor, air conditioned, and there’s always a court, so no rainouts and no waiting. I also teach at public courts around Volusia County when they’re not busy: Pettis Park in New Smyrna Beach is the most popular, and there are courts in Daytona Beach and Port Orange we can use during quieter hours. Tell me where you are and we’ll pick the spot that works.
 
-$70 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward). $90 per hour for a private lesson, and $60 per person for a small-group lesson of two players, or $50 per person for three. Full details on the [lessons page](https://pickleballchiro.co/lessons/); virtual coaching plans are on the [virtual coaching page](https://pickleballchiro.co/virtual-coaching/).
+$60 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward). $85 per hour for a private lesson, and $55 per person for a small-group lesson of two players, or $45 per person for three. Full details on the [lessons page](https://pickleballchiro.co/lessons/); virtual coaching plans are on the [virtual coaching page](https://pickleballchiro.co/virtual-coaching/).
 
 [Book a Lesson →](https://pickleballchiro.co/lessons/) [Take the Free Diagnosis →](https://pickleballchiro.co/quiz/)
 
@@ -110,7 +110,7 @@ It depends on what is actually holding you back, and most 3.5 players guess wron
 
 How much do pickleball lessons cost in Daytona Beach?
 
-Lessons in the Daytona Beach area are usually priced by the hour. I charge $70 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward), $90 an hour for a private lesson, and $60 per person for a small-group lesson of two players, or $50 per person for three. Group clinics and community classes cost less per person and are the better value for beginners.
+Lessons in the Daytona Beach area are usually priced by the hour. I charge $60 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward), $85 an hour for a private lesson, and $55 per person for a small-group lesson of two players, or $45 per person for three. Group clinics and community classes cost less per person and are the better value for beginners.
 
 Where do pickleball lessons happen in Daytona Beach?
 

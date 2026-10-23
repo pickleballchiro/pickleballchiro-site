@@ -36,7 +36,7 @@ Bring your team to the court, or send me your footage from anywhere. Full pricin
 
 🔥 Most Popular
 
-Team Lesson $70 / player
+Team Lesson $60 / player
 
 4–8 players · league teams & regular groups
 
@@ -158,7 +158,7 @@ Includes
 
 Team Lesson, 4–8 Players Most Popular
 
-$70/player (4 players = $280)
+$60/player (4 players = $240)
 
 An hour on court with your games filmed and the weak spots coached, then a timestamped video breakdown of each pair’s film and written notes, yours to keep
 
@@ -180,19 +180,19 @@ Includes
 
 Private, 1-on-1
 
-$90/hour
+$85/hour
 
 On-court coaching, a short slow-motion video (usually 2 to 3 minutes) of a few reps of one shot with my biomechanical breakdown, and your focuses in your portal
 
 Small Group, 2 Players
 
-$60/player ($120)
+$55/player ($110)
 
 The same coaching split between you two, plus a slow-motion clip with a biomechanical analysis of one shot
 
 Small Group, 3 Players
 
-$50/player ($150)
+$45/player ($135)
 
 I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you
 
@@ -224,9 +224,9 @@ Which option should I pick?
 
 If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. Not on a team? Get three to seven people you already play with and that's a team for this. If it's just you, or you and one or two friends, open the private and small-group section under Pricing. If you're not local, or want match film reviewed between lessons, try [virtual coaching](https://pickleballchiro.co/virtual-coaching/). Still not sure? Text me.
 
-Isn't $70 a lot for a one-hour group lesson?
+Isn't $60 a lot for a one-hour group lesson?
 
-For a private lesson, $70 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep.
+For a private lesson, $60 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep.
 
 How is this different from a clinic or a club lesson?
 
@@ -254,7 +254,7 @@ Yes. Message me with your league and schedule. We can do team lessons as often a
 
 What do I get in a private or small-group lesson?
 
-In a private lesson we pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. A small group of 2 works the same way, split between you. With 3 players, I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you. Private is $90 an hour; a small group is $60 each for 2 players or $50 each for 3.
+In a private lesson we pick one skill, go over the technique and drill it. You also get a short slow-motion video of a few reps of one shot, usually 2 to 3 minutes, with my biomechanical breakdown, and your 2 to 3 focuses for the week go in your portal. A small group of 2 works the same way, split between you. With 3 players, I fill in as your fourth and we play a real game, then I send one video review of that game afterward for all three of you. Private is $85 an hour; a small group is $55 each for 2 players or $45 each for 3.
 
 Can I take lessons if I'm dealing with pain or an injury?
 
