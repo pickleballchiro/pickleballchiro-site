@@ -1,6 +1,6 @@
 # Dr. Lane Odom — The Pickleball Chiro (full site text)
 
-> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-23. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
+> Plain-text rendering of every public page on https://pickleballchiro.co/ for AI systems. Generated 2026-10-26. Canonical facts: Dr. Lane Odom, DC — Doctor of Chiropractic (Palmer College of Chiropractic Florida, 2025), PCI Level 1 certified pickleball coach, 4.7 DUPR, 13+ years of racket sports experience. Pickleball Chiro LLC, Daytona Beach, FL 32117 (Ormond Beach line), serving Volusia County; virtual coaching anywhere via Crestline. Phone +1 407-995-6966.
 
 ---
 
@@ -66,7 +66,7 @@ Work With Me
 
 Most Popular
 
-Your league team’s real games, filmed and fixed. I coach the weak spots on court, then go home and break down each pair’s film on video. You keep the videos and notes. $60 per player for teams of 4 to 8, with a 4.7 DUPR player and Doctor of Chiropractic.
+Your league team’s real games, filmed and fixed. I coach the weak spots on court, then go home and break down each pair’s film on video. You keep the videos and notes. $50 per player for teams of 4 to 8, with a 4.7 DUPR player and Doctor of Chiropractic.
 
 See What’s Included → Book a Team Lesson →
 
@@ -200,7 +200,7 @@ Mostly serious recreational players in the 3.0 to 4.0 range who are ready to bre
 
 How much do lessons cost?
 
-Team lessons for league teams and regular groups of 4 to 8 players are $60 per player: an hour on court with your games filmed and coached, then a video breakdown of each pair's film afterward, shared with your notes in a private YouTube playlist and a Google Doc you keep. Private lessons ($85 an hour) and small-group lessons ($50 per person for 2 players, $40 per person for 3) are also available. Virtual coaching through Crestline starts with a free gameplay diagnosis, with monthly plans after that.
+Team lessons for league teams and regular groups of 4 to 8 players are $50 per player: an hour on court with your games filmed and coached, then a video breakdown of each pair's film afterward, shared with your notes in a private YouTube playlist and a Google Doc you keep. Private lessons ($85 an hour) and small-group lessons ($50 per person for 2 players, $40 per person for 3) are also available. Virtual coaching through Crestline starts with a free gameplay diagnosis, with monthly plans after that.
 
 What's your cancellation policy?
 
@@ -942,7 +942,7 @@ Bring your team to the court, or send me your footage from anywhere. Full pricin
 
 🔥 Most Popular
 
-Team Lesson $60 / player
+Team Lesson $50 / player
 
 4–8 players · league teams & regular groups
 
@@ -1064,7 +1064,7 @@ Includes
 
 Team Lesson, 4–8 Players Most Popular
 
-$60/player (4 players = $240)
+$50/player (4 players = $200)
 
 An hour on court with your games filmed and the weak spots coached, then a timestamped video breakdown of each pair’s film and written notes, yours to keep
 
@@ -1130,9 +1130,9 @@ Which option should I pick?
 
 If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. Not on a team? Get three to seven people you already play with and that's a team for this. If it's just you, or you and one or two friends, open the private and small-group section under Pricing. If you're not local, or want match film reviewed between lessons, try virtual coaching. Still not sure? Text me.
 
-Isn't $60 a lot for a one-hour group lesson?
+Isn't $50 a lot for a one-hour group lesson?
 
-For a private lesson, $60 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep.
+For a private lesson, $50 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep.
 
 How is this different from a clinic or a club lesson?
 
@@ -1292,7 +1292,7 @@ If that’s you, no hard feelings. Take the free diagnosis anyway; it’s useful
 
 Chipshot in Daytona Beach is where most lessons happen. It’s indoor, air conditioned, and there’s always a court, so no rainouts and no waiting. I also teach at public courts around Volusia County when they’re not busy: Pettis Park in New Smyrna Beach is the most popular, and there are courts in Daytona Beach and Port Orange we can use during quieter hours. Tell me where you are and we’ll pick the spot that works.
 
-$60 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward). $85 per hour for a private lesson, and $50 per person for a small-group lesson of two players, or $40 per person for three. Full details on the lessons page; virtual coaching plans are on the virtual coaching page.
+$50 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward). $85 per hour for a private lesson, and $50 per person for a small-group lesson of two players, or $40 per person for three. Full details on the lessons page; virtual coaching plans are on the virtual coaching page.
 
 Book a Lesson → Take the Free Diagnosis →
 
@@ -1304,7 +1304,7 @@ It depends on what is actually holding you back, and most 3.5 players guess wron
 
 How much do pickleball lessons cost in Daytona Beach?
 
-Lessons in the Daytona Beach area are usually priced by the hour. I charge $60 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward), $85 an hour for a private lesson, and $50 per person for a small-group lesson of two players, or $40 per person for three. Group clinics and community classes cost less per person and are the better value for beginners.
+Lessons in the Daytona Beach area are usually priced by the hour. I charge $50 per player for a team lesson (league teams and regular groups of 4 to 8 players, with your games filmed and a video breakdown of each pair’s film afterward), $85 an hour for a private lesson, and $50 per person for a small-group lesson of two players, or $40 per person for three. Group clinics and community classes cost less per person and are the better value for beginners.
 
 Where do pickleball lessons happen in Daytona Beach?
 

@@ -36,7 +36,7 @@ Bring your team to the court, or send me your footage from anywhere. Full pricin
 
 🔥 Most Popular
 
-Team Lesson $60 / player
+Team Lesson $50 / player
 
 4–8 players · league teams & regular groups
 
@@ -158,7 +158,7 @@ Includes
 
 Team Lesson, 4–8 Players Most Popular
 
-$60/player (4 players = $240)
+$50/player (4 players = $200)
 
 An hour on court with your games filmed and the weak spots coached, then a timestamped video breakdown of each pair’s film and written notes, yours to keep
 
@@ -224,9 +224,9 @@ Which option should I pick?
 
 If you play on a league team or with a regular group of 4 or more, pick the team lesson. It's the main thing I do. Not on a team? Get three to seven people you already play with and that's a team for this. If it's just you, or you and one or two friends, open the private and small-group section under Pricing. If you're not local, or want match film reviewed between lessons, try [virtual coaching](https://pickleballchiro.co/virtual-coaching/). Still not sure? Text me.
 
-Isn't $60 a lot for a one-hour group lesson?
+Isn't $50 a lot for a one-hour group lesson?
 
-For a private lesson, $60 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep.
+For a private lesson, $50 wouldn't raise an eyebrow. For a group of 4 to 8, I get why it might. Most big group lessons work on one skill for everyone, which might be your bottleneck or somebody else's. Here I film your own games and every pair gets its own breakdown, so the feedback is about you, even in a group of 8. It's the most personal group lesson you'll ever take. And it's more than an hour: after we're done on court, I spend about an hour on each pair's video. You're getting about two hours of me, with notes and videos you keep.
 
 How is this different from a clinic or a club lesson?
 

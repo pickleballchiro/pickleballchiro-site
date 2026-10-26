@@ -60,7 +60,7 @@ Work With Me
 
 Most Popular
 
-Your league team’s real games, filmed and fixed. I coach the weak spots on court, then go home and break down each pair’s film on video. You keep the videos and notes. $60 per player for teams of 4 to 8, with a 4.7 DUPR player and Doctor of Chiropractic.
+Your league team’s real games, filmed and fixed. I coach the weak spots on court, then go home and break down each pair’s film on video. You keep the videos and notes. $50 per player for teams of 4 to 8, with a 4.7 DUPR player and Doctor of Chiropractic.
 
 [See What’s Included →](https://pickleballchiro.co/lessons/) [Book a Team Lesson →](https://forms.gle/6MXZ4vofGd27bbDP6)
 
@@ -194,7 +194,7 @@ Mostly serious recreational players in the 3.0 to 4.0 range who are ready to bre
 
 How much do lessons cost?
 
-Team lessons for league teams and regular groups of 4 to 8 players are $60 per player: an hour on court with your games filmed and coached, then a video breakdown of each pair's film afterward, shared with your notes in a private YouTube playlist and a Google Doc you keep. Private lessons ($85 an hour) and small-group lessons ($50 per person for 2 players, $40 per person for 3) are also available. Virtual coaching through Crestline starts with a free gameplay diagnosis, with monthly plans after that.
+Team lessons for league teams and regular groups of 4 to 8 players are $50 per player: an hour on court with your games filmed and coached, then a video breakdown of each pair's film afterward, shared with your notes in a private YouTube playlist and a Google Doc you keep. Private lessons ($85 an hour) and small-group lessons ($50 per person for 2 players, $40 per person for 3) are also available. Virtual coaching through Crestline starts with a free gameplay diagnosis, with monthly plans after that.
 
 What's your cancellation policy?
 
