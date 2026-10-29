@@ -183,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
   $("toggle-period-quarter").addEventListener("click", () => setPeriodMode("quarter"));
 
   $("task-form").addEventListener("submit", submitTask);
+  $("video-form").addEventListener("submit", submitVideo);
 
   $("cal-view-day").addEventListener("click", () => setCalMode("day"));
   $("cal-view-week").addEventListener("click", () => setCalMode("week"));
@@ -556,6 +557,7 @@ function renderAll(d) {
   renderSchedule(d);
   renderUpcomingSessions(d);
   renderTasks(d);
+  renderVideoQueue(d);
   renderPeriodChart(d);
   renderStreams(d);
   renderStreamsPie(d);
@@ -1222,6 +1224,80 @@ async function deleteTaskUI(id) {
   } catch (err) {
     showTaskError(err.message || "Couldn’t delete the task.");
   }
+}
+
+/* ------- video queue (client videos waiting to be worked on) ------- */
+
+function renderVideoQueue(d) {
+  const open = (d.video_queue || []).filter((v) => v.status !== "Done");
+  $("video-count").textContent = open.length ? `${open.length} in queue` : "";
+
+  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
+  const byDue = (a, b) =>
+    (a.due ? parseDate(a.due) : Infinity) - (b.due ? parseDate(b.due) : Infinity);
+  const groups = {};
+  open.sort(byDue).forEach((v) => { (groups[v.client] = groups[v.client] || []).push(v); });
+
+  const row = (v) => {
+    const dl = v.due ? parseDate(v.due) : null;
+    const overdue = !!(dl && dl < today0);
+    const label = dl ? dl.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
+    return `<div class="task-row">
+      <button type="button" class="task-check" aria-label="Mark done" data-action="complete" data-id="${escAttr(v.id)}"></button>
+      <span class="task-text">${esc(v.video)}</span>
+      ${dl ? `<span class="task-deadline-chip${overdue ? " is-overdue" : ""}">${esc(label)}</span>` : ""}
+      <button type="button" class="task-del" aria-label="Remove video" data-action="delete" data-id="${escAttr(v.id)}">✕</button>
+    </div>`;
+  };
+
+  $("videos").innerHTML =
+    Object.keys(groups).map((c) =>
+      `<div class="task-group"><h3 class="task-group-title">${esc(c)}</h3>${groups[c].map(row).join("")}</div>`
+    ).join("") || '<p class="empty-note">No videos in the queue.</p>';
+
+  $("videos").querySelectorAll("[data-action]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-id");
+      videoAction(btn.getAttribute("data-action") === "complete" ? "complete_video" : "delete_video", { id });
+    });
+  });
+}
+
+function showVideoError(msg) {
+  $("video-error").textContent = msg;
+  $("video-error").classList.remove("hidden");
+}
+
+async function videoAction(action, fields) {
+  const key = readSession();
+  if (!key) { showGate(); return false; }
+  $("video-error").classList.add("hidden");
+  try {
+    const res = await webhookGet(new URLSearchParams({ action, key, ...fields }));
+    if (res.status !== "ok") throw new Error(res.message || "Couldn’t update the video queue.");
+    const data = await webhookGet(new URLSearchParams({ action: "get_dashboard_data", key }));
+    if (data.status === "ok") { DATA = data; renderVideoQueue(DATA); }
+    return true;
+  } catch (err) {
+    showVideoError(err.message || "Couldn’t update the video queue.");
+    return false;
+  }
+}
+
+async function submitVideo(e) {
+  e.preventDefault();
+  const client = $("video-client").value.trim();
+  if (!client) return;
+  const fields = { client, video: $("video-input").value.trim() };
+  if ($("video-due").value) fields.due = $("video-due").value;
+  const btn = e.target.querySelector("button[type=submit]");
+  btn.disabled = true;
+  if (await videoAction("add_video", fields)) {
+    $("video-client").value = "";
+    $("video-input").value = "";
+    $("video-due").value = "";
+  }
+  btn.disabled = false;
 }
 
 /* ------- revenue by stream ------- */

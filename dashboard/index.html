@@ -51,7 +51,7 @@
        handlers, so the async media="print"/onload swap (used on the main site)
        never fires here — load the stylesheet directly instead. -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=22" />
+  <link rel="stylesheet" href="dashboard.css?v=23" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -152,6 +152,22 @@
       </form>
       <p id="task-error" class="task-error hidden"></p>
       <div id="tasks" class="tasks-wrap"></div>
+    </section>
+
+    <!-- Video queue -->
+    <section class="card">
+      <div class="card-head">
+        <h2>🎬 Video queue</h2>
+        <span id="video-count" class="card-sub"></span>
+      </div>
+      <form id="video-form" class="task-form">
+        <input type="text" id="video-client" class="task-input" placeholder="Client or group…" autocomplete="off" maxlength="80" />
+        <input type="text" id="video-input" class="task-input" placeholder="Video (optional)…" autocomplete="off" maxlength="120" />
+        <input type="date" id="video-due" class="task-deadline" aria-label="Due date (optional)" />
+        <button type="submit" class="btn">Add</button>
+      </form>
+      <p id="video-error" class="task-error hidden"></p>
+      <div id="videos" class="tasks-wrap"></div>
     </section>
 
     <!-- Month over month -->
@@ -288,6 +304,6 @@
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard.js?v=22"></script>
+  <script src="dashboard.js?v=23"></script>
 </body>
 </html>
