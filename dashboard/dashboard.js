@@ -184,6 +184,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("task-form").addEventListener("submit", submitTask);
   $("video-form").addEventListener("submit", submitVideo);
+  $("cra-here").checked = craHere();
+  $("cra-hint").classList.toggle("hidden", !craHere());
+  $("cra-here").addEventListener("change", (e) => {
+    setCraHere(e.target.checked);
+    $("cra-hint").classList.toggle("hidden", !craHere());
+    if (DATA) renderVideoQueue(DATA);
+  });
 
   $("cal-view-day").addEventListener("click", () => setCalMode("day"));
   $("cal-view-week").addEventListener("click", () => setCalMode("week"));
@@ -1238,13 +1245,14 @@ function renderVideoQueue(d) {
   const groups = {};
   open.sort(byDue).forEach((v) => { (groups[v.client] = groups[v.client] || []).push(v); });
 
+  const here = craHere();
   const row = (v) => {
     const dl = v.due ? parseDate(v.due) : null;
     const overdue = !!(dl && dl < today0);
     const label = dl ? dl.toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
     return `<div class="task-row">
       <button type="button" class="task-check" aria-label="Mark done" data-action="complete" data-id="${escAttr(v.id)}"></button>
-      <span class="task-text">${esc(v.video)}</span>
+      <span class="task-text">${esc(v.video)}${craAction(v.id, here)}</span>
       ${dl ? `<span class="task-deadline-chip${overdue ? " is-overdue" : ""}">${esc(label)}</span>` : ""}
       <button type="button" class="task-del" aria-label="Remove video" data-action="delete" data-id="${escAttr(v.id)}">✕</button>
     </div>`;
@@ -1261,6 +1269,57 @@ function renderVideoQueue(d) {
       videoAction(btn.getAttribute("data-action") === "complete" ? "complete_video" : "delete_video", { id });
     });
   });
+  // Copy ID: clipboard only. Deliberately not a [data-action] control.
+  $("videos").querySelectorAll("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", () => copyRequestId(btn));
+  });
+  $("cra-here").checked = here;
+  $("cra-hint").classList.toggle("hidden", !here);
+}
+
+/* ------- open a request's review in Coaching Review (CRA) on Lane's Mac (roadmap W7 M1d) -------
+   CRA runs only on Lane's Mac at 127.0.0.1:8765, so "Open in CRA" is shown only in a browser where
+   "This Mac runs Coaching Review" is ticked (stored in this browser only, off by default). Everywhere
+   else a request gets "Copy ID". The link is a plain top-level navigation in a new tab carrying only
+   the permanent request id: no name, key or content, and the dashboard never calls 127.0.0.1 itself.
+   Opening is read-only in CRA: it never creates a review or changes a status. Neither control has
+   data-action, so neither can reach complete_video / delete_video. */
+
+const CRA_HERE_STORE = "pbc_cra_here";
+const REQUEST_ID_RE = /^V\d{14,15}$/;
+
+function craHere() {
+  try { return localStorage.getItem(CRA_HERE_STORE) === "1"; } catch (err) { return false; }
+}
+
+function setCraHere(on) {
+  try {
+    if (on) localStorage.setItem(CRA_HERE_STORE, "1");
+    else localStorage.removeItem(CRA_HERE_STORE);
+  } catch (err) { /* storage unavailable: the setting just doesn't stick */ }
+}
+
+function craOpenHref(id) {
+  return REQUEST_ID_RE.test(String(id || "")) ? "http://127.0.0.1:8765/?request=" + id : null;
+}
+
+function craAction(id, here) {
+  const href = craOpenHref(id);
+  if (!href) return "";   // rows without a valid request id get nothing
+  return here
+    ? `<a class="task-open" href="${escAttr(href)}" target="_blank" rel="noopener noreferrer">Open in CRA</a>`
+    : `<button type="button" class="task-open task-copy" data-copy="${escAttr(id)}">Copy ID</button>`;
+}
+
+async function copyRequestId(btn) {
+  const id = btn.getAttribute("data-copy");
+  try {
+    await navigator.clipboard.writeText(id);
+    btn.textContent = "Copied";
+  } catch (err) {
+    btn.textContent = id;   // no clipboard: show the id so it can be copied by hand
+  }
+  setTimeout(() => { btn.textContent = "Copy ID"; }, 2000);
 }
 
 function showVideoError(msg) {

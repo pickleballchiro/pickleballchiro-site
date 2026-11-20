@@ -489,6 +489,17 @@ main {
   color: var(--gray-mid); cursor: pointer; font-size: 0.85rem;
 }
 .task-del:hover { color: var(--serious); }
+/* Open in CRA / Copy ID: on its own line under the video text, away from the ✓ and ✕ buttons */
+.task-open {
+  display: block; width: fit-content; margin-top: 4px; padding: 2px 0;
+  background: none; border: none; font: inherit; font-size: 0.78rem;
+  color: var(--orange-soft); text-decoration: underline; cursor: pointer;
+}
+.task-copy { color: var(--gray-mid); }
+.task-open:hover { color: var(--off-white); }
+.cra-setting { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+.cra-setting label { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; font-size: 0.82rem; color: var(--gray-mid); cursor: pointer; }
+.cra-hint { color: var(--gray-mid); font-size: 0.78rem; margin: 2px 0 0; line-height: 1.45; }
 
 /* revenue mix table */
 .mix-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.85rem; flex: 1 0 100%; }

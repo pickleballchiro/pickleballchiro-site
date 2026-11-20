@@ -51,7 +51,7 @@
        handlers, so the async media="print"/onload swap (used on the main site)
        never fires here — load the stylesheet directly instead. -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=23" />
+  <link rel="stylesheet" href="dashboard.css?v=24" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -168,6 +168,10 @@
       </form>
       <p id="video-error" class="task-error hidden"></p>
       <div id="videos" class="tasks-wrap"></div>
+      <div class="cra-setting">
+        <label><input type="checkbox" id="cra-here" /> This Mac runs Coaching Review</label>
+        <p id="cra-hint" class="cra-hint hidden">“Open in CRA” opens that request’s review in a new tab. Nothing opens? Start Coaching Review from the Dock, then click again. If the request isn’t linked yet, Coaching Review says so and creates nothing.</p>
+      </div>
     </section>
 
     <!-- Month over month -->
@@ -304,6 +308,6 @@
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard.js?v=23"></script>
+  <script src="dashboard.js?v=24"></script>
 </body>
 </html>
