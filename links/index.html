@@ -482,6 +482,19 @@
       margin: -4px 0 4px;
     }
 
+    /* ---- SECTION: Free game analysis (the one primary action, Nov 23 2026) ---- */
+    .offer-lead { font-size: 1.02rem; line-height: 1.45; text-align: center; margin: 0 0 14px; }
+    .offer-steps { list-style: none; counter-reset: step; padding: 0; margin: 0 0 16px; display: grid; gap: 8px; }
+    .offer-steps li { counter-increment: step; display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; line-height: 1.4; }
+    .offer-steps li::before {
+      content: counter(step); flex: 0 0 24px; height: 24px; border-radius: 50%; background: var(--orange);
+      color: #fff; font-weight: 700; font-size: 0.8rem; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .film-tips { margin-top: 12px; font-size: 0.86rem; line-height: 1.45; }
+    .film-tips summary { cursor: pointer; color: var(--orange); font-weight: 600; text-align: center; list-style: none; }
+    .film-tips summary::-webkit-details-marker { display: none; }
+    .film-tips ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; }
+
     /* ---- FOOTER ---- */
     .links-footer { text-align: center; margin-top: 40px; }
     .links-footer a {
@@ -681,50 +694,65 @@
       <!-- Swap this file later: /images/profile.jpg -->
       <img src="/images/profile.jpg" alt="Dr. Lane Odom" class="links-photo" />
       <h1 class="links-name">Dr. Lane Odom</h1>
-      <p class="links-subtitle"><span id="rotating-tagline">4.7 DUPR</span></p>
+      <p class="links-subtitle"><span id="rotating-tagline">Helping 3.0s &amp; 3.5s reach 4.0</span></p>
     </header>
 
     <div class="links-sections" id="links-sections">
 
-    <!-- ================= SECTION: WORK WITH ME ================= -->
-    <section class="links-section reveal is-first" id="sec-work" data-sec="coaching">
-      <h2 class="links-section-title">🤝 Work With Me</h2>
+    <!-- ================= SECTION: FREE GAME ANALYSIS (primary action, Nov 23 2026) ================= -->
+    <section class="links-section reveal is-first" id="sec-analysis" data-sec="analysis">
+      <h2 class="links-section-title">🎥 Free Game Analysis</h2>
+      <p class="offer-lead">Film a few minutes of a real game. I&rsquo;ll watch it and tell you the biggest thing holding you back.</p>
+      <ol class="offer-steps">
+        <li>Film up to 4 minutes of one of your games. Rec play is perfect.</li>
+        <li>Upload it on Crestline. Your first review is free, no card.</li>
+        <li>I watch it and send back feedback with one focus to work on.</li>
+      </ol>
       <div class="work-btns">
-
-        <!-- Priority offer: bold solid orange -->
-        <a class="btn btn-primary glow-pulse" href="https://www.gocrestline.app/coaches/lane-odom" target="_blank" rel="noopener noreferrer" data-track="links_crestline">
-          Virtual Coaching: Book on Crestline
+        <a class="btn btn-primary glow-pulse" href="https://www.gocrestline.app/coaches/lane-odom" target="_blank" rel="noopener noreferrer" data-track="links_free_analysis">
+          Send Me Your Game (Free)
         </a>
+      </div>
+      <details class="film-tips">
+        <summary data-track="links_filming_tips">No footage yet? How to film your game &darr;</summary>
+        <ul>
+          <li>Set your phone up behind the baseline, as high as you can (fence, tripod, or a bag).</li>
+          <li>Get the whole court in the shot, both kitchen lines included.</li>
+          <li>Film a normal game. Don&rsquo;t play differently because the camera is on.</li>
+          <li>Note what you&rsquo;re wearing so I know which player is you.</li>
+        </ul>
+      </details>
+    </section>
 
-        <!-- Lead in-person offer: team lessons -->
+    <!-- ================= SECTION: WORK WITH ME (secondary offers) ================= -->
+    <section class="links-section reveal" id="sec-work" data-sec="coaching">
+      <h2 class="links-section-title">🤝 More Ways to Work With Me</h2>
+      <div class="work-btns">
+        <a class="btn btn-secondary" href="https://www.gocrestline.app/coaches/lane-odom" target="_blank" rel="noopener noreferrer" data-track="links_crestline">
+          Monthly Virtual Coaching (Crestline)
+        </a>
+        <p class="btn-note">Pro and Premium plans &middot; video reviews every month</p>
+
         <a class="btn btn-secondary" href="/lessons/" data-track="links_lesson">
           Team Lessons: Your Games Filmed
         </a>
         <p class="btn-note">League teams &amp; groups of 4&ndash;8 &middot; Volusia County only</p>
 
-        <!-- Booking: the lesson request form (team, private, or small group) -->
         <a class="btn btn-secondary" href="https://forms.gle/Dz98yAxHX2rUjHQx7" target="_blank" rel="noopener noreferrer" data-track="links_book_lesson">
           Book a Lesson
         </a>
         <p class="btn-note">Team, private, or small group &middot; I text back within 12&ndash;24 hrs</p>
 
-        <!-- Secondary offer -->
-        <a class="btn btn-secondary" href="https://www.youtube.com/@pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="links_youtube">
-          Watch Game Film Breakdowns
-        </a>
-
-        <!-- Secondary offer -->
         <a class="btn btn-secondary" href="/rehab-plan/" data-track="links_mobile_chiro">
           Chiropractic Rehab Plan
         </a>
         <p class="btn-note">Local or fully online</p>
-
       </div>
     </section>
 
     <!-- ================= SECTION: FREE GUIDES ================= -->
     <section class="links-section reveal" id="sec-guide" data-sec="guide">
-      <h2 class="links-section-title">📘 Free Guides</h2>
+      <h2 class="links-section-title">📘 Learn Free</h2>
 
       <a class="start-row" href="/why-youre-stuck-at-3-5/" data-track="links_article_35">
         <img class="start-thumb" src="/images/guide-35-148.jpg" srcset="/images/guide-35-148.jpg 148w, /images/guide-35.jpg 800w" sizes="62px" alt="Why You're Stuck at 3.5: The Five Leaks" />
@@ -732,15 +760,20 @@
         <span class="start-arrow" aria-hidden="true">&rarr;</span>
       </a>
 
-      <a class="start-row" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35" target="_blank" rel="noopener noreferrer" data-track="links_guide_35">
+      <a class="start-row" href="https://pickleballchiro.gumroad.com/l/whyyourestuckat35?price=0&amp;wanted=true" target="_blank" rel="noopener noreferrer" data-track="links_guide_35">
         <img class="start-thumb" src="/images/guide-35-148.jpg" srcset="/images/guide-35-148.jpg 148w, /images/guide-35.jpg 800w" sizes="62px" alt="Why You're Stuck at 3.5 guide" />
-        <span class="start-title">Why You&rsquo;re Stuck at 3.5: Free Guide</span>
+        <span class="start-title">Why You&rsquo;re Stuck at 3.5: Free Guide ($0, no card)</span>
         <span class="start-arrow" aria-hidden="true">&rarr;</span>
       </a>
 
       <a class="start-row" href="https://pickleballchiro.gumroad.com/l/kneepainguide" target="_blank" rel="noopener noreferrer" data-track="links_guide_knee">
         <img class="start-thumb" src="/images/guide-knee-148.jpg" srcset="/images/guide-knee-148.jpg 148w, /images/guide-knee.jpg 900w" sizes="62px" alt="Free Knee Pain Guide" />
         <span class="start-title">Free Knee Pain Guide</span>
+        <span class="start-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="start-row" href="https://www.youtube.com/@pickleballchiro" target="_blank" rel="noopener noreferrer" data-track="links_youtube">
+        <span class="start-thumb" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--orange);">&#9654;</span>
+        <span class="start-title">Game Film Breakdowns on YouTube</span>
         <span class="start-arrow" aria-hidden="true">&rarr;</span>
       </a>
     </section>
@@ -836,7 +869,7 @@
     (function () {
       var el = document.getElementById('rotating-tagline');
       if (!el) return;
-      var lines = ['4.7 DUPR', 'Doctor of Chiropractic', 'PCI Certified Coach', '13+ Years of Racket Sport Experience', 'Volusia County, FL'];
+      var lines = ['Helping 3.0s & 3.5s reach 4.0', '4.7 DUPR', 'Doctor of Chiropractic', 'PCI Certified Coach', 'Volusia County & Virtual'];
       var i = 0;
       setInterval(function () {
         el.style.opacity = '0';                 // fade out
