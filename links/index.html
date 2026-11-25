@@ -560,6 +560,7 @@
       transition: opacity 0.25s ease-out, transform 0.25s ease-out;
     }
     .js .reveal.visible { opacity: 1; transform: none; }
+    .js .reveal.is-first { opacity: 1; transform: none; }   /* the primary action never waits on a scroll observer */
 
     /* The thin orange divider is each section's own ::before (hidden on the first). */
     .links-sections { display: flex; flex-direction: column; }

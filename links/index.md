@@ -4,11 +4,37 @@ Canonical: https://pickleballchiro.co/links/
 
 ## Dr. Lane Odom
 
-4.7 DUPR
+Helping 3.0s & 3.5s reach 4.0
 
-### 🤝 Work With Me
+### 🎥 Free Game Analysis
 
-[Virtual Coaching: Book on Crestline](https://www.gocrestline.app/coaches/lane-odom) [Team Lessons: Your Games Filmed](https://pickleballchiro.co/lessons/)
+Film a few minutes of a real game. I’ll watch it and tell you the biggest thing holding you back.
+
+- Film up to 4 minutes of one of your games. Rec play is perfect.
+
+- Upload it on Crestline. Your first review is free, no card.
+
+- I watch it and send back feedback with one focus to work on.
+
+[Send Me Your Game (Free)](https://www.gocrestline.app/coaches/lane-odom)
+
+No footage yet? How to film your game ↓
+
+- Set your phone up behind the baseline, as high as you can (fence, tripod, or a bag).
+
+- Get the whole court in the shot, both kitchen lines included.
+
+- Film a normal game. Don’t play differently because the camera is on.
+
+- Note what you’re wearing so I know which player is you.
+
+### 🤝 More Ways to Work With Me
+
+[Monthly Virtual Coaching (Crestline)](https://www.gocrestline.app/coaches/lane-odom)
+
+Pro and Premium plans · video reviews every month
+
+[Team Lessons: Your Games Filmed](https://pickleballchiro.co/lessons/)
 
 League teams & groups of 4–8 · Volusia County only
 
@@ -16,13 +42,13 @@ League teams & groups of 4–8 · Volusia County only
 
 Team, private, or small group · I text back within 12–24 hrs
 
-[Watch Game Film Breakdowns](https://www.youtube.com/@pickleballchiro) [Chiropractic Rehab Plan](https://pickleballchiro.co/rehab-plan/)
+[Chiropractic Rehab Plan](https://pickleballchiro.co/rehab-plan/)
 
 Local or fully online
 
-### 📘 Free Guides
+### 📘 Learn Free
 
-[The Five Leaks: Full Article](https://pickleballchiro.co/why-youre-stuck-at-3-5/) [Why You’re Stuck at 3.5: Free Guide](https://pickleballchiro.gumroad.com/l/whyyourestuckat35) [Free Knee Pain Guide](https://pickleballchiro.gumroad.com/l/kneepainguide)
+[The Five Leaks: Full Article](https://pickleballchiro.co/why-youre-stuck-at-3-5/) [Why You’re Stuck at 3.5: Free Guide ($0, no card)](https://pickleballchiro.gumroad.com/l/whyyourestuckat35?price=0&wanted=true) [Free Knee Pain Guide](https://pickleballchiro.gumroad.com/l/kneepainguide) [Game Film Breakdowns on YouTube](https://www.youtube.com/@pickleballchiro)
 
 ### 🏓 Gear I Use
 
