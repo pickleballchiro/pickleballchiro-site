@@ -92,6 +92,30 @@ test("origin redirect and missing upstream snapshot both fail closed", async () 
   assert.equal(unavailable.status, 503);
 });
 
+test("Worker subrequests reject redirects from the certificate set and final response", async () => {
+  const redirected = (location) => new Response(null, { status: 302, headers: { Location: location } });
+  const expected = { ...env, PBC_CONTENT_ENABLED: "1" };
+  let requests = 0;
+  const unsigned = await dashboardIntelligence(request(token()), expected, async (_, init) => {
+    assert.equal(init.redirect, "manual");
+    assert.equal(++requests, 1);
+    return redirected("https://elsewhere.test/certs");
+  });
+  assert.equal(unsigned.status, 401);
+
+  let hops = 0;
+  const denied = await dashboardIntelligence(request(token()), expected, async (url, init) => {
+    assert.equal(init.redirect, "manual");
+    hops++;
+    if (url.endsWith("/certs")) return json({ keys: [jwk] });
+    if (hops === 2) return redirected("https://script.googleusercontent.com/result");
+    assert.equal(hops, 3);
+    return redirected("https://elsewhere.test/result");
+  });
+  assert.equal(denied.status, 503);
+  assert.equal(hops, 3);
+});
+
 test("business RPC requires owner JWT and same-origin POST, and forwards only scoped fields", async () => {
   const stagingOrigin = "https://stage.example.test";
   const businessEnv = { ...env, PBC_DASHBOARD_ORIGIN: stagingOrigin, PBC_BUSINESS_ENABLED: "1",

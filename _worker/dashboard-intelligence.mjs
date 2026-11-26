@@ -53,7 +53,8 @@ export async function checkOwner(token, env, network, now = Date.now() / 1000) {
         (claims.nbf !== undefined && (!Number.isFinite(claims.nbf) || claims.nbf > now)) ||
         typeof claims.email !== "string" || claims.email.trim().toLowerCase() !== owner ||
         typeof claims.sub !== "string" || !claims.sub) return false;
-    const keys = await network(issuer + "/cdn-cgi/access/certs", { redirect: "error" });
+    // Workers supports manual redirects. The status check below rejects every redirect.
+    const keys = await network(issuer + "/cdn-cgi/access/certs", { redirect: "manual" });
     if (!keys.ok) return false;
     const jwks = await keys.json();
     const key = jwks.keys?.find((candidate) => candidate.kid === header.kid && candidate.kty === "RSA" &&
@@ -79,7 +80,7 @@ async function callScript(url, key, action, fields, network, maximumLength) {
   if ([302, 303].includes(result.status)) {
     const next = new URL(result.headers.get("Location") || "", url);
     if (next.origin !== "https://script.googleusercontent.com" || next.username || next.password) return null;
-    result = await network(next.href, { method: "GET", redirect: "error" });
+    result = await network(next.href, { method: "GET", redirect: "manual" });
   }
   if (!result.ok || !result.headers.get("Content-Type")?.includes("application/json")) return null;
   const text = await result.text();
