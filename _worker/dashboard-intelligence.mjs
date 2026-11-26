@@ -92,17 +92,17 @@ export function isIntelligenceApi(path) {
   return path === "/dashboard/api" || path.startsWith("/dashboard/api/");
 }
 
-function clearAccessSession(hostname) {
-  const headers = new Headers({ "Cache-Control": "private, no-store" });
+function clearAccessSession(hostname, issuer) {
+  const result = response(200, { logoutUrl: issuer + "/cdn-cgi/access/logout" });
   // The Cloudflare logout page can leave an application cookie scoped to the dashboard.
   for (const name of ["CF_Authorization", "CF_AppSession", "CF_Binding"]) {
     for (const path of ["/", "/dashboard", "/dashboard/"]) {
       const expired = `${name}=; Path=${path}; Max-Age=0; Secure; HttpOnly; SameSite=Lax`;
-      headers.append("Set-Cookie", expired);
-      headers.append("Set-Cookie", `${expired}; Domain=${hostname}`);
+      result.headers.append("Set-Cookie", expired);
+      result.headers.append("Set-Cookie", `${expired}; Domain=${hostname}`);
     }
   }
-  return new Response(null, { status: 204, headers });
+  return result;
 }
 
 export async function dashboardIntelligence(request, env, network = fetch) {
@@ -132,7 +132,7 @@ export async function dashboardIntelligence(request, env, network = fetch) {
     if (!await checkOwner(request.headers.get("Cf-Access-Jwt-Assertion"), env, fetchWithDeadline)) {
       return response(401, { error: "owner sign-in required" });
     }
-    if (signOut) return clearAccessSession(url.hostname);
+    if (signOut) return clearAccessSession(url.hostname, env.PBC_ACCESS_ISSUER);
     if (business) {
       const raw = await request.text();
       let input;

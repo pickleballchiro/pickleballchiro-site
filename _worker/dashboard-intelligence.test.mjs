@@ -171,9 +171,9 @@ test("owner sign-out expires only Access cookies without reaching Apps Script", 
     assert.equal(url, env.PBC_ACCESS_ISSUER + "/cdn-cgi/access/certs");
     return json({ keys: [jwk] });
   });
-  assert.equal(result.status, 204);
+  assert.equal(result.status, 200);
   assert.equal(result.headers.get("Cache-Control"), "private, no-store");
-  assert.equal(await result.text(), "");
+  assert.deepEqual(await result.json(), { logoutUrl: env.PBC_ACCESS_ISSUER + "/cdn-cgi/access/logout" });
   const cookies = result.headers.getSetCookie();
   assert.equal(cookies.length, 18);
   for (const path of ["/", "/dashboard", "/dashboard/"]) {
@@ -184,7 +184,7 @@ test("owner sign-out expires only Access cookies without reaching Apps Script", 
   assert.ok(cookies.every((cookie) => /^CF_(Authorization|AppSession|Binding)=;/.test(cookie)));
 });
 
-test("service worker skips private requests and pre-caches the v29 shell only", async () => {
+test("service worker skips private requests and pre-caches the v30 shell only", async () => {
   const { readFile } = await import("node:fs/promises");
   const vm = await import("node:vm");
   const handlers = new Map();
@@ -203,8 +203,8 @@ test("service worker skips private requests and pre-caches the v29 shell only", 
   let install;
   handlers.get("install")({ waitUntil: (result) => { install = result; } });
   await install;
-  assert.equal(cached.name, "pbc-shell-v29");
-  assert.ok(cached.paths.includes("./dashboard.js?v=29"));
+  assert.equal(cached.name, "pbc-shell-v30");
+  assert.ok(cached.paths.includes("./dashboard.js?v=30"));
   assert.ok(cached.paths.every((p) => !p.includes("/api")));
   for (const [pathname, method] of [["/dashboard/api/intelligence", "GET"], ["/dashboard/api/business", "POST"],
     ["/dashboard/api", "GET"], ["/dashboard/api/business", "GET"], ["/dashboard/api/sign-out", "POST"]]) {

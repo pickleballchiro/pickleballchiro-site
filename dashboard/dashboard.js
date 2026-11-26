@@ -111,19 +111,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (LOCAL_PREVIEW) return;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    let logoutUrl = "/cdn-cgi/access/logout";
     try {
-      await fetch("/dashboard/api/sign-out", {
+      const result = await fetch("/dashboard/api/sign-out", {
         method: "POST",
         headers: { "X-PBC-Request": "1" },
         cache: "no-store",
         redirect: "manual",
         signal: controller.signal,
       });
+      if (result.ok) {
+        const { logoutUrl: teamLogout } = await result.json();
+        if (typeof teamLogout === "string" && /^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com\/cdn-cgi\/access\/logout$/.test(teamLogout)) {
+          logoutUrl = teamLogout;
+        }
+      }
     } catch {
       // Continue to Cloudflare logout even if this request is unavailable.
     } finally {
       clearTimeout(timeout);
-      location.assign("/cdn-cgi/access/logout");
+      location.assign(logoutUrl);
     }
   });
   document.addEventListener("pbc-dashboard-sign-in", showOwnerSignIn);
