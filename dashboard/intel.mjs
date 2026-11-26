@@ -102,12 +102,17 @@ function table(headers, rows, label) {
 function sourcePanel() {
   const s = payload.sources;
   if (payload.schema === "pbc-content-intelligence/1") {
-    return el("details", { class: "card intel-card" }, el("summary", {}, "Data sources and coverage"),
+    const c = payload.coverage;
+    return el("details", { class: "card intel-card", open: "" }, el("summary", {}, "Data sources and coverage"),
+      c && muted(`${payload.observations.length} of ${c.recorded} recorded observations are included across ${payload.creatives.length} published posts. Source ends at ${c.sourceThrough}.`),
+      c && muted(`Latest included observation ${c.includedObservedThrough}. Latest source observation ${c.sourceObservedThrough}.`),
+      c && muted(`Excluded: ${c.publication} without eligible publication, ${c.accountOrBatch} account or unattributed batch, ${c.metric} outside supported metrics and labels, ${c.unavailable} unavailable or unlinked.`),
       muted("Published content snapshot created " + payload.asOf + ". Refresh reads the latest saved snapshot."),
       muted("Publication identity comes from HQ Post Log. Observations come from the Content Engine performance registry."));
   }
   return el("details", { class: "card intel-card" },
     el("summary", {}, "Data sources and coverage"),
+    muted(`${payload.observations.length} of ${payload.observationCount} recorded observations loaded locally.`),
     muted(`HQ snapshot contains ${payload.hq.posts} Post Log entries and ${payload.hq.plannedRecords} Content records. Ideas: ${payload.hq.ideas ?? "unknown"}. Clip Catalog: ${payload.hq.clips ?? "unknown"}.`),
     table(["Source", "Availability", "Timestamp"], Object.entries(s).map(([name, row]) => [
       name, row.state === "snapshot" ? "Dated read-only capture" : row.state, row.readAt || row.modified || "Unknown",
@@ -281,9 +286,10 @@ function renderDetail(item) {
     table(["Observed (ET)", "Age", "Metric", "Value", "Window", "Quality", "Source"], series.map((o) => [
       stamp(o), o.age ?? "—", METRICS[o.metric] || title(o.metric),
       o.metric.includes("_batch_") ? "See unattributed batches" :
-        o.value == null ? "Qualitative record" : format(o.metric, o.value),
+        o.reportedLabel ?? (o.value == null ? "Qualitative record" : format(o.metric, o.value)),
       title(o.window), o.quality, o.provenance,
     ]), "Performance observations"),
+    feedback.length > 0 && h(4, "Owner creative feedback"),
     feedback.map((f) => muted(`${f.date} · ${f.text}`)));
 }
 
@@ -368,9 +374,9 @@ function renderLab() {
         retentionCard(vals),
         card("Evidence", (selected.evidence || []).map(muted),
           payload.feedback.filter((f) => vals.some((v) => v.id === f.creativeId))
-            .map((f) => muted(`${f.id} · ${f.date} · ${title(f.timing)} · ${f.text}`)),
+            .map((f) => muted(`Owner feedback · ${f.id} · ${f.date} · ${f.text}`)),
           muted(preview
-            ? "V3 entries are proposals awaiting creative review. New linked versions appear from the creative registry on refresh."
+            ? "Produced versions use their recorded status. Audience comparisons require published observations."
             : "New published versions appear after the next approved snapshot.")))),
     sourcePanel());
 }
