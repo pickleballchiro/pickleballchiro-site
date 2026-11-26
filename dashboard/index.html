@@ -51,7 +51,8 @@
        handlers, so the async media="print"/onload swap (used on the main site)
        never fires here — load the stylesheet directly instead. -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=24" />
+  <link rel="stylesheet" href="dashboard.css?v=25" />
+  <link rel="stylesheet" href="intel.css?v=25" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -106,6 +107,14 @@
       </div>
     </header>
 
+    <nav id="dashboard-nav" class="intel-nav" aria-label="Command Center sections">
+      <a href="#overview">Executive Overview</a>
+      <a href="#content">Content</a>
+      <a href="#experiments">Experiment Lab</a>
+      <a href="#health" id="dashboard-local-health" class="hidden">System Health</a>
+    </nav>
+
+    <div id="dashboard-overview">
     <div id="drift-banner" class="banner hidden"></div>
 
     <!-- KPI row -->
@@ -302,12 +311,24 @@
       </section>
     </div>
 
+    </div>
+
+    <section id="intel" class="hidden" aria-labelledby="intel-title">
+      <header class="intel-head">
+        <h2 id="intel-title">Content</h2>
+        <button id="intel-refresh" class="btn btn-ghost" type="button">Refresh data</button>
+      </header>
+      <div id="intel-output" aria-busy="false"></div>
+    </section>
+
     <footer class="foot">
       <button id="lock-btn" class="linklike">Lock dashboard</button>
     </footer>
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard.js?v=24"></script>
+  <script src="dashboard-context.js?v=25"></script>
+  <script src="dashboard.js?v=25"></script>
+  <script type="module" src="intel.mjs?v=25"></script>
 </body>
 </html>

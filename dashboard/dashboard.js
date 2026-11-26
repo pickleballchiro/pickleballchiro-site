@@ -7,6 +7,31 @@
 const WEBHOOK =
   "https://script.google.com/macros/s/AKfycbyBhh67LuNS1AK7BeA1E0w9OulfH8zlH-rlIZUwgF_ES_dMWCw3iVhAO5f72du3h0xv2w/exec";
 
+const DASHBOARD_SECTIONS = { overview: "Executive Overview", content: "Content", experiments: "Experiment Lab" };
+
+function syncDashboardSection() {
+  if ($("app").classList.contains("hidden")) return;
+  const labels = LOCAL_PREVIEW ? { ...DASHBOARD_SECTIONS, health: "System Health" } : DASHBOARD_SECTIONS;
+  const requested = location.hash.slice(1);
+  const section = Object.hasOwn(labels, requested) ? requested : "overview";
+  $("dashboard-overview").classList.toggle("hidden", section !== "overview");
+  $("intel").classList.toggle("hidden", section === "overview");
+  $("refresh-btn").classList.toggle("hidden", section !== "overview");
+  $("data-asof").classList.toggle("hidden", section !== "overview");
+  if (LOCAL_PREVIEW && section === "overview") $("data-asof").textContent = "Local preview · sample business data";
+  $("dashboard-local-health").classList.toggle("hidden", !LOCAL_PREVIEW);
+  for (const anchor of $("dashboard-nav").querySelectorAll("a")) {
+    if (anchor.getAttribute("href") === "#" + section) anchor.setAttribute("aria-current", "page");
+    else anchor.removeAttribute("aria-current");
+  }
+  if (section !== "overview") $("intel-title").textContent = labels[section];
+  document.dispatchEvent(new CustomEvent("pbc-dashboard-section", { detail: section }));
+}
+
+function clearDashboardIntelligence() {
+  document.dispatchEvent(new CustomEvent("pbc-dashboard-section", { detail: "locked" }));
+}
+
 /* ---------------- session ----------------
 
    The key used to be a bare string under `pbc_dash_key` that never expired.
@@ -29,6 +54,7 @@ const SESSION_MS = 30 * 24 * 60 * 60 * 1000;
 const FETCH_TIMEOUT_MS = 20000;
 
 function readSession() {
+  if (LOCAL_PREVIEW) return "local-preview";
   let raw = null;
   try {
     raw = localStorage.getItem(SESSION_STORE);
@@ -62,6 +88,7 @@ function readSession() {
 }
 
 function writeSession(key) {
+  if (LOCAL_PREVIEW) return;
   try {
     localStorage.setItem(
       SESSION_STORE,
@@ -167,6 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   $("retry-btn").addEventListener("click", loadData);
   $("rekey-btn").addEventListener("click", showGate);
   $("lock-btn").addEventListener("click", () => {
+    clearDashboardIntelligence();
     clearSession();
     location.reload();
   });
@@ -199,6 +227,15 @@ document.addEventListener("DOMContentLoaded", () => {
   $("cal-next").addEventListener("click", () => calNav(1));
   $("cal-today").addEventListener("click", calToday);
 
+  window.addEventListener("hashchange", syncDashboardSection);
+  if (LOCAL_PREVIEW) {
+    $("lock-btn").classList.add("hidden");
+    if (!location.hash) {
+      const previous = new URLSearchParams(location.search).get("section");
+      const start = ["overview", "experiments", "health"].includes(previous) ? previous : "content";
+      history.replaceState(null, "", "#" + start);
+    }
+  }
   if (readSession()) {
     loadData();
   } else {
@@ -219,13 +256,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // Scope is implicitly /dashboard/ — the file's own directory — so this can't
 // intercept anything on the marketing site.
 function registerServiceWorker() {
-  if (!("serviceWorker" in navigator)) return;
+  if (LOCAL_PREVIEW || !("serviceWorker" in navigator)) return;
   navigator.serviceWorker.register("sw.js").catch(() => {
     // No offline shell. Everything else still works, so this stays quiet.
   });
 }
 
 function showGate(withError) {
+  clearDashboardIntelligence();
   clearSession();
   $("loading").classList.add("hidden");
   $("load-error").classList.add("hidden");
@@ -245,6 +283,15 @@ function showLoadError(msg) {
 // treats a non-JSON body (Google occasionally answers with an HTML interstitial)
 // as a connection problem instead of throwing something unreadable.
 async function webhookGet(params) {
+  if (LOCAL_PREVIEW) {
+    // The preview never sends a dashboard key or changes the live workbook.
+    const action = params.get("action");
+    if (action === "get_dashboard_data") return { status: "ok", generated_at: new Date().toISOString(),
+      income: [], expenses: [], mileage: [], leads: [], clients: [], sessions: [], tasks: [], video_queue: [],
+      calendar_events: [] };
+    if (action === "get_calendar_events") return { status: "ok", events: [] };
+    return { status: "error", message: "Business edits are disabled in the local preview." };
+  }
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   let res;
@@ -309,6 +356,7 @@ async function fetchCalendarEvents(start, end) {
 async function loadData() {
   const key = readSession();
   if (!key) { showGate(); return; }
+  clearDashboardIntelligence();
   $("load-error").classList.add("hidden");
   $("loading").classList.remove("hidden");
   $("app").classList.add("hidden");
@@ -342,6 +390,7 @@ async function loadData() {
   $("loading").classList.add("hidden");
   $("app").classList.remove("hidden");
   renderAll(data);
+  syncDashboardSection();
 }
 
 /* ---------------- helpers ---------------- */

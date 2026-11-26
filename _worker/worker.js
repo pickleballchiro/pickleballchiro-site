@@ -1,3 +1,5 @@
+import { dashboardIntelligence, isIntelligenceApi } from "./dashboard-intelligence.mjs";
+
 // Markdown content negotiation for pickleballchiro.co (Cloudflare Worker in front of GitHub Pages).
 //
 // GitHub Pages can't vary a response by the Accept header, so this Worker does it:
@@ -131,7 +133,9 @@ export async function handle(request, fetchImpl = fetch) {
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
+    // Private routes fail closed and never fall through to GitHub Pages.
+    if (isIntelligenceApi(new URL(request.url).pathname)) return dashboardIntelligence(request, env);
     try {
       return await handle(request);
     } catch (err) {

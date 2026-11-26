@@ -14,14 +14,18 @@
    included, or a version bump would serve the previous file forever.
    ============================================================ */
 
-const SHELL_VERSION = "v24";
+const SHELL_VERSION = "v25";
 const CACHE = "pbc-shell-" + SHELL_VERSION;
 
 const SHELL = [
   "./",
   "./index.html",
-  "./dashboard.css?v=24",
-  "./dashboard.js?v=24",
+  "./dashboard.css?v=25",
+  "./dashboard-context.js?v=25",
+  "./dashboard.js?v=25",
+  "./intel.css?v=25",
+  "./intel.mjs?v=25",
+  "./metrics.mjs?v=25",
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
@@ -58,7 +62,8 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
 
   // Belt and braces: even same-origin, a dashboard-data URL is never cached.
-  if (url.searchParams.has("action") || url.searchParams.has("key")) return;
+  if (url.pathname.startsWith("/dashboard/api/") || url.pathname.startsWith("/dashboard/local/") ||
+      url.searchParams.has("action") || url.searchParams.has("key")) return;
 
   // Navigations go network-first so a deploy lands on the next open rather than
   // whenever the cache happens to turn over. The cached shell is the fallback.
@@ -66,8 +71,10 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(req)
         .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy));
+          if (res.ok && !res.redirected && new URL(res.url).origin === self.location.origin) {
+            const copy = res.clone();
+            caches.open(CACHE).then((c) => c.put(req, copy));
+          }
           return res;
         })
         .catch(() => caches.match(req).then((hit) => hit || caches.match("./index.html")))
@@ -85,6 +92,7 @@ self.addEventListener("fetch", (event) => {
   // to an installed phone forever with no signal that anything is wrong.
   // Revalidating costs one background request and makes a forgotten bump land
   // on the next open instead of never.
+  if (!SHELL.some((asset) => new URL(asset, self.location.href).href === url.href)) return;
   event.respondWith(
     caches.open(CACHE).then((cache) =>
       cache.match(req).then((hit) => {
