@@ -14,18 +14,18 @@
    included, or a version bump would serve the previous file forever.
    ============================================================ */
 
-const SHELL_VERSION = "v26";
+const SHELL_VERSION = "v27";
 const CACHE = "pbc-shell-" + SHELL_VERSION;
 
 const SHELL = [
   "./",
   "./index.html",
-  "./dashboard.css?v=26",
-  "./dashboard-context.js?v=26",
-  "./dashboard.js?v=26",
-  "./intel.css?v=26",
-  "./intel.mjs?v=26",
-  "./metrics.mjs?v=26",
+  "./dashboard.css?v=27",
+  "./dashboard-context.js?v=27",
+  "./dashboard.js?v=27",
+  "./intel.css?v=27",
+  "./intel.mjs?v=27",
+  "./metrics.mjs?v=27",
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
@@ -62,7 +62,7 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
 
   // Belt and braces: even same-origin, a dashboard-data URL is never cached.
-  if (url.pathname.startsWith("/dashboard/api/") || url.pathname.startsWith("/dashboard/local/") ||
+  if ((url.pathname === "/dashboard/api" || url.pathname.startsWith("/dashboard/api/")) || url.pathname.startsWith("/dashboard/local/") ||
       url.searchParams.has("action") || url.searchParams.has("key")) return;
 
   // Navigations go network-first so a deploy lands on the next open rather than

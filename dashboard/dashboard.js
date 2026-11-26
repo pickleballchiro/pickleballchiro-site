@@ -1,11 +1,8 @@
 /* ============================================================
    PBC COMMAND CENTER — dashboard.js
-   Reads live data from the Apps Script webhook (key-gated).
+   Reads live data through the owner-authenticated same-origin API.
    No frameworks, hand-rolled SVG charts.
    ============================================================ */
-
-const WEBHOOK =
-  "https://script.google.com/macros/s/AKfycbyBhh67LuNS1AK7BeA1E0w9OulfH8zlH-rlIZUwgF_ES_dMWCw3iVhAO5f72du3h0xv2w/exec";
 
 const DASHBOARD_SECTIONS = { overview: "Executive Overview", content: "Content", experiments: "Experiment Lab" };
 
@@ -32,79 +29,16 @@ function clearDashboardIntelligence() {
   document.dispatchEvent(new CustomEvent("pbc-dashboard-section", { detail: "locked" }));
 }
 
-/* ---------------- session ----------------
-
-   The key used to be a bare string under `pbc_dash_key` that never expired.
-   It now lives in `pbc_dash_session` as { key, expiresAt }, and every
-   successful load pushes expiresAt another 30 days out — so what expires is
-   30 days of *not opening it*, not 30 days from first unlock.
-
-   Worth being clear about the ceiling: this is a convenience lock on a device
-   Lane controls. The key itself never expires server-side, so a stolen
-   unlocked phone is still a stolen key. The phone's own passcode is the real
-   boundary here.
------------------------------------------- */
-
-const SESSION_STORE = "pbc_dash_session";
-const LEGACY_KEY_STORE = "pbc_dash_key";
-const SESSION_MS = 30 * 24 * 60 * 60 * 1000;
-
-// Anything slower than this on cellular is indistinguishable from a hang, and
-// an un-abortable fetch leaves the spinner running forever.
 const FETCH_TIMEOUT_MS = 20000;
+let ownerSignInRequired = false;
 
-function readSession() {
-  if (LOCAL_PREVIEW) return "local-preview";
-  let raw = null;
-  try {
-    raw = localStorage.getItem(SESSION_STORE);
-  } catch (err) {
-    return null; // private mode, or storage disabled
-  }
-  if (raw) {
-    try {
-      const s = JSON.parse(raw);
-      if (s && s.key && s.expiresAt > Date.now()) return s.key;
-    } catch (err) {
-      /* corrupt — fall through and clear */
-    }
-    clearSession();
-    return null;
-  }
-  // Migrate the old bare-string key so the laptop doesn't get logged out by
-  // this change.
-  let legacy = null;
-  try {
-    legacy = localStorage.getItem(LEGACY_KEY_STORE);
-  } catch (err) {
-    return null;
-  }
-  if (legacy) {
-    writeSession(legacy);
-    try { localStorage.removeItem(LEGACY_KEY_STORE); } catch (err) { /* nothing to do */ }
-    return legacy;
-  }
-  return null;
-}
-
-function writeSession(key) {
+function forgetLegacyKey() {
   if (LOCAL_PREVIEW) return;
   try {
-    localStorage.setItem(
-      SESSION_STORE,
-      JSON.stringify({ key, expiresAt: Date.now() + SESSION_MS })
-    );
-  } catch (err) {
-    /* storage full or blocked — the session just won't persist */
-  }
-}
-
-function clearSession() {
-  try {
-    localStorage.removeItem(SESSION_STORE);
-    localStorage.removeItem(LEGACY_KEY_STORE);
-  } catch (err) {
-    /* nothing to do */
+    localStorage.removeItem("pbc_dash_session");
+    localStorage.removeItem("pbc_dash_key");
+  } catch {
+    // Storage may be disabled.
   }
 }
 
@@ -168,35 +102,20 @@ let CAL_CACHE = { start: null, end: null, events: [] };
 /* ---------------- boot ---------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
-  $("gate-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    $("gate-error").classList.add("hidden"); // don't leave the last failure showing
-    const key = $("gate-input").value.trim();
-    if (!key) return;
-    writeSession(key);
-    $("gate").classList.add("hidden");
-    loadData();
-  });
-
-  // A 20-character random key typed blind into a masked field is how you end up
-  // locked out of your own dashboard on a phone.
-  $("gate-reveal").addEventListener("click", () => {
-    const input = $("gate-input");
-    const shown = input.type === "text";
-    input.type = shown ? "password" : "text";
-    $("gate-reveal").textContent = shown ? "Show" : "Hide";
-    $("gate-reveal").setAttribute("aria-pressed", String(!shown));
-    $("gate-reveal").setAttribute("aria-label", (shown ? "Show" : "Hide") + " access key");
-    input.focus();
-  });
-
+  forgetLegacyKey();
   $("refresh-btn").addEventListener("click", loadData);
   $("retry-btn").addEventListener("click", loadData);
-  $("rekey-btn").addEventListener("click", showGate);
+  $("sign-in-btn").addEventListener("click", () => location.reload());
   $("lock-btn").addEventListener("click", () => {
-    clearDashboardIntelligence();
-    clearSession();
-    location.reload();
+    showOwnerSignIn();
+    location.assign("/cdn-cgi/access/logout");
+  });
+  document.addEventListener("pbc-dashboard-sign-in", showOwnerSignIn);
+  window.addEventListener("pageshow", (event) => {
+    if (!LOCAL_PREVIEW && event.persisted) {
+      showOwnerSignIn();
+      location.reload();
+    }
   });
   $("toggle-sessions").addEventListener("click", () => setLineMode("sessions"));
   $("toggle-leads").addEventListener("click", () => setLineMode("leads"));
@@ -236,11 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       history.replaceState(null, "", "#" + start);
     }
   }
-  if (readSession()) {
-    loadData();
-  } else {
-    $("gate").classList.remove("hidden");
-  }
+  loadData();
 
   // The chart and the month calendar pick a layout at render time, so crossing
   // the breakpoint (rotating the phone, mostly) has to redraw them.
@@ -262,14 +177,18 @@ function registerServiceWorker() {
   });
 }
 
-function showGate(withError) {
+function showOwnerSignIn() {
+  ownerSignInRequired = true;
+  DATA = null;
+  CAL_CACHE = { start: null, end: null, events: [] };
   clearDashboardIntelligence();
-  clearSession();
+  $("dashboard-overview").replaceChildren();
+  $("data-asof").textContent = "";
+  hideTip();
+  $("tooltip").replaceChildren();
   $("loading").classList.add("hidden");
   $("load-error").classList.add("hidden");
   $("app").classList.add("hidden");
-  $("gate-input").value = "";
-  $("gate-error").classList.toggle("hidden", withError !== true);
   $("gate").classList.remove("hidden");
 }
 
@@ -282,7 +201,7 @@ function showLoadError(msg) {
 // One place that knows how to call the webhook: aborts rather than hanging, and
 // treats a non-JSON body (Google occasionally answers with an HTML interstitial)
 // as a connection problem instead of throwing something unreadable.
-async function webhookGet(params) {
+async function dashboardRequest(params) {
   if (LOCAL_PREVIEW) {
     // The preview never sends a dashboard key or changes the live workbook.
     const action = params.get("action");
@@ -296,15 +215,21 @@ async function webhookGet(params) {
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   let res;
   try {
-    res = await fetch(WEBHOOK + "?" + params.toString(), { signal: controller.signal });
+    res = await fetch("/dashboard/api/business", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-PBC-Request": "1", "X-Requested-With": "XMLHttpRequest" },
+      body: JSON.stringify(Object.fromEntries(params)),
+      signal: controller.signal, cache: "no-store", redirect: "manual",
+    });
+    if (res.type === "opaqueredirect" || res.status === 401 || res.status === 403) showOwnerSignIn();
+    if (ownerSignInRequired || !res.ok || !res.headers.get("Content-Type")?.includes("application/json")) {
+      throw new Error("Dashboard data unavailable");
+    }
+    const result = await res.json();
+    if (ownerSignInRequired) throw new Error("Owner sign-in required");
+    return result;
   } finally {
     clearTimeout(timer);
-  }
-  const text = await res.text();
-  try {
-    return JSON.parse(text);
-  } catch (err) {
-    throw new Error("The server sent something we couldn’t read.");
   }
 }
 
@@ -339,12 +264,9 @@ function setPeriodMode(mode) {
 }
 
 async function fetchCalendarEvents(start, end) {
-  const key = readSession();
-  if (!key) throw new Error("locked");
-  const data = await webhookGet(
+  const data = await dashboardRequest(
     new URLSearchParams({
       action: "get_calendar_events",
-      key,
       range_start: localISO(start),
       range_end: localISO(end),
     })
@@ -354,8 +276,6 @@ async function fetchCalendarEvents(start, end) {
 }
 
 async function loadData() {
-  const key = readSession();
-  if (!key) { showGate(); return; }
   clearDashboardIntelligence();
   $("load-error").classList.add("hidden");
   $("loading").classList.remove("hidden");
@@ -363,11 +283,9 @@ async function loadData() {
 
   let data;
   try {
-    data = await webhookGet(new URLSearchParams({ action: "get_dashboard_data", key }));
+    data = await dashboardRequest(new URLSearchParams({ action: "get_dashboard_data" }));
   } catch (err) {
-    // Reaching the server failed, which says nothing about whether the key is
-    // good — so the key is kept, and the error screen offers a way back to the
-    // gate for when it turns out the key was the problem after all.
+    if (ownerSignInRequired) return;
     showLoadError(
       err.name === "AbortError"
         ? "That took too long — the connection may be weak. Try again."
@@ -377,16 +295,11 @@ async function loadData() {
   }
 
   if (data.status !== "ok") {
-    if ((data.message || "").indexOf("unauthorized") !== -1) {
-      showGate(true);
-      return;
-    }
     showLoadError(data.message || "The server returned an error.");
     return;
   }
 
   DATA = data;
-  writeSession(key); // opening it counts — slide the 30 days forward
   $("loading").classList.add("hidden");
   $("app").classList.remove("hidden");
   renderAll(data);
@@ -1052,15 +965,18 @@ async function drawCalendar() {
     const dayStart = new Date(calAnchor); dayStart.setHours(0, 0, 0, 0);
     const dayEnd = new Date(calAnchor); dayEnd.setHours(23, 59, 59, 999);
     await ensureCalWindow(dayStart, dayEnd);
+    if (ownerSignInRequired) return;
     renderCalDay();
   } else if (calMode === "month") {
     const monthStart = new Date(calAnchor.getFullYear(), calAnchor.getMonth(), 1);
     const monthEnd = new Date(calAnchor.getFullYear(), calAnchor.getMonth() + 1, 0, 23, 59, 59, 999);
     await ensureCalWindow(monthStart, monthEnd);
+    if (ownerSignInRequired) return;
     renderCalMonth();
   } else {
     const { start, end } = weekBounds(calAnchor);
     await ensureCalWindow(start, end);
+    if (ownerSignInRequired) return;
     renderCalWeek();
   }
 }
@@ -1214,10 +1130,8 @@ function renderTasks(d) {
 // complete/delete doesn't flash the whole app through the full-page loading
 // screen the way a "Refresh" tap does.
 async function refreshTasksQuietly() {
-  const key = readSession();
-  if (!key) return;
   try {
-    const data = await webhookGet(new URLSearchParams({ action: "get_dashboard_data", key }));
+    const data = await dashboardRequest(new URLSearchParams({ action: "get_dashboard_data" }));
     if (data.status !== "ok") return;
     DATA = data;
     renderTasks(DATA);
@@ -1228,14 +1142,13 @@ async function refreshTasksQuietly() {
 }
 
 function showTaskError(msg) {
+  if (ownerSignInRequired) return;
   $("task-error").textContent = msg;
   $("task-error").classList.remove("hidden");
 }
 
 async function submitTask(e) {
   e.preventDefault();
-  const key = readSession();
-  if (!key) { showGate(); return; }
   const input = $("task-input");
   const task = input.value.trim();
   if (!task) return;
@@ -1244,12 +1157,11 @@ async function submitTask(e) {
   const btn = e.target.querySelector("button[type=submit]");
   btn.disabled = true;
   try {
-    const params = new URLSearchParams({ action: "add_task", key, task });
+    const params = new URLSearchParams({ action: "add_task", task });
     if (deadline) params.set("deadline", deadline);
-    const res = await webhookGet(params);
+    const res = await dashboardRequest(params);
     if (res.status !== "ok") throw new Error(res.message || "Couldn’t add the task.");
-    input.value = "";
-    $("task-deadline").value = "";
+    e.target.reset();
     await refreshTasksQuietly();
   } catch (err) {
     showTaskError(err.message || "Couldn’t add the task.");
@@ -1259,10 +1171,8 @@ async function submitTask(e) {
 }
 
 async function completeTaskUI(id) {
-  const key = readSession();
-  if (!key) return;
   try {
-    const res = await webhookGet(new URLSearchParams({ action: "complete_task", key, id }));
+    const res = await dashboardRequest(new URLSearchParams({ action: "complete_task", id }));
     if (res.status !== "ok") throw new Error(res.message || "Couldn’t update the task.");
     await refreshTasksQuietly();
   } catch (err) {
@@ -1271,10 +1181,8 @@ async function completeTaskUI(id) {
 }
 
 async function deleteTaskUI(id) {
-  const key = readSession();
-  if (!key) return;
   try {
-    const res = await webhookGet(new URLSearchParams({ action: "delete_task", key, id }));
+    const res = await dashboardRequest(new URLSearchParams({ action: "delete_task", id }));
     if (res.status !== "ok") throw new Error(res.message || "Couldn’t delete the task.");
     await refreshTasksQuietly();
   } catch (err) {
@@ -1372,18 +1280,17 @@ async function copyRequestId(btn) {
 }
 
 function showVideoError(msg) {
+  if (ownerSignInRequired) return;
   $("video-error").textContent = msg;
   $("video-error").classList.remove("hidden");
 }
 
 async function videoAction(action, fields) {
-  const key = readSession();
-  if (!key) { showGate(); return false; }
   $("video-error").classList.add("hidden");
   try {
-    const res = await webhookGet(new URLSearchParams({ action, key, ...fields }));
+    const res = await dashboardRequest(new URLSearchParams({ action, ...fields }));
     if (res.status !== "ok") throw new Error(res.message || "Couldn’t update the video queue.");
-    const data = await webhookGet(new URLSearchParams({ action: "get_dashboard_data", key }));
+    const data = await dashboardRequest(new URLSearchParams({ action: "get_dashboard_data" }));
     if (data.status === "ok") { DATA = data; renderVideoQueue(DATA); }
     return true;
   } catch (err) {

@@ -1,6 +1,12 @@
 // Same-origin owner-only read route. Cloudflare Access authenticates the user,
 // and this Worker validates the application token before consulting Apps Script.
 const INTELLIGENCE_PATH = "/dashboard/api/intelligence";
+const BUSINESS_PATH = "/dashboard/api/business";
+const BUSINESS_ACTIONS = {
+  get_dashboard_data: [], get_calendar_events: ["range_start", "range_end"],
+  add_task: ["task", "deadline"], complete_task: ["id"], delete_task: ["id"],
+  add_video: ["client", "video", "due"], complete_video: ["id"], delete_video: ["id"],
+};
 const EXPECTED_SCHEMA = "pbc-content-intelligence/1";
 const ENCODED_LIMIT = 550_000;
 const issuerPattern = /^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com$/;
@@ -61,28 +67,23 @@ export async function checkOwner(token, env, network, now = Date.now() / 1000) {
   }
 }
 
-async function readSnapshot(env, network, signal) {
-  const url = env.PBC_CONTENT_SCRIPT_URL;
-  const key = env.PBC_CONTENT_READ_KEY;
+async function callScript(url, key, action, fields, network, maximumLength) {
   if (!scriptPattern.test(url || "") || typeof key !== "string" || key.length < 32) return null;
   let result = await network(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ action: "dashboard_content_read", key }),
+    body: JSON.stringify({ action, key, ...fields }),
     redirect: "manual",
-    signal,
   });
   // Content Service responds with a one-time, credential-free Google content URL.
   if ([302, 303].includes(result.status)) {
     const next = new URL(result.headers.get("Location") || "", url);
     if (next.origin !== "https://script.googleusercontent.com" || next.username || next.password) return null;
-    result = await network(next.href, { method: "GET", redirect: "error", signal });
+    result = await network(next.href, { method: "GET", redirect: "error" });
   }
   if (!result.ok || !result.headers.get("Content-Type")?.includes("application/json")) return null;
   const text = await result.text();
-  if (text.length > ENCODED_LIMIT) return null;
-  const payload = JSON.parse(text);
-  return payload.status === "ok" && payload.snapshot?.schema === EXPECTED_SCHEMA ? payload.snapshot : null;
+  return text.length <= maximumLength ? JSON.parse(text) : null;
 }
 
 export function isIntelligenceApi(path) {
@@ -91,24 +92,58 @@ export function isIntelligenceApi(path) {
 
 export async function dashboardIntelligence(request, env, network = fetch) {
   const url = new URL(request.url);
-  if (url.origin !== "https://pickleballchiro.co" || url.pathname !== INTELLIGENCE_PATH || url.search ||
-      env?.PBC_CONTENT_ENABLED !== "1") return response(404, { error: "unavailable" });
-  if (request.method !== "GET") return response(405, { error: "read only" });
+  const business = url.pathname === BUSINESS_PATH;
+  const expectedOrigin = env?.PBC_DASHBOARD_ORIGIN ?? "https://pickleballchiro.co";
+  if (url.origin !== expectedOrigin || url.search ||
+      (business ? env?.PBC_BUSINESS_ENABLED !== "1" :
+        url.pathname !== INTELLIGENCE_PATH || env?.PBC_CONTENT_ENABLED !== "1")) {
+    return response(404, { error: "unavailable" });
+  }
+  if (request.method !== (business ? "POST" : "GET")) return response(405, { error: "method not allowed" });
   const site = request.headers.get("Sec-Fetch-Site");
-  if (site && site !== "same-origin") return response(403, { error: "forbidden" });
+  if ((site && site !== "same-origin") || (business &&
+      (request.headers.get("Origin") !== url.origin ||
+       request.headers.get("X-PBC-Request") !== "1" ||
+       request.headers.get("Content-Type") !== "application/json"))) {
+    return response(403, { error: "forbidden" });
+  }
 
   const deadline = new AbortController();
-  const timer = setTimeout(() => deadline.abort(), 12000);
+  const timer = setTimeout(() => deadline.abort(), 16000);
   const fetchWithDeadline = (input, init) => network(input, { ...init, signal: deadline.signal });
   try {
     if (!await checkOwner(request.headers.get("Cf-Access-Jwt-Assertion"), env, fetchWithDeadline)) {
       return response(401, { error: "owner sign-in required" });
     }
-    const snapshot = await readSnapshot(env, fetchWithDeadline, deadline.signal);
-    if (!snapshot) return response(503, { error: "snapshot unavailable" });
-    return response(200, snapshot);
+    if (business) {
+      const raw = await request.text();
+      let input;
+      try {
+        if (raw.length <= 8192) input = JSON.parse(raw);
+      } catch {
+        return response(400, { error: "invalid dashboard request" });
+      }
+      const allowed = input && typeof input.action === "string" &&
+        Object.hasOwn(BUSINESS_ACTIONS, input.action) && BUSINESS_ACTIONS[input.action];
+      if (!allowed || !Object.entries(input).every(([field, value]) =>
+        field === "action" || (allowed.includes(field) && typeof value === "string"))) {
+        return response(400, { error: "invalid dashboard request" });
+      }
+      const result = await callScript(env.PBC_BUSINESS_SCRIPT_URL, env.PBC_BUSINESS_KEY,
+        "dashboard_business", { request: input }, fetchWithDeadline, 5_000_000);
+      if (result?.status === "ok" || result?.status === "error" && result.message !== "unauthorized") {
+        return response(200, result);
+      }
+    } else {
+      const result = await callScript(env.PBC_CONTENT_SCRIPT_URL, env.PBC_CONTENT_READ_KEY,
+        "dashboard_content_read", {}, fetchWithDeadline, ENCODED_LIMIT);
+      if (result?.status === "ok" && result.snapshot?.schema === EXPECTED_SCHEMA) {
+        return response(200, result.snapshot);
+      }
+    }
+    return response(503, { error: "dashboard data unavailable" });
   } catch {
-    return response(503, { error: "snapshot unavailable" });
+    return response(503, { error: "dashboard data unavailable" });
   } finally {
     clearTimeout(timer);
   }

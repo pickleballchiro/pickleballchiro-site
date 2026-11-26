@@ -16,13 +16,11 @@
     needed under style-src only because the render code builds `style="width:…"`
     attributes, which style-src governs.
 
-    Both Google hosts are required in connect-src: the /exec URL 302s to
-    script.googleusercontent.com, and a redirect target has to be allowed too.
   -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self';
-    connect-src 'self' https://script.google.com https://script.googleusercontent.com;
+    connect-src 'self';
     style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
     font-src https://fonts.gstatic.com;
     img-src 'self' data:;
@@ -51,8 +49,8 @@
        handlers, so the async media="print"/onload swap (used on the main site)
        never fires here — load the stylesheet directly instead. -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="dashboard.css?v=26" />
-  <link rel="stylesheet" href="intel.css?v=26" />
+  <link rel="stylesheet" href="dashboard.css?v=27" />
+  <link rel="stylesheet" href="intel.css?v=27" />
 </head>
 <body data-palette="#E8622A,#1F97AE,#9678F0,#6B8ECC">
 
@@ -60,24 +58,8 @@
   <div id="gate" class="gate hidden">
     <div class="gate-card">
       <h1>PBC Command Center</h1>
-      <p>Enter your access key to load business data.</p>
-      <form id="gate-form">
-        <!-- A password manager will not offer to save a lone password field, which
-             is why the key had to be typed by hand on the phone. This supplies the
-             username half. It is clipped rather than display:none, because a
-             manager ignores fields it considers unrendered. -->
-        <input type="text" id="gate-user" name="username" value="pbc-dashboard"
-               autocomplete="username" tabindex="-1" aria-hidden="true" class="sr-only" />
-        <div class="gate-field">
-          <input type="password" id="gate-input" name="access-key" placeholder="Access key"
-                 autocomplete="current-password" autocapitalize="off" autocorrect="off"
-                 spellcheck="false" />
-          <button type="button" id="gate-reveal" class="gate-reveal"
-                  aria-label="Show access key" aria-pressed="false">Show</button>
-        </div>
-        <button type="submit" class="btn">Unlock</button>
-      </form>
-      <p id="gate-error" class="gate-error hidden">That key didn’t work — try again.</p>
+      <p>Sign in with your owner account to load business data.</p>
+      <button id="sign-in-btn" type="button" class="btn">Sign in</button>
     </div>
   </div>
 
@@ -85,12 +67,8 @@
   <div id="loading" class="loading hidden"><div class="spinner"></div><p>Loading live data…</p></div>
   <div id="load-error" class="load-error hidden">
     <p id="load-error-msg">Couldn’t reach the data source. Check your connection and try again.</p>
-    <!-- The second button is the escape hatch this screen used to lack: a failed
-         load and a bad key looked identical, and neither offered a way back to
-         the key prompt. -->
     <div class="load-error-actions">
       <button id="retry-btn" class="btn">Try again</button>
-      <button id="rekey-btn" class="linklike">Enter a different key</button>
     </div>
   </div>
 
@@ -322,13 +300,13 @@
     </section>
 
     <footer class="foot">
-      <button id="lock-btn" class="linklike">Lock dashboard</button>
+      <button id="lock-btn" class="linklike">Sign out</button>
     </footer>
   </main>
 
   <div id="tooltip" class="tooltip hidden" role="status"></div>
-  <script src="dashboard-context.js?v=26"></script>
-  <script src="dashboard.js?v=26"></script>
-  <script type="module" src="intel.mjs?v=26"></script>
+  <script src="dashboard-context.js?v=27"></script>
+  <script src="dashboard.js?v=27"></script>
+  <script type="module" src="intel.mjs?v=27"></script>
 </body>
 </html>

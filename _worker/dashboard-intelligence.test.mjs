@@ -91,3 +91,71 @@ test("origin redirect and missing upstream snapshot both fail closed", async () 
     url.endsWith("/certs") ? json({ keys: [jwk] }) : json({ status: "error" }));
   assert.equal(unavailable.status, 503);
 });
+
+test("business RPC requires owner JWT and same-origin POST, and forwards only scoped fields", async () => {
+  const stagingOrigin = "https://stage.example.test";
+  const businessEnv = { ...env, PBC_DASHBOARD_ORIGIN: stagingOrigin, PBC_BUSINESS_ENABLED: "1",
+    PBC_BUSINESS_SCRIPT_URL: env.PBC_CONTENT_SCRIPT_URL, PBC_BUSINESS_KEY: "synthetic-business-worker-only-secret" };
+  const post = (jwt, content, headers = {}) => new Request(stagingOrigin + "/dashboard/api/business", {
+    method: "POST",
+    body: JSON.stringify(content),
+    headers: { Origin: stagingOrigin, "Content-Type": "application/json", "X-PBC-Request": "1",
+      ...(jwt && { "Cf-Access-Jwt-Assertion": jwt }), ...headers },
+  });
+  for (const jwt of [null, token({ exp: 0 }), token({ email: "other@example.test" }), token({ aud: ["wrong"] })]) {
+    const result = await dashboardIntelligence(post(jwt, { action: "get_dashboard_data" }), businessEnv,
+      () => assert.fail("unauthorized upstream request"));
+    assert.equal(result.status, 401);
+    assert.equal(result.headers.get("Cache-Control"), "private, no-store");
+  }
+  const foreign = await dashboardIntelligence(post(token(), { action: "add_task", task: "synthetic" },
+    { Origin: "https://other.example.test" }), businessEnv, () => assert.fail("cross-origin upstream request"));
+  assert.equal(foreign.status, 403);
+
+  const keysOnly = async (url) => {
+    assert.match(url, /\/certs$/);
+    return json({ keys: [jwk] });
+  };
+  for (const body of [{ action: "find_rows" }, { action: "add_task", key: "caller key" }, { action: "toString" }]) {
+    assert.equal((await dashboardIntelligence(post(token(), body), businessEnv, keysOnly)).status, 400);
+  }
+  const input = { action: "add_task", task: "synthetic task", deadline: "2026-11-26" };
+  const ok = await dashboardIntelligence(post(token(), input), businessEnv, async (url, init) => {
+    if (url.endsWith("/certs")) return keysOnly(url);
+    assert.equal(url, businessEnv.PBC_BUSINESS_SCRIPT_URL);
+    assert.deepEqual(JSON.parse(init.body), { action: "dashboard_business", key: businessEnv.PBC_BUSINESS_KEY, request: input });
+    return json({ status: "ok" });
+  });
+  assert.equal(ok.status, 200);
+  assert.equal(ok.headers.get("Cache-Control"), "private, no-store");
+  assert.deepEqual(await ok.json(), { status: "ok" });
+});
+
+test("service worker skips both private RPCs and pre-caches the v27 shell only", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const vm = await import("node:vm");
+  const handlers = new Map();
+  let cached;
+  const self = {
+    location: new URL("https://pickleballchiro.co/dashboard/sw.js"),
+    addEventListener: (name, fn) => handlers.set(name, fn),
+    skipWaiting() {},
+  };
+  const caches = {
+    open: async (name) => ({
+      addAll: (paths) => { cached = { name, paths }; },
+    }),
+  };
+  vm.runInNewContext(await readFile(new URL("../dashboard/sw.js", import.meta.url), "utf8"), { self, caches, URL });
+  let install;
+  handlers.get("install")({ waitUntil: (result) => { install = result; } });
+  await install;
+  assert.equal(cached.name, "pbc-shell-v27");
+  assert.ok(cached.paths.includes("./dashboard.js?v=27"));
+  assert.ok(cached.paths.every((p) => !p.includes("/api")));
+  for (const [pathname, method] of [["/dashboard/api/intelligence", "GET"], ["/dashboard/api/business", "POST"],
+    ["/dashboard/api", "GET"], ["/dashboard/api/business", "GET"]]) {
+    handlers.get("fetch")({ request: new Request(self.location.origin + pathname, { method }),
+      respondWith: () => assert.fail("Private request must remain network-only") });
+  }
+});

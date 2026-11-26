@@ -1,7 +1,7 @@
 import {
   METRICS, ADDITIVE, ranges, latest, chosen, measure, summarize, trend,
   matchingAges, experiments, isPublished,
-} from "./metrics.mjs?v=26";
+} from "./metrics.mjs?v=27";
 
 const output = document.querySelector("#intel-output");
 const refresh = document.querySelector("#intel-refresh");
@@ -14,6 +14,10 @@ const model = {
   filtersOpen: !matchMedia("(max-width: 580px)").matches,
 };
 const num = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
+const snapshotTime = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/New_York", year: "numeric", month: "short", day: "numeric",
+  hour: "numeric", minute: "2-digit", timeZoneName: "short",
+});
 const modes = { cohort: "Publication cohort", accrued: "Accrued in period", latest: "Latest cumulative" };
 const descriptions = {
   cohort: "Groups by publication date. Each metric uses one observation per published piece through the end date.",
@@ -107,7 +111,7 @@ function sourcePanel() {
       c && muted(`${payload.observations.length} of ${c.recorded} recorded observations are included across ${payload.creatives.length} published posts. Source ends at ${c.sourceThrough}.`),
       c && muted(`Latest included observation ${c.includedObservedThrough}. Latest source observation ${c.sourceObservedThrough}.`),
       c && muted(`Excluded: ${c.publication} without eligible publication, ${c.accountOrBatch} account or unattributed batch, ${c.metric} outside supported metrics and labels, ${c.unavailable} unavailable or unlinked.`),
-      muted("Published content snapshot created " + payload.asOf + ". Refresh reads the latest saved snapshot."),
+      muted("Published content snapshot saved " + snapshotTime.format(new Date(payload.asOf)) + ". Refresh reads the latest saved snapshot."),
       muted("Publication identity comes from HQ Post Log. Observations come from the Content Engine performance registry."));
   }
   return el("details", { class: "card intel-card" },
@@ -344,7 +348,7 @@ function renderLab() {
         el("section", { class: "card intel-card" }, el("div", { class: "intel-context" }, pill(selected.status), pill(selected.family)),
           el("h2", { id: "lab-title", tabindex: "-1" }, selected.title),
           el("div", { class: "intel-columns intel-experiment-summary" },
-            ...[["Hypothesis", selected.hypothesis], ["Result", selected.result], ["Next action", selected.next]]
+            ...[["Hypothesis", selected.hypothesis], ["Review notes", selected.result], ["Next action", selected.next]]
               .map(([key, val]) => el("div", {}, h(3, key), muted(val || "Unrecorded."))))),
         card("Side by side",
           el("div", { class: "intel-versions" }, versions.map((v) =>
@@ -372,7 +376,7 @@ function renderLab() {
             `Day ${r.age}`, ...r.observations.map((o) => `${format(model.metricAge, o.value)} · ${stamp(o)}`),
           ]), "Performance at the same reported age") : muted("No comparable samples for these published versions and this metric.")),
         retentionCard(vals),
-        card("Evidence", (selected.evidence || []).map(muted),
+        card("Evidence", (selected.evidence || []).map(muted), selected.measurementFlag && muted(selected.measurementFlag),
           payload.feedback.filter((f) => vals.some((v) => v.id === f.creativeId))
             .map((f) => muted(`Owner feedback · ${f.id} · ${f.date} · ${f.text}`)),
           muted(preview
@@ -432,12 +436,11 @@ async function load() {
   try {
     const endpoint = current === "health" ? "health" : "content";
     const path = preview ? "local/" + endpoint : "api/intelligence";
-    const headers = preview ? { "X-PBC-Local": "1" } : {};
+    const headers = preview ? { "X-PBC-Local": "1" } : { "X-Requested-With": "XMLHttpRequest" };
     const response = await fetch(path, { headers, cache: "no-store", redirect: "manual", signal: controller.signal });
     if (response.type === "opaqueredirect" || response.status === 401 || response.status === 403) {
       if (controller.signal.aborted) return;
-      output.replaceChildren(card("Owner sign-in required",
-        muted("Reload the Command Center to renew your owner session.")));
+      if (!preview) document.dispatchEvent(new Event("pbc-dashboard-sign-in"));
       return;
     }
     if (!response.ok || !response.headers.get("content-type")?.includes("application/json")) {
