@@ -155,7 +155,7 @@ test("business RPC requires owner JWT and same-origin POST, and forwards only sc
   assert.deepEqual(await ok.json(), { status: "ok" });
 });
 
-test("service worker skips both private RPCs and pre-caches the v27 shell only", async () => {
+test("service worker skips both private RPCs and pre-caches the v28 shell only", async () => {
   const { readFile } = await import("node:fs/promises");
   const vm = await import("node:vm");
   const handlers = new Map();
@@ -174,8 +174,8 @@ test("service worker skips both private RPCs and pre-caches the v27 shell only",
   let install;
   handlers.get("install")({ waitUntil: (result) => { install = result; } });
   await install;
-  assert.equal(cached.name, "pbc-shell-v27");
-  assert.ok(cached.paths.includes("./dashboard.js?v=27"));
+  assert.equal(cached.name, "pbc-shell-v28");
+  assert.ok(cached.paths.includes("./dashboard.js?v=28"));
   assert.ok(cached.paths.every((p) => !p.includes("/api")));
   for (const [pathname, method] of [["/dashboard/api/intelligence", "GET"], ["/dashboard/api/business", "POST"],
     ["/dashboard/api", "GET"], ["/dashboard/api/business", "GET"]]) {

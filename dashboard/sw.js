@@ -14,18 +14,18 @@
    included, or a version bump would serve the previous file forever.
    ============================================================ */
 
-const SHELL_VERSION = "v27";
+const SHELL_VERSION = "v28";
 const CACHE = "pbc-shell-" + SHELL_VERSION;
 
 const SHELL = [
   "./",
   "./index.html",
-  "./dashboard.css?v=27",
-  "./dashboard-context.js?v=27",
-  "./dashboard.js?v=27",
-  "./intel.css?v=27",
-  "./intel.mjs?v=27",
-  "./metrics.mjs?v=27",
+  "./dashboard.css?v=28",
+  "./dashboard-context.js?v=28",
+  "./dashboard.js?v=28",
+  "./intel.css?v=28",
+  "./intel.mjs?v=28",
+  "./metrics.mjs?v=28",
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",

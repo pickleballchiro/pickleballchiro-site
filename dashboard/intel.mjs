@@ -1,7 +1,7 @@
 import {
   METRICS, ADDITIVE, ranges, latest, chosen, measure, summarize, trend,
   matchingAges, experiments, isPublished,
-} from "./metrics.mjs?v=27";
+} from "./metrics.mjs?v=28";
 
 const output = document.querySelector("#intel-output");
 const refresh = document.querySelector("#intel-refresh");
@@ -260,7 +260,7 @@ function leaderboard(items, metric, mode, range) {
 function renderDetail(item) {
   const rows = obs.get(item.id) || [];
   const group = [item.id, item.postId, item.ideaId, item.family, item.parent && "Version of " + item.parent,
-    item.editRevision && "Engine revision " + item.editRevision, item.edlVersion && "EDL " + item.edlVersion, item.publicationBasis];
+    item.editRevision && "Engine revision " + item.editRevision, item.edlVersion && "EDL " + item.edlVersion, item.publicationBasis, item.identity === "provisional" && "Permalink identity provisional"];
   const measured = Object.entries(METRICS).flatMap(([metric, name]) => {
     const sample = isPublished(item) && !item.unboundMetrics && latest(rows, metric, payload.today, item.duration);
     return sample ? [[name, format(metric, sample.value), stamp(sample), sample.quality]] : [];
@@ -268,9 +268,9 @@ function renderDetail(item) {
   const series = [...rows].sort((a, b) => b.date.localeCompare(a.date) || b.time.localeCompare(a.time) ||
     b.id.localeCompare(a.id, undefined, { numeric: true }));
   const feedback = payload.feedback.filter((f) => f.creativeId === item.id);
-  const peers = [...byId.values()].filter((o) => o.id !== item.id && o.platform === item.platform &&
+  const peers = [...byId.values()].filter((o) => !o.distributionWarning && o.id !== item.id && o.platform === item.platform &&
     o.distribution === item.distribution && o.format === item.format && o.objective === item.objective);
-  const ages = matchingAges([item, item], obs, "views").map((row) => row.age);
+  const ages = item.distributionWarning ? [] : matchingAges([item, item], obs, "views").map((row) => row.age);
   const comparable = ages.map((age) => {
     const values = peers.flatMap((peer) => matchingAges([item, peer], obs, "views")
       .filter((r) => r.age === age).map((r) => r.observations[1].value)).sort((a, b) => a - b);
@@ -279,6 +279,7 @@ function renderDetail(item) {
   }).filter((r) => r.count >= 3);
   return el("section", { class: "intel-detail", tabindex: "-1" }, h(3, item.title), muted(group.filter(Boolean).join(" · ")),
     item.conflict && muted(item.conflict),
+    item.distributionWarning && muted(item.distributionWarning),
     el("div", { class: "intel-context" }, link(item.url, "Open published post"),
       link(item.design, "Open Canva design"), item.publications?.filter((p) => p.url && p.url !== item.url)
         .map((p) => link(p.url, p.platform + " " + title(p.distribution)))),
@@ -335,7 +336,7 @@ function renderLab() {
   const versions = selected.versions;
   const vals = versions.map((v) => v.item);
   const pick = (item) => item.status === "published" && !item.unboundMetrics;
-  const plotted = vals.filter(pick);
+  const plotted = vals.filter((item) => pick(item) && !item.distributionWarning);
   const ages = matchingAges(plotted, obs, model.metricAge);
   const fields = [...new Set([...changeFields, ...versions.flatMap((v) => Object.keys(v.changes))])];
   output.replaceChildren(
@@ -355,6 +356,7 @@ function renderLab() {
             el("article", { class: "intel-version" }, el("div", { class: "intel-context" },
               pill(v.version || v.item.version || "Version unnumbered"), v.baseline && pill("V1 baseline", "intel-accent")),
               h(3, v.item.title), muted(`${v.id} · ${v.item.status}`), muted(v.design || "Original baseline"),
+              v.item.distributionWarning && muted(v.item.distributionWarning),
               link(v.item.url, "Open published post"), link(v.item.design, "Open Canva design")))),
           table(["Creative decision", ...versions.map((v) => v.version || v.id)],
             [...Object.entries(comparisonFields).filter(([key]) => vals.some((i) => i[key]))
@@ -367,7 +369,7 @@ function renderLab() {
           Object.entries(METRICS).flatMap(([metric, name]) => {
             const data = vals.map((i) => pick(i) && latest(obs.get(i.id) || [], metric, payload.today, i.duration));
             return data.some(Boolean) ? [[name, ...data.map((o) => o ? `${format(metric, o.value)} · ${stamp(o)} · ${o.quality}` : "—")]] : [];
-          }), "Latest performance by version"), muted("Observation ages can differ. Observational snapshots alone cannot establish what caused a result.")),
+          }), "Latest performance by version"), muted("Observation ages can differ. Observational snapshots alone cannot establish what caused a result. Versions with a distribution warning are excluded from matched comparisons.")),
         card("Same reported age", select("Metric", "metricAge",
           { views: "Views", shares: "Shares", saves: "Saves", follows: "Follows", avg_watch_s: "Avg. watch time", skip_rate: "Skip rate" },
           model.metricAge, (v) => set("metricAge", v)),
