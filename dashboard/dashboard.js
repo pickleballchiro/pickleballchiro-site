@@ -106,9 +106,25 @@ document.addEventListener("DOMContentLoaded", () => {
   $("refresh-btn").addEventListener("click", loadData);
   $("retry-btn").addEventListener("click", loadData);
   $("sign-in-btn").addEventListener("click", () => location.reload());
-  $("lock-btn").addEventListener("click", () => {
+  $("lock-btn").addEventListener("click", async () => {
     showOwnerSignIn();
-    location.assign("/cdn-cgi/access/logout");
+    if (LOCAL_PREVIEW) return;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    try {
+      await fetch("/dashboard/api/sign-out", {
+        method: "POST",
+        headers: { "X-PBC-Request": "1" },
+        cache: "no-store",
+        redirect: "manual",
+        signal: controller.signal,
+      });
+    } catch {
+      // Continue to Cloudflare logout even if this request is unavailable.
+    } finally {
+      clearTimeout(timeout);
+      location.assign("/cdn-cgi/access/logout");
+    }
   });
   document.addEventListener("pbc-dashboard-sign-in", showOwnerSignIn);
   window.addEventListener("pageshow", (event) => {

@@ -155,7 +155,36 @@ test("business RPC requires owner JWT and same-origin POST, and forwards only sc
   assert.deepEqual(await ok.json(), { status: "ok" });
 });
 
-test("service worker skips both private RPCs and pre-caches the v28 shell only", async () => {
+test("owner sign-out expires only Access cookies without reaching Apps Script", async () => {
+  const origin = "https://pickleballchiro.co";
+  const signOut = (jwt, options = {}) => new Request(origin + "/dashboard/api/sign-out", {
+    method: options.method || "POST",
+    headers: { Origin: origin, "X-PBC-Request": "1", ...(jwt && { "Cf-Access-Jwt-Assertion": jwt }), ...options.headers },
+  });
+  const config = { ...env, PBC_BUSINESS_ENABLED: "1" };
+  const noNetwork = () => assert.fail("No network call expected");
+  assert.equal((await dashboardIntelligence(signOut(null), config, noNetwork)).status, 401);
+  assert.equal((await dashboardIntelligence(signOut(token(), { method: "GET" }), config, noNetwork)).status, 405);
+  const foreign = signOut(token(), { headers: { Origin: "https://foreign.example.test" } });
+  assert.equal((await dashboardIntelligence(foreign, config, noNetwork)).status, 403);
+  const result = await dashboardIntelligence(signOut(token()), config, async (url) => {
+    assert.equal(url, env.PBC_ACCESS_ISSUER + "/cdn-cgi/access/certs");
+    return json({ keys: [jwk] });
+  });
+  assert.equal(result.status, 204);
+  assert.equal(result.headers.get("Cache-Control"), "private, no-store");
+  assert.equal(await result.text(), "");
+  const cookies = result.headers.getSetCookie();
+  assert.equal(cookies.length, 18);
+  for (const path of ["/", "/dashboard", "/dashboard/"]) {
+    const cookie = `CF_Authorization=; Path=${path}; Max-Age=0; Secure; HttpOnly; SameSite=Lax`;
+    assert.ok(cookies.includes(cookie));
+    assert.ok(cookies.includes(`${cookie}; Domain=pickleballchiro.co`));
+  }
+  assert.ok(cookies.every((cookie) => /^CF_(Authorization|AppSession|Binding)=;/.test(cookie)));
+});
+
+test("service worker skips private requests and pre-caches the v29 shell only", async () => {
   const { readFile } = await import("node:fs/promises");
   const vm = await import("node:vm");
   const handlers = new Map();
@@ -174,11 +203,11 @@ test("service worker skips both private RPCs and pre-caches the v28 shell only",
   let install;
   handlers.get("install")({ waitUntil: (result) => { install = result; } });
   await install;
-  assert.equal(cached.name, "pbc-shell-v28");
-  assert.ok(cached.paths.includes("./dashboard.js?v=28"));
+  assert.equal(cached.name, "pbc-shell-v29");
+  assert.ok(cached.paths.includes("./dashboard.js?v=29"));
   assert.ok(cached.paths.every((p) => !p.includes("/api")));
   for (const [pathname, method] of [["/dashboard/api/intelligence", "GET"], ["/dashboard/api/business", "POST"],
-    ["/dashboard/api", "GET"], ["/dashboard/api/business", "GET"]]) {
+    ["/dashboard/api", "GET"], ["/dashboard/api/business", "GET"], ["/dashboard/api/sign-out", "POST"]]) {
     handlers.get("fetch")({ request: new Request(self.location.origin + pathname, { method }),
       respondWith: () => assert.fail("Private request must remain network-only") });
   }

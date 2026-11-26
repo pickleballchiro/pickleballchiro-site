@@ -2,6 +2,7 @@
 // and this Worker validates the application token before consulting Apps Script.
 const INTELLIGENCE_PATH = "/dashboard/api/intelligence";
 const BUSINESS_PATH = "/dashboard/api/business";
+const SIGN_OUT_PATH = "/dashboard/api/sign-out";
 const BUSINESS_ACTIONS = {
   get_dashboard_data: [], get_calendar_events: ["range_start", "range_end"],
   add_task: ["task", "deadline"], complete_task: ["id"], delete_task: ["id"],
@@ -91,21 +92,36 @@ export function isIntelligenceApi(path) {
   return path === "/dashboard/api" || path.startsWith("/dashboard/api/");
 }
 
+function clearAccessSession(hostname) {
+  const headers = new Headers({ "Cache-Control": "private, no-store" });
+  // The Cloudflare logout page can leave an application cookie scoped to the dashboard.
+  for (const name of ["CF_Authorization", "CF_AppSession", "CF_Binding"]) {
+    for (const path of ["/", "/dashboard", "/dashboard/"]) {
+      const expired = `${name}=; Path=${path}; Max-Age=0; Secure; HttpOnly; SameSite=Lax`;
+      headers.append("Set-Cookie", expired);
+      headers.append("Set-Cookie", `${expired}; Domain=${hostname}`);
+    }
+  }
+  return new Response(null, { status: 204, headers });
+}
+
 export async function dashboardIntelligence(request, env, network = fetch) {
   const url = new URL(request.url);
   const business = url.pathname === BUSINESS_PATH;
+  const signOut = url.pathname === SIGN_OUT_PATH;
+  const usesPost = business || signOut;
   const expectedOrigin = env?.PBC_DASHBOARD_ORIGIN ?? "https://pickleballchiro.co";
   if (url.origin !== expectedOrigin || url.search ||
-      (business ? env?.PBC_BUSINESS_ENABLED !== "1" :
+      (usesPost ? env?.PBC_BUSINESS_ENABLED !== "1" :
         url.pathname !== INTELLIGENCE_PATH || env?.PBC_CONTENT_ENABLED !== "1")) {
     return response(404, { error: "unavailable" });
   }
-  if (request.method !== (business ? "POST" : "GET")) return response(405, { error: "method not allowed" });
+  if (request.method !== (usesPost ? "POST" : "GET")) return response(405, { error: "method not allowed" });
   const site = request.headers.get("Sec-Fetch-Site");
-  if ((site && site !== "same-origin") || (business &&
+  if ((site && site !== "same-origin") || (usesPost &&
       (request.headers.get("Origin") !== url.origin ||
-       request.headers.get("X-PBC-Request") !== "1" ||
-       request.headers.get("Content-Type") !== "application/json"))) {
+       request.headers.get("X-PBC-Request") !== "1")) ||
+      (business && request.headers.get("Content-Type") !== "application/json")) {
     return response(403, { error: "forbidden" });
   }
 
@@ -116,6 +132,7 @@ export async function dashboardIntelligence(request, env, network = fetch) {
     if (!await checkOwner(request.headers.get("Cf-Access-Jwt-Assertion"), env, fetchWithDeadline)) {
       return response(401, { error: "owner sign-in required" });
     }
+    if (signOut) return clearAccessSession(url.hostname);
     if (business) {
       const raw = await request.text();
       let input;
