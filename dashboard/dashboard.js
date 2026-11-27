@@ -32,6 +32,12 @@ function clearDashboardIntelligence() {
 const FETCH_TIMEOUT_MS = 20000;
 let ownerSignInRequired = false;
 
+function setOwnerBrowserLock(locked) {
+  if (LOCAL_PREVIEW) return;
+  const value = locked ? "1; Max-Age=34560000" : "; Max-Age=0";
+  document.cookie = `__Host-pbc_dashboard_signed_out=${value}; Path=/; Secure; SameSite=Lax`;
+}
+
 function forgetLegacyKey() {
   if (LOCAL_PREVIEW) return;
   try {
@@ -105,8 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
   forgetLegacyKey();
   $("refresh-btn").addEventListener("click", loadData);
   $("retry-btn").addEventListener("click", loadData);
-  $("sign-in-btn").addEventListener("click", () => location.reload());
+  $("sign-in-btn").addEventListener("click", () => {
+    setOwnerBrowserLock(false);
+    location.reload();
+  });
   $("lock-btn").addEventListener("click", async () => {
+    setOwnerBrowserLock(true);
     showOwnerSignIn();
     if (LOCAL_PREVIEW) return;
     const controller = new AbortController();

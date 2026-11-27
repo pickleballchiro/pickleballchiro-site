@@ -1,7 +1,7 @@
 import {
   METRICS, ADDITIVE, ranges, latest, chosen, measure, summarize, trend,
   matchingAges, experiments, isPublished,
-} from "./metrics.mjs?v=30";
+} from "./metrics.mjs?v=31";
 
 const output = document.querySelector("#intel-output");
 const refresh = document.querySelector("#intel-refresh");

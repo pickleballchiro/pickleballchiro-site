@@ -3,6 +3,7 @@
 const INTELLIGENCE_PATH = "/dashboard/api/intelligence";
 const BUSINESS_PATH = "/dashboard/api/business";
 const SIGN_OUT_PATH = "/dashboard/api/sign-out";
+const SIGNED_OUT_COOKIE = "__Host-pbc_dashboard_signed_out=1";
 const BUSINESS_ACTIONS = {
   get_dashboard_data: [], get_calendar_events: ["range_start", "range_end"],
   add_task: ["task", "deadline"], complete_task: ["id"], delete_task: ["id"],
@@ -94,6 +95,7 @@ export function isIntelligenceApi(path) {
 
 function clearAccessSession(hostname, issuer) {
   const result = response(200, { logoutUrl: issuer + "/cdn-cgi/access/logout" });
+  result.headers.append("Set-Cookie", `${SIGNED_OUT_COOKIE}; Path=/; Max-Age=34560000; Secure; SameSite=Lax`);
   // The Cloudflare logout page can leave an application cookie scoped to the dashboard.
   for (const name of ["CF_Authorization", "CF_AppSession", "CF_Binding"]) {
     for (const path of ["/", "/dashboard", "/dashboard/"]) {
@@ -123,6 +125,10 @@ export async function dashboardIntelligence(request, env, network = fetch) {
        request.headers.get("X-PBC-Request") !== "1")) ||
       (business && request.headers.get("Content-Type") !== "application/json")) {
     return response(403, { error: "forbidden" });
+  }
+  // A renewed Cloudflare owner session must not silently undo this browser's explicit sign-out.
+  if (!signOut && request.headers.get("Cookie")?.split(";").some((part) => part.trim() === SIGNED_OUT_COOKIE)) {
+    return response(401, { error: "owner sign-in required" });
   }
 
   const deadline = new AbortController();
