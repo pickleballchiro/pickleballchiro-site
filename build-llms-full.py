@@ -16,7 +16,7 @@ PAGES = [
     ("Pickleball Coach in Daytona Beach: How I'm Different From the Average Lesson", "https://pickleballchiro.co/pickleball-coaches-daytona-beach/", "pickleball-coaches-daytona-beach/index.html"),
     ("Chiropractic Rehab Plan", "https://pickleballchiro.co/rehab-plan/", "rehab-plan/index.html"),
     ("Virtual Pickleball Coaching", "https://pickleballchiro.co/virtual-coaching/", "virtual-coaching/index.html"),
-    ("Why You're Stuck at 3.5 — Free Self-Diagnosis (quiz)", "https://pickleballchiro.co/quiz/", "quiz/index.html"),
+    ("What Should You Practice Next? (quiz)", "https://pickleballchiro.co/quiz/", "quiz/index.html"),
     ("Links / Bio Hub", "https://pickleballchiro.co/links/", "links/index.html"),
 ]
 
